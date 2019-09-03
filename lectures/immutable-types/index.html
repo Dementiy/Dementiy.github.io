@@ -1,0 +1,1822 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/lectures/immutable-types/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Неизменяемые типы данных - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Неизменяемые типы данных
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Лекции" class="md-tabs__link md-tabs__link--active">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../assignments/setup_env/" title="Практические работы" class="md-tabs__link">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Неизменяемые типы данных
+      </label>
+    
+    <a href="./" title="Неизменяемые типы данных" class="md-nav__link md-nav__link--active">
+      Неизменяемые типы данных
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Все является объектом" class="md-nav__link">
+    Все является объектом
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Целочисленный тип данных и числа с плавающей точкой" class="md-nav__link">
+    Целочисленный тип данных и числа с плавающей точкой
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" title="Длинная арифметика в Python" class="md-nav__link">
+    Длинная арифметика в Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="Представление произвольно больших целых чисел" class="md-nav__link">
+    Представление произвольно больших целых чисел
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="Преобразования длинного целого в массив" class="md-nav__link">
+    Преобразования длинного целого в массив
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="Оптимизации" class="md-nav__link">
+    Оптимизации
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="Выполнение арифметических операций" class="md-nav__link">
+    Выполнение арифметических операций
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy-pandas" title="Замечание про Numpy и Pandas" class="md-nav__link">
+    Замечание про Numpy и Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-754" title="Числа с плавающей точкой и стандарт IEEE-754" class="md-nav__link">
+    Числа с плавающей точкой и стандарт IEEE-754
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="Булевый тип" class="md-nav__link">
+    Булевый тип
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="Строки" class="md-nav__link">
+    Строки
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="Представление строк" class="md-nav__link">
+    Представление строк
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="Интернирование строк" class="md-nav__link">
+    Интернирование строк
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="Кортежи" class="md-nav__link">
+    Кортежи
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+      Изменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+      ООП. Классы. Магические методы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iterators/" title="Итераторы" class="md-nav__link">
+      Итераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+      Настройка рабочего окружения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
+      Решатель Судоку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Все является объектом" class="md-nav__link">
+    Все является объектом
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Целочисленный тип данных и числа с плавающей точкой" class="md-nav__link">
+    Целочисленный тип данных и числа с плавающей точкой
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" title="Длинная арифметика в Python" class="md-nav__link">
+    Длинная арифметика в Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="Представление произвольно больших целых чисел" class="md-nav__link">
+    Представление произвольно больших целых чисел
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="Преобразования длинного целого в массив" class="md-nav__link">
+    Преобразования длинного целого в массив
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="Оптимизации" class="md-nav__link">
+    Оптимизации
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="Выполнение арифметических операций" class="md-nav__link">
+    Выполнение арифметических операций
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy-pandas" title="Замечание про Numpy и Pandas" class="md-nav__link">
+    Замечание про Numpy и Pandas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-754" title="Числа с плавающей точкой и стандарт IEEE-754" class="md-nav__link">
+    Числа с плавающей точкой и стандарт IEEE-754
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="Булевый тип" class="md-nav__link">
+    Булевый тип
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="Строки" class="md-nav__link">
+    Строки
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="Представление строк" class="md-nav__link">
+    Представление строк
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="Интернирование строк" class="md-nav__link">
+    Интернирование строк
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="Кортежи" class="md-nav__link">
+    Кортежи
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/immutable-types.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Неизменяемые типы данных</h1>
+                
+                <p>В этой лекции мы начнем знакомиться с основными типами данных в Python. Типы данных можно разделить на изменяемые (mutable), то есть, значение которых можно изменить после создания, и неизменяемые (immutable), соответственно, значение которых нельзя изменить после создания. Эта лекция посвящена неизменяемым типам данных.</p>
+<h2 id="_1">Все является объектом<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>В Python все является объектом («Everything is an Object»): числа, последовательности, функции, классы, модули и т.д. Каждый объект обладает уникальным идентификатором, который никогда не изменяется после создания объекта (в CPython идентификатором объекта является его адрес в памяти, который можно получить с помощью встроенной функции <code class="codehilite"><span class="n">id</span><span class="p">()</span></code>), типом, который определяет «чем является объект» (числом, строкой, списком и т.д.) и какие действия над ним можно выполнять, а также значением.</p>
+<p>Каждый объект «наследуется» от Си-структуры <a href="https://github.com/python/cpython/blob/3.8/Include/object.h#L104"><code class="codehilite"><span class="n">PyObject</span></code></a> или <a href="https://github.com/python/cpython/blob/3.8/Include/object.h#L113"><code class="codehilite"><span class="n">PyVarObject</span></code></a> для объектов переменной (variable) длинны (списки, кортежи и т.д.):</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_object</span> <span class="p">{</span>
+    <span class="n">_PyObject_HEAD_EXTRA</span>
+    <span class="n">Py_ssize_t</span> <span class="n">ob_refcnt</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">_typeobject</span> <span class="o">*</span><span class="n">ob_type</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PyObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Где:</p>
+<ul>
+<li><code class="codehilite"><span class="n">_PyObject_HEAD_EXTRA</span></code> - макрос, который определяет два поля <code class="codehilite"><span class="n">_ob_next</span></code> и <code class="codehilite"><span class="n">_ob_prev</span></code> - указатели на следующий и предыдущий объекты, соответственно. Будут ли эти поля включены в структуру <code class="codehilite"><span class="n">PyObject</span></code> или нет - зависит от флага <code class="codehilite"><span class="n">Py_TRACE_REFS</span></code>, который по умолчанию не установлен;</li>
+<li><code class="codehilite"><span class="n">ob_refcnt</span></code> - счетчик ссылок на объект, который увеличивается или уменьшается, при копировании или удалении указателя на объект; когда счетчик ссылок достигает нуля, то объект удаляется. Про подсчет ссылок и «сборку мусора» мы будем говорить в одной из следующих лекций;</li>
+<li><code class="codehilite"><span class="n">ob_type</span></code> - указатель на структуру <a href="https://docs.python.org/3/c-api/typeobj.html"><code class="codehilite"><span class="n">_typeobject</span></code></a>, которая задает тип объекта.</li>
+</ul>
+<p>Структура <code class="codehilite"><span class="n">PyVarObject</span></code> включает одно дополнительное поле <code class="codehilite"><span class="n">ob_size</span></code> - количество элементов в объекте (например, для списка из пяти элементов <code class="codehilite"><span class="n">ob_size</span></code> будет равен 5):</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject</span> <span class="n">ob_base</span><span class="p">;</span>
+    <span class="n">Py_ssize_t</span> <span class="n">ob_size</span><span class="p">;</span> <span class="cm">/* Number of items in variable part */</span>
+<span class="p">}</span> <span class="n">PyVarObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Связи между соответствующими структурами показаны на следующем рисунке:</p>
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/pyobject.svg" /></p>
+<p>Итак, если вы решили ввести свой тип, то он должен «наследоваться» от <code class="codehilite"><span class="n">PyObject</span></code> или <code class="codehilite"><span class="n">PyVarObject</span></code> с помощью макросов <code class="codehilite"><span class="n">PyObject_HEAD</span></code> и <code class="codehilite"><span class="n">PyObject_VAR_HEAD</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="cp">#define PyObject_HEAD          PyObject ob_base;</span>
+<span class="p">...</span>
+<span class="cp">#define PyObject_VAR_HEAD      PyVarObject ob_base;</span>
+</pre></div>
+
+<p>Например:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_myobject</span> <span class="p">{</span>
+       <span class="n">PyObject_HEAD</span>
+       <span class="p">...</span>
+<span class="p">}</span> <span class="n">PyMyObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Таким образом, <code class="codehilite"><span class="n">PyMyObject</span></code> будет содержать все поля, которые есть в <code class="codehilite"><span class="n">PyObject</span></code>.</p>
+<p>Следует помнить, что макрос <code class="codehilite"><span class="n">PyObject_HEAD</span></code> должнен идти первым в структуре. Это связано с «наследованием», о котором говорилось ранее. Как утверждается в <a href="https://github.com/python/cpython/blob/3.8/Include/object.h#L43"><code class="codehilite"><span class="k">object</span><span class="p">.</span><span class="n">h</span></code></a>:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Objects are always accessed through pointers of the type <code class="codehilite"><span class="n">PyObject</span> <span class="o">*</span></code>.
+The type <code class="codehilite"><span class="n">PyObject</span></code> is a structure that only contains the reference count
+and the type pointer.  The actual memory allocated for an object
+contains other data that can only be accessed after casting the pointer
+to a pointer to a longer structure type.  This longer type must start
+with the reference count and type fields; the macro <code class="codehilite"><span class="n">PyObject_HEAD</span></code> should be
+used for this (to accommodate for future changes).  The implementation
+of a particular object type can cast the object pointer to the proper
+type and back.</p>
+</div>
+<p>и означает, что должна быть возможность приведения (casting) указателя на <code class="codehilite"><span class="n">PyMyObject</span></code> к указателю на <code class="codehilite"><span class="n">PyObject</span></code>, то есть:</p>
+<div class="codehilite"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span><span class="n">obj</span> <span class="o">=</span> <span class="p">(</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">my_py_type_variable</span><span class="p">;</span>
+</pre></div>
+
+<p>Итак, <code class="codehilite"><span class="n">PyObject</span></code> и <code class="codehilite"><span class="n">PyVarObject</span></code> являются наиболее общими структурами для представления объектов в CPython, но пока мы не говорили о том как создаются новые объекты. В одной из последующих лекций мы вернемся к этому вопросу.</p>
+<h2 id="_2">Целочисленный тип данных и числа с плавающей точкой<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Без использования стандартной библиотеки языка нам доступны целые числа (<code class="codehilite"><span class="nb">int</span></code>), вещественные числа (<code class="codehilite"><span class="nb">float</span></code>) и комплексные числа (<code class="codehilite"><span class="n">complex</span></code>):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">=</span> <span class="mi">2019</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span>
+<span class="mi">2019</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+<span class="nb">int</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mi">2019</span><span class="p">)</span>
+<span class="nb">int</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Процесс создания новой переменной называется name binding, то есть, связывание имени с некоторым объектом, в данном случае именем выступает <code class="codehilite"><span class="k">year</span></code>, а объектом целое число <code class="codehilite"><span class="mi">2019</span></code>.</p>
+</div>
+<p>У каждого типа обычно есть «конструктор»:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">zero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zero</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zero</span> <span class="o">=</span> <span class="nb">float</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">zero</span>
+<span class="mf">0.0</span>
+</pre></div>
+
+<p>Основные арифметические операции:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="mi">2020</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="mi">2018</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">*</span> <span class="mi">12</span>
+<span class="mi">24228</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">*</span> <span class="mf">365.25</span>
+<span class="mf">737439.75</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="mf">20.19</span>
+</pre></div>
+
+<p>Взятие целой части и остатка от деления:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">//</span> <span class="mi">100</span>
+<span class="mi">20</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span>
+<span class="mi">19</span>
+</pre></div>
+
+<p>Для записи очень больших или очень маленьких чисел удобно использовать экспоненциальную форму записи чисел. Сравните:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mf">2.019</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="mf">2019.0000000000002</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mf">2.019E3</span>
+<span class="mf">2019.0</span>
+</pre></div>
+
+<p>И не стоит забывать про <a href="https://floating-point-gui.de/errors/rounding/">ошибки округления</a> при работе с вещественными числами:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span>
+<span class="mf">0.9999999999999999</span>
+</pre></div>
+
+<h3 id="python">Длинная арифметика в Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<p>Может ли произойти переполнение при работе с целыми числами в Python? Нет, если мы <strong>не</strong> говорим о таких пакетах как Numpy и Pandas, так как при работе с целыми числами в Python используется <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F_%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D0%BA%D0%B0">длинная арифметика</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>Структура <a href="https://github.com/python/cpython/blob/3.8/Include/longintrepr.h#L85"><code class="codehilite"><span class="n">PyLongObject</span></code></a> отвечает за представление целых чисел:</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">_longobject</span> <span class="p">{</span>
+    <span class="n">PyObject_VAR_HEAD</span>
+    <span class="n">digit</span> <span class="n">ob_digit</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">PyLongObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Если «раскрыть» макрос <code class="codehilite"><span class="n">PyObject_VAR_HEAD</span></code>, то стурктура будет выглядеть следующим образом:</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">_longobject</span> <span class="p">{</span>
+    <span class="kt">ssize_t</span> <span class="n">ob_refcnt</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">_typeobject</span> <span class="o">*</span><span class="n">ob_type</span><span class="p">;</span>
+    <span class="kt">ssize_t</span> <span class="n">ob_size</span><span class="p">;</span> 
+    <span class="kt">uint32_t</span> <span class="n">ob_digit</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">PyLongObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Связи между соответствующими структурами показаны на следующем рисунке:</p>
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/longobject.svg" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Вы должны были заметить, что <code class="codehilite"><span class="n">PyLongObject</span></code> «наследуется» от <code class="codehilite"><span class="n">PyVarObject</span></code>, то есть является объектом переменной длины, и, таким образом, включает поле <code class="codehilite"><span class="n">ob_size</span></code>, которое в данном случае содержит размер массива <code class="codehilite"><span class="n">ob_digit</span></code>.</p>
+</div>
+<p>Все поля вам уже должны быть знакомы, <code class="codehilite"><span class="n">PyLongObject</span></code> добавляет лишь одно новое поле <code class="codehilite"><span class="n">ob_digit</span></code> - массив беззнаковых целых чисел по основанию <span><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span>. Давайте разберемся с назначением этого поля.</p>
+<h3 id="_3">Представление произвольно больших целых чисел<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Как хранить произвольно большое целое число? Одним из решений является представление целого числа в виде массива отдельных цифр. Для наиболее эффективного использования памяти мы можем конвертировать наше число из десятичной системы счисления в систему счисления по основанию <span><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span>, в таком случае каждый элемент представлен «цифрой» в диапазоне от <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> до <span><span class="MathJax_Preview">2^{30} - 1</span><script type="math/tex">2^{30} - 1</script></span>. В зависимости от платформы Python использует или 32-битные беззнаковые массивы с 30-битными цифрами или 16-битные беззнаковые массивы с 15-битными цифрами. Такой подход представления больших целых чисел связан с <a href="https://github.com/python/cpython/blob/865e4b4f630e2ae91e61239258abb58b488f1d65/Include/longintrepr.h#L9">дополнительными ограничениями</a>, которые и не позволяют использовать все биты. Поле <code class="codehilite"><span class="n">ob_digit</span></code> структуры показанной выше, содержит такие массивы цифр. </p>
+<p>Для избежания лишних вычислений в CPython есть эффективный способ представления целых чисел в диапазоне от <span><span class="MathJax_Preview">-2^{30}</span><script type="math/tex">-2^{30}</script></span> до <span><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span>. Такие целые числа хранятся как массивы с одним элементом, то есть, состоящие из одной цифры.</p>
+<p>Также следует отметить, что в отличие от классического представления знака числа (т.е. использования знакового бита), знак целого числа хранится в поле <code class="codehilite"><span class="n">ob_size</span></code>, которое также содержит размер массива <code class="codehilite"><span class="n">ob_digit</span></code>. Например, если мы хотим изменить знак целого с размером <code class="codehilite"><span class="n">ob_size</span><span class="o">=</span><span class="mi">2</span></code> (две цифры), то <code class="codehilite"><span class="n">ob_size</span></code> станет равным <code class="codehilite"><span class="o">-</span><span class="mi">2</span></code>.</p>
+<p>Комментарий из исходных текстов по представлению целых чисел:</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* Long integer representation.</span>
+<span class="cm">   The absolute value of a number is equal to</span>
+<span class="cm">   SUM(for i=0 through abs(ob_size)-1) ob_digit[i] * 2**(SHIFT*i)</span>
+<span class="cm">   Negative numbers are represented with ob_size &lt; 0;</span>
+<span class="cm">   zero is represented by ob_size == 0.</span>
+<span class="cm">   In a normalized number, ob_digit[abs(ob_size)-1] (the most significant</span>
+<span class="cm">   digit) is never zero.  Also, in all cases, for all valid i,</span>
+<span class="cm">   0 &lt;= ob_digit[i] &lt;= MASK.</span>
+<span class="cm">   The allocation function takes care of allocating extra memory</span>
+<span class="cm">   so that ob_digit[0] ... ob_digit[abs(ob_size)-1] are actually available.</span>
+
+<span class="cm">   CAUTION:  Generic code manipulating subtypes of PyVarObject has to aware that integers abuse  ob_size&#39;s sign bit.</span>
+<span class="cm">*/</span>
+</pre></div>
+
+<p>Давайте рассмотрим конкретный пример преобразования длинного целого в массив и обратно. Пусть у нас имеется следующее число: <span><span class="MathJax_Preview">123456789101112131415</span><script type="math/tex">123456789101112131415</script></span>. Переведем его в систему счисления по основанию <span><span class="MathJax_Preview">2^{30}</span><script type="math/tex">2^{30}</script></span>, путем последовательного деления и записи остатка от деления:</p>
+<p><img alt="image" class="center" src="../../images/lectures/types/from10to230.svg" /></p>
+<p>Конвертировать число обратно также достаточно просто:</p>
+<div>
+<div class="MathJax_Preview">(437976919 ∗ 2^{30 ∗ 0}) + (87719511 ∗ 2^{30 ∗ 1}) + (107 ∗ 2^{30 ∗ 2}) = 123456789101112131415</div>
+<script type="math/tex; mode=display">(437976919 ∗ 2^{30 ∗ 0}) + (87719511 ∗ 2^{30 ∗ 1}) + (107 ∗ 2^{30 ∗ 2}) = 123456789101112131415</script>
+</div>
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/longobject2.svg" /></p>
+<h3 id="_4">Преобразования длинного целого в массив<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Ниже приведен упрощенный вариант алгоритма представления произвольно больших чисел:</p>
+<div class="codehilite"><pre><span></span><span class="n">SHIFT</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Число бит под каждую «цифру»</span>
+<span class="n">MASK</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">SHIFT</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">split_number</span><span class="p">(</span><span class="n">bignum</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">bignum</span><span class="p">)</span>
+
+    <span class="n">num_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Взятие остатка от деления</span>
+        <span class="n">small_int</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="n">MASK</span>  <span class="c1"># Побитовый аналог: (t &amp; (MASK-1))</span>
+        <span class="n">num_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">small_int</span><span class="p">)</span>
+
+        <span class="c1"># Взятие целой части от деления</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">//</span> <span class="n">MASK</span>  <span class="c1"># Побитовый аналог: t &gt;&gt;= SHIFT</span>
+
+    <span class="k">return</span> <span class="n">num_list</span>
+
+<span class="k">def</span> <span class="nf">restore_number</span><span class="p">(</span><span class="n">num_list</span><span class="p">):</span>
+    <span class="n">bignum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num_list</span><span class="p">):</span>
+        <span class="n">bignum</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">SHIFT</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">bignum</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">bignum</span> <span class="o">=</span> <span class="mi">123456789101112131415</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">num_list</span> <span class="o">=</span> <span class="n">split_number</span><span class="p">(</span><span class="n">bignum</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">num_list</span>
+<span class="p">[</span><span class="mi">437976919</span><span class="p">,</span> <span class="mi">87719511</span><span class="p">,</span> <span class="mi">107</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bignum</span> <span class="o">==</span> <span class="n">restore_number</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>Если мы хотим убедиться, что нигде не ошиблись, то можем посмотреть на внутреннее представление целого числа с помощью модуля <a href="https://docs.python.org/3/library/ctypes.html">ctypes</a>, который позволяет взаимодействовать с Си-кодом из Python:</p>
+<p><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+
+<span class="k">class</span> <span class="nc">PyLongObject</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;ob_refcnt&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_type&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_size&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_digit&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">bignum</span> <span class="o">=</span> <span class="mi">123456789101112131415</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">PyLongObject</span><span class="o">.</span><span class="n">from_address</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">bignum</span><span class="p">))</span><span class="o">.</span><span class="n">ob_digit</span><span class="p">):</span>
+<span class="o">...</span>    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;ob_digit[{i}] = {d}&quot;</span><span class="p">)</span>
+<span class="n">ob_digit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">437976919</span>
+<span class="n">ob_digit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">87719511</span>
+<span class="n">ob_digit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">107</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;ob_size:&quot;</span><span class="p">,</span> <span class="n">PyLongObject</span><span class="o">.</span><span class="n">from_address</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">bignum</span><span class="p">))</span><span class="o">.</span><span class="n">ob_size</span><span class="p">)</span>
+<span class="n">ob_size</span><span class="p">:</span> <span class="mi">3</span>
+</pre></div></p>
+<h3 id="_5">Оптимизации<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Небольшие целые числа в диапазоне от <code class="codehilite"><span class="o">-</span><span class="mi">5</span></code> до <code class="codehilite"><span class="mi">256</span></code> преаллоцируются в процессе инициализации интерпретатора. Так как целые числа являются неизменяемыми, то мы можем воспринимать их как <a href="https://en.wikipedia.org/wiki/Singleton_pattern">синглтоны</a>. Каждый раз, когда нам необходимо создать небольшое целое число (например, как результат некоторой арифметической операции), то вместо создания нового объекта, Python просто возвращает указатель на уже преаллоцированный объект. Это позволяет сократить количество потребляемой памяти и время затрачиваемое на вычисления при работе с небольшими целыми числами.</p>
+<p>Давайте рассмотрим простой пример:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">94220163919104</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">94220163919136</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">94220163919104</span>
+</pre></div>
+
+<p>Следует иметь ввиду, что структура <code class="codehilite"><span class="n">PyLongObject</span></code> занимает не менее 28 байт для каждого целого числа, то есть в три раза больше чем требуется под 64-битное целое в языке C.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">28</span>
+</pre></div>
+
+<p>Из чего складывается такой размер? Указатель на структуру <code class="codehilite"><span class="n">_typeobject</span></code> занимает восемь байт, также по восемь байт занимают поля <code class="codehilite"><span class="n">ob_refcnt</span></code> и <code class="codehilite"><span class="n">ob_size</span></code>, что уже в сумме дает нам 24 байта. Каждый элемент массива <code class="codehilite"><span class="n">ob_digit</span></code> это еще четыре байта. Итого для небольших целых чисел требуется 28 байт. Но есть одно исключение - <a href="https://stackoverflow.com/a/10365639/1724257">ноль</a>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="mi">24</span>
+</pre></div>
+
+<h3 id="_6">Выполнение арифметических операций<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Базовые арифметические операции выполняются аналогично тому, как мы это делали когда-то в школе, с одним исключением: каждый элемент массива считается «цифрой».</p>
+<p>Давайте рассмотрим вариант алгоритма сложения с <a href="https://en.wikipedia.org/wiki/Carry_(arithmetic)">переносом</a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">add_bignum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+        <span class="c1"># Убедимся, что в «a» наибольшее из двух значений</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+
+    <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+        <span class="n">carry</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span> <span class="o">%</span> <span class="n">MASK</span><span class="p">)</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">//</span> <span class="n">MASK</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+        <span class="n">carry</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span> <span class="o">%</span> <span class="n">MASK</span><span class="p">)</span>
+        <span class="n">carry</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">//</span> <span class="n">MASK</span>
+
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">carry</span><span class="p">)</span>
+
+    <span class="c1"># Удалим завершающие нули</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">8223372036854775807</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">100037203685477</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">restore_number</span><span class="p">(</span><span class="n">add_bignum</span><span class="p">(</span><span class="n">split_number</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">split_number</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span> <span class="o">==</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></div>
+
+<h3 id="numpy-pandas">Замечание про Numpy и Pandas<a class="headerlink" href="#numpy-pandas" title="Permanent link">&para;</a></h3>
+<p>В тех случаях, когда мы пользуемся библиотеками numpy/scipy/pandas и т.д., может произойти переполнение при работе с целыми числами, так как структуры, лежащие в основе этих библиотек, для более эффективного использования памяти, полагаются на соответствующие С-типы ограниченной точности<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">63</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ar</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">9223372036854775807</span><span class="p">,</span> <span class="mi">9223372036854775807</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ar</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>Элементами <code class="codehilite"><span class="n">ndarray</span></code> являются 64-битные знаковые целые, таким обрзаом, <span><span class="MathJax_Preview">2^{63}-1</span><script type="math/tex">2^{63}-1</script></span> наибольшее положительное значение, которое мы можем хранить в <code class="codehilite"><span class="n">ndarray</span></code>. Добавление 1 приведет к  переполнению (overflow):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ar</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">9223372036854775808</span><span class="p">,</span> <span class="o">-</span><span class="mi">9223372036854775808</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">2</span>
+</pre></div>
+
+<p>При вычислении среднего элементы массива сначала приводятся к типу <code class="codehilite"><span class="nb">float</span></code> и переполнения не возникает:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
+<span class="mf">9.2233720368547758e+18</span>
+</pre></div>
+
+<h3 id="ieee-754">Числа с плавающей точкой и стандарт IEEE-754<a class="headerlink" href="#ieee-754" title="Permanent link">&para;</a></h3>
+<p>Вещественные числа в CPython представлены структурой <a href="https://github.com/python/cpython/blob/3.8/Include/floatobject.h#L15"><code class="codehilite"><span class="n">PyFloatObject</span></code></a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">double</span> <span class="n">ob_fval</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PyFloatObject</span><span class="p">;</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/floatobject.svg" /></p>
+<p>Легко заметить, что поле <code class="codehilite"><span class="n">ob_fval</span></code> это обычное вещественное число двойной точности. Все арифметические операции над вещественными числами в Python являются простыми обертками над соответствующими арифметическими операциями в Си, например, операция <a href="https://github.com/python/cpython/blob/master/Objects/floatobject.c#L534">сложения</a> определена следующим образом:</p>
+<div class="codehilite"><pre><span></span><span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">float_add</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">w</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
+    <span class="n">CONVERT_TO_DOUBLE</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">CONVERT_TO_DOUBLE</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">PyFPE_START_PROTECT</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">,</span> <span class="k">return</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">PyFPE_END_PROTECT</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PyFloat_FromDouble</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Следует помнить, что все вычисления в вещественных числах делаются компьютером с некоторой ограниченной точностью (см. стандарт <a href="http://www.softelectro.ru/ieee754.html">IEEE-754</a>), поэтому зачастую вместо «честных» ответов получаются приближенные (к этому надо быть готовым), например:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span>
+<span class="mf">0.9999999999999999</span>
+</pre></div>
+
+<p>Если вы не понимаете почему мы не получили единицу, то попробуйте перевести число <span><span class="MathJax_Preview">0.1</span><script type="math/tex">0.1</script></span> в двоичную систему счисления:</p>
+<div>
+<div class="MathJax_Preview">0.1 = \frac{1}{10} = 0*2^{-1} + 0*2^{-2} + 0*2^{-3} + 1*2^{-4} + 1*2^{-5} + ... = 00011(0011)</div>
+<script type="math/tex; mode=display">0.1 = \frac{1}{10} = 0*2^{-1} + 0*2^{-2} + 0*2^{-3} + 1*2^{-4} + 1*2^{-5} + ... = 00011(0011)</script>
+</div>
+<p>В некоторых случаях на помощь может придти модуль <code class="codehilite"><span class="n">fmath</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">fsum</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sum</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="mf">0.9999999999999999</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fsum</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="mf">1.0</span>
+</pre></div>
+
+<h2 id="_7">Булевый тип<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">to_be</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">to_be</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">to_be</span>
+<span class="bp">True</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">is_leap</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">is_leap</span>
+<span class="bp">False</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="bp">True</span> <span class="ow">or</span> <span class="n">abrakadabra_or_lazy_evaluation</span>
+<span class="bp">True</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+<h2 id="_8">Строки<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>Строки в Python версии 3 представляют собой последовательность символов Юникод (code point'ов). Если вы никогда не слышали про Юникод и кодировки или плохо представляете, что это такое, то советую прочитать исчерпывающую <a href="http://kunststube.net/encoding/">статью</a> David C. Zentgraf из серии «Что каждый программист должен знать о...».</p>
+<p>Новую строку можно создать с помощью одинарных или двойных кавычек (можно использовать и тройные кавычки, но чаще они используются для документирования функций, классов, модулей):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;Dmitrii&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">last_name</span> <span class="o">=</span> <span class="s1">&#39;Sorokin&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;Dementiy@yandex.ru&#39;</span>
+</pre></div>
+
+<p>Для строк определена операция сложения (конкантенации):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">full_name</span>
+<span class="s1">&#39;Dmitrii Sorokin&#39;</span>
+</pre></div>
+
+<p>Следует иметь ввиду, что в приведенном примере, будет создан промежуточный объект, состоящий из имени и пробела. Если возникает необходимость объединить большое число строк, то вместо последовательного сложения строк следует использовтаь метод <code class="codehilite"><span class="k">join</span><span class="p">()</span></code>, который работает следующим образом - осуществляется проход по всем строкам суммируя их длины, выделяется память под новый размер строки, осуществляется еще один проход по всем строкам копируя их содержимое в новый объект, таким образом, не создается промежуточных объектов:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">full_name</span>
+<span class="s1">&#39;Dmitrii Sorokin&#39;</span>
+</pre></div>
+
+<p>Здесь мы первый раз сталкиваемся с вызовом метода у объекта. Каждый объект предоставляет интерфейс (методы) взаимодействия с ним, а также хранит внутреннее состояние посредством переменных. Обращение к методам и переменным объекта (атрибутам) происходит через точку, как в примере выше с методом <code class="codehilite"><span class="k">join</span><span class="p">()</span></code>.</p>
+<p>Строку можно разбить на список подстрок по заданному разделителю, который в свою очередь также является строкой:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;Dementiy&#39;</span><span class="p">,</span> <span class="s1">&#39;yandex.ru&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">username</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">username</span>
+<span class="s1">&#39;Dementiy&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">domain</span>
+<span class="s1">&#39;yandex.ru&#39;</span>
+</pre></div>
+
+<p>Заканчивается ли строка данной подстрокой:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">email</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;yandex.ru&#39;</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>У строк (как и у большинства контейнеров) можно получить длину (число элементов в контейнере):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span> <span class="c1"># --&gt; full_name.__len__()</span>
+<span class="mi">15</span>
+</pre></div>
+
+<p>Можно обращаться к отдельным элементам строки, которые представляют собой строку из одного символа:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">first_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;D&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">first_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;i&#39;</span>
+</pre></div>
+
+<p>Строки являются неизменяемыми, то есть мы не можем изменить отдельный элемент строки:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">first_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span>
+<span class="o">...</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+
+<p>И наконец мы можем брать подмножество (срез) элементов строки:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">email</span><span class="p">[:</span><span class="n">email</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)]</span>
+<span class="s1">&#39;Dementiy&#39;</span>
+</pre></div>
+
+<p>Мы рассмотрели лишь небольшую часть операций, которые можно выполнять над строками. Полный список операций вы всегда можете найти в документации.</p>
+<h3 id="_9">Представление строк<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Как уже было сказано, строки в Python являются Юникод строками. Для внтуреннего представления строк в Python, начиная с версии 3.3 (см. <a href="https://www.python.org/dev/peps/pep-0393/">PEP-393</a>), используются кодировки Latin-1 (1 байт на символ), UCS-2 (2 байта на символ) и UCS-4 (4 байта на символ). Упрощенно процесс определения кодировки следующий: когда необходимо создать строковый объект (тексты программ обычно в кодировке UTF-8), Python находит самый старший кодовый знак (code point) в строке и выбирает кодироку, в которой кодовый знак может быть представлен «как есть».</p>
+<p>Строки представлены не одной структурой, а «иерархией» из трех <a href="https://github.com/python/cpython/blob/3.8/Include/cpython/unicodeobject.h#L88">структур</a>, не считая <code class="codehilite"><span class="n">PyObject</span></code>. Мы рассмотрим одну структуру - <code class="codehilite"><span class="n">PyASCIIObject</span></code>, которая содержит большую часть информации о строке, например, какая кодировка используется для хранения строки, длину строки (число кодовых знаков), состоит ли строка только из ASCII-символов, интернирована строка или нет и т.д.</p>
+<p>Опишем структуру <code class="codehilite"><span class="n">PyASCIIObject</span></code> с помощью модуля <code class="codehilite"><span class="n">ctypes</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+
+<span class="k">class</span> <span class="nc">PyASCIIObject</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;ob_refcnt&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_type&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">py_object</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;hash&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;interned&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;compact&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ready&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_uint</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;wstr&#39;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_wchar_p</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">get_string_kind</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">PyASCIIObject</span><span class="o">.</span><span class="n">from_address</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">string</span><span class="p">))</span><span class="o">.</span><span class="n">kind</span>
+</pre></div>
+
+<p>Создадим несколько строковых объектов:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span> <span class="o">=</span> <span class="s1">&#39;Hello, world&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span>
+<span class="s1">&#39;Hello, world&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">61</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">get_string_kind</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">1</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span> <span class="o">=</span> <span class="s1">&#39;Hello, 世界&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span>
+<span class="s1">&#39;Hello, 世界&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">92</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">get_string_kind</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span> <span class="o">=</span> <span class="s1">&#39;Hello, </span><span class="se">\U0001F30D</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span>
+<span class="s1">&#39;Hello, 🌍&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">108</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">get_string_kind</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+<span class="mi">4</span>
+</pre></div>
+
+<p>Обратите внимание, что хотя длина строк и становится меньше, но занимаемый размер наоборот растет, так как используются разные кодировки для внутреннего представления. Об этом важно помнить, особенно когда вы работаете с большими объемами текстов, так как один символ эмодзи может увеличить занимаемый размер строки в 4 раза.</p>
+<p>Почему для внутреннего представления строк не используется UTF-8? Кодировка UTF-8 подразумевает, что может использоваться варьируемое число байт (от одного до четырех) для кодирования одного символа. UTF-8 является оптимальной кодировкой с точки зрения хранения строк (то есть кодировка эффективна по памяти), но при обращении к отдельным элементам строки (при индексировании), необходимо пройтись по всем символам строки пока мы не дойдем до нужного символа. При фиксированном размере такой проблемы не возникает, для перехода к нужной позиции символа достаточно индекс умножить на размер кодового знака (1, 2 или 4 в зависимости от используемой кодировки). Тем не менее есть <a href="http://utf8everywhere.org/">мнение</a>, что индексация это не проблема.</p>
+<h3 id="_10">Интернирование строк<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Дополнительно про интернирование можно почитать <a href="http://guilload.com/python-string-interning/">тут</a> и <a href="https://rushter.com/blog/python-strings-and-memory/">тут</a>.</p>
+</div>
+<p>Для экономии памяти в Python реализовано интернирование строк (string interning). Давайте рассмотрим такой пример, пусть у нас есть два строковых объекта с одинаковым содержимым:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;foo!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;foo!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="ow">is</span> <span class="n">s2</span>
+<span class="bp">False</span>
+</pre></div>
+
+<p>Хотя содержимое строк совпадает это два разных объекта. С другой стороны:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="ow">is</span> <span class="n">s2</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>получим, что адреса <code class="codehilite"><span class="n">s1</span></code> и <code class="codehilite"><span class="n">s2</span></code> совпадают. Все строки длиной 0 или 1 интернированы, кроме того интернируются все строковые литералы, состоящие из символов латинского алфавита, цифр или нижнего подчеркивания, также интернируются имена переменных, функций, классов и т.д. </p>
+<p>Ниже приведен упрощенный <a href="https://github.com/python/cpython/blob/3.8/Objects/unicodeobject.c#L15264">алгоритм интернирования</a>:</p>
+<div class="codehilite"><pre><span></span><span class="n">interned</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">intern</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">interned</span>
+
+    <span class="k">if</span> <span class="n">string</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span>
+
+    <span class="k">if</span> <span class="n">interned</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">interned</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">interned</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t</span>
+
+    <span class="n">interned</span><span class="p">[</span><span class="n">string</span><span class="p">]</span> <span class="o">=</span> <span class="n">string</span>
+    <span class="k">return</span> <span class="n">string</span>
+</pre></div>
+
+<p>Если мы хотим интернировать строку, то следует воспользоваться функцией <code class="codehilite"><span class="n">intern</span></code> из модуля <code class="codehilite"><span class="n">sys</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">intern</span><span class="p">(</span><span class="s2">&quot;foo!&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">intern</span><span class="p">(</span><span class="s2">&quot;foo!&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s1</span> <span class="ow">is</span> <span class="n">s2</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>Использование интернирования строк гарантирует, что не будет создано двух одинаковых строковых объектов. Когда вы создаете второй объект с тем же значением, что и у существующего объекта, то вы получаете ссылку на уже существующий объект. Таким образом, интернирование строк позволяет экономить память и повышает скорость сравнения строк, путем сравнения их адресов (хешей), а не содержимого.</p>
+<h2 id="_11">Кортежи<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Последний неизменяемый тип, который мы рассмотрим в этой лекции это кортежи, которые фактически являются статическими массивами, то есть, имеют фиксированный размер, и представлены структурой <a href="https://github.com/python/cpython/blob/3.8/Include/cpython/tupleobject.h#L9"><code class="codehilite"><span class="n">PyTupleObject</span></code></a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_VAR_HEAD</span>
+    <span class="cm">/* ob_item contains space for &#39;ob_size&#39; elements.</span>
+<span class="cm">       Items must normally not be NULL, except during construction when</span>
+<span class="cm">       the tuple is not yet visible outside the function that builds it. */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">ob_item</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">PyTupleObject</span><span class="p">;</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/tupleobject.svg" /></p>
+<p>Рассмотрим простой пример создания кортежа из трех элементов:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">point</span>
+<span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/immutable-types/tupleobject2.svg" /></p>
+<p>Как уже было отмечено, важной особенностью кортежей является то, что это неизменяемая структура:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">...</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+
+<p>Когда мы говорим, что кортежи неизменяемые, то имеем ввиду, что мы не можем заменить один элемент кортежа на другой, но сам объект изменить мы можем:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Значительная часть материала про представление целых чисел взята из статьи Артема Голубина: <a href="https://rushter.com/blog/python-integer-implementation/">Python Integer Implementation</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="http://mortada.net/can-integer-operations-overflow-in-python.html">Can integer operations overflow in Python?</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+        
+          <a href="../mutable-types/" title="Изменяемые типы данных" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Изменяемые типы данных
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

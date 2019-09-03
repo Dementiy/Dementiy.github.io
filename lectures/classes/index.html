@@ -1,0 +1,1756 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/lectures/classes/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>ООП. Классы. Магические методы - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ООП. Классы. Магические методы
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../immutable-types/" title="Лекции" class="md-tabs__link md-tabs__link--active">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../assignments/setup_env/" title="Практические работы" class="md-tabs__link">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+      Неизменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+      Изменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ООП. Классы. Магические методы
+      </label>
+    
+    <a href="./" title="ООП. Классы. Магические методы" class="md-nav__link md-nav__link--active">
+      ООП. Классы. Магические методы
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Процедурный подход" class="md-nav__link">
+    Процедурный подход
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Создание простого класса" class="md-nav__link">
+    Создание простого класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Создание экземпляра класса" class="md-nav__link">
+    Создание экземпляра класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="«Приватные» поля класса" class="md-nav__link">
+    «Приватные» поля класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Магические методы" class="md-nav__link">
+    Магические методы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orm" title="Пример: создание простой ORM" class="md-nav__link">
+    Пример: создание простой ORM
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iterators/" title="Итераторы" class="md-nav__link">
+      Итераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+      Настройка рабочего окружения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
+      Решатель Судоку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Процедурный подход" class="md-nav__link">
+    Процедурный подход
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Создание простого класса" class="md-nav__link">
+    Создание простого класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Создание экземпляра класса" class="md-nav__link">
+    Создание экземпляра класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="«Приватные» поля класса" class="md-nav__link">
+    «Приватные» поля класса
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Магические методы" class="md-nav__link">
+    Магические методы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orm" title="Пример: создание простой ORM" class="md-nav__link">
+    Пример: создание простой ORM
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/classes.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>ООП. Классы. Магические методы</h1>
+                
+                <p>Эта лекция является первой в серии посвященной объектно-ориентированной парадигме программирования.</p>
+<h2 id="_1">Процедурный подход<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Представьте, что вы пишите веб-сервис и перед вами встала следующая задача: «Как представить пользователя системы в программе?». Для начала нам необходимо выделить ряд значимых характеристик нашего пользователя:</p>
+<ul>
+<li>имя (username)</li>
+<li>адрес электронной почты (email)</li>
+<li>пароль (password)</li>
+</ul>
+<p>Можно представить пользователя в виде нескольких переменных:</p>
+<div class="codehilite"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;user&#39;</span>
+<span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;user@example.com&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;qwerty&#39;</span>
+</pre></div>
+
+<p>Мы пониманием, что переменные логически должны быть связаны между собой, но мы эту связь никак не показали. Другими словами, переменная <code class="codehilite"><span class="n">username</span></code>  может содержать имя одного пользователя, <code class="codehilite"><span class="n">email</span></code> относиться ко второму пользователю, а <code class="codehilite"><span class="n">password</span></code> к третьему.</p>
+<p>Как показать, что существует логическая связь между этими переменными? Мы можем использовать любую подходящую структуру, например, словарь:</p>
+<div class="codehilite"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>А так мы теперь могли бы представить список пользователей:</p>
+<div class="codehilite"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="s1">&#39;joe&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;secret&#39;</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>Таким образом, объединив несколько значений (имя, адрес электронной почты и пароль) в контейнер, мы попытались показать, что существует логическая связь между этими значениями.</p>
+<p>Итак, каждый контейнер (словарь) хранит состояние (характеристики, атрибуты) конкретного пользователя. Для управляемого доступа к состоянию объекта используют специальные функции, так называемые «геттеры» и «сеттеры», например:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_email</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">set_email</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$&#39;</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid email&quot;</span><span class="p">)</span>
+    <span class="n">user</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_email</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="s1">&#39;bob@example&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">Invalid</span> <span class="n">email</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_email</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">get_email</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="s1">&#39;bob@example.com&#39;</span>
+</pre></div>
+
+<p>Одним из недостатков такого подхода является то, что мы не показали логическую связь между состоянием пользователя и функциями, которые предоставляют доступ к этому состоянию. В решении этой проблемы нам может помочь инкапсуляция.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Инкапсуляция</strong> – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя.</p>
+</div>
+<h2 id="_2">Создание простого класса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Начнем с создания простого класса:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Класс</strong> – это способ описания сущности, определяющий состояние и поведение, зависящее от этого состояния, а также правила для взаимодействия с данной сущностью (контракт). </p>
+</div>
+<p>Теперь создадим новый объект класса пользователь:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>Объект</strong> (экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.</p>
+</div>
+<p>Атрибуты хранятся в специальном словаре (подробнее про модель данных в Python можно почитать <a href="https://docs.python.org/3.6/reference/datamodel.html">тут</a>), к которому можно обратиться по имени <code class="codehilite"><span class="n">__dict__</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="p">{}</span>
+</pre></div>
+
+<p>Так как мы не создалили еще ни одного атрибута, то и словарь будет пустым. Давайте добавим несколько атрибутов (Python позволяет динамически привязывать новые атрибуты к объекту, в конце концов это просто словарь):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;bob&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;bob@example.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;qwerty&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">}</span>
+
+<span class="c1"># Следующие два выражения в нашем примере эквиваленты</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span>
+<span class="s1">&#39;bob&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+<span class="s1">&#39;bob&#39;</span>
+</pre></div>
+
+<p>Если мы обратимся к атрибуту, которого не существует, то будет возбуждено исключение <code class="codehilite"><span class="n">AttributeError</span></code> (более подробно о поиске атрибутов мы поговорим в лекции <a href="../attribute_lookup/">«ООП. Разрешение имен атрибутов»</a>):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">created_at</span>
+<span class="o">...</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;User&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;created_at&#39;</span>
+</pre></div>
+
+<p>Работать с атрибутами можно с помощью следующих функций:</p>
+<ul>
+<li><code class="codehilite"><span class="n">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span></code> - проверить наличие атрибута <code class="codehilite"><span class="n">attr_name</span></code> в объекте <code class="codehilite"><span class="n">obj</span></code>. Если атрибут присутствует, то функция возвращает <code class="codehilite"><span class="k">True</span></code>, иначе <code class="codehilite"><span class="k">False</span></code>.</li>
+<li><code class="codehilite"><span class="n">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">[,</span> <span class="n">default_value</span><span class="p">])</span></code> - получить значение атрибута <code class="codehilite"><span class="n">attr_name</span></code> в объекте <code class="codehilite"><span class="n">obj</span></code>. Если атрибут не был найден, то будет возбуждено исключение <code class="codehilite"><span class="n">AttributeError</span></code>. Можно указать значение по умолчанию <code class="codehilite"><span class="n">default_value</span></code>, которое будет возвращено, если атрибута не существует.</li>
+<li><code class="codehilite"><span class="n">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code> - изменить значение атрибута <code class="codehilite"><span class="n">attr_name</span></code> на <code class="codehilite"><span class="n">value</span></code>. Если атрибут не существовал, то он будет создан.</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;User&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;created_at&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">757869</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">757869</span><span class="p">)</span>
+</pre></div>
+
+<p>Функция <code class="codehilite"><span class="n">setattr</span></code> может оказаться полезной, когда нам необходимо добавить в объект множество атрибутов, хранящихся в каком-нибудь контейнере:</p>
+<div class="codehilite"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+<p>Добавим теперь в ранее созданный объект «сеттер» и «геттер» для работы со свойством адреса электронной почты:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_email</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+
+<span class="k">def</span> <span class="nf">set_email</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$&#39;</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid email&quot;</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span> <span class="o">=</span> <span class="n">get_email</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">set_email</span> <span class="o">=</span> <span class="n">set_email</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="p">{</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_email&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">get_email</span> <span class="n">at</span> <span class="mh">0x10bfb79d8</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;set_email&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">set_email</span> <span class="n">at</span> <span class="mh">0x10bfb7268</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span>
+<span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="s1">&#39;bob@example.com&#39;</span>
+</pre></div>
+
+<p>Обратите внимание, что мы обращаемся к функции <code class="codehilite"><span class="n">get_email</span></code> у объекта <code class="codehilite"><span class="n">u</span></code> и в качестве аргумента передаем сам объект <code class="codehilite"><span class="n">u</span></code>. Выглядит немного странно <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Также отметим, что до этого момента мы добавляли атрибуты и функции в конкретный экземпляр класса <code class="codehilite"><span class="k">User</span></code>, если мы создадим еще один объект, то у него не будет этих свойств и нам придется добавлять их заново. Забегая немного вперед скажем, что класс это тоже объект и у него также есть специальный словарь куда мы можем добавлять свои атрибуты (говорят «атрибуты класса»):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">User</span><span class="o">.</span><span class="n">get_email</span> <span class="o">=</span> <span class="n">get_email</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">User</span><span class="o">.</span><span class="n">set_email</span> <span class="o">=</span> <span class="n">set_email</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">User</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="n">mappingproxy</span><span class="p">({</span><span class="s1">&#39;__dict__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">attribute</span> <span class="s1">&#39;__dict__&#39;</span> <span class="n">of</span> <span class="s1">&#39;User&#39;</span> <span class="n">objects</span><span class="o">&gt;</span><span class="p">,</span>
+              <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+              <span class="s1">&#39;__module__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;__weakref__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">attribute</span> <span class="s1">&#39;__weakref__&#39;</span> <span class="n">of</span> <span class="s1">&#39;User&#39;</span> <span class="n">objects</span><span class="o">&gt;</span><span class="p">,</span>
+              <span class="s1">&#39;get_email&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">get_email</span> <span class="n">at</span> <span class="mh">0x10370e0d0</span><span class="o">&gt;</span><span class="p">,</span>
+              <span class="s1">&#39;set_email&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">set_email</span> <span class="n">at</span> <span class="mh">0x1038a02f0</span><span class="o">&gt;</span><span class="p">})</span>
+</pre></div>
+
+<p>Добавив таким образом функции в класс, мы получим возможность вызывать их у всех экземпляров этого класса, при этом без необходимости передавать сам объект в качестве первого аргумента функции, так как он будет передан автоматически:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">set_email</span><span class="p">(</span><span class="s1">&#39;bob@example.com&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span><span class="p">()</span>
+<span class="s1">&#39;bob@example.com&#39;</span>
+</pre></div>
+
+<p>Более подробно про то, как именно работает этот механизм, мы поговорим на лекциях <a href="../lectures/descriptors.md">«ООП. Дескрипторы»</a>, <a href="../attribute_lookup/">«ООП. Разрешение имен атрибутов»</a> и <a href="../lectures/mro.md">«ООП. Порядок разрешения методов</a>.</p>
+<p>Последним шагом является добавление возможности создавать и инциалзировать одинаковый набор атрибутов для всех экземпляров класса. Для этих целей в Python используется «магический» метод <code class="codehilite"><span class="n">__init__</span></code> (все методы, имя которых начинается и заканчивается двумя нижними подчеркиваниями, называются «магическими методами», так как имеют определенное назначение), который автоматически вызывается в процессе инстанцирования нового экземпляра класса:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_email</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_username</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_username</span>
+
+    <span class="k">def</span> <span class="nf">set_username</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_username</span> <span class="o">=</span> <span class="n">username</span>
+
+    <span class="k">def</span> <span class="nf">get_email</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>
+
+    <span class="k">def</span> <span class="nf">set_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$&#39;</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid email&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salt</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">salt</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">salt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_salt</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">+</span> <span class="n">salt</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">salt</span>
+
+    <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="c1"># @see: http://pythoncentral.io/hashing-strings-with-python/</span>
+        <span class="c1"># @see: https://docs.python.org/3.5/library/hashlib.html</span>
+        <span class="n">password</span><span class="p">,</span> <span class="n">salt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_password</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">password</span> <span class="o">==</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">user_password</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="o">+</span> <span class="n">salt</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_make_salt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Интерфейс</strong> – это набор методов класса, доступных для использования другими классами.</p>
+</div>
+<h2 id="_3">Создание экземпляра класса<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Давайте немного остановимся на том как создаются новые экземпляры класса:</p>
+<div class="codehilite"><pre><span></span><span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;class User: pass</span><span class="se">\n</span><span class="s2">u = User()&quot;</span><span class="p">)</span>
+  <span class="mi">2</span>          <span class="mi">14</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">User</span><span class="p">)</span>
+             <span class="mi">16</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">0</span>
+             <span class="mi">18</span> <span class="n">STORE_NAME</span>               <span class="mi">1</span> <span class="p">(</span><span class="n">u</span><span class="p">)</span>
+             <span class="mi">20</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+             <span class="mi">22</span> <span class="n">RETURN_VALUE</span>
+</pre></div>
+
+<p>Итак, на стек помещается класс <code class="codehilite"><span class="k">User</span></code> и затем выполняется инструкция <code class="codehilite"><span class="n">CALL_FUNCTION</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">case</span> <span class="nf">TARGET</span><span class="p">(</span><span class="n">CALL_FUNCTION</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+    <span class="n">PREDICTED</span><span class="p">(</span><span class="n">CALL_FUNCTION</span><span class="p">);</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">sp</span><span class="p">,</span> <span class="o">*</span><span class="n">res</span><span class="p">;</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">stack_pointer</span><span class="p">;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">call_function</span><span class="p">(</span><span class="n">tstate</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sp</span><span class="p">,</span> <span class="n">oparg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">stack_pointer</span> <span class="o">=</span> <span class="n">sp</span><span class="p">;</span>
+    <span class="n">PUSH</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">DISPATCH</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="n">Py_LOCAL_INLINE</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span> <span class="n">_Py_HOT_FUNCTION</span>
+<span class="n">call_function</span><span class="p">(</span><span class="n">PyThreadState</span> <span class="o">*</span><span class="n">tstate</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">***</span><span class="n">pp_stack</span><span class="p">,</span> <span class="n">Py_ssize_t</span> <span class="n">oparg</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">pfunc</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">)</span> <span class="o">-</span> <span class="n">oparg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">func</span> <span class="o">=</span> <span class="o">*</span><span class="n">pfunc</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="n">Py_ssize_t</span> <span class="n">nkwargs</span> <span class="o">=</span> <span class="p">(</span><span class="n">kwnames</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">PyTuple_GET_SIZE</span><span class="p">(</span><span class="n">kwnames</span><span class="p">);</span>
+    <span class="n">Py_ssize_t</span> <span class="n">nargs</span> <span class="o">=</span> <span class="n">oparg</span> <span class="o">-</span> <span class="n">nkwargs</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">stack</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">)</span> <span class="o">-</span> <span class="n">nargs</span> <span class="o">-</span> <span class="n">nkwargs</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">tstate</span><span class="o">-&gt;</span><span class="n">use_tracing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">trace_call_function</span><span class="p">(</span><span class="n">tstate</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">nargs</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">_PyObject_Vectorcall</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">nargs</span> <span class="o">|</span> <span class="n">PY_VECTORCALL_ARGUMENTS_OFFSET</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">assert</span><span class="p">((</span><span class="n">x</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">_PyErr_Occurred</span><span class="p">(</span><span class="n">tstate</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="cm">/* Clear the stack of the function object. */</span>
+    <span class="k">while</span> <span class="p">((</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">pfunc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">EXT_POP</span><span class="p">(</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">);</span>
+        <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Произодйет вызов функции <code class="codehilite"><span class="n">_PyObject_Vectorcall</span></code> (см. <a href="https://www.python.org/dev/peps/pep-0590/">PEP 590</a>):</p>
+<div class="codehilite"><pre><span></span><span class="k">static</span> <span class="kr">inline</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">_PyObject_Vectorcall</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">callable</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                     <span class="kt">size_t</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">kwnames</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">PyTuple_Check</span><span class="p">(</span><span class="n">kwnames</span><span class="p">));</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">args</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">PyVectorcall_NARGS</span><span class="p">(</span><span class="n">nargsf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">vectorcallfunc</span> <span class="n">func</span> <span class="o">=</span> <span class="n">_PyVectorcall_Function</span><span class="p">(</span><span class="n">callable</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">func</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Py_ssize_t</span> <span class="n">nargs</span> <span class="o">=</span> <span class="n">PyVectorcall_NARGS</span><span class="p">(</span><span class="n">nargsf</span><span class="p">);</span>
+<span class="hll">        <span class="k">return</span> <span class="n">_PyObject_MakeTpCall</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargs</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">_Py_CheckFunctionResult</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">_PyObject_MakeTpCall</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">callable</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">Py_ssize_t</span> <span class="n">nargs</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">keywords</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Slow path: build a temporary tuple for positional arguments and a</span>
+<span class="cm">     * temporary dictionary for keyword arguments (if any) */</span>
+<span class="hll">    <span class="n">ternaryfunc</span> <span class="n">call</span> <span class="o">=</span> <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">callable</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">tp_call</span><span class="p">;</span>
+</span>
+    <span class="c1">// ...</span>
+
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Py_EnterRecursiveCall</span><span class="p">(</span><span class="s">&quot; while calling a Python object&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="n">result</span> <span class="o">=</span> <span class="n">call</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">argstuple</span><span class="p">,</span> <span class="n">kwdict</span><span class="p">);</span>
+</span>        <span class="n">Py_LeaveRecursiveCall</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_Py_CheckFunctionResult</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Макрос <code class="codehilite"><span class="n">PY_TYPE</span></code> возвращает тип объекта. Мы уже упомянули, что классы также являются объектами, а следовательно и у них есть тип, другими словами, есть классы, которые порождают другие классы и называются они метаклассами (иногда встречается термин «метатип»):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">User</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">type</span><span class="s1">&#39;&gt;</span>
+</pre></div>
+
+<p>По умолчанию метаклассом для всех классов является класс <a href="https://github.com/python/cpython/blob/3.8/Objects/typeobject.c#L3607"><code class="codehilite"><span class="k">type</span></code></a>, только если мы явно не указали другой метакласс. Также отметим, что все типы в виртуальной машине CPython представлены структурой <a href="https://docs.python.org/3/c-api/typeobj.html"><code class="codehilite"><span class="n">PyTypeObject</span></code></a>, содержащей по большей части указатели на функции (слоты), которые определяют поведение объекта. Таким образом, в листинге выше происходит обращение к слоту <code class="codehilite"><span class="n">tp_call</span></code>, который по умолчанию содержит указатель на функцию <code class="codehilite"><span class="n">type_call</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">type_call</span><span class="p">(</span><span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">type</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwds</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="hll">    <span class="n">obj</span> <span class="o">=</span> <span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_new</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">);</span>
+</span>    <span class="n">obj</span> <span class="o">=</span> <span class="n">_Py_CheckFunctionResult</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">type</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+    <span class="cm">/* If the returned object is not an instance of type,</span>
+<span class="cm">       it won&#39;t be initialized. */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">PyType_IsSubtype</span><span class="p">(</span><span class="n">Py_TYPE</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">type</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+
+    <span class="n">type</span> <span class="o">=</span> <span class="n">Py_TYPE</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_init</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">type</span><span class="o">-&gt;</span><span class="n">tp_init</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwds</span><span class="p">);</span>
+</span>        <span class="c1">// ...</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>В качестве первого аргумента в функцию <code class="codehilite"><span class="n">type_call</span></code> передается тип (<code class="codehilite"><span class="k">User</span></code>), затем передаются позиционные и ключевые аругменты, которые были указаны при создании экземпляра класса. В функции <code class="codehilite"><span class="n">type_call</span></code> происходит вызов конструктора <code class="codehilite"><span class="n">tp_new</span></code> и инициализатора <code class="codehilite"><span class="n">tp_init</span></code>, которые соответствуют магическим методам <a href="https://docs.python.org/3.8/reference/datamodel.html#object.__new__"><code class="codehilite"><span class="n">__new__</span></code></a> и <code class="codehilite"><span class="n">__init__</span></code>. Мы не переопределяли для класса <code class="codehilite"><span class="k">User</span></code> ни один из этих магических методов, поэтому их реализация наследуется от базового класса. Базовым классом для всех объектов в Python является класс <a href="https://github.com/python/cpython/blob/3.8/Objects/typeobject.c#L4783"><code class="codehilite"><span class="k">object</span></code></a> (кроме него самого), который представлен структурой <code class="codehilite"><span class="n">PyBaseObject_Type</span></code>. В этой структуре слоты <code class="codehilite"><span class="n">tp_new</span></code> и <code class="codehilite"><span class="n">tp_init</span></code> инициализированы указателями на функции <code class="codehilite"><span class="n">object_new</span></code> и <code class="codehilite"><span class="n">object_init</span></code>, которые и будут вызваны.</p>
+<p>Функция <code class="codehilite"><span class="n">object_init</span></code> для нас не представляет особого интереса. В функции <code class="codehilite"><span class="n">object_new</span></code> происходит выделение памяти под новый объект со следующей структурой:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Размер в байтах</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="codehilite"><span class="n">PyGC_Head</span></code></td>
+<td>16 (24 до Python 3.8)</td>
+</tr>
+<tr>
+<td><code class="codehilite"><span class="n">PyObject_HEAD</span></code></td>
+<td>16</td>
+</tr>
+<tr>
+<td><code class="codehilite"><span class="n">__dict__</span></code></td>
+<td>8</td>
+</tr>
+<tr>
+<td><code class="codehilite"><span class="n">__weakref__</span></code></td>
+<td>8</td>
+</tr>
+<tr>
+<td>Всего</td>
+<td>48 (56 до Python 3.8)</td>
+</tr>
+</tbody>
+</table>
+<p>Где <a href="https://github.com/python/cpython/blob/3.8/Include/cpython/objimpl.h#L46"><code class="codehilite"><span class="n">PyGC_Head</span></code></a> это <mark>элемент двойного связанного списка</mark>, который используется сборщиком мусора для обнаружения циклических ссылок. <code class="codehilite"><span class="n">__weakref__</span></code> это ссылка на список, так называемых, слабых ссылок (weak reference) на данный объект. В одной из следующих лекций мы будем говорить про управление памятью в CPython, сейчас мы не будем на этом подбробно останавливаться.</p>
+<p>И наконец заметим, что словарь <code class="codehilite"><span class="n">__dict__</span></code> для экземпляра класса не создается в процессе выделения памяти. При создании нового типа определяется значение <code class="codehilite"><span class="n">tp_dictoffset</span></code>, то есть смещение относительно адреса объекта, по которому находится указатель на словарь (<code class="codehilite"><span class="n">PyGC_Head</span></code> не учитывается в этом смещении):</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+
+<span class="k">def</span> <span class="nf">magic_dict_ptr</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
+    <span class="n">dict_addr</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="o">.</span><span class="n">__dictoffset__</span>
+    <span class="n">dict_ptr</span>  <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">dict_addr</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">py_object</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dict_ptr</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d_ptr</span> <span class="o">=</span> <span class="n">magic_dict_ptr</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dptr</span><span class="o">.</span><span class="n">contents</span>
+<span class="n">py_object</span><span class="p">(</span><span class="o">&lt;</span><span class="n">NULL</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;bob&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dptr</span><span class="o">.</span><span class="n">contents</span>
+<span class="n">py_object</span><span class="p">({</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span><span class="p">})</span>
+</pre></div>
+
+<p>Таким образом, фактическое выделение памяти под <code class="codehilite"><span class="n">__dict__</span></code> происходит при первом обращении к нему, например, при добавлении нового атрибута.</p>
+<p>Итак, упрощенно процесс создания и инициализации нового объекта можно описать следующими шагами:</p>
+<ol>
+<li>Мы хотим инстанцировать новый объект некоторого класса: <code class="codehilite"><span class="n">u</span> <span class="o">=</span> <span class="k">User</span><span class="p">()</span></code></li>
+<li>Происходит вызов метода <code class="codehilite"><span class="n">__call__</span></code> у метакласса: <code class="codehilite"><span class="k">type</span><span class="p">(</span><span class="k">User</span><span class="p">).</span><span class="n">__call__</span><span class="p">(</span><span class="k">User</span><span class="p">)</span></code>.</li>
+<li>Вызывается конструктор объекта <code class="codehilite"><span class="n">__new__</span></code>, который возвращает «пустой» объект.</li>
+<li>Созданный объект передается в инициализатор <code class="codehilite"><span class="n">__init__</span></code> в качестве первого аргумента с именем <code class="codehilite"><span class="k">self</span></code> (такое имя не является обязательным, но используется по соглашению), за ним передаются все остальные аргументы указанные при инстанцировании класса.</li>
+<li>У объекта создаются все требуемые атрибуты, например <code class="codehilite"><span class="k">self</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span></code>. При первом обращении к <code class="codehilite"><span class="n">__dict__</span></code> под него выделяется память.</li>
+<li>Инициализированный объект возвращается на место вызова класса, в примере переменная <code class="codehilite"><span class="n">u</span></code> связывается с созданным объектом.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Более подробно о создании новых типов мы будем говорить в лекции <a href="../lectures/metaclasses.md">«ООП. Метаклассы»</a>.</p>
+</div>
+<h2 id="_4">«Приватные» поля класса<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Вы обратили внимание, что в нашем классе <code class="codehilite"><span class="k">User</span></code> некоторые атрибуты начинаются с нижнего подчеркивания? Это одно из множества соглашений принятых в сообществе разработчиков на языке Python, согласно которому «приватные» атрибуты должны начинаться с одного символа нижнего подчеркивания. Давайте создадим нового пользователя:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_username</span><span class="p">()</span>
+<span class="s1">&#39;bob&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span><span class="p">()</span>
+<span class="s1">&#39;bob@example.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="s1">&#39;qwerty&#39;</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>Допустим, что мы хотим изменить пароль (или адрес электронной почты) и делаем это через прямое обращение к атрибуту:
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">)</span>
+<span class="bp">False</span>
+</pre></div></p>
+<p>Почему пароль не прошел проверку? Мы изменили значение атрибута напрямую, не используя функцию <code class="codehilite"><span class="n">set_password</span><span class="p">()</span></code>, таким образом, мы сохранили пароль в открытом виде. В свою очередь функция <code class="codehilite"><span class="n">check_password</span><span class="p">()</span></code> хеширует переданный ей пароль в качестве аргумента и затем сравнивает его с паролем, который хранился в атрибуте <code class="codehilite"><span class="n">_password</span></code>.</p>
+<p>Очевидно, что нужно менять значение пароля или адреса электронной почты с помощью методов <code class="codehilite"><span class="n">set_password</span><span class="p">()</span></code> и <code class="codehilite"><span class="n">set_email</span><span class="p">()</span></code>, чтобы избежать подобного рода ошибок. А прямое обращение к полям <code class="codehilite"><span class="n">_password</span></code> и <code class="codehilite"><span class="n">_email</span></code> нужно ограничить. В языке Python сложно что-то запретить, в частности обращение к полям экземпляра класса, но есть соглашения. Как уже было сказано, если имя атрибута начинается с одного нижнего подчеркивания, то он считается приватным, другими словами, указывая нижнее подчеркивание перед именем атрибута мы сообщаем клиентам нашего класса «Не нужно обращаться к этому полю напрямую, иначе можно нарушить логику работы».</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Больше про нижние подчеркивания можно узнать <a href="https://shahriar.svbtle.com/underscores-in-python">тут</a>.</p>
+</div>
+<h2 id="_5">Магические методы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">User</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_email</span>
+        <span class="k">raise</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;User(username={self._username}, email={self._email})&quot;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">bob</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bob</span>
+<span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">bob</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">bob</span><span class="nd">@example.com</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bobby</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bob</span> <span class="o">==</span> <span class="n">bobby</span>
+<span class="bp">True</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Все строки в формате <a href="https://cito.github.io/blog/f-strings/">f-strings</a>, который был введен в Python 3.6.</p>
+<p>Метод <code class="codehilite"><span class="n">__repr__</span></code> переопределен, чтобы выводить чуть больше полезной информации об объекте, чем просто его адрес в памяти. Узнать больше про магические методы можно прочитав статью на <a href="https://habrahabr.ru/post/186608/">Хабре</a>.</p>
+</div>
+<h2 id="orm">Пример: создание простой ORM<a class="headerlink" href="#orm" title="Permanent link">&para;</a></h2>
+<p>Что такое ORM? Вот пояснение с сайта <a href="https://www.fullstackpython.com/object-relational-mappers-orms.html">Full Stack Python</a>:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>An object-relational mapper (ORM) is a code library that automates the transfer of data stored in relational databases tables into objects that are more commonly used in application code.</p>
+</div>
+<p>В этом примере (полностью основанном на <a href="https://codescience.wordpress.com/2011/02/06/python-mini-orm/">этом коде</a>) мы рассмотрим пример создания примитивной ORM для SQLite базы данных, которая имеет <a href="https://docs.python.org/3.6/library/sqlite3.html">встроенную поддержку</a> в Python.</p>
+<p>Создадим БД с таблицей <code class="codehilite"><span class="n">Users</span></code> и добавим туда несколько записей:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="c1"># Создание нового соединения с БД</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;users_db.sqlite3&#39;</span><span class="p">)</span>
+
+<span class="c1"># Курсор это объект, который позволяет выполнять запросы к БД</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Создание таблицы пользователей</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE users (id, username, email, password)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Добавление новых записей</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;john@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">),</span>
+   <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;paul@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;barfoo&#39;</span><span class="p">),</span>
+   <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;ringo&#39;</span><span class="p">,</span> <span class="s1">&#39;ringo@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;foobaz&#39;</span><span class="p">),</span>
+   <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;george&#39;</span><span class="p">,</span> <span class="s1">&#39;george@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;bazfoo&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO users VALUES (?,?,?,?)&#39;</span><span class="p">,</span> <span class="n">users</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># Вывод всех записей</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM users&#39;</span><span class="p">):</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+<p>В результате вы должны увидеть следующие записи:
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;john@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;paul@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;barfoo&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;ringo&#39;</span><span class="p">,</span> <span class="s1">&#39;ringo@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;foobaz&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;george&#39;</span><span class="p">,</span> <span class="s1">&#39;george@thebeatles.com&#39;</span><span class="p">,</span> <span class="s1">&#39;bazfoo&#39;</span><span class="p">)</span>
+</pre></div></p>
+<p>Теперь перейдем к ORM:
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+
+<span class="k">class</span> <span class="nc">DataBase</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s1">&#39;db&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{db}.sqlite3&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tbl_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;SELECT * FROM {tbl_name}&quot;</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;PRAGMA table_info({tbl_name})&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
+
+    <span class="k">def</span> <span class="nf">Table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tbl_name</span><span class="p">):</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_columns</span><span class="p">(</span><span class="n">tbl_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">tbl_name</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Query</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cursor</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">tbl_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="n">cursor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span> <span class="o">=</span> <span class="n">rows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tbl_name</span> <span class="o">=</span> <span class="n">tbl_name</span>
+
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">):</span>
+        <span class="n">key_word</span> <span class="o">=</span> <span class="s2">&quot;AND&quot;</span> <span class="k">if</span> <span class="s2">&quot;WHERE&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span> <span class="k">else</span> <span class="s2">&quot;WHERE&quot;</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{self.sql_rows} {key_word} {criteria}&quot;</span>
+        <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tbl_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">order_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;{self.sql_rows} ORDER BY {criteria}&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tbl_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">group_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;{self.sql_rows} GROUP BY {criteria}&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tbl_name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sql_rows</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Row</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">fields</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">tbl_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">fields</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
+
+
+<span class="k">class</span> <span class="nc">Row</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">table_name</span> <span class="o">+</span> <span class="s2">&quot;_Row&quot;</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">attrs</span> <span class="o">=</span>  <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">f</span><span class="s2">&quot;{attr}={value}&quot;</span> <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{self.__class__.__name__}({attrs})&quot;</span>
+</pre></div>
+Класс <code class="codehilite"><span class="k">DataBase</span></code> отвечает за создание соединения, класс <code class="codehilite"><span class="n">Query</span></code> за формирование запроса к БД, класс <code class="codehilite"><span class="k">Row</span></code> представляет одну запись в таблице.</p>
+<p>Ниже приведен пример использования:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">db</span> <span class="o">=</span> <span class="n">DataBase</span><span class="p">(</span><span class="s1">&#39;users_db&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">get_columns</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span><span class="p">:</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">users</span>
+<span class="p">[</span><span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">john</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">john</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">foobar</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">paul</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">paul</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">barfoo</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">ringo</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">ringo</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">foobaz</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">george</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">george</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">bazfoo</span><span class="p">)]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;id &gt; 2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">users</span> <span class="n">WHERE</span> <span class="nb">id</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="p">[</span><span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">ringo</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">ringo</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">foobaz</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">george</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">george</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">bazfoo</span><span class="p">)]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;username DESC&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">users</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">username</span> <span class="n">DESC</span>
+<span class="p">[</span><span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">ringo</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">ringo</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">foobaz</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">paul</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">paul</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">barfoo</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">john</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">john</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">foobar</span><span class="p">),</span>
+ <span class="n">users_Row</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">george</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">george</span><span class="nd">@thebeatles.com</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">bazfoo</span><span class="p">)]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">users</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+<span class="s1">&#39;john&#39;</span>
+</pre></div>
+
+<p><strong>Задания</strong>:</p>
+<ul>
+<li>вы должны были заметить, что мы получаем объекты класса <code class="codehilite"><span class="n">users_Row</span></code>, а не класса <code class="codehilite"><span class="k">User</span></code>. Попробуйте внести изменения, чтобы мы получали объекты класса <code class="codehilite"><span class="k">User</span></code>:
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">User</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">get_username</span><span class="p">()</span>
+<span class="s1">&#39;john&#39;</span>
+</pre></div></li>
+<li>добавьте метод <code class="codehilite"><span class="k">limit</span><span class="p">(</span><span class="n">N</span><span class="p">)</span></code> в класс <code class="codehilite"><span class="k">DataBase</span></code>, который позволяет получить не больше N записей.</li>
+<li>добавьте метод <code class="codehilite"><span class="k">insert</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></code>, который создает в БД новую запись об объекте <code class="codehilite"><span class="n">obj</span></code>.</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Ради справедливости нужно отметить, что мы можем динамически создать метод у объекта, таким образом, чтобы не пришлось передавать объект в качестве аргумента:</p>
+<p><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">MethodType</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">get_email</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_email</span><span class="p">()</span>
+<span class="s1">&#39;bob@example.com&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="p">{</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_email&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">get_email</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">User</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10e6e8f28</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;bob&#39;</span>
+<span class="p">}</span>
+</pre></div>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                Простарнство имен и области видимости
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                ООП. Разрешение имен атрибтутов
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

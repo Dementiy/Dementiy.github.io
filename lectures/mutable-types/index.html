@@ -1,0 +1,1475 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/lectures/mutable-types/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Изменяемые типы данных - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Изменяемые типы данных
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../immutable-types/" title="Лекции" class="md-tabs__link md-tabs__link--active">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../assignments/setup_env/" title="Практические работы" class="md-tabs__link">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+      Неизменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Изменяемые типы данных
+      </label>
+    
+    <a href="./" title="Изменяемые типы данных" class="md-nav__link md-nav__link--active">
+      Изменяемые типы данных
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Списки" class="md-nav__link">
+    Списки
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="Списки как динамические массивы" class="md-nav__link">
+    Списки как динамические массивы
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Словари" class="md-nav__link">
+    Словари
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="Хеширование" class="md-nav__link">
+    Хеширование
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Множества" class="md-nav__link">
+    Множества
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+      ООП. Классы. Магические методы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iterators/" title="Итераторы" class="md-nav__link">
+      Итераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+      Настройка рабочего окружения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
+      Решатель Судоку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Списки" class="md-nav__link">
+    Списки
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="Списки как динамические массивы" class="md-nav__link">
+    Списки как динамические массивы
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Словари" class="md-nav__link">
+    Словари
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="Хеширование" class="md-nav__link">
+    Хеширование
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Множества" class="md-nav__link">
+    Множества
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/mutable-types.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Изменяемые типы данных</h1>
+                
+                <p>В этой мы продолжим знакомство с основными типами данных в Python и поговорим об изменяемых типах.</p>
+<h2 id="_1">Списки<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span>
+<span class="p">[]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">90.4</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">,</span> <span class="mi">61</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span>
+<span class="p">[</span><span class="mf">90.4</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">,</span> <span class="mi">61</span><span class="p">]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mf">90.4</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="mi">10</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mean_score</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mean_score</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span>
+<span class="p">[</span><span class="mf">90.4</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">58</span><span class="p">,</span> <span class="mf">91.5</span><span class="p">,</span> <span class="mi">79</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scores</span>
+<span class="p">[</span><span class="mf">90.4</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mf">91.5</span><span class="p">,</span> <span class="mi">79</span><span class="p">]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">scores_copy</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># == scores[:] == list(scores)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">scores_copy</span>
+<span class="p">[</span><span class="mf">90.4</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mf">84.5</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mf">91.5</span><span class="p">,</span> <span class="mi">79</span><span class="p">]</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="_2">Списки как динамические массивы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Списки в Python являются обычными <a href="https://en.wikipedia.org/wiki/Dynamic_array">динамическими массивами</a> (вектор в C++) и обладают всеми их свойствами с точки зрения производительности: в частности, обращение к элементу по его индексу имеет сложность <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>, а поиск элемента имеет сложность <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>.</p>
+<p>Списки в CPython определены с помощью следующей <a href="https://github.com/python/cpython/blob/master/Include/listobject.h#L23">структуры</a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_VAR_HEAD</span>
+    <span class="cm">/* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">ob_item</span><span class="p">;</span>
+
+    <span class="cm">/* ob_item contains space for &#39;allocated&#39; elements.  The number</span>
+<span class="cm">     * currently in use is ob_size.</span>
+<span class="cm">     * Invariants:</span>
+<span class="cm">     *     0 &lt;= ob_size &lt;= allocated</span>
+<span class="cm">     *     len(list) == ob_size</span>
+<span class="cm">     *     ob_item == NULL implies ob_size == allocated == 0</span>
+<span class="cm">     * list.sort() temporarily sets allocated to -1 to detect mutations.</span>
+<span class="cm">     *</span>
+<span class="cm">     * Items must normally not be NULL, except during construction when</span>
+<span class="cm">     * the list is not yet visible outside the function that builds it.</span>
+<span class="cm">     */</span>
+    <span class="n">Py_ssize_t</span> <span class="n">allocated</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PyListObject</span><span class="p">;</span>
+</pre></div>
+
+<p>Где:</p>
+<ul>
+<li><code class="codehilite"><span class="n">ob_item</span></code> - массив указателей на <code class="codehilite"><span class="n">PyObject</span></code>;</li>
+<li><code class="codehilite"><span class="n">allocated</span></code> - емкость массива (размер буффера), то есть сколько элементов можно поместить в массив <code class="codehilite"><span class="n">ob_item</span></code> до его увеличения, в то время как <code class="codehilite"><span class="n">ob_size</span></code> - текущее количество элементов в массиве.</li>
+</ul>
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/listobject.svg" /></p>
+<p>Если мы добавляем новый элемент в массив и при этом размер массива совпадает с размером буффера, то есть, <code class="codehilite"><span class="n">ob_size</span> <span class="o">==</span> <span class="n">allocated</span></code>, то происходит увеличение размера буффера путем перераспределения памяти по следующему правилу:</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* This over-allocates proportional to the list size, making room</span>
+<span class="cm"> * for additional growth.  The over-allocation is mild, but is</span>
+<span class="cm"> * enough to give linear-time amortized behavior over a long</span>
+<span class="cm"> * sequence of appends() in the presence of a poorly-performing</span>
+<span class="cm"> * system realloc().</span>
+<span class="cm"> * The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...</span>
+<span class="cm"> * Note: new_allocated won&#39;t overflow because the largest possible value</span>
+<span class="cm"> *       is PY_SSIZE_T_MAX * (9 / 8) + 6 which always fits in a size_t.</span>
+<span class="cm"> */</span>
+<span class="n">new_allocated</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">newsize</span> <span class="o">+</span> <span class="p">(</span><span class="n">newsize</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">newsize</span> <span class="o">&lt;</span> <span class="mi">9</span> <span class="o">?</span> <span class="mi">3</span> <span class="o">:</span> <span class="mi">6</span><span class="p">);</span>
+</pre></div>
+
+<p>Давайте посмотрим на процесс перераспределения памяти в действии с помощью модуля ctypes:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ListStruct</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;ob_refcnt&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_type&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_size&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ob_item&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">),</span>  <span class="c1"># PyObject** pointer cast to long</span>
+                <span class="p">(</span><span class="s2">&quot;allocated&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ssize_t</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;ListStruct(ob_size={self.ob_size}, allocated={self.allocated})&quot;</span>
+</pre></div>
+
+<p>Создадим пустой список:</p>
+<p><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ls</span> <span class="o">=</span> <span class="n">ListStruct</span><span class="o">.</span><span class="n">from_address</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ls</span>
+<span class="n">ListStruct</span><span class="p">(</span><span class="n">ob_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allocated</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+<img alt="image" class="center" src="../../images/lectures/mutable-types/listobject4.svg" /></p>
+<p>Пустой список имеет размер ноль и емкость ноль. Добавим один элемент:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ls</span>
+<span class="n">ListStruct</span><span class="p">(</span><span class="n">ob_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">allocated</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/listobject3.svg" /></p>
+<p>Как мы видим и размер и емкость списка изменились в соответствии с правилом роста. Добавим еще несколько элементов в список:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ls</span>
+<span class="n">ListStruct</span><span class="p">(</span><span class="n">ob_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">allocated</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ls</span>
+<span class="n">ListStruct</span><span class="p">(</span><span class="n">ob_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">allocated</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/listobject2.svg" /></p>
+<p>Итак, давайте отметим основные различия между кортежами и списками:</p>
+<ul>
+<li>с точки зрения внутреннего представления кортежи являются статическими массивами, а списки динамическими;</li>
+<li>кортежи занимают меньше места в памяти, так как имеют фиксированную длину;</li>
+<li>кортежи неизменяемые (immutable) и могут быть выступать в качестве ключей словарей или элементов множеств;</li>
+<li>кортежи обычно представляют абстрактные объекты, обладающие некоторой структурой (см. <a href="https://docs.python.org/3/library/collections.html#collections.namedtuple"><code class="codehilite"><span class="n">namedtuple</span></code></a> модуля <code class="codehilite"><span class="n">collections</span></code> или <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple"><code class="codehilite"><span class="n">NamedTuple</span></code></a> из модуля <code class="codehilite"><span class="n">typing</span></code>).</li>
+</ul>
+<h2 id="_3">Словари<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Словари являются одной из самых важных и сложных структур в Python и мы с ними будем постоянно встречаться. Словари представляют собой множество упорядоченных пар вида «ключ:значение».</p>
+<p>Иногда словари называют <a href="https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2">ассоциативными массивами</a>, иногда отображениями (имеется ввиду отображение множества ключей словаря в множество его значений).</p>
+<p>Как и списки, словари имеют переменную длину, произвольную вложенность и могут хранить значения произвольных типов.</p>
+<p>Создадим словарь с данными о населении ряда стран (ключами в таком словаре будут страны, а значениями - размер населения):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;India&#39;</span><span class="p">:</span> <span class="mi">1326801576</span><span class="p">,</span>
+    <span class="s1">&#39;Brazil&#39;</span><span class="p">:</span> <span class="mi">209567920</span><span class="p">,</span>
+    <span class="s1">&#39;China&#39;</span><span class="p">:</span> <span class="mi">1382323332</span><span class="p">,</span>
+    <span class="s1">&#39;Nigeria&#39;</span><span class="p">:</span> <span class="mi">186987563</span><span class="p">,</span>
+    <span class="s1">&#39;Bangladesh&#39;</span><span class="p">:</span> <span class="mi">162910864</span><span class="p">,</span>
+    <span class="s1">&#39;U.S.&#39;</span><span class="p">:</span> <span class="mi">324118787</span><span class="p">,</span>
+    <span class="s1">&#39;Russia&#39;</span><span class="p">:</span> <span class="mi">143439832</span><span class="p">,</span>
+    <span class="s1">&#39;Pakistan&#39;</span><span class="p">:</span> <span class="mi">192826502</span><span class="p">,</span>
+    <span class="s1">&#39;Mexico&#39;</span><span class="p">:</span> <span class="mi">128632004</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Иногда у нас есть отдельно списки ключей и значений, из которых мы хотим создать словарь:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="s1">&#39;Brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;China&#39;</span><span class="p">,</span> <span class="s1">&#39;Nigeria&#39;</span><span class="p">,</span> <span class="s1">&#39;Bangladesh&#39;</span><span class="p">,</span> <span class="s1">&#39;U.S.&#39;</span><span class="p">,</span> <span class="s1">&#39;Russia&#39;</span><span class="p">,</span> <span class="s1">&#39;Pakistan&#39;</span><span class="p">,</span> <span class="s1">&#39;Mexico&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">populations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1326801576</span><span class="p">,</span> <span class="mi">209567920</span><span class="p">,</span> <span class="mi">1382323332</span><span class="p">,</span> <span class="mi">186987563</span><span class="p">,</span> <span class="mi">162910864</span><span class="p">,</span> <span class="mi">324118787</span><span class="p">,</span> <span class="mi">143439832</span><span class="p">,</span> <span class="mi">192826502</span><span class="p">,</span> <span class="mi">128632004</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="n">populations</span><span class="p">))</span>
+<span class="p">{</span><span class="s1">&#39;Bangladesh&#39;</span><span class="p">:</span> <span class="mi">162910864</span><span class="p">,</span>
+ <span class="s1">&#39;Brazil&#39;</span><span class="p">:</span> <span class="mi">209567920</span><span class="p">,</span>
+ <span class="s1">&#39;China&#39;</span><span class="p">:</span> <span class="mi">1382323332</span><span class="p">,</span>
+ <span class="s1">&#39;India&#39;</span><span class="p">:</span> <span class="mi">1326801576</span><span class="p">,</span>
+ <span class="s1">&#39;Mexico&#39;</span><span class="p">:</span> <span class="mi">128632004</span><span class="p">,</span>
+ <span class="s1">&#39;Nigeria&#39;</span><span class="p">:</span> <span class="mi">186987563</span><span class="p">,</span>
+ <span class="s1">&#39;Pakistan&#39;</span><span class="p">:</span> <span class="mi">192826502</span><span class="p">,</span>
+ <span class="s1">&#39;Russia&#39;</span><span class="p">:</span> <span class="mi">143439832</span><span class="p">,</span>
+ <span class="s1">&#39;U.S.&#39;</span><span class="p">:</span> <span class="mi">324118787</span><span class="p">}</span>
+</pre></div>
+
+<p>Обращение к элементам словаря похоже на обращение к элементам последовательностей, только вместо индекса используется ключ:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="p">[</span><span class="s1">&#39;Russia&#39;</span><span class="p">]</span>
+<span class="mi">143439832</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="p">[</span><span class="s1">&#39;Russia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">143439832</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="p">[</span><span class="s1">&#39;Russia&#39;</span><span class="p">]</span>
+<span class="mi">143439833</span>
+</pre></div>
+
+<p>Добавим новую пару:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="p">[</span><span class="s1">&#39;Japan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">126323715</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span>
+<span class="p">{</span><span class="s1">&#39;Bangladesh&#39;</span><span class="p">:</span> <span class="mi">162910864</span><span class="p">,</span>
+ <span class="s1">&#39;Brazil&#39;</span><span class="p">:</span> <span class="mi">209567920</span><span class="p">,</span>
+ <span class="s1">&#39;China&#39;</span><span class="p">:</span> <span class="mi">1382323332</span><span class="p">,</span>
+ <span class="s1">&#39;India&#39;</span><span class="p">:</span> <span class="mi">1326801576</span><span class="p">,</span>
+ <span class="s1">&#39;Japan&#39;</span><span class="p">:</span> <span class="mi">126323715</span><span class="p">,</span>
+ <span class="s1">&#39;Mexico&#39;</span><span class="p">:</span> <span class="mi">128632004</span><span class="p">,</span>
+ <span class="s1">&#39;Nigeria&#39;</span><span class="p">:</span> <span class="mi">186987563</span><span class="p">,</span>
+ <span class="s1">&#39;Pakistan&#39;</span><span class="p">:</span> <span class="mi">192826502</span><span class="p">,</span>
+ <span class="s1">&#39;Russia&#39;</span><span class="p">:</span> <span class="mi">143439833</span><span class="p">,</span>
+ <span class="s1">&#39;U.S.&#39;</span><span class="p">:</span> <span class="mi">324118787</span><span class="p">}</span>
+</pre></div>
+
+<p>При попытке извлечь значение с несуществующим ключом, генерируется
+исключение <code class="codehilite"><span class="n">KeyError</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="p">[</span><span class="s1">&#39;Poland&#39;</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;Poland&#39;</span>
+</pre></div>
+
+<p>С помощью оператора <code class="codehilite"><span class="k">in</span></code> можно проверить существует ли ключ в словаре. Оператор <code class="codehilite"><span class="k">in</span></code> работает со всеми контейнерами (строки, списки, кортежи, словари, множества), но для последовательностей (строки, списки, кортежи) эта операция является медленной:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Russia&quot;</span> <span class="ow">in</span> <span class="n">population_by_countries</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Poland&quot;</span> <span class="ow">in</span> <span class="n">population_by_countries</span>
+<span class="bp">False</span>
+</pre></div>
+
+<p>Можно воспользоваться методом <code class="codehilite"><span class="k">get</span></code>, опционально указав значение, которое будет возвращено, если ключ не был найден:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Poland&#39;</span><span class="p">)</span> <span class="c1"># None</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Poland&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">)</span>
+<span class="s1">&#39;NA&#39;</span>
+</pre></div>
+
+<p>Иногда нужно получить отдельно «список» ключей, значенией или кортежей (ключ, значение):</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">dict_values</span><span class="p">([</span><span class="mi">1326801576</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">126323715</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">population_by_countries</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="n">dict_items</span><span class="p">([(</span><span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="mi">1326801576</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="mi">126323715</span><span class="p">)])</span>
+</pre></div>
+
+<p>Вы не можете упорядочить словарь по ключам или значениям, но можете получить список кортежей и упорядочить его:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">population_by_countries</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">[(</span><span class="s1">&#39;China&#39;</span><span class="p">,</span> <span class="mi">1382323332</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="mi">1326801576</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;U.S.&#39;</span><span class="p">,</span> <span class="mi">324118787</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Brazil&#39;</span><span class="p">,</span> <span class="mi">209567920</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Pakistan&#39;</span><span class="p">,</span> <span class="mi">192826502</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Nigeria&#39;</span><span class="p">,</span> <span class="mi">186987563</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Bangladesh&#39;</span><span class="p">,</span> <span class="mi">162910864</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Russia&#39;</span><span class="p">,</span> <span class="mi">143439833</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Mexico&#39;</span><span class="p">,</span> <span class="mi">128632004</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="mi">126323715</span><span class="p">)]</span>
+</pre></div>
+
+<p>Зачастую словари используются для представления куда более сложных структур, например:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">requests</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.openweathermap.org/data/2.5/weather?q=Saint Petersburg&amp;units=metric&amp;APPID=a46b3bb83f9e16e2ee203e9ecfca99f8&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="p">{</span><span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="s1">&#39;stations&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;clouds&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">},</span>
+ <span class="s1">&#39;cod&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+ <span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span> <span class="mf">59.94</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="mf">30.32</span><span class="p">},</span>
+ <span class="s1">&#39;dt&#39;</span><span class="p">:</span> <span class="mi">1519380000</span><span class="p">,</span>
+ <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">498817</span><span class="p">,</span>
+ <span class="s1">&#39;main&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;humidity&#39;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span>
+          <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="mi">1027</span><span class="p">,</span>
+          <span class="s1">&#39;temp&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span>
+          <span class="s1">&#39;temp_max&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span>
+          <span class="s1">&#39;temp_min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">11</span><span class="p">},</span>
+ <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Saint Petersburg&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sys&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;RU&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">7267</span><span class="p">,</span>
+         <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="mf">0.0041</span><span class="p">,</span>
+         <span class="s1">&#39;sunrise&#39;</span><span class="p">:</span> <span class="mi">1519362815</span><span class="p">,</span>
+         <span class="s1">&#39;sunset&#39;</span><span class="p">:</span> <span class="mi">1519398694</span><span class="p">,</span>
+         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+ <span class="s1">&#39;visibility&#39;</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span>
+ <span class="s1">&#39;weather&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;light snow&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;icon&#39;</span><span class="p">:</span> <span class="s1">&#39;13d&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+              <span class="s1">&#39;main&#39;</span><span class="p">:</span> <span class="s1">&#39;Snow&#39;</span><span class="p">}],</span>
+ <span class="s1">&#39;wind&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;deg&#39;</span><span class="p">:</span> <span class="mi">280</span><span class="p">,</span> <span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}}</span>
+</pre></div>
+
+<h3 id="_4">Хеширование<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Мы не будем рассматривать внутреннее представление словарей, так как они устроены значительно сложнее чем объекты, которые мы рассматривали ранее. Для интересующихся можно посмотреть выступления <a href="https://www.youtube.com/watch?v=p33CVV29OG8">Raymond Hettinger</a> и <a href="https://www.youtube.com/watch?v=66P5FMkWoVU">Brandon Rhodes</a> о работе словарей, или почитать исчерпывающую презентацию <a href="https://www.slideshare.net/delimitry/python-dict-66233023">Дмитрия Алимова</a> об эволюции словарей, начиная с Python 2.x.</p>
+<p>Тем не менее следует знать, что ключами словарей могут быть только хешируемые объекты (читай <em>неизменяемые</em>), то есть те объекты, для которых определена хеш-функция (обычно это числа, строки и кортежи).</p>
+<p>Хеш-функция это такая функция, которая задает правило отображания объектов в целые числа. Существует множество видов хеш-функций и они должны обладать рядом свойств, например, «если два объекта равны, то их хеши должны быть одинаковыми» или «если объекты имеют одинаковый хеш, то вероятно это один и тот же объект». Для наглядности мы рассмотрим простой пример. Зададим хеш-функцию для строк, которая вычисляет хеш как сумму произведений позиции символа на его кодовый знак, и будем использовать эту функцию для определения индекса в списке куда следует поместить строку:</p>
+<div class="admonition note">
+  <p class="first admonition-title"><strong>Замечание</strong></p>
+  <p class="last">Чтобы не выполнять все промежуточные шаги, вы можете выделить строки 5,9,10,12,13,15,16,18,19 (они станут отмечены красным цветом).</p>
+</div>
+
+<iframe width="1000" height="600" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20my_hash%28astring%29%3A%0A%20%20%20%20h%20%3D%200%0A%20%20%20%20for%20pos,%20ch%20in%20enumerate%28astring%29%3A%0A%20%20%20%20%20%20%20%20h%20%2B%3D%20pos%20*%20ord%28ch%29%0A%20%20%20%20return%20h%0A%0AL%20%3D%20%5BNone,%20None,%20None,%20None,%20None%5D%0A%0Aindex%20%3D%20my_hash%28'%D0%AF'%29%20%25%20len%28L%29%0AL%5Bindex%5D%20%3D%20'%D0%AF'%0A%0Aindex%20%3D%20my_hash%28'%D0%BD%D0%B8%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0'%29%20%25%20len%28L%29%0AL%5Bindex%5D%20%3D%20'%D0%BD%D0%B8%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0'%0A%0Aindex%20%3D%20my_hash%28'%D0%BD%D0%B5'%29%20%25%20len%28L%29%0AL%5Bindex%5D%20%3D%20'%D0%BD%D0%B5'%0A%0Aindex%20%3D%20my_hash%28'%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D1%8E%D1%81%D1%8C'%29%20%25%20len%28L%29%0AL%5Bindex%5D%20%3D%20'%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D1%8E%D1%81%D1%8C'&codeDivHeight=400&codeDivWidth=400&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p>Фактически мы получили очень наивную реализацию <a href="https://en.wikipedia.org/wiki/Hash_table">хеш-таблицы</a> (словаря). Вы могли заметить, что для последней строки «повторяюсь» мы получили такой же хеш как и для строки «не» - это называется коллизией.</p>
+<h2 id="_5">Множества<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Последний измненяемый тип, который мы рассмотрим, это множества. Множества представлены структурой <code class="codehilite"><span class="n">PySetObject</span></code>, а элементами множества являются записи, представленные структурой <code class="codehilite"><span class="n">setentry</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">key</span><span class="p">;</span>
+    <span class="n">Py_hash_t</span> <span class="n">hash</span><span class="p">;</span>             <span class="cm">/* Cached hash code of the key */</span>
+<span class="p">}</span> <span class="n">setentry</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+
+    <span class="n">Py_ssize_t</span> <span class="n">fill</span><span class="p">;</span>            <span class="cm">/* Number active and dummy entries*/</span>
+    <span class="n">Py_ssize_t</span> <span class="n">used</span><span class="p">;</span>            <span class="cm">/* Number active entries */</span>
+    <span class="n">Py_ssize_t</span> <span class="n">mask</span><span class="p">;</span>
+    <span class="n">setentry</span> <span class="o">*</span><span class="n">table</span><span class="p">;</span>
+    <span class="n">Py_hash_t</span> <span class="n">hash</span><span class="p">;</span>             <span class="cm">/* Only used by frozenset objects */</span>
+    <span class="n">Py_ssize_t</span> <span class="n">finger</span><span class="p">;</span>          <span class="cm">/* Search finger for pop() */</span>
+
+    <span class="n">setentry</span> <span class="n">smalltable</span><span class="p">[</span><span class="n">PySet_MINSIZE</span><span class="p">];</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">weakreflist</span><span class="p">;</span>      <span class="cm">/* List of weak references */</span>
+<span class="p">}</span> <span class="n">PySetObject</span><span class="p">;</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/setobject.svg" /></p>
+<p><a href="https://github.com/python/cpython/blob/3.8/Objects/setobject.c#L1025"><code class="codehilite"><span class="n">make_new_set</span></code></a></p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/setobject2.svg" /></p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<p><a href="https://github.com/python/cpython/blob/3.8/Objects/setobject.c#L138"><code class="codehilite"><span class="n">set_add_entry</span></code></a></p>
+<div class="codehilite"><pre><span></span><span class="c1">// ...</span>
+<span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)</span><span class="n">hash</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">;</span>
+
+<span class="n">entry</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">so</span><span class="o">-&gt;</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">key</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="k">goto</span> <span class="n">found_unused</span><span class="p">;</span>
+<span class="c1">// ...</span>
+<span class="nl">found_unused</span><span class="p">:</span>
+    <span class="n">so</span><span class="o">-&gt;</span><span class="n">fill</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">entry</span><span class="o">-&gt;</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>
+    <span class="n">entry</span><span class="o">-&gt;</span><span class="n">hash</span> <span class="o">=</span> <span class="n">hash</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">so</span><span class="o">-&gt;</span><span class="n">fill</span><span class="o">*</span><span class="mi">5</span> <span class="o">&lt;</span> <span class="n">mask</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nf">set_table_resize</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">&gt;</span><span class="mi">50000</span> <span class="o">?</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">*</span><span class="mi">2</span> <span class="o">:</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/setobject3.svg" /></p>
+<p>Давайте попробуем добавить еще пару элементов:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+<p>В обоих случаях возникнет коллизия, так как <code class="codehilite"><span class="n">hash</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">1</span></code> и <code class="codehilite"><span class="n">hash</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">5</span></code>, а соответствующие позиции уже заняты. В CPython используется <a href="https://en.wikipedia.org/wiki/Linear_probing">линейное пробирование</a> вместо цепочек для разрешения коллизий.</p>
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/setobject4.svg" /></p>
+<p>И наконец, если мы добавим еще один элемент:</p>
+<p><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+то произойдет реаллокация таблицы и все элементы будут повторно вставлены с новым значением маски:</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="kt">size_t</span><span class="p">)</span><span class="n">so</span><span class="o">-&gt;</span><span class="n">fill</span><span class="o">*</span><span class="mi">5</span> <span class="o">&lt;</span> <span class="n">mask</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">return</span> <span class="nf">set_table_resize</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">&gt;</span><span class="mi">50000</span> <span class="o">?</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">*</span><span class="mi">2</span> <span class="o">:</span> <span class="n">so</span><span class="o">-&gt;</span><span class="n">used</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt="image" class="center" src="../../images/lectures/mutable-types/setobject5.svg" /></p>
+<p>Мы вкратце рассмотрели основные типы данных и внутреннее представление некоторых из них. Вы не должны стараться запомнить или понять все что было описано в этой лекции с первого раза. Время от времени возвращайтесь к тем разделам, которые вам позакались непонятными.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                Неизменяемые типы данных
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../control-statements/" title="Управляющие конструкции" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Управляющие конструкции
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

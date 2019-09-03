@@ -1,0 +1,1423 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/lectures/iterators/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Итераторы - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Итераторы
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../immutable-types/" title="Лекции" class="md-tabs__link md-tabs__link--active">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../assignments/setup_env/" title="Практические работы" class="md-tabs__link">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+      Неизменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+      Изменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+      ООП. Классы. Магические методы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Итераторы
+      </label>
+    
+    <a href="./" title="Итераторы" class="md-nav__link md-nav__link--active">
+      Итераторы
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Итераторы" class="md-nav__link">
+    Итераторы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterables" title="Итерирумые объекты (Iterables)" class="md-nav__link">
+    Итерирумые объекты (Iterables)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for" title="Итерирование с помощью цикла for" class="md-nav__link">
+    Итерирование с помощью цикла for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__getitem__" title="Магический метод __getitem__" class="md-nav__link">
+    Магический метод __getitem__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Что почитать?" class="md-nav__link">
+    Что почитать?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+      Настройка рабочего окружения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
+      Решатель Судоку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Итераторы" class="md-nav__link">
+    Итераторы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterables" title="Итерирумые объекты (Iterables)" class="md-nav__link">
+    Итерирумые объекты (Iterables)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for" title="Итерирование с помощью цикла for" class="md-nav__link">
+    Итерирование с помощью цикла for
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__getitem__" title="Магический метод __getitem__" class="md-nav__link">
+    Магический метод __getitem__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Что почитать?" class="md-nav__link">
+    Что почитать?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/iterators.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Итераторы</h1>
+                
+                <p>В этой лекции, основанной на серии <a href="https://github.com/jmoldow/jmoldow-python3-async-tutorial">тетрадок</a> Jordan Moldow, мы рассмотрим такие понятия как итераторы и итерируемые объекты.</p>
+<h2 id="_1">Итераторы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://refactoring.guru/ru/design-patterns/iterator">Итератор</a> — это поведенческий паттерн проектирования, который даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления.</p>
+<p>В Python <a href="https://docs.python.org/3.7/library/collections.abc.html#collections.abc.Iterator">Iterator</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> является экземпляром любого класса, который реализует магические методы <code class="codehilite"><span class="n">__iter__</span><span class="p">()</span></code> и <code class="codehilite"><span class="n">__next__</span><span class="p">()</span></code> (<code class="codehilite"><span class="k">next</span><span class="ss">()</span></code> в Python 2.x)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p><code class="codehilite"><span class="n">iter</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span></code> или, что тоже самое <code class="codehilite"><span class="n">iterator</span><span class="p">.</span><span class="n">__iter__</span><span class="p">()</span></code>, должен всегда возвращать <code class="codehilite"><span class="n">iterator</span></code>, указывая тем самым, что объект является итератором по отношению к себе.</p>
+<p><code class="codehilite"><span class="k">next</span><span class="ss">(</span><span class="nv">iterator</span><span class="ss">)</span></code> эквивалентен вызову <code class="codehilite"><span class="n">iterator</span><span class="p">.</span><span class="n">__next__</span><span class="p">()</span></code>, а <code class="codehilite"><span class="nv">value</span> <span class="o">=</span> <span class="k">next</span><span class="ss">(</span><span class="nv">iterator</span>, <span class="nv">default</span><span class="ss">)</span></code> эквивалентен записи вида:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">__next__</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+</pre></div>
+
+<p><code class="codehilite"><span class="n">__next__</span><span class="p">()</span></code> это метод, который «вычисляет» и возвращает следующий элемент итератора. Когда итератор исчерпан, то есть, нет больше элементов, которые он может вернуть, порождается исключение <code class="codehilite"><span class="n">StopIteration</span></code>. Таким образом, <code class="codehilite"><span class="n">__next__</span><span class="p">()</span></code> изменяет внутреннее состояние итератора и по умолчанию (и соглашению) итераторы исчерпываются после одного полного прохода по ним.</p>
+<p>Давайте рассмотрим пример простого итератора:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">collections.abc</span>
+
+<span class="k">class</span> <span class="nc">RangeIterator</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterator</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;stop must be an int&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">stop</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;stop must be &gt;= 0&#39;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_item</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">stop</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="ne">StopIteration</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;&lt;{self.__class__.__name__}({self.stop!r}): next_item={self.next_item!r}&gt;&quot;</span>
+
+    <span class="c1"># __iter__ is already defined in `collections.Iterator` as</span>
+    <span class="c1">#</span>
+    <span class="c1"># def __iter__(self):</span>
+    <span class="c1">#     return self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_item</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="ne">StopIteration</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_item</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_item</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_item</span> <span class="o">=</span> <span class="ne">StopIteration</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">item</span>
+</pre></div>
+
+<p>Примеры использования:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">range_iterator</span> <span class="o">=</span> <span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">range_iterator</span>
+<span class="o">&lt;</span><span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">next_item</span><span class="o">=</span><span class="mi">0</span><span class="o">&gt;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">),</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">)</span> <span class="ow">is</span> <span class="n">range_iterator</span>
+<span class="p">(</span><span class="o">&lt;</span><span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">next_item</span><span class="o">=</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">),</span> <span class="n">range_iterator</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">next_item</span><span class="o">=</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">),</span> <span class="n">range_iterator</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">next_item</span><span class="o">=</span><span class="ne">StopIteration</span><span class="p">()</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">traceback</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">next</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="o">...</span>
+<span class="ne">StopIteration</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">range_iterator</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">2</span>
+</pre></div>
+
+<h2 id="iterables">Итерирумые объекты (Iterables)<a class="headerlink" href="#iterables" title="Permanent link">&para;</a></h2>
+<p>В Python <a href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.Iterable">Iterable</a> является экземляром любого класса, у которого определен магический метод <code class="codehilite"><span class="n">__iter__</span><span class="p">()</span></code>. <code class="codehilite"><span class="n">Iterator</span></code> является подклассом <code class="codehilite"><span class="n">Iterable</span></code>.</p>
+<p><code class="codehilite"><span class="n">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span></code> тоже что и <code class="codehilite"><span class="n">iterable</span><span class="p">.</span><span class="n">__iter__</span><span class="p">()</span></code> и всегда должен возвращать итератор для итерируемого объекта. По этому итератору затем можно итерироваться, чтобы получить элементы итерируемого объекта в заданном итератором порядке.</p>
+<p>Итерируемые объекты (влючая все итераторы) позволяют осуществить только один полный проход по ним, но они могут быть переиспользованы. Для повторного прохода по элементам необходимо вызвать магический метод <code class="codehilite"><span class="n">__iter__</span><span class="p">()</span></code> (у итерируемого объекта), который вернет новый итератор.</p>
+<p>Далее приведен простой пример итерируемого объекта:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">collections.abc</span>
+
+<span class="k">class</span> <span class="nc">RangeIterable</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{self.__class__.__name__}({self.stop!r})&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">RangeIterator</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">)</span>
+</pre></div>
+
+<p>Примеры использования:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">range_iterable</span> <span class="o">=</span> <span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">range_iterable</span>
+<span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">traceback</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">next</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="o">...</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;RangeIterable&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">iterator</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">RangeIterator</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">next_item</span><span class="o">=</span><span class="mi">0</span><span class="o">&gt;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">)</span> <span class="ow">is</span> <span class="n">range_iterable</span>
+<span class="bp">False</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">iter</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">)</span>
+<span class="bp">False</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">range_iterable</span><span class="p">))</span>
+<span class="mi">0</span>
+</pre></div>
+
+<h2 id="for">Итерирование с помощью цикла for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
+<p>Python позволяет «вручную» итерироваться по итераторам и итерируемым объектам с помощью <code class="codehilite"><span class="n">iter</span><span class="p">()</span></code> и <code class="codehilite"><span class="k">next</span><span class="ss">()</span></code>. Однако, Python имеет встроенную поддержку для автоматического итерирования с использованием цикла <code class="codehilite"><span class="k">for</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="c1"># Выполнить какое-то действие над `item`, например вывести</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+<p>Если мы проигнорируем семантику с использованием <code class="codehilite"><span class="k">continue</span></code>, <code class="codehilite"><span class="k">break</span></code> и <code class="codehilite"><span class="k">else</span></code>, то цикл <code class="codehilite"><span class="k">for</span></code> в общем виде может быть записан как:</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">TARGET</span> <span class="ow">in</span> <span class="n">ITER</span><span class="p">:</span>
+    <span class="n">BLOCK</span>
+</pre></div>
+
+<p>Что является синтаксическим сахаром для чего-то вроде:</p>
+<div class="codehilite"><pre><span></span><span class="n">iterable</span> <span class="o">=</span> <span class="p">(</span><span class="n">ITER</span><span class="p">)</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+<span class="n">running</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">TARGET</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+        <span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">BLOCK</span>
+</pre></div>
+
+<p>Заметим, что цикл <code class="codehilite"><span class="k">for</span></code> имеет специальную обработку для <code class="codehilite"><span class="n">StopIteration</span></code>. Цикл <code class="codehilite"><span class="k">for</span></code> осведомлен о <a href="https://docs.python.org/3/library/stdtypes.html#iterator-types">протоколе итератор</a> (iterator protocol) и знает как поймать исключение <code class="codehilite"><span class="n">StopIteration</span></code> и интерпретирует его как конец итерирования:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+</pre></div>
+
+<p>или:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">manual_simplified_for_loop</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+    <span class="n">iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">function</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">manual_simplified_for_loop</span><span class="p">(</span><span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="k">print</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+</pre></div>
+
+<p>Давайте посмотрим на список инструкций, которые будут выполнены для первого примера:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;for item in RangeIterable(2): print(item)&quot;</span><span class="p">)</span>
+  <span class="mi">1</span>           <span class="mi">0</span> <span class="n">SETUP_LOOP</span>              <span class="mi">24</span> <span class="p">(</span><span class="n">to</span> <span class="mi">26</span><span class="p">)</span>
+              <span class="mi">2</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">RangeIterable</span><span class="p">)</span>
+              <span class="mi">4</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+              <span class="mi">6</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
+              <span class="mi">8</span> <span class="n">GET_ITER</span>
+        <span class="o">&gt;&gt;</span>   <span class="mi">10</span> <span class="n">FOR_ITER</span>                <span class="mi">12</span> <span class="p">(</span><span class="n">to</span> <span class="mi">24</span><span class="p">)</span>
+             <span class="mi">12</span> <span class="n">STORE_NAME</span>               <span class="mi">1</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+             <span class="mi">14</span> <span class="n">LOAD_NAME</span>                <span class="mi">2</span> <span class="p">(</span><span class="k">print</span><span class="p">)</span>
+             <span class="mi">16</span> <span class="n">LOAD_NAME</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+             <span class="mi">18</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
+             <span class="mi">20</span> <span class="n">POP_TOP</span>
+             <span class="mi">22</span> <span class="n">JUMP_ABSOLUTE</span>           <span class="mi">10</span>
+        <span class="o">&gt;&gt;</span>   <span class="mi">24</span> <span class="n">POP_BLOCK</span>
+        <span class="o">&gt;&gt;</span>   <span class="mi">26</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+             <span class="mi">28</span> <span class="n">RETURN_VALUE</span>
+</pre></div>
+
+<p>Инструкция <a href="https://github.com/python/cpython/blob/3.7/Python/ceval.c#L2763"><code class="codehilite"><span class="n">GET_ITER</span></code></a> получает итератор для объекта, который находится на вершине стека (в нашем примере это <code class="codehilite"><span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code>). <a href="https://github.com/python/cpython/blob/3.7/Python/ceval.c#L2806"><code class="codehilite"><span class="n">FOR_ITER</span></code></a>, получает следующее значение из итератора (в нашем примере это 0 и 1) и помещает его на вершину стека. Затем выполняется тело цикла (печать переменной <code class="codehilite"><span class="n">item</span></code>) и все повторяется снова до тех пор пока итератор не будет исчерпан.</p>
+<p>И последнее, что следует иметь ввиду, большое число как встроенных функций, так и функций стандартной библиотеки, принимают в качестве аргументов итерируемые объекты и затем итерируются по ним или «вручную» или с использованием цикла <code class="codehilite"><span class="k">for</span></code>, например:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">RangeIterable</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">RangeIterable</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+
+<h2 id="__getitem__">Магический метод <code class="codehilite"><span class="n">__getitem__</span></code><a class="headerlink" href="#__getitem__" title="Permanent link">&para;</a></h2>
+<p>Есть еще один способ итерироваться по объекту без реализации протокола итераторов, переопределив магический метод <code class="codehilite"><span class="n">__getitem__</span></code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">RangeIterable</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="n">stop</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">RangeIterable</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">StopIteration</span>
+</pre></div>
+
+<p>С точки зрения байт-кода ничего не меняется: мы получаем итератор (<code class="codehilite"><span class="n">GET_ITER</span></code>), а затем последовательно получаем элементы (<code class="codehilite"><span class="n">FOR_ITER</span></code>). Чтобы понять как это работает давайте рассмотрим инструкцию <code class="codehilite"><span class="n">GET_ITER</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">case</span> <span class="nf">TARGET</span><span class="p">(</span><span class="n">GET_ITER</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+    <span class="cm">/* before: [obj]; after [getiter(obj)] */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">iterable</span> <span class="o">=</span> <span class="n">TOP</span><span class="p">();</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">iter</span> <span class="o">=</span> <span class="n">PyObject_GetIter</span><span class="p">(</span><span class="n">iterable</span><span class="p">);</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Нас здесь интересует только вызов функции <a href="https://github.com/python/cpython/blob/3.8/Objects/abstract.c#L2565"><code class="codehilite"><span class="n">PyObject_GetIter</span></code></a>, которая возвращает итератор для объекта на вершине стека:</p>
+<div class="codehilite"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">PyObject_GetIter</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">o</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyTypeObject</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">ob_type</span><span class="p">;</span>
+    <span class="n">getiterfunc</span> <span class="n">f</span><span class="p">;</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">tp_iter</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">PySequence_Check</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">PySeqIter_New</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">type_error</span><span class="p">(</span><span class="s">&quot;&#39;%.200s&#39; object is not iterable&quot;</span><span class="p">,</span> <span class="n">o</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">PyObject</span> <span class="o">*</span><span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">f</span><span class="p">)(</span><span class="n">o</span><span class="p">);</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>В функции <code class="codehilite"><span class="n">PyObject_GetIter</span></code> проверяется установлен ли слот <code class="codehilite"><span class="n">tp_iter</span></code> у итерируемого объекта (т.е., был ли переопределен метод <code class="codehilite"><span class="n">__iter__</span></code>). Если слот не установлен, то проверяется реализует ли объект <a href="https://docs.python.org/3/c-api/sequence.html">протокол последовательностей</a><sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> и, если реализует, то происходит вызов функции <a href="https://github.com/python/cpython/blob/master/Objects/iterobject.c#L7"><code class="codehilite"><span class="n">PySeqIter_New</span></code></a>, в которой создается новый итератор:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="n">Py_ssize_t</span> <span class="n">it_index</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">it_seq</span><span class="p">;</span> <span class="cm">/* Set to NULL when iterator is exhausted */</span>
+<span class="p">}</span> <span class="n">seqiterobject</span><span class="p">;</span>
+
+<span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">PySeqIter_New</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">seq</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">seqiterobject</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="n">PyObject_GC_New</span><span class="p">(</span><span class="n">seqiterobject</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">PySeqIter_Type</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">it</span><span class="o">-&gt;</span><span class="n">it_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">Py_INCREF</span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+    <span class="n">it</span><span class="o">-&gt;</span><span class="n">it_seq</span> <span class="o">=</span> <span class="n">seq</span><span class="p">;</span>
+    <span class="n">_PyObject_GC_TRACK</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">it</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="_2">Что почитать?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Модуль <a href="https://docs.python.org/3/library/itertools.html">itertools</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.python.org/dev/peps/pep-0234/">PEP 234 -- Iterators</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.python.org/dev/peps/pep-3114/">PEP 3114 -- Renaming iterator.next() to iterator.__next__()</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__">Описание <code class="codehilite"><span class="n">__getitem__</span></code> в официальной документации</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><mark>In Python code, when <code class="codehilite"><span class="n">__getitem__</span></code> is defined, when the class is instanticated, it calls <code class="codehilite"><span class="n">type_call</span></code> in <code class="codehilite"><span class="n">Objects</span><span class="o">/</span><span class="n">typeobject</span><span class="p">.</span><span class="k">c</span></code>. It assigns the address of <code class="codehilite"><span class="n">as_sequence</span></code> of a <code class="codehilite"><span class="n">PyHeapTypeObject</span></code> to the class's <code class="codehilite"><span class="n">tp_as_sequence</span></code> field. The <code class="codehilite"><span class="n">PySequenceMethods</span></code> struct it points to is initially all zeros, so <code class="codehilite"><span class="n">tp_as_sequence</span><span class="o">-&gt;</span><span class="n">sq_item</span></code> is <code class="codehilite"><span class="k">NULL</span></code>. Then, in <code class="codehilite"><span class="n">update_one_slot</span></code> called from <code class="codehilite"><span class="n">fixup_slot_dispatchers</span></code> called from <code class="codehilite"><span class="n">type_new</span></code> as the type's <code class="codehilite"><span class="n">tp_new</span></code> field called from <code class="codehilite"><span class="n">type_call</span></code>, it checks if <code class="codehilite"><span class="n">__getitem__</span></code> is defined. If that is true, it assigns the <code class="codehilite"><span class="n">slot_sq_item</span></code> function to <code class="codehilite"><span class="n">tp_as_sequence</span><span class="o">-&gt;</span><span class="n">sq_item</span></code>, to make <code class="codehilite"><span class="n">PySequence_Check</span></code> return <code class="codehilite"><span class="k">True</span></code>.</mark>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                ООП. Разрешение имен атрибтутов
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Настройка рабочего окружения
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

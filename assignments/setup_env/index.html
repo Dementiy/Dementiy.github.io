@@ -1,0 +1,1386 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/assignments/setup_env/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Настройка рабочего окружения - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#python" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Настройка рабочего окружения
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../lectures/immutable-types/" title="Лекции" class="md-tabs__link">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Практические работы" class="md-tabs__link md-tabs__link--active">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+      Неизменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+      Изменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+      ООП. Классы. Магические методы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/iterators/" title="Итераторы" class="md-nav__link">
+      Итераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Настройка рабочего окружения
+      </label>
+    
+    <a href="./" title="Настройка рабочего окружения" class="md-nav__link md-nav__link--active">
+      Настройка рабочего окружения
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" title="Установка интерпретатора Python" class="md-nav__link">
+    Установка интерпретатора Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Выбор редактора кода" class="md-nav__link">
+    Выбор редактора кода
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Работа с виртуальными окружениями" class="md-nav__link">
+    Работа с виртуальными окружениями
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Система контроля версий" class="md-nav__link">
+    Система контроля версий
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Задание" class="md-nav__link">
+    Задание
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sudoku/" title="Решатель Судоку" class="md-nav__link">
+      Решатель Судоку
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python" title="Установка интерпретатора Python" class="md-nav__link">
+    Установка интерпретатора Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Выбор редактора кода" class="md-nav__link">
+    Выбор редактора кода
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Работа с виртуальными окружениями" class="md-nav__link">
+    Работа с виртуальными окружениями
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Система контроля версий" class="md-nav__link">
+    Система контроля версий
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Задание" class="md-nav__link">
+    Задание
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/assignments/setup_env.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Настройка рабочего окружения</h1>
+                
+                <p>В этой работе мы познакомимся с основными инструментами необходимыми для выполнения практических заданий. Вполне естественно, что время от времени эта работа будет обновляться - появляются новые инструменты, меняется «workflow», так что следите за изменениями и задавайте вопросы, если что-то непонятно.</p>
+<h2 id="python">Установка интерпретатора Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<p>В первую очередь нам понадобится <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">интерпретатор</a> языка Python<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. На операционных системах с ядром Linux (Ubuntu, Fedora и др.) интерпретатор Python скорее всего уже установлен, но его потребуется обновить до более новой версии (текущая стабильная версия 3.7, а к концу 2019 <a href="https://www.python.org/dev/peps/pep-0569/">ожидается</a> 3.8). У пользователей MacOS интерпретатор Python также скорее всего установлен, но в скором времени Apple <a href="https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_beta_release_notes">откажется</a> от предустановленных скриптовых языков. Если интерпретатор не установлен, то вы можете его установить с помощью пакетного менеджера <a href="https://brew.sh/">Homebrew</a>. Для пользователей операционной системы Windows есть два пути: скачать интерпретатор с официального <a href="https://www.python.org/downloads/">сайта</a> или установить из <a href="https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/">Windows Store</a>. Если вы решили установить Python с официального сайта, то обязательно во время установки выберите пункт добавления пути к интерпретатору в переменную окружения <code class="codehilite"><span class="n">PATH</span></code> (если по какой-либо причине вы не сделали этого, то обратитесь к <a href="https://docs.python.org/3/using/windows.html#configuring-python">официальному руководству</a>).</p>
+<p>После установки проверьте версию интерпретатора (она должна быть 3.7 и выше), для этого откройте терминал (командную строку) и наберите команду <code class="codehilite"><span class="n">python</span> <span class="c1">--version</span></code>:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>python</b> --version</li>
+      <li class="line">Python 3.7.2</li>
+    </ol>
+  </div>
+</div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Знак доллара <code class="codehilite"><span class="err">$</span></code> обозначает приглашение к вводу команд. В Windows такое приглашение обычно выглядит как символ больше <code class="codehilite"><span class="o">&gt;</span></code>.</p>
+</div>
+<h2 id="_1">Выбор редактора кода<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Вам будет нужен редактор кода. Это может быть «простой» текстовый редактор с подсветкой синтаксиса и дополнительно устанавливаемыми расширениями, например, <a href="https://code.visualstudio.com/">VSCode</a>, <a href="https://atom.io/">Atom</a>, <a href="https://www.sublimetext.com/">SublimeText</a>  или же полноценная среда разработки <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a> (одним из решений, которыми я пользуюсь, является связка из редактора <a href="http://www.vim.org/">Vim</a> с разными плагинами и интересного, на мой взгляд, проекта <a href="https://kite.com/">Kite</a>). Я вам рекомендую попробовать разные редакторы, потратив некоторое время на ознакомление с их возможностями и чтение документации.</p>
+<p>Для ваших работ заведите себе отдельный каталог, назовите его <code class="codehilite"><span class="n">cs102</span></code> (так исторически сложилось, можете назвать иначе). В этом каталоге создайте новый файл с именем <code class="codehilite"><span class="n">hello</span><span class="p">.</span><span class="n">py</span></code>, откройте его с помощью выбранного редактора кода:</p>
+<p><img alt="" src="../../images/assignments/setup-env/hello.png" /></p>
+<p>Если вы работаете с ОС Windows, то для более комфортной работы рекомендуется установить набор инструментов <a href="https://git-for-windows.github.io/">Git For Windows</a>. Запустите терминал и создайте файл <code class="codehilite"><span class="na">.bashrc</span></code> (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме):</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>echo</b> 'alias gocs102="cd /путь/к/каталогу/cs102"' >> ~/.bashrc</li>
+      <li class="line">$ <b>.</b> ~/.bashrc</li>
+      <li class="line">$ <b>gocs102</b></li>
+      <li class="line">$ <b>python3</b> hello_world.py</li>
+      <li class="line">Hello, World!</li>
+      <li class="line">$</li>
+    </ol>
+  </div>
+</div>
+
+<p>Таким образом, вы написали и запустили простейшую программу (скрипт). Запомните эти шаги.</p>
+<h2 id="_2">Работа с виртуальными окружениями<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Для выполнения работ мы будем использовать стандартный модуль <a href="https://docs.python.org/3/library/venv.html"><code class="codehilite"><span class="n">venv</span></code></a>, появившийся с версии 3.3 и предназначенный для создания и управления изолированными (виртуальными) окружениями. <code class="codehilite"><span class="n">venv</span></code> позволяет заключить в отдельный каталог необходимые версии python-пакетов и использовать только их. Используя <code class="codehilite"><span class="n">venv</span></code>, вы можете устанавливать свежие версии пакетов из <a href="https://pypi.python.org/pypi">Python Package Index</a>, при этом не получая проблем с совместимостью версий загруженных пакетов и тех, что уже имеются в системе.</p>
+<p>Создадим отдельный каталог <code class="codehilite"><span class="o">~/</span><span class="p">.</span><span class="n">virtualenvs</span></code> (некоторые редакторы, например, <a href="https://code.visualstudio.com/">VSCode</a>, по умолчанию полагаются именно на такое название и расположение каталога при поиске доступных интерпретаторов) для виртуальных окружений и новое окружение с именем <code class="codehilite"><span class="n">cs102</span></code>:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>mkdir</b> ~/.virtualenvs</li>
+      <li class="line">$ <b>python3</b> -m venv ~/.virtualenvs/cs102</li>
+      <li class="line">$ <b>which</b> python3</li>
+      <li class="line">/Library/Frameworks/Python.framework/Versions/3.7/bin/python3</li>
+      <li class="line">$ <b>source</b> ~/.virtualenvs/cs102/bin/activate</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>which</b> python</li>
+      <li class="line">/Users/dementiy/.virtualenvs/cs102/bin/python</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>deactivate</b></li>
+      <li class="line">$ <b>which</b> python3</li>
+      <li class="line">/Library/Frameworks/Python.framework/Versions/3.7/bin/python3</li>
+    </ol>
+  </div>
+</div>
+
+<p>Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш <code class="codehilite"><span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span></code> (выполните затем команду <code class="codehilite"><span class="p">.</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span></code>, чтобы функция стала доступна в текущем сеансе):</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> workon<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Specify the name of the virtual environment&quot;</span>
+  <span class="k">elif</span> <span class="nb">test</span> ! -f <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Environment doesn&#39;t exists&quot;</span>
+  <span class="k">else</span>
+    deactivate <span class="m">2</span>&gt; /dev/null
+    <span class="nb">source</span> <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Для примера в созданном виртуальном окружении установим пакет <a href="https://jupyter.org/">jupyter</a>, с которым поставляется интерпретатор <a href="https://ipython.org/">ipython</a>, предоставляющий дополнительные функциии, как подсветка синтаксиса, подсказки и др:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>workon</b> cs102</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>python</b> -m pip install jupyter</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>ipython</b></li>
+      <li class="line">Python 3.7.2 (default, Dec 27 2018, 07:35:45)</li>
+      <li class="line">Type 'copyright', 'credits' or 'license' for more information</li>
+      <li class="line">IPython 7.5.0 -- An enhanced Interactive Python. Type '?' for help.</li>
+      <li class="line"></li>
+      <li class="line"><b style='color: green'>In [1]:</b></li>
+    </ol>
+  </div>
+</div>
+
+<p>В этом примере мы использовали <a href="https://docs.python.org/3.5/installing/index.html">pip</a> для установки новых пакетов. Иногда устанавливаемый пакет требует наличие других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на <a href="http://stackoverflow.com">stackoverflow.com</a>, скорее всего кто-то уже столкнулся с той же проблемой, что и вы.</p>
+<h2 id="_3">Система контроля версий<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать <a href="https://git-scm.com/book/ru/v1/Введение-О-контроле-версий">тут</a>). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам нужно зарегистрироваться либо на <a href="https://github.com">https://github.com</a>, либо на <a href="https://bitbucket.org/">https://bitbucket.org</a> (а можно и там и там). На случай, если вы хотите ограничить доступ к вашей кодовой базе, то на bitbucket есть возможность создания бесплатного приватного репозитория, а github предоставляет для студентов и преподавателей <a href="https://education.github.com/">Github Education Pack</a>.</p>
+<p>Рассмотрим пример создания репозитория на github. Для этого зарегистрируйтесь на сайте <a href="https://github.com">https://github.com</a>,  затем перейдите на вкладку <code class="codehilite"><span class="n">Repositories</span></code> и нажмите на <code class="codehilite"><span class="k">New</span></code>:</p>
+<p><img alt="" src="../../images/assignments/setup-env/new.png" /></p>
+<p>Укажите название и описание репозитория и затем нажмите на <code class="codehilite"><span class="k">Create</span> <span class="n">Repository</span></code>:</p>
+<p><img alt="" src="../../images/assignments/setup-env/create.png" /></p>
+<p>Достаточно повторить шаги указанные в пункте <code class="codehilite"><span class="err">…</span><span class="k">or</span> <span class="k">create</span> <span class="n">a</span> <span class="k">new</span> <span class="n">repository</span> <span class="k">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span></code>, но вместо файла <code class="codehilite"><span class="n">README</span><span class="p">.</span><span class="n">md</span></code> мы сделаем коммит (зафиксируем и затем загрузим изменения на сервер) нашей программы <code class="codehilite"><span class="n">hello</span><span class="p">.</span><span class="n">py</span></code>:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>gocs102</b></li>
+      <li class="line">$ <b>git</b> init</li>
+      <li class="line" style="color: gray">Initialized empty Git repository in /Users/dementiy/courses/cs102/.git/</li>
+      <li class="line">$ <b>git</b> remote add https://github.com/Dementiy/cs102.git</li>
+      <li class="line">$ <b>git</b> add hello.py</li>
+      <li class="line">$ <b>git</b> commit -m 'Initial commit with my first program on Python'</li>
+      <li class="line" style="color: gray">*** Please tell me who you are.</li>
+      <li class="line" style="color: gray">Run</li>
+      <li class="line" style="color: gray">git config --global user.email "you@example.com"</li>
+      <li class="line" style="color: gray">git config --global user.name "Your Name"</li>
+      <li class="line" style="color: gray">to set your account`s default identity.</li>
+      <li class="line" style="color: gray">Omit --global to set the identity only in this repository.</li>
+      <li class="line" style="color: gray">fatal: unable to auto-detect email address (got 'user@Air-user.(none)')</li>
+    </ol>
+  </div>
+</div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Если после выполнения команды <code class="codehilite"><span class="n">git</span> <span class="n">init</span></code> вы получили сообщение об ошибке о том, что команда <code class="codehilite"><span class="n">git</span></code> не найдена, то, скорее всего, вы работаете под Windows и <code class="codehilite"><span class="n">git</span></code> нужно <a href="https://git-for-windows.github.io/">установить</a>.</p>
+</div>
+<p>Система контроля версий подсказывает нам, что нужно выполнить предварительную настройку репозитория, указав <code class="codehilite"><span class="k">user</span><span class="p">.</span><span class="n">email</span></code> и <code class="codehilite"><span class="k">user</span><span class="p">.</span><span class="n">name</span></code>:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>git</b> config --global user.email "Dementiy@yandex.ru"</li>
+      <li class="line">$ <b>git</b> config --global user.name "Dmitriy"</li>
+      <li class="line">$ <b>git</b> commit -m 'Initial commit with my first program on Python'</li>
+      <li class="line" style="color: gray">[master (root-commit) f9463ab] Initial commit with my first program on Python</li>
+      <li class="line" style="color: gray">1 file changed, 1 insertion(+)</li>
+      <li class="line" style="color: gray">create mode 100644 hello.py</li>
+      <li class="line">$ <b>git</b> push -u origin master</li>
+      <li class="line" style="color: gray">Counting objects: 3, done.</li>
+      <li class="line" style="color: gray">Writing objects: 100% (3/3), 257 bytes | 257.00 KiB/s, done.</li>
+      <li class="line" style="color: gray">Total 3 (delta 0), reused 0 (delta 0)</li>
+      <li class="line" style="color: gray">To https://github.com/Dementiy/cs102.git</li>
+      <li class="line" style="color: gray">* [new branch] master -> master</li>
+      <li class="line" style="color: gray">Branch master set up to track remote branch master from origin.</li>
+    </ol>
+  </div>
+</div>
+
+<p>Теперь убедитесь, что новый файл появился на github:</p>
+<p><img alt="" src="../../images/assignments/setup-env/first-commit.png" /></p>
+<p>Давайте немного изменим нашу программу <code class="codehilite"><span class="n">hello</span><span class="p">.</span><span class="n">py</span></code>, добавив в нее функцию и проверку на то, выполняется ли наша программа как скрипт или она используется как модуль (библиотека, подключаемая в других скриптах):</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">message</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">message</span><span class="p">()</span>
+</pre></div>
+
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>workon</b> cs102</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>python</b> hello.py</li>
+      <li class="line">Hello, World!</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>ipython</b></li>
+      <li class="line"><b style='color: green'>In [1]:</b> import hello</li>
+      <li class="line"><b style='color: green'>In [2]:</b> hello.message()</li>
+      <li class="line">Hello, World!</li>
+    </ol>
+  </div>
+</div>
+
+<p>Итак, мы внесли нужные изменения в программу, <code class="codehilite"><span class="n">git</span></code> эти изменения также заметил. Проверить это можно с помощью команды <code class="codehilite"><span class="n">git</span> <span class="n">status</span></code>:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line">$ <b>git</b> status</li>
+      <li class="line" style="color: gray">On branch master</li>
+      <li class="line" style="color: gray">Your branch is up-to-date with 'origin/master'.</li>
+      <li class="line" style="color: gray">Changes not staged for commit:</li>
+      <li class="line" style="color: gray">(use "git add <file>..." to update what will be committed)</li>
+      <li class="line" style="color: gray">(use "git checkout -- <file>..." to discard changes in working directory)</li>
+      <li class="line" style="color: gray">modified: hello.py</li>
+      <li class="line" style="color: gray">no changes added to commit (use "git add" and/or "git commit -a")</li>
+    </ol>
+  </div>
+</div>
+
+<p>Один из файлов был изменен: <code class="codehilite"><span class="n">modified</span><span class="o">:</span> <span class="n">hello</span><span class="o">.</span><span class="na">py</span></code>. Теперь нам нужно сделать коммит, чтобы зафиксировать изменения в истории проекта:</p>
+<div class="window">
+  <div class="window-titlebar">
+    <span class="window-buttons">
+      <span class="window-button window-button-close"></span>
+      <span class="window-button window-button-hide"></span>
+      <span class="window-button window-button-full"></span>
+    </span>
+    <span class="window-title">Terminal</span>
+  </div>
+  <div class="window-content">
+    <ol class="code">
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>git</b> add hello.py</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>git</b> commit -m "Add function message()"</li>
+      <li class="line"><b style='color: purple'>(cs102)</b> $ <b>git</b> push</li>
+    </ol>
+  </div>
+</div>
+
+<p>Пока нам этого будет достаточно.</p>
+<h2 id="_4">Задание<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Добавьте в репозиторий файл с именем <code class="codehilite"><span class="n">README</span><span class="p">.</span><span class="n">md</span></code>, который должен содержать информацию о вас как о разработчике и небольшое описание вашего репозитория (например: «Решения практических работ с сайта <a href="https://dementiy.github.io">https://dementiy.github.io</a>»). <code class="codehilite"><span class="n">README</span><span class="p">.</span><span class="n">md</span></code> должен быть в формате Markdown, про который можно почитать <a href="https://github.com/OlgaVlasova/markdown-doc/blob/master/README.md">тут</a>. Также можете воспользоваться онлайн редактором <a href="http://dillinger.io/">Dillinger</a>.</p>
+<p>Все вопросы и замечания пишите в комментариях или в Slack'е (<a href="https://get.slack.help/hc/en-us/articles/115004071768-What-is-Slack-">что такое Slack?</a>).</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>A также компилятор языка Golang, если вы захотите выполнять практические задания на двух языках. Установка компилятора Golang останется в качестве самостоятельного задания (официальное руководство по установке можно найти <a href="https://golang.org/doc/install">тут</a>)&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../lectures/iterators/" title="Итераторы" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                Итераторы
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cypher/" title="Алгоритмы шифрования" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Алгоритмы шифрования
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1588 @@
+
+
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Лекции и практические задания по программированию на Python">
+      
+      
+        <link rel="canonical" href="https://dementiy.github.io/assignments/sudoku/">
+      
+      
+        <meta name="author" content="Sorokin Dmitrii">
+      
+      
+        <meta name="lang:clipboard.copy" content="Копировать в буфер">
+      
+        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
+      
+        <meta name="lang:search.language" content="en, ru">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Совпадений не найдено">
+      
+        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
+      
+        <meta name="lang:search.result.other" content="Найдено # совпадений">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Решатель Судоку - Программирование на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Перейти к содержанию
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dementiy.github.io" title="Программирование на Python" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Программирование на Python
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Решатель Судоку
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Начните печатать для поиска
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../lectures/immutable-types/" title="Лекции" class="md-tabs__link">
+          Лекции
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../setup_env/" title="Практические работы" class="md-tabs__link md-tabs__link--active">
+          Практические работы
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dementiy.github.io" title="Программирование на Python" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Программирование на Python
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Лекции
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Лекции
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+      Неизменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+      Изменяемые типы данных
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/control-statements/" title="Управляющие конструкции" class="md-nav__link">
+      Управляющие конструкции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/functions/" title="Функции" class="md-nav__link">
+      Функции
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+      Простарнство имен и области видимости
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
+      Жизненный цикл программы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+      ООП. Классы. Магические методы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+      ООП. Дескрипторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+      ООП. Разрешение имен атрибтутов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+      ООП. Наследование. Абстрактные классы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+      ООП. Порядок разрешения методов
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
+      ООП. Метаклассы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
+      Модули и пакеты
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lectures/iterators/" title="Итераторы" class="md-nav__link">
+      Итераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Генераторы" class="md-nav__link">
+      Генераторы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+      Конкурентность и параллелизм. Потоки
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+      Конкурентность и параллелизм. Примитивы синхронизации
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+      Конкурентность и параллелизм. Процессы
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+      Конкурентность и параллелизм. Корутины
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+      Управление памятью. Счетчик ссылок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+      Управление памятью. Сборщик мусора
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Практические работы
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Практические работы
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Basics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+      Настройка рабочего окружения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+      Алгоритмы шифрования
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Решатель Судоку
+      </label>
+    
+    <a href="./" title="Решатель Судоку" class="md-nav__link md-nav__link--active">
+      Решатель Судоку
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Чтение пазлов" class="md-nav__link">
+    Чтение пазлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Разбивка на строки, колонки и блоки" class="md-nav__link">
+    Разбивка на строки, колонки и блоки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Алгоритм решения Судоку" class="md-nav__link">
+    Алгоритм решения Судоку
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Поиск возможных решений" class="md-nav__link">
+    Поиск возможных решений
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Проверка решения" class="md-nav__link">
+    Проверка решения
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="Генерация новых пазлов" class="md-nav__link">
+    Генерация новых пазлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="Приложение" class="md-nav__link">
+    Приложение
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="С-расширения" class="md-nav__link">
+      С-расширения
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+      Игра «Жизнь»
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
+      Бот для мессенджера Telegram
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Web
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
+      Приложение для ведения заметок
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
+      Простой асинхронный сервер
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+      Простой асинхронный веб-фреймворк
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
+      Чат на базе веб-сокетов
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      DataScience
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        DataScience
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+      Описательная статистика с Pandas, SQL и R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
+      Линейная регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
+      Логистическая регрессия
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
+      Деревья. Случайные леса
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
+      Кластеризация методом k-средних
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+      Рекомендательная система кинофильмов и аниме
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+      MicroTorch: библиотека для обучения нейронных сетей
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Чтение пазлов" class="md-nav__link">
+    Чтение пазлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="Разбивка на строки, колонки и блоки" class="md-nav__link">
+    Разбивка на строки, колонки и блоки
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="Алгоритм решения Судоку" class="md-nav__link">
+    Алгоритм решения Судоку
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Поиск возможных решений" class="md-nav__link">
+    Поиск возможных решений
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="Проверка решения" class="md-nav__link">
+    Проверка решения
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="Генерация новых пазлов" class="md-nav__link">
+    Генерация новых пазлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="Приложение" class="md-nav__link">
+    Приложение
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/assignments/sudoku.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Решатель Судоку</h1>
+                
+                <p>В этой работе требуется написать решатель Судоку. Правила игры в Судоку достаточно простые, вот пояснения с <a href="https://ru.wikipedia.org/wiki/Судоку">Википедии</a>:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Игровое поле представляет собой квадрат размером 9×9, разделённый на меньшие квадраты со стороной в 3 клетки. Таким образом, всё игровое поле состоит из 81 клетки. В них уже в начале игры стоят некоторые числа от 1 до 9, называемые подсказками. От игрока требуется заполнить свободные клетки цифрами от 1 до 9 так, чтобы в каждой строке, в каждом столбце и в каждом малом квадрате 3×3 каждая цифра встречалась бы <strong>только один раз</strong>.</p>
+</div>
+<p>Далее приведен пример Судоку и его решения:</p>
+<p><img alt="Пример решения Судоку" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png" />
+<img alt="Пример решения Судоку" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png" /></p>
+<h2 id="_1">Чтение пазлов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Нам нужно каким-то образом хранить сам пазл. Для этого можно использовать обычные текстовые файлы, например, представленный выше пазл может выглядеть следующим образом:</p>
+<div class="codehilite"><pre><span></span><span class="mi">53</span><span class="p">..</span><span class="mi">7</span><span class="p">....</span>
+<span class="mi">6</span><span class="p">..</span><span class="mi">195</span><span class="p">...</span>
+<span class="p">.</span><span class="mi">98</span><span class="p">....</span><span class="mi">6</span><span class="p">.</span>
+<span class="mi">8</span><span class="p">...</span><span class="mi">6</span><span class="p">...</span><span class="mi">3</span>
+<span class="mi">4</span><span class="p">..</span><span class="mi">8</span><span class="p">.</span><span class="mi">3</span><span class="p">..</span><span class="mi">1</span>
+<span class="mi">7</span><span class="p">...</span><span class="mi">2</span><span class="p">...</span><span class="mi">6</span>
+<span class="p">.</span><span class="mi">6</span><span class="p">....</span><span class="mi">28</span><span class="p">.</span>
+<span class="p">...</span><span class="mi">419</span><span class="p">..</span><span class="mi">5</span>
+<span class="p">....</span><span class="mi">8</span><span class="p">..</span><span class="mi">79</span>
+</pre></div>
+
+<p>где каждая точка соответствует пустой клетке, которую требуется заполнить числом.</p>
+<p>Теперь нужно написать функцию для чтения пазла из файла (шаблон работы можно найти в репозитории). Назовем ее <code class="codehilite"><span class="n">read_sudoku</span><span class="p">()</span></code> и в качестве параметра будем передавать ей имя файла, в котором хранится пазл:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">read_sudoku</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot; Прочитать Судоку из указанного файла &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">content</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">&#39;123456789.&#39;</span><span class="p">]</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">group</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grid</span>
+</pre></div>
+
+<p>На текущий момент вашей задачей является написать функцию <code class="codehilite"><span class="k">group</span><span class="p">()</span></code>, которая принимает пазл и размер доски <code class="codehilite"><span class="n">n</span></code>, а в качестве результата работы возвращает матрицу размера <code class="codehilite"><span class="n">n</span><span class="o">*</span><span class="n">n</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">group</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Сгруппировать значения values в список, состоящий из списков по n элементов</span>
+
+<span class="sd">    &gt;&gt;&gt; group([1,2,3,4], 2)</span>
+<span class="sd">    [[1, 2], [3, 4]]</span>
+<span class="sd">    &gt;&gt;&gt; group([1,2,3,4,5,6,7,8,9], 3)</span>
+<span class="sd">    [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Процесс выполнения работы такой же как и предыдущей, поэтому не забудьте активировать виртуальное окружение, создавать ветви функциональности и делать коммиты.</p></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Для решения ряда задач используйте списковые включения (list comprehensions/генераторы списков). Например, чтобы создать список из четных элементов в диапазоне от 0 до 10 можно использовать такую конструкцию: <code class="codehilite"><span class="nv">L</span> <span class="o">=</span> [<span class="nv">i</span> <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">10</span><span class="ss">)</span> <span class="k">if</span> <span class="nv">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>]</code>.</p>
+</div>
+<p>Чтобы убедиться в том, что вы верно написали функцию <code class="codehilite"><span class="k">group</span><span class="p">()</span></code> воспользуйтесь доктестом:</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>cs102<span class="o">)</span> $ python -m doctest sudoku.py
+</pre></div>
+
+<p>Результат выполнения этой команды может быть следующим:</p>
+<div class="codehilite"><pre><span></span>File <span class="s2">&quot;/Users/dementiy/Projects/cs102/sudoku.py&quot;</span>, line <span class="m">13</span>, in sudoku.group
+Failed example:
+    group<span class="o">([</span><span class="m">1</span>,2,3,4<span class="o">]</span>, <span class="m">2</span><span class="o">)</span>
+Expected:
+    <span class="o">[[</span><span class="m">1</span>, <span class="m">2</span><span class="o">]</span>, <span class="o">[</span><span class="m">3</span>, <span class="m">4</span><span class="o">]]</span>
+Got nothing
+**********************************************************************
+File <span class="s2">&quot;/Users/dementiy/Projects/cs102/sudoku.py&quot;</span>, line <span class="m">15</span>, in sudoku.group
+Failed example:
+    group<span class="o">([</span><span class="m">1</span>,2,3,4,5,6,7,8,9<span class="o">]</span>, <span class="m">3</span><span class="o">)</span>
+Expected:
+    <span class="o">[[</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span><span class="o">]</span>, <span class="o">[</span><span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span><span class="o">]</span>, <span class="o">[</span><span class="m">7</span>, <span class="m">8</span>, <span class="m">9</span><span class="o">]]</span>
+Got nothing
+**********************************************************************
+<span class="m">4</span> items had failures:
+    <span class="m">3</span> of <span class="m">3</span> in sudoku.find_empty_positions
+    <span class="m">3</span> of <span class="m">3</span> in sudoku.get_col
+    <span class="m">3</span> of <span class="m">3</span> in sudoku.get_row
+    <span class="m">2</span> of <span class="m">2</span> in sudoku.group
+***Test Failed*** <span class="m">11</span> failures
+</pre></div>
+
+<p>Пока нас интересует только функция <code class="codehilite"><span class="k">group</span><span class="p">()</span></code> и из двух тестов она не прошла ни один. В начале вывода показано, какой результат ожидался <code class="codehilite"><span class="n">Expected</span></code>, а какой получили <code class="codehilite"><span class="n">Got</span></code>. Если вы написали функцию верно, то эти сообщения исчезнут, но останутся сообщения для пока еще не написанных функций.</p>
+<p>Если вы перестали видеть сообщения с ошибками для функции <code class="codehilite"><span class="k">group</span><span class="p">()</span></code>, то давайте посмотрим как работает функция <code class="codehilite"><span class="n">read_sudoku</span><span class="p">()</span></code>. Запустите программу следующим образом (все пазлы также в репозитории):</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">i</span> <span class="n">sudoku</span><span class="o">.</span><span class="n">py</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">read_sudoku</span><span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">pp</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pp</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="p">[[</span><span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">],</span>
+<span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">]]</span>
+</pre></div>
+
+<p>Как видите вывод содержимого пазла <code class="codehilite"><span class="n">grid</span></code> не очень нагляден, поэтому для вас написана функция <code class="codehilite"><span class="n">display</span><span class="p">()</span></code>, которая выводит пазл в более человеко-наглядной форме.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">display</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="mi">5</span> <span class="mi">3</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">7</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="mi">6</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">1</span> <span class="mi">9</span> <span class="mi">5</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="o">.</span> <span class="mi">9</span> <span class="mi">8</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">6</span> <span class="o">.</span>
+<span class="o">------+------+------</span>
+<span class="mi">8</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">6</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">8</span> <span class="o">.</span> <span class="mi">3</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">1</span>
+<span class="mi">7</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">2</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">6</span>
+<span class="o">------+------+------</span>
+<span class="o">.</span> <span class="mi">6</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">2</span> <span class="mi">8</span> <span class="o">.</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">4</span> <span class="mi">1</span> <span class="mi">9</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">5</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">8</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">7</span> <span class="mi">9</span>
+</pre></div>
+
+<h2 id="_2">Разбивка на строки, колонки и блоки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Так как при решении Судоку ставятся условия, что значения не могут повторяться ни в строке, ни в столбце, ни в квадрате, то следовательно нам эти значения нужно получить. Для этого от вас требуется написать три функции <code class="codehilite"><span class="n">get_row</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">get_col</span><span class="p">()</span></code> и <code class="codehilite"><span class="n">get_block</span><span class="p">()</span></code>, каждая из которых принимает два аргумента: пазл (<code class="codehilite"><span class="k">values</span></code>) и позицию (<code class="codehilite"><span class="n">pos</span></code>), для которой мы пытаемся найти верное число.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_row</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot; Возвращает все значения для номера строки, указанной в pos</span>
+
+<span class="sd">    &gt;&gt;&gt; get_row([[&#39;1&#39;, &#39;2&#39;, &#39;.&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]], (0, 0))</span>
+<span class="sd">    [&#39;1&#39;, &#39;2&#39;, &#39;.&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_row([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;.&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]], (1, 0))</span>
+<span class="sd">    [&#39;4&#39;, &#39;.&#39;, &#39;6&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_row([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;.&#39;, &#39;8&#39;, &#39;9&#39;]], (2, 0))</span>
+<span class="sd">    [&#39;.&#39;, &#39;8&#39;, &#39;9&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">get_col</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot; Возвращает все значения для номера столбца, указанного в pos</span>
+
+<span class="sd">    &gt;&gt;&gt; get_col([[&#39;1&#39;, &#39;2&#39;, &#39;.&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]], (0, 0))</span>
+<span class="sd">    [&#39;1&#39;, &#39;4&#39;, &#39;7&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_col([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;.&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]], (0, 1))</span>
+<span class="sd">    [&#39;2&#39;, &#39;.&#39;, &#39;8&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_col([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;.&#39;, &#39;8&#39;, &#39;9&#39;]], (0, 2))</span>
+<span class="sd">    [&#39;3&#39;, &#39;6&#39;, &#39;9&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">get_block</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot; Возвращает все значения из квадрата, в который попадает позиция pos</span>
+<span class="sd">    &gt;&gt;&gt; grid = read_sudoku(&#39;puzzle1.txt&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; get_block(grid, (0, 1))</span>
+<span class="sd">    [&#39;5&#39;, &#39;3&#39;, &#39;.&#39;, &#39;6&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;9&#39;, &#39;8&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_block(grid, (4, 7))</span>
+<span class="sd">    [&#39;.&#39;, &#39;.&#39;, &#39;3&#39;, &#39;.&#39;, &#39;.&#39;, &#39;1&#39;, &#39;.&#39;, &#39;.&#39;, &#39;6&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_block(grid, (8, 8))</span>
+<span class="sd">    [&#39;2&#39;, &#39;8&#39;, &#39;.&#39;, &#39;.&#39;, &#39;.&#39;, &#39;5&#39;, &#39;.&#39;, &#39;7&#39;, &#39;9&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>Разберемся с тем, как представлена позиция в программе. Каждая позиция однозначно определяется номером строки и номером столбца, поэтому для ее представления удобно использовать кортеж. Напомним, что кортеж это неизменяемый список. Позиция создается следующим образом:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">pos</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">row</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">col</span>
+<span class="mi">0</span>
+</pre></div>
+
+<p>Для функций <code class="codehilite"><span class="n">get_row</span><span class="p">()</span></code> и <code class="codehilite"><span class="n">get_col</span><span class="p">()</span></code> приведены доктесты, но они предназначены для доски размером <code class="codehilite"><span class="mi">3</span><span class="o">*</span><span class="mi">3</span></code>. У нас же доска <code class="codehilite"><span class="mi">9</span><span class="o">*</span><span class="mi">9</span></code>. Вы можете написать эти функции так, чтобы их можно было использовать для доски любого размера, а можете написать только для доски размером <code class="codehilite"><span class="mi">9</span><span class="o">*</span><span class="mi">9</span></code>, но тогда вы всегда будете получать ошибку в доктестах. Функция <code class="codehilite"><span class="n">get_block</span><span class="p">()</span></code> возвращает все значения из квадрата, в который попадает позиция <code class="codehilite"><span class="n">pos</span></code> (всего <code class="codehilite"><span class="mi">9</span></code> квадратов размером <code class="codehilite"><span class="mi">3</span><span class="o">*</span><span class="mi">3</span></code>).</p>
+<h2 id="_3">Алгоритм решения Судоку<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Давайте наконец перейдем к решению самого Судоку. В шаблоне вы найдете функцию <code class="codehilite"><span class="n">solve</span><span class="p">()</span></code>, которая принимает один аргумент - пазл, а возвращает заполненную значениями доску:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]:</span>
+    <span class="sd">&quot;&quot;&quot; Решение пазла, заданного в grid</span>
+<span class="sd">    Как решать Судоку?</span>
+<span class="sd">    1. Найти свободную позицию</span>
+<span class="sd">    2. Найти все возможные значения, которые могут находиться на этой позиции</span>
+<span class="sd">    3. Для каждого возможного значения:</span>
+<span class="sd">        3.1. Поместить это значение на эту позицию</span>
+<span class="sd">        3.2. Продолжить решать оставшуюся часть пазла</span>
+<span class="sd">    &gt;&gt;&gt; grid = read_sudoku(&#39;puzzle1.txt&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; solve(grid)</span>
+<span class="sd">    [[&#39;5&#39;, &#39;3&#39;, &#39;4&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;1&#39;, &#39;2&#39;], [&#39;6&#39;, &#39;7&#39;, &#39;2&#39;, &#39;1&#39;, &#39;9&#39;, &#39;5&#39;, &#39;3&#39;, &#39;4&#39;, &#39;8&#39;], [&#39;1&#39;, &#39;9&#39;, &#39;8&#39;, &#39;3&#39;, &#39;4&#39;, &#39;2&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;], [&#39;8&#39;, &#39;5&#39;, &#39;9&#39;, &#39;7&#39;, &#39;6&#39;, &#39;1&#39;, &#39;4&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;2&#39;, &#39;6&#39;, &#39;8&#39;, &#39;5&#39;, &#39;3&#39;, &#39;7&#39;, &#39;9&#39;, &#39;1&#39;], [&#39;7&#39;, &#39;1&#39;, &#39;3&#39;, &#39;9&#39;, &#39;2&#39;, &#39;4&#39;, &#39;8&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;9&#39;, &#39;6&#39;, &#39;1&#39;, &#39;5&#39;, &#39;3&#39;, &#39;7&#39;, &#39;2&#39;, &#39;8&#39;, &#39;4&#39;], [&#39;2&#39;, &#39;8&#39;, &#39;7&#39;, &#39;4&#39;, &#39;1&#39;, &#39;9&#39;, &#39;6&#39;, &#39;3&#39;, &#39;5&#39;], [&#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;2&#39;, &#39;8&#39;, &#39;6&#39;, &#39;1&#39;, &#39;7&#39;, &#39;9&#39;]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>В комментарии приведен алгоритм решения Судоку. Обратите внимание, что он рекурсивный. Решение Судоку очень похоже на задачу о возможных комбинациях:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">permutations</span><span class="p">(</span><span class="n">L</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">result</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+            <span class="n">permutations</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">result</span> <span class="o">+</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">permutations</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[])</span>
+</pre></div>
+
+<p>Каждый раз мы удерживаем один элемент и перебираем все остальные. В Судоку все происходит точно также, сначала мы подставляем одно из возможных значений (пункт 2) для свободной позиции (пункт 1) и перебираем все остальные (пункт 3.2), то есть решаем более простую задачу. Например, вот простейшее «Судоку» (это не совсем Судоку конечно), которое мы можем заполнять значениями 1 или 2:</p>
+<div class="codehilite"><pre><span></span><span class="mi">1</span><span class="p">.</span>
+<span class="p">.</span><span class="mi">1</span>
+</pre></div>
+
+<p>Находим первую свободную позицию (это окажется <code class="codehilite"><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></code>), затем значения которые можем на нее поставить (в данном случае только 2), вставляем это значение на указанную позицию и продолжаем решать уже более простое Судоку:</p>
+<div class="codehilite"><pre><span></span><span class="mi">12</span>
+<span class="p">.</span><span class="mi">1</span>
+</pre></div>
+
+<p>И так продолжаем, пока не заполним все пустые клетки. В конце мы должны получить решение Судоку.</p>
+<p>Не забудьте про базовые случаи для выхода из рекурсии, подумайте над вопросами:</p>
+<ul>
+<li>Всегда ли есть свободная позиция?</li>
+<li>Всегда ли есть возможные значения?</li>
+</ul>
+<h2 id="_4">Поиск возможных решений<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Нам нужно находить свободные позиции (то есть те, на которых стоит <code class="codehilite"><span class="p">.</span></code> - точка). Для этого требуется написать функцию <code class="codehilite"><span class="n">find_empty_positons</span><span class="p">()</span></code>, которая принимает один аргумент - пазл и возвращает первую попавшуюся свободную позицию:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">find_empty_positions</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot; Найти первую свободную позицию в пазле</span>
+
+<span class="sd">    &gt;&gt;&gt; find_empty_positions([[&#39;1&#39;, &#39;2&#39;, &#39;.&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]])</span>
+<span class="sd">    (0, 2)</span>
+<span class="sd">    &gt;&gt;&gt; find_empty_positions([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;.&#39;, &#39;6&#39;], [&#39;7&#39;, &#39;8&#39;, &#39;9&#39;]])</span>
+<span class="sd">    (1, 1)</span>
+<span class="sd">    &gt;&gt;&gt; find_empty_positions([[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;], [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;], [&#39;.&#39;, &#39;8&#39;, &#39;9&#39;]])</span>
+<span class="sd">    (2, 0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>Кроме поиска свободных позиций, также необходимо искать значения, которые на эту позицию можно поставить:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">find_possible_values</span><span class="p">(</span><span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot; Вернуть множество всех возможных значения для указанной позиции</span>
+<span class="sd">    &gt;&gt;&gt; grid = read_sudoku(&#39;puzzles/puzzle1.txt&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; values = find_possible_values(grid, (0,2))</span>
+<span class="sd">    &gt;&gt;&gt; set(values) == {&#39;1&#39;, &#39;2&#39;, &#39;4&#39;}</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; values = find_possible_values(grid, (4,7))</span>
+<span class="sd">    &gt;&gt;&gt; set(values) == {&#39;2&#39;, &#39;5&#39;, &#39;9&#39;}</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Для решения этого задания используйте множества <code class="codehilite"><span class="k">set</span></code>.</p>
+</div>
+<p>Помните, что всего значений, которые мы можем поставить на указанную позицию, ровно <code class="codehilite"><span class="mi">9</span></code>, это числа <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span></code>. Но не каждое из этих чисел мы можем использовать (см. правила Судоку). В этой функции вы можете пользоваться написанными ранее функциями <code class="codehilite"><span class="n">get_row</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">get_col</span><span class="p">()</span></code>, <code class="codehilite"><span class="n">get_block</span><span class="p">()</span></code>.</p>
+<p>Когда вы закончите работать над функциями, то выполните следующие команды:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">i</span> <span class="n">sudoku</span><span class="o">.</span><span class="n">py</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">read_sudoku</span><span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">display</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="mi">5</span> <span class="mi">3</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">7</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="mi">6</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">1</span> <span class="mi">9</span> <span class="mi">5</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="o">.</span> <span class="mi">9</span> <span class="mi">8</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">6</span> <span class="o">.</span>
+<span class="o">------+------+------</span>
+<span class="mi">8</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">6</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">8</span> <span class="o">.</span> <span class="mi">3</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">1</span>
+<span class="mi">7</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">2</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">6</span>
+<span class="o">------+------+------</span>
+<span class="o">.</span> <span class="mi">6</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">2</span> <span class="mi">8</span> <span class="o">.</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">4</span> <span class="mi">1</span> <span class="mi">9</span> <span class="o">|.</span> <span class="o">.</span> <span class="mi">5</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">8</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">7</span> <span class="mi">9</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">solution</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">display</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+<span class="mi">5</span> <span class="mi">3</span> <span class="mi">4</span> <span class="o">|</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="o">|</span><span class="mi">9</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">6</span> <span class="mi">7</span> <span class="mi">2</span> <span class="o">|</span><span class="mi">1</span> <span class="mi">9</span> <span class="mi">5</span> <span class="o">|</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">8</span>
+<span class="mi">1</span> <span class="mi">9</span> <span class="mi">8</span> <span class="o">|</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">2</span> <span class="o">|</span><span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span>
+<span class="o">------+------+------</span>
+<span class="mi">8</span> <span class="mi">5</span> <span class="mi">9</span> <span class="o">|</span><span class="mi">7</span> <span class="mi">6</span> <span class="mi">1</span> <span class="o">|</span><span class="mi">4</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">6</span> <span class="o">|</span><span class="mi">8</span> <span class="mi">5</span> <span class="mi">3</span> <span class="o">|</span><span class="mi">7</span> <span class="mi">9</span> <span class="mi">1</span>
+<span class="mi">7</span> <span class="mi">1</span> <span class="mi">3</span> <span class="o">|</span><span class="mi">9</span> <span class="mi">2</span> <span class="mi">4</span> <span class="o">|</span><span class="mi">8</span> <span class="mi">5</span> <span class="mi">6</span>
+<span class="o">------+------+------</span>
+<span class="mi">9</span> <span class="mi">6</span> <span class="mi">1</span> <span class="o">|</span><span class="mi">5</span> <span class="mi">3</span> <span class="mi">7</span> <span class="o">|</span><span class="mi">2</span> <span class="mi">8</span> <span class="mi">4</span>
+<span class="mi">2</span> <span class="mi">8</span> <span class="mi">7</span> <span class="o">|</span><span class="mi">4</span> <span class="mi">1</span> <span class="mi">9</span> <span class="o">|</span><span class="mi">6</span> <span class="mi">3</span> <span class="mi">5</span>
+<span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="o">|</span><span class="mi">2</span> <span class="mi">8</span> <span class="mi">6</span> <span class="o">|</span><span class="mi">1</span> <span class="mi">7</span> <span class="mi">9</span>
+</pre></div>
+
+<h2 id="_5">Проверка решения<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Мы получили решение, но является ли оно верным? Давайте напишем функцию <code class="codehilite"><span class="n">check_solution</span><span class="p">()</span></code>, которая проверяет наше решение:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">check_solution</span><span class="p">(</span><span class="n">solution</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Если решение solution верно, то вернуть True, в противном случае False &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>Решение оказывается верным, если ни в одной строке, ни в одном столбце, ни в квадрате не повторяются значения:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">check_solution</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+
+<p>Когда вы закончите работать над этой функцией, то запустите программу следующим образом:</p>
+<div class="admonition legend">
+  <p class="first admonition-title"><strong>Замечание</strong></p>
+  <p class="last">Вывод пазлов и их решений опущен.</p>
+</div>
+
+<div class="codehilite"><pre><span></span>$ python sudoku.py
+...
+Solution is correct
+...
+Solution is correct
+...
+Solution is correct
+</pre></div>
+
+<p>Если вы встретили сообщение <code class="codehilite"><span class="n">Ooops</span></code>, то значит, что одно или все ваши решения оказались не верны. Если же вы уверены в своем решении, то проверьте корректность функции <code class="codehilite"><span class="n">check_solution</span><span class="p">()</span></code>.</p>
+<h2 id="_6">Генерация новых пазлов<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Напишите функцию <code class="codehilite"><span class="n">generate_sudoku</span><span class="p">(</span><span class="n">N</span><span class="p">)</span></code>, которая создает новый судоку, заполненный на <code class="codehilite"><span class="n">N</span></code> элементов:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">generate_sudoku</span><span class="p">(</span><span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot; Генерация судоку заполненного на N элементов</span>
+<span class="sd">    &gt;&gt;&gt; grid = generate_sudoku(40)</span>
+<span class="sd">    &gt;&gt;&gt; sum(1 for row in grid for e in row if e == &#39;.&#39;)</span>
+<span class="sd">    41</span>
+<span class="sd">    &gt;&gt;&gt; solution = solve(grid)</span>
+<span class="sd">    &gt;&gt;&gt; check_solution(solution)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; grid = generate_sudoku(1000)</span>
+<span class="sd">    &gt;&gt;&gt; sum(1 for row in grid for e in row if e == &#39;.&#39;)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; solution = solve(grid)</span>
+<span class="sd">    &gt;&gt;&gt; check_solution(solution)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; grid = generate_sudoku(0)</span>
+<span class="sd">    &gt;&gt;&gt; sum(1 for row in grid for e in row if e == &#39;.&#39;)</span>
+<span class="sd">    81</span>
+<span class="sd">    &gt;&gt;&gt; solution = solve(grid)</span>
+<span class="sd">    &gt;&gt;&gt; check_solution(solution)</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p>Пример использования функции:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">sudoku</span> <span class="o">=</span> <span class="n">generate_sudoku</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">display</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+<span class="o">.</span> <span class="mi">3</span> <span class="o">.</span> <span class="o">|</span><span class="mi">6</span> <span class="o">.</span> <span class="mi">8</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="mi">6</span> <span class="o">.</span> <span class="mi">2</span> <span class="o">|.</span> <span class="mi">9</span> <span class="o">.</span> <span class="o">|</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="o">|.</span> <span class="mi">6</span> <span class="mi">7</span>
+<span class="o">------+------+------</span>
+<span class="o">.</span> <span class="mi">5</span> <span class="o">.</span> <span class="o">|</span><span class="mi">7</span> <span class="o">.</span> <span class="mi">1</span> <span class="o">|.</span> <span class="mi">2</span> <span class="o">.</span>
+<span class="o">.</span> <span class="o">.</span> <span class="mi">6</span> <span class="o">|</span><span class="mi">8</span> <span class="o">.</span> <span class="mi">3</span> <span class="o">|.</span> <span class="mi">9</span> <span class="mi">1</span>
+<span class="mi">7</span> <span class="o">.</span> <span class="mi">3</span> <span class="o">|.</span> <span class="mi">2</span> <span class="o">.</span> <span class="o">|</span><span class="mi">8</span> <span class="o">.</span> <span class="mi">6</span>
+<span class="o">------+------+------</span>
+<span class="mi">9</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|</span><span class="mi">5</span> <span class="o">.</span> <span class="mi">7</span> <span class="o">|</span><span class="mi">2</span> <span class="o">.</span> <span class="mi">4</span>
+<span class="o">.</span> <span class="o">.</span> <span class="mi">7</span> <span class="o">|</span><span class="mi">4</span> <span class="o">.</span> <span class="o">.</span> <span class="o">|.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="o">|.</span> <span class="mi">8</span> <span class="mi">6</span> <span class="o">|</span><span class="mi">1</span> <span class="mi">7</span> <span class="o">.</span>
+</pre></div>
+
+<h2 id="_7">Приложение<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Вы заметили, что второй пазл решается дольше остальных?</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle3.txt&#39;</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">read_sudoku</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{fname}: {end-start}&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>На моей машине результат получился таким (от запуска к запуску вы будете получать разные результаты):
+<div class="codehilite"><pre><span></span><span class="n">puzzle1</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05907106399536133</span>
+<span class="n">puzzle2</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">7</span><span class="p">.</span><span class="mi">427937984466553</span>
+<span class="n">puzzle3</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">43831491470336914</span>
+</pre></div></p>
+<p>Очевидно, что пазлы решаются в линейной манере, т.е. пока не будет <strong>полностью</strong> решен первый пазл мы не сможем приступить к решению второго и т.д.</p>
+<p>Давайте попробуем воспользоватся модулем <a href="https://docs.python.org/3.6/library/threading.html">threading</a>, чтобы каждый пазл решался в отдельном потоке:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">def</span> <span class="nf">run_solve</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">read_sudoku</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{fname}: {end-start}&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle3.txt&#39;</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_solve</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">fname</span><span class="p">,))</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>puzzle1.txt required <span class="m">0</span>.013156652450561523
+puzzle3.txt required <span class="m">0</span>.7069487571716309
+puzzle2.txt required <span class="m">7</span>.912024021148682
+</pre></div>
+
+<p>Из результатов видно, что решение для <code class="codehilite"><span class="n">puzzle3</span></code> мы получили раньше чем для <code class="codehilite"><span class="n">puzzle2</span></code>, но тем не менее они не были решены параллельно, как можно было бы подумать, и связано это с таким понятием как <a href="http://asvetlov.blogspot.ru/2011/07/gil.html">GIL</a>.</p>
+<p>Чтобы решать пазлы параллельно (за исключением разных <em>если</em>) мы можем воспользоваться модулем <a href="https://docs.python.org/3.6/library/multiprocessing.html">multiprocessing</a>:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle3.txt&#39;</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_solve</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">fname</span><span class="p">,))</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>puzzle1.txt: <span class="m">0</span>.043260812759399414
+puzzle3.txt: <span class="m">0</span>.10617399215698242
+puzzle2.txt: <span class="m">6</span>.155700922012329
+</pre></div>
+
+<p>Мы получили примерно тот же результат. В чем тогда преимущество <code class="codehilite"><span class="n">multiprocessing</span></code> перед <code class="codehilite"><span class="n">threading</span></code>? Чтобы лучше ощутить разницу в работе этих двух модулей попробуйте поэкспериментировать с числом решаемых пазлов и их сложностью, например:</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_solve</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,))</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_solve</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,))</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+<p>Еще один пример сравнения модулей можно найти по <a href="https://nathangrigg.com/2015/04/python-threading-vs-processes">этой</a> ссылке.</p>
+<p>Для полноты картины приведу пример решения с использованием модуля <a href="https://docs.python.org/3/library/asyncio.html">asyncio</a>:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="n">async</span> <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+    <span class="o">...</span>
+
+<span class="n">async</span> <span class="k">def</span> <span class="nf">run_solve</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">read_sudoku</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">await</span> <span class="n">solve</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{fname}: {end-start}&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">[</span><span class="n">run_solve</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{fname}&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;puzzle1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;puzzle3.txt&#39;</span><span class="p">)]</span>
+    <span class="p">))</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="n">puzzle1</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">08073115348815918</span>
+<span class="n">puzzle3</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3908212184906006</span>
+<span class="n">puzzle2</span><span class="p">.</span><span class="n">txt</span><span class="p">:</span> <span class="mi">5</span><span class="p">.</span><span class="mi">103452205657959</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cypher/" title="Алгоритмы шифрования" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                Алгоритмы шифрования
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Описательная статистика с Pandas, SQL и R
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
+              
+            
+          
+          
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
