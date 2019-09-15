@@ -381,7 +381,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Декораторы" class="md-nav__link">
+  <a href="#_3" title="Вызов функций" class="md-nav__link">
+    Вызов функций
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Декораторы" class="md-nav__link">
     Декораторы
   </a>
   
@@ -446,7 +453,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Дескрипторы" class="md-nav__link">
+    <a href="../descriptors/" title="ООП. Дескрипторы" class="md-nav__link">
       ООП. Дескрипторы
     </a>
   </li>
@@ -482,7 +489,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Порядок разрешения методов" class="md-nav__link">
+    <a href="../mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
       ООП. Порядок разрешения методов
     </a>
   </li>
@@ -983,7 +990,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Декораторы" class="md-nav__link">
+  <a href="#_3" title="Вызов функций" class="md-nav__link">
+    Вызов функций
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Декораторы" class="md-nav__link">
     Декораторы
   </a>
   
@@ -1412,7 +1426,178 @@
 <span class="s1">&#39;A.B.d&#39;</span>
 </pre></div>
 
-<h2 id="_3">Декораторы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Вызов функций<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Концепция callable-объекта является фундаментальной в Python. Когда мы думаем о том, что может быть «вызвано» (called), то первое, что приходит на ум, это функции. Но кроме функций есть еще методы и классы, а также любой объект, в типе которого определен магический метод <code class="codehilite"><span class="n">__call__</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Joke</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;That what she said&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">joke</span> <span class="o">=</span> <span class="n">Joke</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">joke</span><span class="p">()</span>
+<span class="s1">&#39;That what she said&#39;</span>
+</pre></div>
+
+<p>В этом примере мы «вызываем» класс <code class="codehilite"><span class="n">Joke</span></code> для инстанцирования нового объекта, а затем осуществляем «вызов» экземпляра класса как если бы это была обычная функция (о классах мы будем говорить в лекции <a href="../classes/">«ООП. Классы»</a>). </p>
+<p><mark>Можно сказать, что наличие <code class="codehilite"><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,...)</span></code> указывает на то, что происходит «вызов» и, в большинстве случаев, генерируется опкод <code class="codehilite"><span class="n">CALL_FUNCTION</span></code> (вызов callable-объекта с позиционными аргументами):</mark></p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;add(1,2)&quot;</span><span class="p">)</span>
+  <span class="mi">1</span>           <span class="mi">0</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">add</span><span class="p">)</span>
+              <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+              <span class="mi">4</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+              <span class="mi">6</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">2</span>
+              <span class="mi">8</span> <span class="n">RETURN_VALUE</span>
+</pre></div>
+
+<p>Вот описание опкода из документации:</p>
+<div class="admonition quote">
+<p class="admonition-title"><code class="codehilite"><span class="n">CALL_FUNCTION</span><span class="p">(</span><span class="n">argc</span><span class="p">)</span></code></p>
+<p>Calls a callable object with positional arguments. <code class="codehilite"><span class="n">argc</span></code> indicates the number of positional arguments. The top of the stack contains positional arguments, with the right-most argument on top. Below the arguments is a callable object to call. <code class="codehilite"><span class="n">CALL_FUNCTION</span></code> pops all arguments and the callable object off the stack, calls the callable object with those arguments, and pushes the return value returned by the callable object.</p>
+</div>
+<p>Давайте кратко рассмотрим обработчик опкода <a href="https://github.com/python/cpython/blob/3.8/Python/ceval.c#L3496">CALL_FUNCTION</a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">case</span> <span class="nf">TARGET</span><span class="p">(</span><span class="n">CALL_FUNCTION</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span>
+    <span class="n">PREDICTED</span><span class="p">(</span><span class="n">CALL_FUNCTION</span><span class="p">);</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">sp</span><span class="p">,</span> <span class="o">*</span><span class="n">res</span><span class="p">;</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">stack_pointer</span><span class="p">;</span>
+<span class="hll">    <span class="n">res</span> <span class="o">=</span> <span class="n">call_function</span><span class="p">(</span><span class="n">tstate</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sp</span><span class="p">,</span> <span class="n">oparg</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span>    <span class="n">stack_pointer</span> <span class="o">=</span> <span class="n">sp</span><span class="p">;</span>
+    <span class="n">PUSH</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">goto</span> <span class="n">error</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">DISPATCH</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Фактически происходит вызов функции <a href="https://github.com/python/cpython/blob/3.8/Python/ceval.c#L3496">call_function</a>, куда передается адрес вершины стека <code class="codehilite"><span class="n">sp</span></code> и число позиционных аргументов <code class="codehilite"><span class="n">oparg</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span><span class="n">sp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span><span class="n">sp</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="err">$</span><span class="mi">2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span><span class="n">sp</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="err">$</span><span class="mi">3</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">at</span> <span class="n">remote</span> <span class="mh">0x1014597d0</span><span class="o">&gt;</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="p">((</span><span class="n">PyFunctionObject</span><span class="o">*</span><span class="p">)(</span><span class="o">*</span><span class="p">(</span><span class="n">sp</span><span class="o">-</span><span class="mi">3</span><span class="p">)))</span><span class="o">-&gt;</span><span class="n">func_name</span>
+<span class="err">$</span><span class="mi">4</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">add</span><span class="err">&#39;</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="n">oparg</span>
+<span class="err">$</span><span class="mi">5</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html">https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/mac-gdb-install.html</a> </p>
+</div>
+<p><code class="codehilite"><span class="n">call_function</span></code> является общей для вызова функций, методов, классов и других объектов:</p>
+<div class="codehilite"><pre><span></span><span class="n">Py_LOCAL_INLINE</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span> <span class="n">_Py_HOT_FUNCTION</span>
+<span class="n">call_function</span><span class="p">(</span><span class="n">PyThreadState</span> <span class="o">*</span><span class="n">tstate</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">***</span><span class="n">pp_stack</span><span class="p">,</span> <span class="n">Py_ssize_t</span> <span class="n">oparg</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">pfunc</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">)</span> <span class="o">-</span> <span class="n">oparg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">func</span> <span class="o">=</span> <span class="o">*</span><span class="n">pfunc</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="n">Py_ssize_t</span> <span class="n">nkwargs</span> <span class="o">=</span> <span class="p">(</span><span class="n">kwnames</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">PyTuple_GET_SIZE</span><span class="p">(</span><span class="n">kwnames</span><span class="p">);</span>
+    <span class="n">Py_ssize_t</span> <span class="n">nargs</span> <span class="o">=</span> <span class="n">oparg</span> <span class="o">-</span> <span class="n">nkwargs</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">stack</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">pp_stack</span><span class="p">)</span> <span class="o">-</span> <span class="n">nargs</span> <span class="o">-</span> <span class="n">nkwargs</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">tstate</span><span class="o">-&gt;</span><span class="n">use_tracing</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">trace_call_function</span><span class="p">(</span><span class="n">tstate</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">nargs</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+<span class="hll">        <span class="n">x</span> <span class="o">=</span> <span class="n">_PyObject_Vectorcall</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">nargs</span> <span class="o">|</span> <span class="n">PY_VECTORCALL_ARGUMENTS_OFFSET</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Происходит подготовка аргументов для вызова функции <a href="https://github.com/python/cpython/blob/3.8/Include/cpython/abstract.h#L114"><code class="codehilite"><span class="n">_PyObject_Vectorcall</span></code></a>, где <code class="codehilite"><span class="n">nargs</span></code> и <code class="codehilite"><span class="n">nkwargs</span></code> указывает на число позиционных и именованных аргументов, соответственно, <code class="codehilite"><span class="n">nkwargs</span></code> представляет собой кортеж с именами ключевых аргументов (см. опкод <code class="codehilite"><span class="n">CALL_FUNCTION_KW</span></code>), <code class="codehilite"><span class="n">stack</span></code> указывает на первый аргумент функции, а <code class="codehilite"><span class="n">func</span></code> указывает на объект <code class="codehilite"><span class="n">PyFunctionObject</span></code> (нашу функцию <code class="codehilite"><span class="k">add</span></code>):</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="n">nargs</span>
+<span class="err">$</span><span class="mi">6</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="n">nkwargs</span>
+<span class="err">$</span><span class="mi">7</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="n">kwnames</span>
+<span class="err">$</span><span class="mi">8</span> <span class="o">=</span> <span class="mh">0x0</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="n">stack</span>
+<span class="err">$</span><span class="mi">9</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span><span class="n">stack</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="mi">10</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span><span class="n">stack</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="mi">11</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">at</span> <span class="n">remote</span> <span class="mh">0x1014597d0</span><span class="o">&gt;</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="n">func</span>
+<span class="err">$</span><span class="mi">12</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">at</span> <span class="n">remote</span> <span class="mh">0x1014597d0</span><span class="o">&gt;</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">p</span> <span class="p">((</span><span class="n">PyFunctionObject</span><span class="o">*</span><span class="p">)</span><span class="mh">0x1014597d0</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">func_name</span>
+<span class="err">$</span><span class="mi">13</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">add</span><span class="err">&#39;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="k">static</span> <span class="kr">inline</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">_PyObject_Vectorcall</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">callable</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                     <span class="kt">size_t</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">res</span><span class="p">;</span>
+    <span class="n">vectorcallfunc</span> <span class="n">func</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="hll">    <span class="n">func</span> <span class="o">=</span> <span class="n">_PyVectorcall_Function</span><span class="p">(</span><span class="n">callable</span><span class="p">);</span>
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">func</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Py_ssize_t</span> <span class="n">nargs</span> <span class="o">=</span> <span class="n">PyVectorcall_NARGS</span><span class="p">(</span><span class="n">nargsf</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">_PyObject_MakeTpCall</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargs</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="hll">    <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+</span>    <span class="k">return</span> <span class="n">_Py_CheckFunctionResult</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>В функции <code class="codehilite"><span class="n">_PyObject_Vectorcall</span></code> проверяется поддерживает ли callable-объект новый протокол Vectorcall, который был введен в <a href="https://www.python.org/dev/peps/pep-0590/">PEP 590</a> с целью оптимизации вызова callable-объектов:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>The poor performance is largely a result of having to create intermediate tuples, and possibly intermediate dicts, during the call. This is mitigated in CPython by including special-case code to speed up calls to Python and builtin functions. Unfortunately, this means that other callables such as classes and third party extension objects are called using the slower, more general <code class="codehilite"><span class="n">tp_call</span></code> calling convention.</p>
+<p>This PEP proposes that the calling convention used internally for Python and builtin functions is generalized and published so that all calls can benefit from better performance...</p>
+</div>
+<p>Отметим, что все пользовательские функции, начиная с Python 3.8, поддерживают протокол Vectorcall. Возможно, вы обратили внимание, что последнем полем структуры <code class="codehilite"><span class="n">PyFunctionObject</span></code> является <code class="codehilite"><span class="n">vectorcall</span></code> типа <a href="https://github.com/python/cpython/blob/3.8/Include/cpython/object.h#L58"><code class="codehilite"><span class="n">vectorcallfunc</span></code></a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">typedef</span> <span class="n">PyObject</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">vectorcallfunc</span><span class="p">)(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">callable</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="k">const</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                                    <span class="kt">size_t</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">);</span>
+</pre></div>
+
+<p>Это поле инициализируется при <a href="https://github.com/python/cpython/blob/3.8/Objects/funcobject.c#L12">создании</a> новой функции (см. опкод <code class="codehilite"><span class="n">MAKE_FUNCTION</span></code>):</p>
+<div class="codehilite"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">PyFunction_NewWithQualName</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">code</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">globals</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">qualname</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyFunctionObject</span> <span class="o">*</span><span class="n">op</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">PyObject_GC_New</span><span class="p">(</span><span class="n">PyFunctionObject</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">PyFunction_Type</span><span class="p">);</span>
+    <span class="c1">// ...</span>
+<span class="hll">    <span class="n">op</span><span class="o">-&gt;</span><span class="n">vectorcall</span> <span class="o">=</span> <span class="n">_PyFunction_Vectorcall</span><span class="p">;</span>
+</span>    <span class="c1">// ...</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="n">op</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Таким образом, вызов:
+<div class="codehilite"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+</pre></div></p>
+<p>эквивалентен вызову:</p>
+<div class="codehilite"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">_PyFunction_Vectorcall</span><span class="p">(</span><span class="n">callable</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">kwnames</span><span class="p">);</span>
+</pre></div>
+
+<p>Наконец перейдем к <a href="https://github.com/python/cpython/blob/3.8/Objects/call.c#L386"><code class="codehilite"><span class="n">_PyFunction_Vectorcall</span></code></a>:</p>
+<div class="codehilite"><pre><span></span><span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">_PyFunction_Vectorcall</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">func</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="k">const</span><span class="o">*</span> <span class="n">stack</span><span class="p">,</span>
+                       <span class="kt">size_t</span> <span class="n">nargsf</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">kwnames</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyCodeObject</span> <span class="o">*</span><span class="n">co</span> <span class="o">=</span> <span class="p">(</span><span class="n">PyCodeObject</span> <span class="o">*</span><span class="p">)</span><span class="n">PyFunction_GET_CODE</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">return</span> <span class="n">_PyEval_EvalCodeWithName</span><span class="p">((</span><span class="n">PyObject</span><span class="o">*</span><span class="p">)</span><span class="n">co</span><span class="p">,</span> <span class="n">globals</span><span class="p">,</span> <span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="p">)</span><span class="nb">NULL</span><span class="p">,</span>
+                                    <span class="n">stack</span><span class="p">,</span> <span class="n">nargs</span><span class="p">,</span>
+                                    <span class="n">nkwargs</span> <span class="o">?</span> <span class="n">_PyTuple_ITEMS</span><span class="p">(</span><span class="n">kwnames</span><span class="p">)</span> <span class="o">:</span> <span class="nb">NULL</span><span class="p">,</span>
+                                    <span class="n">stack</span> <span class="o">+</span> <span class="n">nargs</span><span class="p">,</span>
+                                    <span class="n">nkwargs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                                    <span class="n">d</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">nd</span><span class="p">,</span> <span class="n">kwdefs</span><span class="p">,</span>
+                                    <span class="n">closure</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">qualname</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Отметим лишь два момента, первый, это получение объекта кода, о котором мы говорили ранее, и второе, создание и исполнение (evaluation) нового фрейма (о фреймах мы будем говорить в одной из следующих лекций) с телом нашей функции. </p>
+<h2 id="_4">Декораторы<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A decorator is any callable Python object that is used to modify a function, method or class definition. A decorator is passed the original object being defined and returns a modified object, which is then bound to the name in the definition.</p>

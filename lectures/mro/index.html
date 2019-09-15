@@ -13,6 +13,8 @@
         <meta name="description" content="Лекции и практические задания по программированию на Python">
       
       
+        <link rel="canonical" href="https://dementiy.github.io/lectures/mro/">
+      
       
         <meta name="author" content="Sorokin Dmitrii">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="/assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
     
       
-        <title>Программирование на Python</title>
+        <title>ООП. Порядок разрешения методов - Программирование на Python</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
       
-        <link rel="stylesheet" href="/assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="/assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -64,10 +66,10 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="/assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="/css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -113,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                ООП. Порядок разрешения методов
               
             </span>
           
@@ -181,7 +183,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -190,7 +194,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/lectures/immutable-types/" title="Лекции" class="md-tabs__link">
+        <a href="../immutable-types/" title="Лекции" class="md-tabs__link md-tabs__link--active">
           Лекции
         </a>
       
@@ -207,7 +211,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="/assignments/setup_env/" title="Практические работы" class="md-tabs__link">
+        <a href="../../assignments/setup_env/" title="Практические работы" class="md-tabs__link">
           Практические работы
         </a>
       
@@ -264,10 +268,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
     
     <label class="md-nav__link" for="nav-1">
       Лекции
@@ -285,7 +291,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+    <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
       Неизменяемые типы данных
     </a>
   </li>
@@ -297,7 +303,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+    <a href="../mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
       Изменяемые типы данных
     </a>
   </li>
@@ -309,7 +315,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/control-statements/" title="Управляющие конструкции" class="md-nav__link">
+    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
       Управляющие конструкции
     </a>
   </li>
@@ -321,7 +327,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/functions/" title="Функции" class="md-nav__link">
+    <a href="../functions/" title="Функции" class="md-nav__link">
       Функции
     </a>
   </li>
@@ -333,7 +339,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
       Простарнство имен и области видимости
     </a>
   </li>
@@ -345,7 +351,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Жизненный цикл программы" class="md-nav__link">
+    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
       Жизненный цикл программы
     </a>
   </li>
@@ -357,7 +363,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+    <a href="../classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
       ООП. Классы. Магические методы
     </a>
   </li>
@@ -369,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/descriptors/" title="ООП. Дескрипторы" class="md-nav__link">
+    <a href="../descriptors/" title="ООП. Дескрипторы" class="md-nav__link">
       ООП. Дескрипторы
     </a>
   </li>
@@ -381,7 +387,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
       ООП. Разрешение имен атрибтутов
     </a>
   </li>
@@ -393,7 +399,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
+    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
       ООП. Наследование. Абстрактные классы
     </a>
   </li>
@@ -403,11 +409,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="/lectures/mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="ООП. Порядок разрешения методов" class="md-nav__link md-nav__link--active">
       ООП. Порядок разрешения методов
     </a>
+    
   </li>
 
         
@@ -417,7 +430,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="ООП. Метаклассы" class="md-nav__link">
+    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
       ООП. Метаклассы
     </a>
   </li>
@@ -429,7 +442,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Модули и пакеты" class="md-nav__link">
+    <a href="../.." title="Модули и пакеты" class="md-nav__link">
       Модули и пакеты
     </a>
   </li>
@@ -441,7 +454,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/lectures/iterators/" title="Итераторы" class="md-nav__link">
+    <a href="../iterators/" title="Итераторы" class="md-nav__link">
       Итераторы
     </a>
   </li>
@@ -453,7 +466,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Генераторы" class="md-nav__link">
+    <a href="../.." title="Генераторы" class="md-nav__link">
       Генераторы
     </a>
   </li>
@@ -465,7 +478,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
+    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
       Конкурентность и параллелизм. Потоки
     </a>
   </li>
@@ -477,7 +490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
+    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
       Конкурентность и параллелизм. Примитивы синхронизации
     </a>
   </li>
@@ -489,7 +502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
+    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
       Конкурентность и параллелизм. Процессы
     </a>
   </li>
@@ -501,7 +514,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
+    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
       Конкурентность и параллелизм. Корутины
     </a>
   </li>
@@ -513,7 +526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
+    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
       Управление памятью. Счетчик ссылок
     </a>
   </li>
@@ -525,7 +538,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Управление памятью. Сборщик мусора" class="md-nav__link">
+    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
       Управление памятью. Сборщик мусора
     </a>
   </li>
@@ -580,7 +593,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
+    <a href="../../assignments/setup_env/" title="Настройка рабочего окружения" class="md-nav__link">
       Настройка рабочего окружения
     </a>
   </li>
@@ -592,7 +605,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
+    <a href="../../assignments/cypher/" title="Алгоритмы шифрования" class="md-nav__link">
       Алгоритмы шифрования
     </a>
   </li>
@@ -604,7 +617,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
+    <a href="../../assignments/sudoku/" title="Решатель Судоку" class="md-nav__link">
       Решатель Судоку
     </a>
   </li>
@@ -616,7 +629,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="С-расширения" class="md-nav__link">
+    <a href="../.." title="С-расширения" class="md-nav__link">
       С-расширения
     </a>
   </li>
@@ -628,7 +641,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Игра «Жизнь»" class="md-nav__link">
+    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
       Игра «Жизнь»
     </a>
   </li>
@@ -640,7 +653,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Работа с API ВКонтакте" class="md-nav__link">
+    <a href="../.." title="Работа с API ВКонтакте" class="md-nav__link">
       Работа с API ВКонтакте
     </a>
   </li>
@@ -652,7 +665,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Бот для мессенджера Telegram" class="md-nav__link">
+    <a href="../.." title="Бот для мессенджера Telegram" class="md-nav__link">
       Бот для мессенджера Telegram
     </a>
   </li>
@@ -664,7 +677,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
       Персонализация новостной ленты Hacker News
     </a>
   </li>
@@ -700,7 +713,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Приложение для ведения заметок" class="md-nav__link">
+    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
       Приложение для ведения заметок
     </a>
   </li>
@@ -712,7 +725,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Простой асинхронный сервер" class="md-nav__link">
+    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
       Простой асинхронный сервер
     </a>
   </li>
@@ -724,7 +737,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
+    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
       Простой асинхронный веб-фреймворк
     </a>
   </li>
@@ -736,7 +749,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Чат на базе веб-сокетов" class="md-nav__link">
+    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
       Чат на базе веб-сокетов
     </a>
   </li>
@@ -772,7 +785,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
+    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
       Описательная статистика с Pandas, SQL и R
     </a>
   </li>
@@ -784,7 +797,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Линейная регрессия" class="md-nav__link">
+    <a href="../.." title="Линейная регрессия" class="md-nav__link">
       Линейная регрессия
     </a>
   </li>
@@ -796,7 +809,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Логистическая регрессия" class="md-nav__link">
+    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
       Логистическая регрессия
     </a>
   </li>
@@ -808,7 +821,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Деревья. Случайные леса" class="md-nav__link">
+    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
       Деревья. Случайные леса
     </a>
   </li>
@@ -820,7 +833,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Кластеризация методом k-средних" class="md-nav__link">
+    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
       Кластеризация методом k-средних
     </a>
   </li>
@@ -832,7 +845,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
+    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
       Рекомендательная система кинофильмов и аниме
     </a>
   </li>
@@ -844,7 +857,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
+    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
       MicroTorch: библиотека для обучения нейронных сетей
     </a>
   </li>
@@ -871,8 +884,41 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/mro.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>ООП. Порядок разрешения методов</h1>
+                
+                <p>В лекции <a href="../attribute_lookup/">«ООП. Разрешение имен атрибтутов»</a> мы упомянули о том, что поиск атрибутов осуществляется сначала в словаре класса, а затем в родительских классах в соответствии с <a href="https://www.python.org/download/releases/2.3/mro/">MRO</a> (Method Resolution Order).</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mro</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">+</span> <span class="n">merge</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">mro</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)])</span>
 
+
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">seqs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">seqs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">seqs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">head</span> <span class="ow">in</span> <span class="n">tail</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="o">*</span><span class="n">tail</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Inconsistent hierarchy&quot;</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">head</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">seqs</span> <span class="k">if</span> <span class="n">s</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+                
+                  
+                
+              
               
                 
 
@@ -881,9 +927,9 @@
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "";
+      this.page.url = "https://dementiy.github.io/lectures/mro/";
       this.page.identifier =
-        "";
+        "lectures/mro/";
     };
     (function() {
       var d = document, s = d.createElement("script");
@@ -902,6 +948,41 @@
         
 <footer class="md-footer">
   
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Назад
+                </span>
+                ООП. Разрешение имен атрибтутов
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../iterators/" title="Итераторы" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Вперед
+                </span>
+                Итераторы
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
@@ -914,7 +995,7 @@
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="/assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
     
@@ -926,28 +1007,28 @@
       
     </div>
     
-      <script src="/assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
       
         
         
           
-          <script src="/assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
           
             
           
             
               
               
-                <script src="/assets/javascripts/lunr/lunr.ru.js"></script>
+                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
               
             
           
           
-            <script src="/assets/javascripts/lunr/lunr.multi.js"></script>
+            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
           
         
       
-      <script>app.initialize({version:"1.0.4",url:{base:"/"}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
