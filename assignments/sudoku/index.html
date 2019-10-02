@@ -73,6 +73,31 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-111461883-1", "dementiy.github.io")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -222,6 +247,19 @@
     </li>
   
 
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../notes/cross-entropy/" title="Заметки" class="md-tabs__link">
+          Заметки
+        </a>
+      
+    </li>
   
 
       
@@ -722,7 +760,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Игра «Жизнь»" class="md-nav__link">
+    <a href="../life/" title="Игра «Жизнь»" class="md-nav__link">
       Игра «Жизнь»
     </a>
   </li>
@@ -946,6 +984,42 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Заметки
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Заметки
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../notes/cross-entropy/" title="Энтропия и кросс-энтропия" class="md-nav__link">
+      Энтропия и кросс-энтропия
+    </a>
   </li>
 
         
@@ -1545,13 +1619,13 @@ puzzle2.txt: <span class="m">6</span>.155700922012329
           </a>
         
         
-          <a href="../hackernews/" title="Персонализация новостной ленты Hacker News" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../life/" title="Игра «Жизнь»" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Вперед
                 </span>
-                Персонализация новостной ленты Hacker News
+                Игра «Жизнь»
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

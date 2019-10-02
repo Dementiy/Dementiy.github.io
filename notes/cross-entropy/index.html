@@ -13,7 +13,7 @@
         <meta name="description" content="Лекции и практические задания по программированию на Python">
       
       
-        <link rel="canonical" href="https://dementiy.github.io/lectures/descriptors/">
+        <link rel="canonical" href="https://dementiy.github.io/notes/cross-entropy/">
       
       
         <meta name="author" content="Sorokin Dmitrii">
@@ -42,7 +42,7 @@
     
     
       
-        <title>ООП. Дескрипторы - Программирование на Python</title>
+        <title>Энтропия и кросс-энтропия - Программирование на Python</title>
       
     
     
@@ -144,7 +144,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                ООП. Дескрипторы
+                Энтропия и кросс-энтропия
               
             </span>
           
@@ -223,7 +223,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../immutable-types/" title="Лекции" class="md-tabs__link md-tabs__link--active">
+        <a href="../../lectures/immutable-types/" title="Лекции" class="md-tabs__link">
           Лекции
         </a>
       
@@ -255,7 +255,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../notes/cross-entropy/" title="Заметки" class="md-tabs__link">
+        <a href="./" title="Заметки" class="md-tabs__link md-tabs__link--active">
           Заметки
         </a>
       
@@ -310,12 +310,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
     
     <label class="md-nav__link" for="nav-1">
       Лекции
@@ -333,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
+    <a href="../../lectures/immutable-types/" title="Неизменяемые типы данных" class="md-nav__link">
       Неизменяемые типы данных
     </a>
   </li>
@@ -345,7 +343,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
+    <a href="../../lectures/mutable-types/" title="Изменяемые типы данных" class="md-nav__link">
       Изменяемые типы данных
     </a>
   </li>
@@ -357,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../control-statements/" title="Управляющие конструкции" class="md-nav__link">
+    <a href="../../lectures/control-statements/" title="Управляющие конструкции" class="md-nav__link">
       Управляющие конструкции
     </a>
   </li>
@@ -369,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../functions/" title="Функции" class="md-nav__link">
+    <a href="../../lectures/functions/" title="Функции" class="md-nav__link">
       Функции
     </a>
   </li>
@@ -381,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
+    <a href="../../lectures/ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
       Простарнство имен и области видимости
     </a>
   </li>
@@ -405,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
+    <a href="../../lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
       ООП. Классы. Магические методы
     </a>
   </li>
@@ -415,51 +413,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        ООП. Дескрипторы
-      </label>
-    
-    <a href="./" title="ООП. Дескрипторы" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../lectures/descriptors/" title="ООП. Дескрипторы" class="md-nav__link">
       ООП. Дескрипторы
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Содержание</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="Свойства" class="md-nav__link">
-    Свойства
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
-            Комментарии
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -469,7 +427,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
+    <a href="../../lectures/attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-nav__link">
       ООП. Разрешение имен атрибтутов
     </a>
   </li>
@@ -493,7 +451,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
+    <a href="../../lectures/mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
       ООП. Порядок разрешения методов
     </a>
   </li>
@@ -529,7 +487,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../iterators/" title="Итераторы" class="md-nav__link">
+    <a href="../../lectures/iterators/" title="Итераторы" class="md-nav__link">
       Итераторы
     </a>
   </li>
@@ -952,10 +910,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Заметки
@@ -971,11 +931,65 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../notes/cross-entropy/" title="Энтропия и кросс-энтропия" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Энтропия и кросс-энтропия
+      </label>
+    
+    <a href="./" title="Энтропия и кросс-энтропия" class="md-nav__link md-nav__link--active">
       Энтропия и кросс-энтропия
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="Энтропия" class="md-nav__link">
+    Энтропия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" title="Кросс-энтропия" class="md-nav__link">
+    Кросс-энтропия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" title="Кросс-энтропия как функция потерь" class="md-nav__link">
+    Кросс-энтропия как функция потерь
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
+            Комментарии
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1003,8 +1017,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Свойства" class="md-nav__link">
-    Свойства
+  <a href="#_1" title="Энтропия" class="md-nav__link">
+    Энтропия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" title="Кросс-энтропия" class="md-nav__link">
+    Кросс-энтропия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" title="Кросс-энтропия как функция потерь" class="md-nav__link">
+    Кросс-энтропия как функция потерь
   </a>
   
 </li>
@@ -1031,119 +1059,163 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/lectures/descriptors.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/notes/cross-entropy.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>ООП. Дескрипторы</h1>
+                  <h1>Энтропия и кросс-энтропия</h1>
                 
-                <p>В этой лекции мы рассмотрим такой важный механизм как дескрипторы, а также разберемся с тем как же устроены методы класса.</p>
-<h2 id="_1">Свойства<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Перед тем как говорить о дескрипторах давайте поговорим о свойствах (property). Рассмотрим следующий пример: пусть у нас есть класс «Профиль пользователя», который включает следующие поля: имя, фамилия и дата рождения:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">user</span><span class="p">:</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
-        <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">sur_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">bdate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">]</span><span class="o">=</span><span class="bp">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_user</span> <span class="o">=</span> <span class="n">user</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="n">sur_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">bdate</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_recalculate_age</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">_recalculate_age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bdate</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span>
-
-        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="n">age</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bdate</span><span class="o">.</span><span class="n">year</span>
-
-        <span class="k">if</span> <span class="n">today</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bdate</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bdate</span><span class="o">.</span><span class="n">day</span><span class="p">):</span>
-            <span class="n">age</span> <span class="o">-=</span> <span class="mi">1</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span> <span class="o">=</span> <span class="n">today</span>
-
-    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_recalculate_age</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
-
-
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="o">...</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="o">...</span>
-</pre></div>
-
-<p>Обратите внимание, что возраст пользователя, если была указана дата рождения, вычисляется при каждом обращении:</p>
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span><span class="p">()</span>
-<span class="mi">63</span>
-</pre></div>
-
-<p>Было бы удобно обращаться к возрасту не как к методу, а как к обычному атрибуту, таким образом, чтобы клиентский код «не знал», что возраст является вычисляемым (управляемым) атрибутом. Для создания управляемых атрибутов в Python используются свойства (property), которые позволяют определить поведение конкретного атрибута при попытке доступа, изменения и его удаления:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_recalculate_age</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span>
-<span class="mi">63</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="o">...</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="n">can</span><span class="s1">&#39;t set attribute</span>
-</pre></div>
-
-<p>Как уже было сказано, мы можем определить поведение атрибута с помощью свойств не только при попытке доступа к нему, но также при попытке его изменения или удаления, например:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s1">&#39;{self.first_name} {self.sur_name}&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
-
-    <span class="nd">@fullname.setter</span>
-    <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">,</span> <span class="n">surname</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="n">surname</span>
-
-    <span class="nd">@fullname.deleter</span>
-    <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span> <span class="o">=</span> <span class="s1">&#39;Guido Van Rossum&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
-<span class="s1">&#39;Guido&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
-<span class="s1">&#39;Van Rossum&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
-<span class="s1">&#39;&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
-<span class="s1">&#39;&#39;</span>
-</pre></div>
-
-<p>Свойства являются одним из распространённых способов применения дескрипторов.</p>
+                <h2 id="_1">Энтропия<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Допустим у нас есть две механических машины, которые печатают сообщения из алфавита <span><span class="MathJax_Preview">{A, B, C, D}</span><script type="math/tex">{A, B, C, D}</script></span>. Символы, печатаемые первой машиной, распределены равновероятно, то есть, появление каждого нового символа имеет вероятность <span><span class="MathJax_Preview">0.25</span><script type="math/tex">0.25</script></span>:</p>
+<div>
+<div class="MathJax_Preview">
+P(A) = 0.25 \\
+P(B) = 0.25 \\
+P(C) = 0.25 \\
+P(D) = 0.25
+</div>
+<script type="math/tex; mode=display">
+P(A) = 0.25 \\
+P(B) = 0.25 \\
+P(C) = 0.25 \\
+P(D) = 0.25
+</script>
+</div>
+<p>Символы, печатаемые второй машиной, имеют иное распределение:</p>
+<div>
+<div class="MathJax_Preview">
+P(A) = 0.5 \\
+P(B) = 0.125 \\
+P(C) = 0.125 \\
+P(D) = 0.25
+</div>
+<script type="math/tex; mode=display">
+P(A) = 0.5 \\
+P(B) = 0.125 \\
+P(C) = 0.125 \\
+P(D) = 0.25
+</script>
+</div>
+<p><img alt="" src="../../images/notes/cross-entropy/entropy1.jpg" /></p>
+<p>Вопрос «Какая из двух машин предоставляет нам больше информации?» или мы можем переформулировать вопрос: «Если вам необходимо предсказать следующий символ, то сколько вопросов, на которые можно ответить <em>да</em> или <em>нет</em>, потребуется задать?».</p>
+<p>Давайте рассмотрим первую машину. Нашим первым вопросом может быть «Это символ A или B?». Так все символы появляются равновероятно, то с вероятностью <span><span class="MathJax_Preview">0.5</span><script type="math/tex">0.5</script></span> это будет «A или B» и с вероятностью <span><span class="MathJax_Preview">0.5</span><script type="math/tex">0.5</script></span> это будет «C или D». После того как мы получим ответ, нам останется задать еще один вопрос, например, «Это A?». И после того как мы получим ответ на наш последний вопрос, мы будем знать какой именно символ был следующим в последовательности, выдаваемой машиной один. Таким образом, нам достаточно двух вопросов, чтобы предсказать какой символ был сгенерирован машиной номер один.</p>
+<p><img alt="" src="../../images/notes/cross-entropy/entropy2.jpg" /></p>
+<p>Что же касается второй машины, то мы конечно же можем задавть теже самые вопросы, но мы знаем, что у символов другое распределение, например, вероятность появления символа A равна <span><span class="MathJax_Preview">0.5</span><script type="math/tex">0.5</script></span>, соответственно он будет появляться в последовательности чаще остальных символов, поэтому более разумным было бы задать первый вопрос «Это A?». Если же ответ отрицательный, то следующий символ, который имеет более высокий шанс появиться в последовательности D, поэтому следующим вопросом может быть «Это D?». Если же ответ и на этот вопрос отрицательный, то мы задаем третий и последний вопрос, например, «Это B?».</p>
+<p><img alt="" src="../../images/notes/cross-entropy/entropy3.jpg" /></p>
+<p>Сколько в среднем вопросов нам нужно задать, чтобы определить символ в последовательности генерируемой второй машиной?</p>
+<p>Для этого мы можем воспользоваться формулой для вычисления математического ожидания дискретной случайной величины:</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+\textit{#вопросов} =&amp; p_A \times 1 + p_B \times 3 + p_C \times 3 + p_D \times 2 \\
+=&amp; 0.5 \times 1 + 0.125 \times 3 + 0.125 \times 3 + 0.25 \times 2 \\
+=&amp; 1.75
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\textit{#вопросов} =& p_A \times 1 + p_B \times 3 + p_C \times 3 + p_D \times 2 \\
+=& 0.5 \times 1 + 0.125 \times 3 + 0.125 \times 3 + 0.25 \times 2 \\
+=& 1.75
+\end{aligned}
+</script>
+</div>
+<p>Аналогично посчитаем среднее число вопросов для первой машины:</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+\textit{#вопросов} =&amp; p_A \times 2 + p_B \times 2 + p_C \times 2 + p_D \times 2 \\
+=&amp; 0.25 \times 2 + 0.25 \times 2 + 0.25 \times 2 + 0.25 \times 2 \\
+=&amp; 2.0
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\textit{#вопросов} =& p_A \times 2 + p_B \times 2 + p_C \times 2 + p_D \times 2 \\
+=& 0.25 \times 2 + 0.25 \times 2 + 0.25 \times 2 + 0.25 \times 2 \\
+=& 2.0
+\end{aligned}
+</script>
+</div>
+<p>Запишем в общем виде:</p>
+<div>
+<div class="MathJax_Preview">H = \sum_{i=1}^{n}p_i \times \textit{число_вопросов}_i</div>
+<script type="math/tex; mode=display">H = \sum_{i=1}^{n}p_i \times \textit{число_вопросов}_i</script>
+</div>
+<p>Где:</p>
+<div>
+<div class="MathJax_Preview">\textit{число_вопросов}_i = \log_2\left(\frac{1}{p_i}\right)</div>
+<script type="math/tex; mode=display">\textit{число_вопросов}_i = \log_2\left(\frac{1}{p_i}\right)</script>
+</div>
+<p><img alt="" src="../../images/notes/cross-entropy/entropy4.jpg" /></p>
+<p>Окончательно можем записать формулу для вычисления энтропии как:</p>
+<div>
+<div class="MathJax_Preview">H = \sum_{i=1}^{n}p_i \times \log_2\left(\frac{1}{p_i}\right) = -\sum_{i=1}^{n}p_i \times \log_2(p_i)</div>
+<script type="math/tex; mode=display">H = \sum_{i=1}^{n}p_i \times \log_2\left(\frac{1}{p_i}\right) = -\sum_{i=1}^{n}p_i \times \log_2(p_i)</script>
+</div>
+<h2 id="-">Кросс-энтропия<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>Давайте предположим, что у нас есть еще одна машина, которая генерирует теже символы, но с другим распределением:</p>
+<p><img alt="" src="../../images/notes/cross-entropy/entropy5.jpg" /></p>
+<p>Что произойдет, если вы будете задавать вопросы опираясь на распределение первой машины, несмотря на то, что символы были сгенерированы второй машиной, которая имеет иное распределение (и наоборот). Давайте оценим среднее число вопросов в этом случае, для этого воспользуемся формулой перекрестной энтропии (cross-entropy):</p>
+<div>
+<div class="MathJax_Preview">H_{p}(q) = \sum_{i=1}^{n}q_i \times \log_2 \Bigg(\frac{1}{p_i}\Bigg)</div>
+<script type="math/tex; mode=display">H_{p}(q) = \sum_{i=1}^{n}q_i \times \log_2 \Bigg(\frac{1}{p_i}\Bigg)</script>
+</div>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+H_{p}(q) =&amp; \sum_{i=1}^{n}q_i \times \log_2 \Bigg(\frac{1}{p_i}\Bigg) \\
+=&amp; q_A \times \log_2\Bigg(\frac{1}{p_A}\Bigg) + q_B \times \log_2\Bigg(\frac{1}{p_B}\Bigg) + q_C \times \log_2\Bigg(\frac{1}{p_C}\Bigg) + q_D \times \log_2\Bigg(\frac{1}{p_D}\Bigg) \\
+=&amp; 0.5 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.5}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.25}\Bigg) + 0.25 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) \\
+=&amp; 1.5 + 0.125 + 0.25 + 0.75 \\
+=&amp; 2.625
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H_{p}(q) =& \sum_{i=1}^{n}q_i \times \log_2 \Bigg(\frac{1}{p_i}\Bigg) \\
+=& q_A \times \log_2\Bigg(\frac{1}{p_A}\Bigg) + q_B \times \log_2\Bigg(\frac{1}{p_B}\Bigg) + q_C \times \log_2\Bigg(\frac{1}{p_C}\Bigg) + q_D \times \log_2\Bigg(\frac{1}{p_D}\Bigg) \\
+=& 0.5 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.5}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.25}\Bigg) + 0.25 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) \\
+=& 1.5 + 0.125 + 0.25 + 0.75 \\
+=& 2.625
+\end{aligned}
+</script>
+</div>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+H_{q}(p) =&amp; \sum_{i=1}^{n}p_i \times \log_2 \Bigg(\frac{1}{q_i}\Bigg) \\
+=&amp; p_A \times \log_2\Bigg(\frac{1}{q_A}\Bigg) + p_B \times \log_2\Bigg(\frac{1}{q_B}\Bigg) + p_C \times \log_2\Bigg(\frac{1}{q_C}\Bigg) + p_D \times \log_2\Bigg(\frac{1}{q_D}\Bigg) \\
+=&amp; 0.125 \times \log_2\Bigg(\frac{1}{0.5}\Bigg) + 0.5 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.25 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.25}\Bigg) \\
+=&amp; 0.125 + 1.5 + 0.75 + 0.25 \\
+=&amp; 2.625
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+H_{q}(p) =& \sum_{i=1}^{n}p_i \times \log_2 \Bigg(\frac{1}{q_i}\Bigg) \\
+=& p_A \times \log_2\Bigg(\frac{1}{q_A}\Bigg) + p_B \times \log_2\Bigg(\frac{1}{q_B}\Bigg) + p_C \times \log_2\Bigg(\frac{1}{q_C}\Bigg) + p_D \times \log_2\Bigg(\frac{1}{q_D}\Bigg) \\
+=& 0.125 \times \log_2\Bigg(\frac{1}{0.5}\Bigg) + 0.5 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.25 \times \log_2\Bigg(\frac{1}{0.125}\Bigg) + 0.125 \times \log_2\Bigg(\frac{1}{0.25}\Bigg) \\
+=& 0.125 + 1.5 + 0.75 + 0.25 \\
+=& 2.625
+\end{aligned}
+</script>
+</div>
+<p>Чтобы посчитать сколько информации будет потеряно, когда мы аппроксимируем одно распределение другим, можно использовать «расстояние» Кульбака-Лейблера (KL divergence):</p>
+<div>
+<div class="MathJax_Preview">D_q(p) = H_q(p) − H(p)</div>
+<script type="math/tex; mode=display">D_q(p) = H_q(p) − H(p)</script>
+</div>
+<p>Для нашего примера получим:</p>
+<div>
+<div class="MathJax_Preview">D_q(p) = H_q(p) − H(p) = 2.625 - 1.75 = 0.875</div>
+<script type="math/tex; mode=display">D_q(p) = H_q(p) − H(p) = 2.625 - 1.75 = 0.875</script>
+</div>
+<h2 id="-_1">Кросс-энтропия как функция потерь<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h2>
+<p>Логистическая функция потерь (binary cross-entropy):</p>
+<div>
+<div class="MathJax_Preview">L = -\frac{1}{N}\sum_{i=1}^{N}y_i\log_2(\hat{y_i}) + (1 - y_i)\log_2(1-\hat{y_i})</div>
+<script type="math/tex; mode=display">L = -\frac{1}{N}\sum_{i=1}^{N}y_i\log_2(\hat{y_i}) + (1 - y_i)\log_2(1-\hat{y_i})</script>
+</div>
                 
                   
                 
@@ -1156,9 +1228,9 @@
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "https://dementiy.github.io/lectures/descriptors/";
+      this.page.url = "https://dementiy.github.io/notes/cross-entropy/";
       this.page.identifier =
-        "lectures/descriptors/";
+        "notes/cross-entropy/";
     };
     (function() {
       var d = document, s = d.createElement("script");
@@ -1180,7 +1252,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../classes/" title="ООП. Классы. Магические методы" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1189,25 +1261,11 @@
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
-                ООП. Классы. Магические методы
+                Описательная статистика с Pandas, SQL и R
               </span>
             </div>
           </a>
         
-        
-          <a href="../attribute_lookup/" title="ООП. Разрешение имен атрибтутов" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Вперед
-                </span>
-                ООП. Разрешение имен атрибтутов
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
