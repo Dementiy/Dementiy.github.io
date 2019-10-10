@@ -715,8 +715,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Добавляем аргументы командной строки" class="md-nav__link">
-    Добавляем аргументы командной строки
+  <a href="#_3" title="Добавляем интерфейс" class="md-nav__link">
+    Добавляем интерфейс
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Использование аргументов командной строки" class="md-nav__link">
+    Использование аргументов командной строки
   </a>
   
 </li>
@@ -1033,8 +1040,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Добавляем аргументы командной строки" class="md-nav__link">
-    Добавляем аргументы командной строки
+  <a href="#_3" title="Добавляем интерфейс" class="md-nav__link">
+    Добавляем интерфейс
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="Использование аргументов командной строки" class="md-nav__link">
+    Использование аргументов командной строки
   </a>
   
 </li>
@@ -1238,6 +1252,11 @@
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_next_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Grid</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Получить следующее поколение клеток.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    out : Grid</span>
+<span class="sd">        Новое поколение клеток.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </pre></div>
@@ -1340,6 +1359,7 @@
 <p class="admonition-title">Note</p>
 <p>Мы не рассматриваем случай, когда конфигурация на очередном шаге в точности (без сдвигов и поворотов) повторит себя же на одном из более ранних шагов (то есть, когда складывается периодическая конфигурация). Вы можете рассмотреть этот случай в качестве дополнительного упражения.</p>
 </div>
+<p>И наконец мы добавили методы для сохранения и загрузки состояния игры:</p>
 <div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">life</span> <span class="o">=</span> <span class="n">GameOfLife</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;glider.txt&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">life</span><span class="o">.</span><span class="n">curr_generation</span>
 <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -1355,8 +1375,18 @@
  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">life</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;glider-4-steps.txt&#39;</span><span class="p">))</span>
 </pre></div>
 
+<div class="codehilite"><pre><span></span><span class="o">(</span>cs102<span class="o">)</span> $ cat glider-4-steps.txt
+<span class="m">00000</span>
+<span class="m">00100</span>
+<span class="m">00010</span>
+<span class="m">01110</span>
+<span class="m">00000</span>
+</pre></div>
+
+<h2 id="_3">Добавляем интерфейс<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">abc</span>
 
 
@@ -1370,7 +1400,7 @@
         <span class="k">pass</span>
 </pre></div>
 
-<p>Теперь реализуем консольную версию игры:</p>
+<p>Реализуем консольную версию игры:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 
@@ -1390,10 +1420,10 @@
             <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Unable to clear terminal. Your OS isn&#39;t supported.&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">pass</span>
+        <span class="c1"># PUT YOUR CODE HERE</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">pass</span>
+        <span class="c1"># PUT YOUR CODE HERE</span>
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">life</span> <span class="o">=</span> <span class="n">GameOfLife</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">max_generations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -1429,7 +1459,12 @@
         <span class="c1"># Copy from previous assignment</span>
 </pre></div>
 
-<h2 id="_3">Добавляем аргументы командной строки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Добавьте возможность помечать состояние клеток на игровом поле и ставить игру на паузу как показано ниже:</p>
+<video style="display:block; margin: 0 auto;" width="324" controls autoplay>
+    <source src="../../images/assignments/game-of-life/life.mov" type="video/mp4">
+</video>
+
+<h2 id="_4">Использование аргументов командной строки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="o">(</span>cs102<span class="o">)</span> $ gof-console.py --help
 <span class="o">(</span>cs102<span class="o">)</span> $ gof-console.py --rows <span class="m">10</span> --cols <span class="m">10</span> --max-generations <span class="m">50</span>
 <span class="o">(</span>cs102<span class="o">)</span> $ gof-gui.py  --width <span class="m">640</span> --height <span class="m">480</span> --cell-size <span class="m">10</span>
