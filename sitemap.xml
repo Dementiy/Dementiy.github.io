@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://dementiy.github.io/lectures/immutable-types/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/mutable-types/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/control-statements/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/functions/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/ns_and_scopes/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -32,17 +32,17 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/classes/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/descriptors/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/attribute_lookup/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -52,7 +52,7 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/mro/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -67,7 +67,7 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/lectures/iterators/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -107,17 +107,17 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/setup_env/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/cypher/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/sudoku/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -127,22 +127,22 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/life/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dementiy.github.io/assignments/vk_api/</loc>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/telegram/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/hackernews/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -167,7 +167,7 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/assignments/descriptive-statistics/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -202,7 +202,7 @@
     </url>
     <url>
      <loc>https://dementiy.github.io/notes/cross-entropy/</loc>
-     <lastmod>2019-11-02</lastmod>
+     <lastmod>2019-11-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
