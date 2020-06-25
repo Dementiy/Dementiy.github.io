@@ -1,0 +1,101 @@
+site_name: Программирование на Python
+site_url: https://dementiy.github.io/
+site_description: Лекции и практические задания по программированию на Python
+site_author: Sorokin Dmitrii
+repo_url: https://github.com/Dementiy/pybook-assignments/
+google_analytics: ['UA-111461883-1', 'dementiy.github.io']
+theme:
+    name: 'material'
+    feature:
+        tabs: true
+    language: 'ru'
+    palette:
+        primary: 'indigo'
+        accent: 'indigo'
+extra:
+    disqus: 'Dementiy'
+    search:
+        language: 'en, ru'
+    social:
+        - type: 'github'
+          link: 'https://github.com/Dementiy'
+extra_css:
+    - css/extra.css
+plugins:
+    - awesome-pages
+markdown_extensions:
+    - meta
+    - markdown.extensions.attr_list
+    - codehilite
+    - admonition
+    - footnotes
+    - toc:
+        permalink: true
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+
+extra_javascript:
+    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+nav:
+    - Лекции:
+        - 'Неизменяемые типы данных': 'lectures/immutable-types.md'
+        - 'Изменяемые типы данных': 'lectures/mutable-types.md'
+        - 'Управляющие конструкции': 'lectures/control-statements.md'
+        - 'Функции': 'lectures/functions.md'
+        - 'Простарнство имен и области видимости': 'lectures/ns_and_scopes.md'
+        - 'Жизненный цикл программы': ''
+        - 'ООП. Классы. Магические методы': 'lectures/classes.md'
+        - 'ООП. Дескрипторы': 'lectures/descriptors.md'
+        - 'ООП. Разрешение имен атрибтутов': 'lectures/attribute_lookup.md'
+        - 'ООП. Наследование. Абстрактные классы': ''
+        - 'ООП. Порядок разрешения методов': 'lectures/mro.md'
+        - 'ООП. Метаклассы': ''
+        - 'Модули и пакеты': ''
+        - 'Итераторы': 'lectures/iterators.md'
+        - 'Генераторы': ''
+        - 'Конкурентность и параллелизм. Потоки': ''
+        - 'Конкурентность и параллелизм. Примитивы синхронизации': ''
+        - 'Конкурентность и параллелизм. Процессы': ''
+        - 'Конкурентность и параллелизм. Корутины': ''
+        - 'Управление памятью. Счетчик ссылок': ''
+        - 'Управление памятью. Сборщик мусора': ''
+    - Практические работы:
+        - Basics:
+            - 'Настройка рабочего окружения': 'assignments/setup_env.md'
+            - 'Алгоритмы шифрования': 'assignments/cypher.md'
+            - 'Решатель Судоку': 'assignments/sudoku.md'
+            - 'С-расширения': ''
+            - 'Игра «Жизнь»': 'assignments/life.md'
+            - 'Работа с API ВКонтакте': 'assignments/vk_api.md'
+            - 'Бот для мессенджера Telegram': 'assignments/telegram.md'
+            - 'Персонализация новостной ленты Hacker News': 'assignments/hackernews.md'
+        - Web:
+            - 'Приложение для ведения заметок': ''
+            - 'Простой асинхронный сервер': ''
+            - 'Простой асинхронный веб-фреймворк': ''
+            - 'Чат на базе веб-сокетов': ''
+        - DataScience:
+            - 'Описательная статистика с Pandas, SQL и R': 'assignments/descriptive-statistics.md'
+            - 'Линейная регрессия': ''
+            - 'Логистическая регрессия': ''
+            - 'Деревья. Случайные леса': ''
+            - 'Кластеризация методом k-средних': ''
+            - 'Рекомендательная система кинофильмов и аниме': ''
+            - 'MicroTorch: библиотека для обучения нейронных сетей': ''
+    - Заметки:
+        - Энтропия и кросс-энтропия: 'notes/cross-entropy.md'
