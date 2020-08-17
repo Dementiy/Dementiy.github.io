@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Лекции и практические задания по программированию на Python">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      
-        <meta name="lang:clipboard.copy" content="Копировать в буфер">
-      
-        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
-      
-        <meta name="lang:search.language" content="en, ru">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Совпадений не найдено">
-      
-        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
-      
-        <meta name="lang:search.result.other" content="Найдено # совпадений">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
       
@@ -46,9 +25,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.63b94e9e.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
       
       
         
@@ -57,16 +36,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
@@ -74,101 +50,83 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-111461883-1", "dementiy.github.io")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-111461883-1","dementiy.github.io"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#postgresql-docker" tabindex="1" class="md-skip">
-        Перейти к содержанию
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#postgresql-docker" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Программирование на Python
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Описательная статистика с Pandas, SQL и R
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-header-nav__button md-logo" aria-label="Программирование на Python">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Программирование на Python
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Описательная статистика с Pandas, SQL и R
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Начните печатать для поиска
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -176,45 +134,35 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
-    GitHub
+    Dementiy/pybook-assignments
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
   
 
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -223,7 +171,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../lectures/immutable-types/" title="Лекции" class="md-tabs__link">
+        <a href="../../lectures/immutable-types/" class="md-tabs__link">
           Лекции
         </a>
       
@@ -240,7 +188,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../setup_env/" title="Практические работы" class="md-tabs__link">
+        <a href="../setup_env/" class="md-tabs__link">
           Практические работы
         </a>
       
@@ -255,7 +203,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../notes/cross-entropy/" title="Заметки" class="md-tabs__link">
+        <a href="../../notes/cross-entropy/" class="md-tabs__link">
           Заметки
         </a>
       
@@ -266,40 +214,35 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-nav__button md-logo" aria-label="Программирование на Python">
       
-        <i class="md-icon"></i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
     </a>
     Программирование на Python
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
-    GitHub
+    Dementiy/pybook-assignments
   </div>
 </a>
     </div>
@@ -313,13 +256,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
     
     <label class="md-nav__link" for="nav-1">
       Лекции
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Лекции" data-md-level="1">
       <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Лекции
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -391,18 +340,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
-      Жизненный цикл программы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
       ООП. Классы. Магические методы
     </a>
@@ -439,18 +376,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
-      ООП. Наследование. Абстрактные классы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
       ООП. Порядок разрешения методов
     </a>
@@ -463,116 +388,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
-      ООП. Метаклассы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Модули и пакеты" class="md-nav__link">
-      Модули и пакеты
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/iterators/" title="Итераторы" class="md-nav__link">
       Итераторы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Генераторы" class="md-nav__link">
-      Генераторы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
-      Конкурентность и параллелизм. Потоки
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
-      Конкурентность и параллелизм. Примитивы синхронизации
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
-      Конкурентность и параллелизм. Процессы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
-      Конкурентность и параллелизм. Корутины
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
-      Управление памятью. Счетчик ссылок
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
-      Управление памятью. Сборщик мусора
     </a>
   </li>
 
@@ -591,13 +408,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Практические работы
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Практические работы" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Практические работы
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -610,13 +433,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
     
     <label class="md-nav__link" for="nav-2-1">
       Basics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Basics" data-md-level="2">
       <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Basics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -654,18 +483,6 @@
   <li class="md-nav__item">
     <a href="../sudoku/" title="Решатель Судоку" class="md-nav__link">
       Решатель Судоку
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="С-расширения" class="md-nav__link">
-      С-расширения
     </a>
   </li>
 
@@ -727,90 +544,24 @@
           
           
 
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      Web
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        Web
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
-      Приложение для ведения заметок
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
-      Простой асинхронный сервер
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
-      Простой асинхронный веб-фреймворк
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
-      Чат на базе веб-сокетов
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
     
-    <label class="md-nav__link" for="nav-2-3">
+    <label class="md-nav__link" for="nav-2-2">
       DataScience
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-3">
+    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         DataScience
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -825,11 +576,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Описательная статистика с Pandas, SQL и R
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link md-nav__link--active">
@@ -837,141 +591,64 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
   
-    <label class="md-nav__title" for="__toc">Содержание</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Содержание
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgresql-docker" title="Запускаем PostgreSQL в Docker" class="md-nav__link">
+  <a href="#postgresql-docker" class="md-nav__link">
     Запускаем PostgreSQL в Docker
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Создание таблицы с данными по оттоку клиентов" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Создание таблицы с данными по оттоку клиентов
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="Сортировка" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Сортировка
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Извлечение данных" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Извлечение данных
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="Группировка данных" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Группировка данных
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="Первые попытки прогнозирования оттока" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     Первые попытки прогнозирования оттока
   </a>
   
 </li>
       
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
-            Комментарии
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Линейная регрессия" class="md-nav__link">
-      Линейная регрессия
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
-      Логистическая регрессия
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
-      Деревья. Случайные леса
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
-      Кластеризация методом k-средних
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
-      Рекомендательная система кинофильмов и аниме
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
-      MicroTorch: библиотека для обучения нейронных сетей
-    </a>
   </li>
 
         
@@ -992,13 +669,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Заметки
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Заметки" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Заметки
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1032,64 +715,59 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
   
-    <label class="md-nav__title" for="__toc">Содержание</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Содержание
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgresql-docker" title="Запускаем PostgreSQL в Docker" class="md-nav__link">
+  <a href="#postgresql-docker" class="md-nav__link">
     Запускаем PostgreSQL в Docker
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Создание таблицы с данными по оттоку клиентов" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Создание таблицы с данными по оттоку клиентов
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="Сортировка" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Сортировка
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Извлечение данных" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Извлечение данных
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="Группировка данных" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Группировка данных
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="Первые попытки прогнозирования оттока" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     Первые попытки прогнозирования оттока
   </a>
   
 </li>
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
-            Комментарии
-          </a>
-        </li>
       
     </ul>
   
@@ -1103,7 +781,8 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/assignments/descriptive-statistics.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                  
                 
                 
                   <h1>Описательная статистика с Pandas, SQL и R</h1>
@@ -1111,49 +790,49 @@
                 <p>В этой работе вам предстоит выполнить два домашних задания с <a href="https://habrahabr.ru/company/ods/blog/344044/">открытого курса по машинному обучению</a> от OpenDataScience. Каждое задание нужно выполнить отдельно на Pandas, R и SQL. <a href="https://habrahabr.ru/company/ods/blog/322626/">Первая тема курса</a> посвящена первичному анализу данных с Pandas. Мы рассмотрим этот же пример с использованием SQL и R (решение на R можно найти в нашем репозитории). Чтобы не дублировать исходный текст статьи я оставил только ключевые фразы, поэтому за выводами по полученным результатам следует обращаться именно к нему.</p>
 <h2 id="postgresql-docker">Запускаем PostgreSQL в Docker<a class="headerlink" href="#postgresql-docker" title="Permanent link">&para;</a></h2>
 <p>В качестве СУБД будем использовать PostgreSQL, которая будет запущена в докер-контейнере. Все данные будут храниться в отдельном дата-контейнере. Подробное описание команд можно найти в статье <a href="https://ryaneschinger.com/blog/dockerized-postgresql-development-environment/">«Dockerized Postgresql Development Environment»</a>.</p>
-<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">Создание</span> <span class="err">дата</span><span class="o">-</span><span class="err">контейнера</span><span class="p">,</span> <span class="err">в</span> <span class="err">котором</span> <span class="err">будут</span> <span class="err">хранится</span> <span class="err">все</span> <span class="err">базы</span> <span class="err">данных</span> <span class="err">постгреса</span>
-<span class="err">$</span> <span class="n">docker</span> <span class="k">create</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="k">data</span> <span class="c1">--name mypostgres-data busybox</span>
+<div class="highlight"><pre><span></span><code># Создание дата-контейнера, в котором будут хранится все базы данных постгреса
+$ docker create -v /var/lib/postgresql/data --name mypostgres-data busybox
 
-<span class="o">#</span> <span class="err">Создание</span> <span class="err">контейнера</span> <span class="err">с</span> <span class="n">PostgreSQL</span>
-<span class="err">$</span> <span class="n">docker</span> <span class="n">run</span> <span class="c1">--name local-mypostgres -e POSTGRES_PASSWORD=secret -d --volumes-from mypostgres-data postgres:latest</span>
-</pre></div>
+# Создание контейнера с PostgreSQL
+$ docker run --name local-mypostgres -e POSTGRES_PASSWORD=secret -d --volumes-from mypostgres-data postgres:latest
+</code></pre></div>
 
 <p>Подключимся к контейнеру и создадим новую БД:</p>
-<div class="codehilite"><pre><span></span><span class="err">$</span> <span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">local</span><span class="o">-</span><span class="n">mypostgres</span> <span class="n">bash</span>
-<span class="n">root</span><span class="mi">@9</span><span class="nl">ab15e9feb4d</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span>
-<span class="n">psql</span> <span class="p">(</span><span class="mf">9.6.5</span><span class="p">)</span>
-<span class="n">Type</span> <span class="s">&quot;help&quot;</span> <span class="k">for</span> <span class="n">help</span><span class="p">.</span>
+<div class="highlight"><pre><span></span><code>$ docker exec -it local-mypostgres bash
+root@9ab15e9feb4d:/# psql -U postgres
+psql (9.6.5)
+Type &quot;help&quot; for help.
 
-<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">odscourse</span><span class="p">;</span>
-<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">l</span>
-                                 <span class="n">List</span> <span class="n">of</span> <span class="n">databases</span>
-   <span class="n">Name</span>    <span class="o">|</span>  <span class="n">Owner</span>   <span class="o">|</span> <span class="n">Encoding</span> <span class="o">|</span>  <span class="n">Collate</span>   <span class="o">|</span>   <span class="n">Ctype</span>    <span class="o">|</span>   <span class="n">Access</span> <span class="n">privileges</span>
-<span class="o">-----------+----------+----------+------------+------------+-----------------------</span>
- <span class="n">odscourse</span> <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span>
- <span class="n">postgres</span>  <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span>
- <span class="n">template0</span> <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">postgres</span>          <span class="o">+</span>
-           <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>            <span class="o">|</span>            <span class="o">|</span> <span class="n">postgres</span><span class="o">=</span><span class="n">CTc</span><span class="o">/</span><span class="n">postgres</span>
- <span class="n">template1</span> <span class="o">|</span> <span class="n">postgres</span> <span class="o">|</span> <span class="n">UTF8</span>     <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="n">en_US</span><span class="p">.</span><span class="n">utf8</span> <span class="o">|</span> <span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">postgres</span>          <span class="o">+</span>
-           <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>            <span class="o">|</span>            <span class="o">|</span> <span class="n">postgres</span><span class="o">=</span><span class="n">CTc</span><span class="o">/</span><span class="n">postgres</span>
-<span class="n">postgres</span><span class="o">=</span><span class="err">#</span> <span class="err">\</span><span class="n">q</span>
-<span class="n">root</span><span class="mi">@9</span><span class="nl">ab15e9feb4d</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="n">exit</span>
-</pre></div>
+postgres=# CREATE DATABASE odscourse;
+postgres=# \l
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ odscourse | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+postgres=# \q
+root@9ab15e9feb4d:/# exit
+</code></pre></div>
 
 <h2 id="_1">Создание таблицы с данными по оттоку клиентов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Для взаимодействия с PostgreSQL из Python мы будем использовать драйвер <code class="codehilite"><span class="n">psycopg2</span></code>, который можно установить следующей командой:</p>
+<p>Для взаимодействия с PostgreSQL из Python мы будем использовать драйвер <code>psycopg2</code>, который можно установить следующей командой:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Перед установкой новых пакетов не забудьте активировать виртуальное окружение.</p>
 </div>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>(cs102) $ python -m pip install psycopg2
+</code></pre></div>
 
 <p>Теперь скачаем файл с данными, которые потребуются для выполнения примеров:</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Yorko</span><span class="o">/</span><span class="n">mlcourse_open</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="k">data</span><span class="o">/</span><span class="n">telecom_churn</span><span class="p">.</span><span class="n">csv</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>(cs102) $ wget https://raw.githubusercontent.com/Yorko/mlcourse_open/master/data/telecom_churn.csv
+</code></pre></div>
 
 <p>Создадим таблицу, содержащую данные по оттоку клиентов:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">psycopg2</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;host=localhost port=5433 dbname=odscourse user=postgres password=secret&quot;</span><span class="p">)</span>
@@ -1197,10 +876,10 @@
             <span class="p">[</span><span class="n">Id</span><span class="p">]</span> <span class="o">+</span> <span class="n">row</span>
         <span class="p">)</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 <p>Посмотрим на первые 5 строк:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">psycopg2</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;host=localhost port=5433 dbname=odscourse user=postgres password=secret&quot;</span><span class="p">)</span>
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -1208,21 +887,21 @@
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM telecom_churn LIMIT 5&quot;</span><span class="p">)</span>
 <span class="n">records</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;KS&#39;</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">265</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">45</span><span class="p">.</span><span class="mi">07</span><span class="p">,</span> <span class="mi">197</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">16</span><span class="p">.</span><span class="mi">78</span><span class="p">,</span> <span class="mi">244</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">01</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">161</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">27</span><span class="p">.</span><span class="mi">47</span><span class="p">,</span> <span class="mi">195</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">16</span><span class="p">.</span><span class="mi">62</span><span class="p">,</span> <span class="mi">254</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">45</span><span class="p">,</span> <span class="mi">13</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;NJ&#39;</span><span class="p">,</span> <span class="mi">137</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">243</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">41</span><span class="p">.</span><span class="mi">38</span><span class="p">,</span> <span class="mi">121</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">162</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">7</span><span class="p">.</span><span class="mi">32</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">29</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">408</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">299</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">61</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">5</span><span class="p">.</span><span class="mi">26</span><span class="p">,</span> <span class="mi">196</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span><span class="mi">86</span><span class="p">,</span> <span class="mi">6</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">166</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">28</span><span class="p">.</span><span class="mi">34</span><span class="p">,</span> <span class="mi">148</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">61</span><span class="p">,</span> <span class="mi">186</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span><span class="mi">41</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">73</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">False</span><span class="p">)]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>[(0, &#39;KS&#39;, 128, 415, &#39;No&#39;, &#39;Yes&#39;, 25, 265.1, 110, 45.07, 197.4, 99, 16.78, 244.7, 91, 11.01, 10.0, 3, 2.7, 1, False),
+(1, &#39;OH&#39;, 107, 415, &#39;No&#39;, &#39;Yes&#39;, 26, 161.6, 123, 27.47, 195.5, 103, 16.62, 254.4, 103, 11.45, 13.7, 3, 3.7, 1, False),
+(2, &#39;NJ&#39;, 137, 415, &#39;No&#39;, &#39;No&#39;, 0, 243.4, 114, 41.38, 121.2, 110, 10.3, 162.6, 104, 7.32, 12.2, 5, 3.29, 0, False),
+(3, &#39;OH&#39;, 84, 408, &#39;Yes&#39;, &#39;No&#39;, 0, 299.4, 71, 50.9, 61.9, 88, 5.26, 196.9, 89, 8.86, 6.6, 7, 1.78, 2, False),
+(4, &#39;OK&#39;, 75, 415, &#39;Yes&#39;, &#39;No&#39;, 0, 166.7, 113, 28.34, 148.3, 122, 12.61, 186.9, 121, 8.41, 10.1, 3, 2.73, 3, False)]
+</code></pre></div>
 
-<p>Посмотрим на распределение данных по целевой переменной <code class="codehilite"><span class="n">churn</span></code>:</p>
+<p>Посмотрим на распределение данных по целевой переменной <code>churn</code>:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Для более красивого вывода табличных данных можно воспользоваться модулем <code class="codehilite"><span class="n">tabulate</span></code>. Чтобы установить модуль воспользуйтесь командой <code class="codehilite"><span class="n">pip</span> <span class="n">install</span> <span class="n">tabulate</span></code>.</p>
+<p>Для более красивого вывода табличных данных можно воспользоваться модулем <code>tabulate</code>. Чтобы установить модуль воспользуйтесь командой <code>pip install tabulate</code>.</p>
 </div>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="k">def</span> <span class="nf">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">):</span>
     <span class="n">colnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">desc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
@@ -1238,18 +917,18 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+---------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span>   <span class="k">count</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+---------|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span>    <span class="mi">2850</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span>     <span class="mi">483</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+---------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+---------+
+| churn   |   count |
+|---------+---------|
+| False   |    2850 |
+| True    |     483 |
++---------+---------+
+</code></pre></div>
 
-<p>Посмотрим на распределение пользователей по переменной <code class="codehilite"><span class="n">area_code</span></code>. Нормализуем значения, чтобы посмотреть не абсолютные частоты, а относительные:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<p>Посмотрим на распределение пользователей по переменной <code>area_code</code>. Нормализуем значения, чтобы посмотреть не абсолютные частоты, а относительные:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SELECT area_code, ROUND((COUNT(*) / (SELECT COUNT(*) FROM telecom_churn)::numeric), 6)</span>
 <span class="sd">        FROM telecom_churn</span>
@@ -1257,59 +936,59 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">-------------+----------+</span>
-<span class="o">|</span>   <span class="n">area_code</span> <span class="o">|</span>    <span class="n">round</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">-------------+----------|</span>
-<span class="o">|</span>         <span class="mi">408</span> <span class="o">|</span> <span class="mi">0</span><span class="p">.</span><span class="mi">251425</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="mi">510</span> <span class="o">|</span> <span class="mi">0</span><span class="p">.</span><span class="mi">252025</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="mi">415</span> <span class="o">|</span> <span class="mi">0</span><span class="p">.</span><span class="mi">49655</span>  <span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------+----------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+-------------+----------+
+|   area_code |    round |
+|-------------+----------|
+|         408 | 0.251425 |
+|         510 | 0.252025 |
+|         415 | 0.49655  |
++-------------+----------+
+</code></pre></div>
 
 <h2 id="_2">Сортировка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Упорядочим значения в порядке убывания по столбцу <code class="codehilite"><span class="n">total_day_charge</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM telecom_churn ORDER BY total_day_charge DESC LIMIT 5&quot;</span><span class="p">)</span>
+<p>Упорядочим значения в порядке убывания по столбцу <code>total_day_charge</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM telecom_churn ORDER BY total_day_charge DESC LIMIT 5&quot;</span><span class="p">)</span>
 <span class="n">records</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="p">[(</span><span class="mi">365</span><span class="p">,</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">350</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">59</span><span class="p">.</span><span class="mi">64</span><span class="p">,</span> <span class="mi">216</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">18</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">253</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">43</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">73</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">True</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">985</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">346</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">58</span><span class="p">.</span><span class="mi">96</span><span class="p">,</span> <span class="mi">249</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">21</span><span class="p">.</span><span class="mi">21</span><span class="p">,</span> <span class="mi">275</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">39</span><span class="p">,</span> <span class="mi">13</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">59</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">True</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">2594</span><span class="p">,</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">345</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">58</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">203</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">29</span><span class="p">,</span> <span class="mi">217</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">9</span><span class="p">.</span><span class="mi">79</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">19</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">True</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">156</span><span class="p">,</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">337</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">57</span><span class="p">.</span><span class="mi">36</span><span class="p">,</span> <span class="mi">227</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">19</span><span class="p">.</span><span class="mi">33</span><span class="p">,</span> <span class="mi">153</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">6</span><span class="p">.</span><span class="mi">93</span><span class="p">,</span> <span class="mi">15</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">.</span><span class="mi">27</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">True</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">605</span><span class="p">,</span> <span class="s1">&#39;MO&#39;</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">335</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">57</span><span class="p">.</span><span class="mi">04</span><span class="p">,</span> <span class="mi">212</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">18</span><span class="p">.</span><span class="mi">06</span><span class="p">,</span> <span class="mi">265</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">93</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">43</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">True</span><span class="p">)]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>[(365, &#39;CO&#39;, 154, 415, &#39;No&#39;, &#39;No&#39;, 0, 350.8, 75, 59.64, 216.5, 94, 18.4, 253.9, 100, 11.43, 10.1, 9, 2.73, 1, True),
+ (985, &#39;NY&#39;, 64, 415, &#39;Yes&#39;, &#39;No&#39;, 0, 346.8, 55, 58.96, 249.5, 79, 21.21, 275.4, 102, 12.39, 13.3, 9, 3.59, 1, True),
+ (2594, &#39;OH&#39;, 115, 510, &#39;Yes&#39;, &#39;No&#39;, 0, 345.3, 81, 58.7, 203.4, 106, 17.29, 217.5, 107, 9.79, 11.8, 8, 3.19, 1, True),
+ (156, &#39;OH&#39;, 83, 415, &#39;No&#39;, &#39;No&#39;, 0, 337.4, 120, 57.36, 227.4, 116, 19.33, 153.9, 114, 6.93, 15.8, 7, 4.27, 0, True),
+ (605, &#39;MO&#39;, 112, 415, &#39;No&#39;, &#39;No&#39;, 0, 335.5, 77, 57.04, 212.5, 109, 18.06, 265.0, 132, 11.93, 12.7, 8, 3.43, 2, True)]
+</code></pre></div>
 
 <p>Упорядочивать можно по нескольким столбцам:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM telecom_churn ORDER BY churn ASC, total_day_charge DESC LIMIT 5&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM telecom_churn ORDER BY churn ASC, total_day_charge DESC LIMIT 5&quot;</span><span class="p">)</span>
 <span class="n">records</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="p">[(</span><span class="mi">688</span><span class="p">,</span> <span class="s1">&#39;MN&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">315</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">53</span><span class="p">.</span><span class="mi">65</span><span class="p">,</span> <span class="mi">208</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">76</span><span class="p">,</span> <span class="mi">260</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">27</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">2259</span><span class="p">,</span> <span class="s1">&#39;NC&#39;</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">313</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">53</span><span class="p">.</span><span class="mi">35</span><span class="p">,</span> <span class="mi">147</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">12</span><span class="p">.</span><span class="mi">55</span><span class="p">,</span> <span class="mi">192</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span><span class="mi">67</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">73</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">534</span><span class="p">,</span> <span class="s1">&#39;LA&#39;</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">310</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">52</span><span class="p">.</span><span class="mi">77</span><span class="p">,</span> <span class="mi">66</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">5</span><span class="p">.</span><span class="mi">65</span><span class="p">,</span> <span class="mi">246</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">11</span><span class="p">.</span><span class="mi">09</span><span class="p">,</span> <span class="mi">9</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">48</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">575</span><span class="p">,</span> <span class="s1">&#39;SD&#39;</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">309</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">52</span><span class="p">.</span><span class="mi">68</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">03</span><span class="p">,</span> <span class="mi">183</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span><span class="mi">26</span><span class="p">,</span> <span class="mi">14</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">83</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
- <span class="p">(</span><span class="mi">2858</span><span class="p">,</span> <span class="s1">&#39;AL&#39;</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">308</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">52</span><span class="p">.</span><span class="mi">36</span><span class="p">,</span> <span class="mi">247</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">21</span><span class="p">.</span><span class="mi">06</span><span class="p">,</span> <span class="mi">152</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">6</span><span class="p">.</span><span class="mi">88</span><span class="p">,</span> <span class="mi">7</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">False</span><span class="p">)]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>[(688, &#39;MN&#39;, 13, 510, &#39;No&#39;, &#39;Yes&#39;, 21, 315.6, 105, 53.65, 208.9, 71, 17.76, 260.1, 123, 11.7, 12.1, 3, 3.27, 3, False),
+ (2259, &#39;NC&#39;, 210, 415, &#39;No&#39;, &#39;Yes&#39;, 31, 313.8, 87, 53.35, 147.7, 103, 12.55, 192.7, 97, 8.67, 10.1, 7, 2.73, 3, False),
+ (534, &#39;LA&#39;, 67, 510, &#39;No&#39;, &#39;No&#39;, 0, 310.4, 97, 52.77, 66.5, 123, 5.65, 246.5, 99, 11.09, 9.2, 10, 2.48, 4, False),
+ (575, &#39;SD&#39;, 114, 415, &#39;No&#39;, &#39;Yes&#39;, 36, 309.9, 90, 52.68, 200.3, 89, 17.03, 183.5, 105, 8.26, 14.2, 2, 3.83, 1, False),
+ (2858, &#39;AL&#39;, 141, 510, &#39;No&#39;, &#39;Yes&#39;, 28, 308.0, 123, 52.36, 247.8, 128, 21.06, 152.9, 103, 6.88, 7.4, 3, 2.0, 1, False)]
+</code></pre></div>
 
 <h2 id="_3">Извлечение данных<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Ответим на вопрос: какова доля людей нелояльных пользователей в нашем датафрейме?</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT AVG(churn::int) FROM telecom_churn&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT AVG(churn::int) FROM telecom_churn&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">----------+</span>
-<span class="o">|</span>      <span class="k">avg</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">----------|</span>
-<span class="o">|</span> <span class="mi">0</span><span class="p">.</span><span class="mi">144914</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">----------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+----------+
+|      avg |
+|----------|
+| 0.144914 |
++----------+
+</code></pre></div>
 
 <p>Ответим на вопрос: каковы средние значения числовых признаков среди нелояльных пользователей?</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">pp</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">pp</span>
 
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT AVG(account_length), AVG(number_vmail_messages), AVG(total_day_minutes), AVG(total_day_calls),</span>
@@ -1320,78 +999,78 @@
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">records</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="n">pp</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="p">[(</span><span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;102.6645962732919255&#39;</span><span class="p">),</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;5.1159420289855072&#39;</span><span class="p">),</span>
-  <span class="mi">206</span><span class="p">.</span><span class="mi">9140780984</span><span class="p">,</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;101.3354037267080745&#39;</span><span class="p">),</span>
-  <span class="mi">35</span><span class="p">.</span><span class="mi">1759213532473</span><span class="p">,</span>
-  <span class="mi">212</span><span class="p">.</span><span class="mi">410144829602</span><span class="p">,</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;100.5610766045548654&#39;</span><span class="p">),</span>
-  <span class="mi">18</span><span class="p">.</span><span class="mi">0549689119153</span><span class="p">,</span>
-  <span class="mi">205</span><span class="p">.</span><span class="mi">231677321914</span><span class="p">,</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;100.3995859213250518&#39;</span><span class="p">),</span>
-  <span class="mi">9</span><span class="p">.</span><span class="mi">23552795029081</span><span class="p">,</span>
-  <span class="mi">10</span><span class="p">.</span><span class="mi">6999999869684</span><span class="p">,</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;4.1635610766045549&#39;</span><span class="p">),</span>
-  <span class="mi">2</span><span class="p">.</span><span class="mi">88954451525927</span><span class="p">,</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;2.2298136645962733&#39;</span><span class="p">),</span>
-  <span class="nb">Decimal</span><span class="p">(</span><span class="s1">&#39;1.00000000000000000000&#39;</span><span class="p">))]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>[(Decimal(&#39;102.6645962732919255&#39;),
+  Decimal(&#39;5.1159420289855072&#39;),
+  206.9140780984,
+  Decimal(&#39;101.3354037267080745&#39;),
+  35.1759213532473,
+  212.410144829602,
+  Decimal(&#39;100.5610766045548654&#39;),
+  18.0549689119153,
+  205.231677321914,
+  Decimal(&#39;100.3995859213250518&#39;),
+  9.23552795029081,
+  10.6999999869684,
+  Decimal(&#39;4.1635610766045549&#39;),
+  2.88954451525927,
+  Decimal(&#39;2.2298136645962733&#39;),
+  Decimal(&#39;1.00000000000000000000&#39;))]
+</code></pre></div>
 
 <p>Ответим на вопрос: сколько в среднем в течение дня разговаривают по телефону нелояльные пользователи?</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT AVG(total_day_minutes) FROM telecom_churn WHERE churn = TRUE</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+</span>
-<span class="o">|</span>     <span class="k">avg</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------|</span>
-<span class="o">|</span> <span class="mi">206</span><span class="p">.</span><span class="mi">914</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+
+|     avg |
+|---------|
+| 206.914 |
++---------+
+</code></pre></div>
 
-<p>Какова максимальная длина международных звонков среди лояльных пользователей (<code class="codehilite"><span class="n">churn</span> <span class="o">=</span> <span class="k">FALSE</span></code>), не пользующихся услугой международного роуминга (<code class="codehilite"><span class="n">international_plan</span> <span class="o">=</span> <span class="k">No</span></code>)?</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Какова максимальная длина международных звонков среди лояльных пользователей (<code>churn = FALSE</code>), не пользующихся услугой международного роуминга (<code>international_plan = No</code>)?</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT MAX(total_intl_minutes) FROM telecom_churn</span>
 <span class="s2">    WHERE churn = FALSE AND international_plan = &#39;No&#39;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">-------+</span>
-<span class="o">|</span>   <span class="k">max</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">-------|</span>
-<span class="o">|</span>  <span class="mi">18</span><span class="p">.</span><span class="mi">9</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+-------+
+|   max |
+|-------|
+|  18.9 |
++-------+
+</code></pre></div>
 
-<p>Для замены значений в колонке можно воспользоваться <code class="codehilite"><span class="k">CASE</span></code>, например:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Для замены значений в колонке можно воспользоваться <code>CASE</code>, например:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT (CASE WHEN international_plan = &#39;No&#39; THEN False ELSE True END) as international_plan</span>
 <span class="s2">    FROM telecom_churn</span>
 <span class="s2">    LIMIT 5</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">----------------------+</span>
-<span class="o">|</span> <span class="n">international_plan</span>   <span class="o">|</span>
-<span class="o">|</span><span class="c1">----------------------|</span>
-<span class="o">|</span> <span class="k">False</span>                <span class="o">|</span>
-<span class="o">|</span> <span class="k">False</span>                <span class="o">|</span>
-<span class="o">|</span> <span class="k">False</span>                <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>                 <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>                 <span class="o">|</span>
-<span class="o">+</span><span class="c1">----------------------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+----------------------+
+| international_plan   |
+|----------------------|
+| False                |
+| False                |
+| False                |
+| True                 |
+| True                 |
++----------------------+
+</code></pre></div>
 
 <h2 id="_4">Группировка данных<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>Группирование данных в зависимости от значения признака <code class="codehilite"><span class="n">churn</span></code> и вывод статистик по трём столбцам в каждой группе:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Группирование данных в зависимости от значения признака <code>churn</code> и вывод статистик по трём столбцам в каждой группе:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT COUNT(*),</span>
 <span class="s2">           AVG(total_day_minutes), STDDEV(total_day_minutes), MIN(total_day_minutes),</span>
 <span class="s2">           PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_day_minutes) as &quot;50%&quot;, MAX(total_day_minutes)</span>
@@ -1399,40 +1078,40 @@
 <span class="s2">    GROUP BY churn</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+---------+----------+-------+-------+-------+</span>
-<span class="o">|</span>   <span class="k">count</span> <span class="o">|</span>     <span class="k">avg</span> <span class="o">|</span>   <span class="n">stddev</span> <span class="o">|</span>   <span class="k">min</span> <span class="o">|</span>   <span class="mi">50</span><span class="o">%</span> <span class="o">|</span>   <span class="k">max</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+---------+----------+-------+-------+-------|</span>
-<span class="o">|</span>    <span class="mi">2850</span> <span class="o">|</span> <span class="mi">175</span><span class="p">.</span><span class="mi">176</span> <span class="o">|</span>  <span class="mi">50</span><span class="p">.</span><span class="mi">1817</span> <span class="o">|</span>     <span class="mi">0</span> <span class="o">|</span> <span class="mi">177</span><span class="p">.</span><span class="mi">2</span> <span class="o">|</span> <span class="mi">315</span><span class="p">.</span><span class="mi">6</span> <span class="o">|</span>
-<span class="o">|</span>     <span class="mi">483</span> <span class="o">|</span> <span class="mi">206</span><span class="p">.</span><span class="mi">914</span> <span class="o">|</span>  <span class="mi">68</span><span class="p">.</span><span class="mi">9978</span> <span class="o">|</span>     <span class="mi">0</span> <span class="o">|</span> <span class="mi">217</span><span class="p">.</span><span class="mi">6</span> <span class="o">|</span> <span class="mi">350</span><span class="p">.</span><span class="mi">8</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+---------+----------+-------+-------+-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+---------+----------+-------+-------+-------+
+|   count |     avg |   stddev |   min |   50% |   max |
+|---------+---------+----------+-------+-------+-------|
+|    2850 | 175.176 |  50.1817 |     0 | 177.2 | 315.6 |
+|     483 | 206.914 |  68.9978 |     0 | 217.6 | 350.8 |
++---------+---------+----------+-------+-------+-------+
+</code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Примеры с таблицами сопряженности, аналогичными тем, которые рассмотрены в статье, будут показаны далее.</p>
 </div>
-<p>Допустим, мы хотим посмотреть, как наблюдения в нашей выборке распределены в контексте двух признаков: <code class="codehilite"><span class="n">churn</span></code> и <code class="codehilite"><span class="n">international_plan</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Допустим, мы хотим посмотреть, как наблюдения в нашей выборке распределены в контексте двух признаков: <code>churn</code> и <code>international_plan</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT churn, international_plan, COUNT(*) FROM telecom_churn</span>
 <span class="s2">    GROUP BY churn, international_plan</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+----------------------+---------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span> <span class="n">international_plan</span>   <span class="o">|</span>   <span class="k">count</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+----------------------+---------|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span> <span class="k">No</span>                   <span class="o">|</span>     <span class="mi">346</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="n">Yes</span>                  <span class="o">|</span>     <span class="mi">186</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="k">No</span>                   <span class="o">|</span>    <span class="mi">2664</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span> <span class="n">Yes</span>                  <span class="o">|</span>     <span class="mi">137</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+----------------------+---------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+----------------------+---------+
+| churn   | international_plan   |   count |
+|---------+----------------------+---------|
+| True    | No                   |     346 |
+| False   | Yes                  |     186 |
+| False   | No                   |    2664 |
+| True    | Yes                  |     137 |
++---------+----------------------+---------+
+</code></pre></div>
 
-<p>Давайте посмотрим среднее число дневных, вечерних и ночных звонков для разных <code class="codehilite"><span class="n">area_code</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Давайте посмотрим среднее число дневных, вечерних и ночных звонков для разных <code>area_code</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT area_code,</span>
 <span class="s2">           AVG(total_day_calls) as avg_total_day_calls,</span>
 <span class="s2">           AVG(total_eve_calls) as avg_total_eve_calls,</span>
@@ -1442,19 +1121,19 @@
 <span class="s2">    ORDER BY area_code</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">-------------+-----------------------+-----------------------+-------------------------+</span>
-<span class="o">|</span>   <span class="n">area_code</span> <span class="o">|</span>   <span class="n">avg_total_day_calls</span> <span class="o">|</span>   <span class="n">avg_total_eve_calls</span> <span class="o">|</span>   <span class="n">avg_total_night_calls</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">-------------+-----------------------+-----------------------+-------------------------|</span>
-<span class="o">|</span>         <span class="mi">408</span> <span class="o">|</span>               <span class="mi">100</span><span class="p">.</span><span class="mi">496</span> <span class="o">|</span>               <span class="mi">99</span><span class="p">.</span><span class="mi">7888</span> <span class="o">|</span>                 <span class="mi">99</span><span class="p">.</span><span class="mi">0394</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="mi">415</span> <span class="o">|</span>               <span class="mi">100</span><span class="p">.</span><span class="mi">576</span> <span class="o">|</span>              <span class="mi">100</span><span class="p">.</span><span class="mi">504</span>  <span class="o">|</span>                <span class="mi">100</span><span class="p">.</span><span class="mi">398</span>  <span class="o">|</span>
-<span class="o">|</span>         <span class="mi">510</span> <span class="o">|</span>               <span class="mi">100</span><span class="p">.</span><span class="mi">098</span> <span class="o">|</span>               <span class="mi">99</span><span class="p">.</span><span class="mi">6714</span> <span class="o">|</span>                <span class="mi">100</span><span class="p">.</span><span class="mi">601</span>  <span class="o">|</span>
-<span class="o">+</span><span class="c1">-------------+-----------------------+-----------------------+-------------------------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+-------------+-----------------------+-----------------------+-------------------------+
+|   area_code |   avg_total_day_calls |   avg_total_eve_calls |   avg_total_night_calls |
+|-------------+-----------------------+-----------------------+-------------------------|
+|         408 |               100.496 |               99.7888 |                 99.0394 |
+|         415 |               100.576 |              100.504  |                100.398  |
+|         510 |               100.098 |               99.6714 |                100.601  |
++-------------+-----------------------+-----------------------+-------------------------+
+</code></pre></div>
 
-<p>Хотим посчитать общее количество звонков для всех пользователей. Создадим временную таблицу и добавим в нее столбец <code class="codehilite"><span class="n">total_calls</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Хотим посчитать общее количество звонков для всех пользователей. Создадим временную таблицу и добавим в нее столбец <code>total_calls</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    CREATE TABLE telecom_churn_temp  AS</span>
 <span class="s2">        SELECT *, (total_day_calls + total_eve_calls + total_night_calls + total_intl_calls) as total_calls</span>
 <span class="s2">        FROM telecom_churn</span>
@@ -1462,22 +1141,22 @@
 <span class="s2">    SELECT total_calls FROM telecom_churn_temp</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------------+</span>
-<span class="o">|</span>   <span class="n">total_calls</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------------|</span>
-<span class="o">|</span>           <span class="mi">303</span> <span class="o">|</span>
-<span class="o">|</span>           <span class="mi">332</span> <span class="o">|</span>
-<span class="o">|</span>           <span class="mi">333</span> <span class="o">|</span>
-<span class="o">|</span>           <span class="mi">255</span> <span class="o">|</span>
-<span class="o">|</span>           <span class="mi">359</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------------+
+|   total_calls |
+|---------------|
+|           303 |
+|           332 |
+|           333 |
+|           255 |
+|           359 |
++---------------+
+</code></pre></div>
 
 <h2 id="_5">Первые попытки прогнозирования оттока<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Посмотрим, как отток связан с признаком «Подключение международного роуминга» (<code class="codehilite"><span class="n">international_plan</span></code>). Сделаем это с помощью сводной таблицы crosstab:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Посмотрим, как отток связан с признаком «Подключение международного роуминга» (<code>international_plan</code>). Сделаем это с помощью сводной таблицы crosstab:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    CREATE EXTENSION tablefunc;</span>
 <span class="s2">    SELECT Churn, SUM(No) as No, SUM(Yes) as Yes, SUM(No+Yes) as &quot;All&quot; FROM (</span>
 <span class="s2">        SELECT *</span>
@@ -1487,19 +1166,19 @@
 <span class="s2">        GROUP BY rollup(Churn)</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+------+-------+-------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span>   <span class="k">no</span> <span class="o">|</span>   <span class="n">yes</span> <span class="o">|</span>   <span class="k">All</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+------+-------+-------|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="mi">2664</span> <span class="o">|</span>   <span class="mi">186</span> <span class="o">|</span>  <span class="mi">2850</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span>  <span class="mi">346</span> <span class="o">|</span>   <span class="mi">137</span> <span class="o">|</span>   <span class="mi">483</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="o">|</span> <span class="mi">3010</span> <span class="o">|</span>   <span class="mi">323</span> <span class="o">|</span>  <span class="mi">3333</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+------+-------+-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+------+-------+-------+
+| churn   |   no |   yes |   All |
+|---------+------+-------+-------|
+| False   | 2664 |   186 |  2850 |
+| True    |  346 |   137 |   483 |
+|         | 3010 |   323 |  3333 |
++---------+------+-------+-------+
+</code></pre></div>
 
-<p>Далее посмотрим на еще один важный признак – «Число обращений в сервисный центр» (<code class="codehilite"><span class="n">customer_service_calls</span></code>):</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Далее посмотрим на еще один важный признак – «Число обращений в сервисный центр» (<code>customer_service_calls</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT Churn,</span>
 <span class="s2">           SUM(&quot;0&quot;) as &quot;0&quot;, SUM(&quot;1&quot;) as &quot;1&quot;, SUM(&quot;2&quot;) as &quot;2&quot;, SUM(&quot;3&quot;) as &quot;3&quot;,</span>
 <span class="s2">           SUM(&quot;4&quot;) as &quot;4&quot;, SUM(&quot;5&quot;) as &quot;5&quot;, SUM(&quot;6&quot;) as &quot;6&quot;, SUM(&quot;7&quot;) as &quot;7&quot;,</span>
@@ -1516,19 +1195,19 @@
 <span class="s2">    GROUP BY rollup(Churn)</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span>   <span class="mi">0</span> <span class="o">|</span>    <span class="mi">1</span> <span class="o">|</span>   <span class="mi">2</span> <span class="o">|</span>   <span class="mi">3</span> <span class="o">|</span>   <span class="mi">4</span> <span class="o">|</span>   <span class="mi">5</span> <span class="o">|</span>   <span class="mi">6</span> <span class="o">|</span>   <span class="mi">7</span> <span class="o">|</span>   <span class="mi">8</span> <span class="o">|</span>   <span class="mi">9</span> <span class="o">|</span>   <span class="k">ALL</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="mi">605</span> <span class="o">|</span> <span class="mi">1059</span> <span class="o">|</span> <span class="mi">672</span> <span class="o">|</span> <span class="mi">385</span> <span class="o">|</span>  <span class="mi">90</span> <span class="o">|</span>  <span class="mi">26</span> <span class="o">|</span>   <span class="mi">8</span> <span class="o">|</span>   <span class="mi">4</span> <span class="o">|</span>   <span class="mi">1</span> <span class="o">|</span>   <span class="mi">0</span> <span class="o">|</span>  <span class="mi">2850</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span>  <span class="mi">92</span> <span class="o">|</span>  <span class="mi">122</span> <span class="o">|</span>  <span class="mi">87</span> <span class="o">|</span>  <span class="mi">44</span> <span class="o">|</span>  <span class="mi">76</span> <span class="o">|</span>  <span class="mi">40</span> <span class="o">|</span>  <span class="mi">14</span> <span class="o">|</span>   <span class="mi">5</span> <span class="o">|</span>   <span class="mi">1</span> <span class="o">|</span>   <span class="mi">2</span> <span class="o">|</span>   <span class="mi">483</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="o">|</span> <span class="mi">697</span> <span class="o">|</span> <span class="mi">1181</span> <span class="o">|</span> <span class="mi">759</span> <span class="o">|</span> <span class="mi">429</span> <span class="o">|</span> <span class="mi">166</span> <span class="o">|</span>  <span class="mi">66</span> <span class="o">|</span>  <span class="mi">22</span> <span class="o">|</span>   <span class="mi">9</span> <span class="o">|</span>   <span class="mi">2</span> <span class="o">|</span>   <span class="mi">2</span> <span class="o">|</span>  <span class="mi">3333</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------+
+| churn   |   0 |    1 |   2 |   3 |   4 |   5 |   6 |   7 |   8 |   9 |   ALL |
+|---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------|
+| False   | 605 | 1059 | 672 | 385 |  90 |  26 |   8 |   4 |   1 |   0 |  2850 |
+| True    |  92 |  122 |  87 |  44 |  76 |  40 |  14 |   5 |   1 |   2 |   483 |
+|         | 697 | 1181 | 759 | 429 | 166 |  66 |  22 |   9 |   2 |   2 |  3333 |
++---------+-----+------+-----+-----+-----+-----+-----+-----+-----+-----+-------+
+</code></pre></div>
 
-<p>Добавим бинарный признак — результат сравнения <code class="codehilite"><span class="n">customer_service_calls</span> <span class="o">&gt;</span> <span class="mi">3</span></code>. И еще раз посмотрим, как он связан с оттоком:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<p>Добавим бинарный признак — результат сравнения <code>customer_service_calls &gt; 3</code>. И еще раз посмотрим, как он связан с оттоком:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT Churn, SUM(&quot;0&quot;) as &quot;0&quot;, SUM(&quot;1&quot;) as &quot;1&quot;, SUM(&quot;0&quot;+&quot;1&quot;) as &quot;ALL&quot;</span>
 <span class="s2">    FROM (</span>
 <span class="s2">        SELECT * FROM crosstab(&#39;</span>
@@ -1541,19 +1220,19 @@
 <span class="s2">    GROUP BY rollup(Churn)</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+------+-----+-------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span>    <span class="mi">0</span> <span class="o">|</span>   <span class="mi">1</span> <span class="o">|</span>   <span class="k">ALL</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+------+-----+-------|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="mi">2721</span> <span class="o">|</span> <span class="mi">129</span> <span class="o">|</span>  <span class="mi">2850</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span>  <span class="mi">345</span> <span class="o">|</span> <span class="mi">138</span> <span class="o">|</span>   <span class="mi">483</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="o">|</span> <span class="mi">3066</span> <span class="o">|</span> <span class="mi">267</span> <span class="o">|</span>  <span class="mi">3333</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+------+-----+-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+------+-----+-------+
+| churn   |    0 |   1 |   ALL |
+|---------+------+-----+-------|
+| False   | 2721 | 129 |  2850 |
+| True    |  345 | 138 |   483 |
+|         | 3066 | 267 |  3333 |
++---------+------+-----+-------+
+</code></pre></div>
 
 <p>Объединим рассмотренные выше условия и построим сводную таблицу для этого объединения и оттока:</p>
-<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    SELECT Churn, SUM(&quot;0&quot;) as &quot;0&quot;, SUM(&quot;1&quot;) as &quot;1&quot;, SUM(&quot;0&quot;+&quot;1&quot;) as &quot;ALL&quot;</span>
 <span class="s2">    FROM (</span>
 <span class="s2">        SELECT * FROM crosstab(&#39;</span>
@@ -1571,17 +1250,28 @@
 <span class="s2">    GROUP BY rollup(Churn)</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">fetch_all</span><span class="p">(</span><span class="n">cursor</span><span class="p">),</span> <span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="s2">&quot;psql&quot;</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">+</span><span class="c1">---------+------+-----+-------+</span>
-<span class="o">|</span> <span class="n">churn</span>   <span class="o">|</span>    <span class="mi">0</span> <span class="o">|</span>   <span class="mi">1</span> <span class="o">|</span>   <span class="k">ALL</span> <span class="o">|</span>
-<span class="o">|</span><span class="c1">---------+------+-----+-------|</span>
-<span class="o">|</span> <span class="k">False</span>   <span class="o">|</span> <span class="mi">2841</span> <span class="o">|</span>   <span class="mi">9</span> <span class="o">|</span>  <span class="mi">2850</span> <span class="o">|</span>
-<span class="o">|</span> <span class="k">True</span>    <span class="o">|</span>  <span class="mi">464</span> <span class="o">|</span>  <span class="mi">19</span> <span class="o">|</span>   <span class="mi">483</span> <span class="o">|</span>
-<span class="o">|</span>         <span class="o">|</span> <span class="mi">3305</span> <span class="o">|</span>  <span class="mi">28</span> <span class="o">|</span>  <span class="mi">3333</span> <span class="o">|</span>
-<span class="o">+</span><span class="c1">---------+------+-----+-------+</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>+---------+------+-----+-------+
+| churn   |    0 |   1 |   ALL |
+|---------+------+-----+-------|
+| False   | 2841 |   9 |  2850 |
+| True    |  464 |  19 |   483 |
+|         | 3305 |  28 |  3333 |
++---------+------+-----+-------+
+</code></pre></div>
                 
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 июня 2020 г.</span>
+    
+  </small>
+</div>
                   
                 
               
@@ -1591,19 +1281,7 @@
 
   <h2 id="__comments">Комментарии</h2>
   <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://dementiy.github.io/assignments/descriptive-statistics/";
-      this.page.identifier =
-        "assignments/descriptive-statistics/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//Dementiy.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <script>var disqus_config=function(){this.page.url="https://dementiy.github.io/assignments/descriptive-statistics/",this.page.identifier="assignments/descriptive-statistics/"};!function(){var e=document,i=e.createElement("script");i.src="//Dementiy.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)}()</script>
 
               
             </article>
@@ -1615,34 +1293,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../hackernews/" title="Персонализация новостной ленты Hacker News" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../hackernews/" title="Персонализация новостной ленты Hacker News" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
                 Персонализация новостной ленты Hacker News
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../../notes/cross-entropy/" title="Энтропия и кросс-энтропия" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../../notes/cross-entropy/" title="Энтропия и кросс-энтропия" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Вперед
                 </span>
                 Энтропия и кросс-энтропия
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1653,17 +1331,27 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 <a href="https://github.com/Dementiy" target="_blank" rel="noopener">Dmitrii Sorokin</a>
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+      
+      
+        
+        
+      
+      <a href="https://github.com/Dementiy" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
     
   </div>
 
@@ -1673,28 +1361,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
-              
-            
-          
-          
-            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs", "instant"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

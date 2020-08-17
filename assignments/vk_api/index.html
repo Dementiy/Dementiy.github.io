@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Лекции и практические задания по программированию на Python">
       
@@ -18,27 +16,8 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      
-        <meta name="lang:clipboard.copy" content="Копировать в буфер">
-      
-        <meta name="lang:clipboard.copied" content="Скопировано в буфер">
-      
-        <meta name="lang:search.language" content="en, ru">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Совпадений не найдено">
-      
-        <meta name="lang:search.result.one" content="Найдено 1 совпадение">
-      
-        <meta name="lang:search.result.other" content="Найдено # совпадений">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
       
@@ -46,9 +25,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.63b94e9e.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
       
       
         
@@ -57,16 +36,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/extra.css">
@@ -74,101 +50,83 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-111461883-1", "dementiy.github.io")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-111461883-1","dementiy.github.io"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#_1" tabindex="1" class="md-skip">
-        Перейти к содержанию
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Программирование на Python
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Работа с API ВКонтакте
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-header-nav__button md-logo" aria-label="Программирование на Python">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Программирование на Python
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Работа с API ВКонтакте
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Начните печатать для поиска
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -176,45 +134,35 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
-    GitHub
+    Dementiy/pybook-assignments
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
   
 
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -223,7 +171,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../lectures/immutable-types/" title="Лекции" class="md-tabs__link">
+        <a href="../../lectures/immutable-types/" class="md-tabs__link">
           Лекции
         </a>
       
@@ -240,7 +188,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../setup_env/" title="Практические работы" class="md-tabs__link md-tabs__link--active">
+        <a href="../setup_env/" class="md-tabs__link md-tabs__link--active">
           Практические работы
         </a>
       
@@ -255,7 +203,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../notes/cross-entropy/" title="Заметки" class="md-tabs__link">
+        <a href="../../notes/cross-entropy/" class="md-tabs__link">
           Заметки
         </a>
       
@@ -266,40 +214,35 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://dementiy.github.io/" title="Программирование на Python" class="md-nav__button md-logo" aria-label="Программирование на Python">
       
-        <i class="md-icon"></i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
     </a>
     Программирование на Python
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/Dementiy/pybook-assignments/" title="Перейти к репозиторию" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
   <div class="md-source__repository">
-    GitHub
+    Dementiy/pybook-assignments
   </div>
 </a>
     </div>
@@ -313,13 +256,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
     
     <label class="md-nav__link" for="nav-1">
       Лекции
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Лекции" data-md-level="1">
       <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Лекции
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -391,18 +340,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Жизненный цикл программы" class="md-nav__link">
-      Жизненный цикл программы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/classes/" title="ООП. Классы. Магические методы" class="md-nav__link">
       ООП. Классы. Магические методы
     </a>
@@ -439,18 +376,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Наследование. Абстрактные классы" class="md-nav__link">
-      ООП. Наследование. Абстрактные классы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/mro/" title="ООП. Порядок разрешения методов" class="md-nav__link">
       ООП. Порядок разрешения методов
     </a>
@@ -463,116 +388,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="ООП. Метаклассы" class="md-nav__link">
-      ООП. Метаклассы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Модули и пакеты" class="md-nav__link">
-      Модули и пакеты
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../lectures/iterators/" title="Итераторы" class="md-nav__link">
       Итераторы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Генераторы" class="md-nav__link">
-      Генераторы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Потоки" class="md-nav__link">
-      Конкурентность и параллелизм. Потоки
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Примитивы синхронизации" class="md-nav__link">
-      Конкурентность и параллелизм. Примитивы синхронизации
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Процессы" class="md-nav__link">
-      Конкурентность и параллелизм. Процессы
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Конкурентность и параллелизм. Корутины" class="md-nav__link">
-      Конкурентность и параллелизм. Корутины
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Управление памятью. Счетчик ссылок" class="md-nav__link">
-      Управление памятью. Счетчик ссылок
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Управление памятью. Сборщик мусора" class="md-nav__link">
-      Управление памятью. Сборщик мусора
     </a>
   </li>
 
@@ -591,13 +408,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Практические работы
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Практические работы" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Практические работы
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -612,13 +435,19 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
     
     <label class="md-nav__link" for="nav-2-1">
       Basics
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Basics" data-md-level="2">
       <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Basics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -666,18 +495,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="С-расширения" class="md-nav__link">
-      С-расширения
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../life/" title="Игра «Жизнь»" class="md-nav__link">
       Игра «Жизнь»
     </a>
@@ -693,11 +510,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Работа с API ВКонтакте
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Работа с API ВКонтакте" class="md-nav__link md-nav__link--active">
@@ -705,50 +525,45 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
   
-    <label class="md-nav__title" for="__toc">Содержание</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Содержание
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Регистрация приложения и получение токена доступа" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Регистрация приложения и получение токена доступа
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="Прогнозирования возраста" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Прогнозирования возраста
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Поиск сообществ" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Поиск сообществ
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="Тематическое моделирование" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Тематическое моделирование
   </a>
   
 </li>
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
-            Комментарии
-          </a>
-        </li>
       
     </ul>
   
@@ -793,85 +608,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
-      Web
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        Web
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Приложение для ведения заметок" class="md-nav__link">
-      Приложение для ведения заметок
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Простой асинхронный сервер" class="md-nav__link">
-      Простой асинхронный сервер
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Простой асинхронный веб-фреймворк" class="md-nav__link">
-      Простой асинхронный веб-фреймворк
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Чат на базе веб-сокетов" class="md-nav__link">
-      Чат на базе веб-сокетов
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
-    
-    <label class="md-nav__link" for="nav-2-3">
       DataScience
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-3">
+    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         DataScience
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -889,78 +638,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Линейная регрессия" class="md-nav__link">
-      Линейная регрессия
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Логистическая регрессия" class="md-nav__link">
-      Логистическая регрессия
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Деревья. Случайные леса" class="md-nav__link">
-      Деревья. Случайные леса
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Кластеризация методом k-средних" class="md-nav__link">
-      Кластеризация методом k-средних
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Рекомендательная система кинофильмов и аниме" class="md-nav__link">
-      Рекомендательная система кинофильмов и аниме
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="MicroTorch: библиотека для обучения нейронных сетей" class="md-nav__link">
-      MicroTorch: библиотека для обучения нейронных сетей
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -978,13 +655,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Заметки
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Заметки" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Заметки
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1018,50 +701,45 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
   
   
   
-    <label class="md-nav__title" for="__toc">Содержание</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Содержание
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Регистрация приложения и получение токена доступа" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Регистрация приложения и получение токена доступа
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="Прогнозирования возраста" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Прогнозирования возраста
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="Поиск сообществ" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Поиск сообществ
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="Тематическое моделирование" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Тематическое моделирование
   </a>
   
 </li>
-      
-      
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Комментарии" class="md-nav__link md-nav__link--active">
-            Комментарии
-          </a>
-        </li>
       
     </ul>
   
@@ -1075,7 +753,8 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Dementiy/pybook-assignments/edit/master/docs/assignments/vk_api.md" title="Редактировать страницу" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                  
                 
                 
                   <h1>Работа с API ВКонтакте</h1>
@@ -1088,33 +767,33 @@
 <h2 id="_1">Регистрация приложения и получение токена доступа<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Чтобы начать работать с API от вас требуется зарегистрировать новое приложение. Для этого зайдите на форму создания нового Standalone приложения <a href="https://vk.com/editapp?act=create">https://vk.com/editapp?act=create</a> и следуйте инструкциям. Вашему приложению будет назначен идентификатор, который потребуется для выполнения работы.</p>
 <p>Запросы к API ВКонтакте имеют следующий формат (<a href="https://vk.com/dev/api_requests">из документации</a>):</p>
-<div class="codehilite"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">vk</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">method</span><span class="o">/</span><span class="n">METHOD_NAME</span><span class="o">?</span><span class="k">PARAMETERS</span><span class="o">&amp;</span><span class="n">access_token</span><span class="o">=</span><span class="n">ACCESS_TOKEN</span><span class="o">&amp;</span><span class="n">v</span><span class="o">=</span><span class="n">V</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>https://api.vk.com/method/METHOD_NAME?PARAMETERS&amp;access_token=ACCESS_TOKEN&amp;v=V
+</code></pre></div>
 
 <p>где:</p>
 <ul>
-<li><code class="codehilite"><span class="n">METHOD_NAME</span></code> - это название метода API, к которому Вы хотите обратиться.</li>
-<li><code class="codehilite"><span class="k">PARAMETERS</span></code> - входные параметры соответствующего метода API, последовательность пар <code class="codehilite"><span class="n">name</span><span class="o">=</span><span class="n">value</span></code>, объединенных амперсандом <code class="codehilite"><span class="o">&amp;</span></code>.</li>
-<li><code class="codehilite"><span class="n">ACCESSS_TOKEN</span></code> - ключ доступа.</li>
-<li><code class="codehilite"><span class="n">V</span></code> - используемая версия API (в настоящий момент 5.103).</li>
+<li><code>METHOD_NAME</code> - это название метода API, к которому Вы хотите обратиться.</li>
+<li><code>PARAMETERS</code> - входные параметры соответствующего метода API, последовательность пар <code>name=value</code>, объединенных амперсандом <code>&amp;</code>.</li>
+<li><code>ACCESSS_TOKEN</code> - ключ доступа.</li>
+<li><code>V</code> - используемая версия API (в настоящий момент 5.103).</li>
 </ul>
 <p>Например, чтобы получить список друзей, с указанием их пола, нужно выполнить следующий запрос:</p>
-<div class="codehilite"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">vk</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">method</span><span class="o">/</span><span class="n">friends</span><span class="p">.</span><span class="k">get</span><span class="o">?</span><span class="n">fields</span><span class="o">=</span><span class="n">sex</span><span class="o">&amp;</span><span class="n">access_token</span><span class="o">=</span><span class="mi">0394</span><span class="n">a2ede332c9a13eb82e9b24631604c31df978b4e2f0fbd2c549944f9d79a5bc866455623bd560732ab</span><span class="o">&amp;</span><span class="n">v</span><span class="o">=</span><span class="mi">5</span><span class="p">.</span><span class="mi">103</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>https://api.vk.com/method/friends.get?fields=sex&amp;access_token=0394a2ede332c9a13eb82e9b24631604c31df978b4e2f0fbd2c549944f9d79a5bc866455623bd560732ab&amp;v=5.103
+</code></pre></div>
 
-<p>Так как токен доступа (<code class="codehilite"><span class="n">access_token</span></code>) ненастоящий, то этот запрос работать не будет. Чтобы получить токен доступа вы можете воспользоваться написанным для вас скриптом <code class="codehilite"><span class="n">access_token</span><span class="p">.</span><span class="n">py</span></code> следующим образом:</p>
-<div class="codehilite"><pre><span></span>$ python access_token.py YOUR_CLIENT_ID -s friends
-</pre></div>
+<p>Так как токен доступа (<code>access_token</code>) ненастоящий, то этот запрос работать не будет. Чтобы получить токен доступа вы можете воспользоваться написанным для вас скриптом <code>access_token.py</code> следующим образом:</p>
+<div class="highlight"><pre><span></span><code>$ python access_token.py YOUR_CLIENT_ID -s friends
+</code></pre></div>
 
-<p>где вместо <code class="codehilite"><span class="n">YOUR_CLIENT_ID</span></code> необходимо подставить идентификатор вашего приложения.</p>
+<p>где вместо <code>YOUR_CLIENT_ID</code> необходимо подставить идентификатор вашего приложения.</p>
 <p>После выполнения команды откроется новая вкладка браузера, из адресной строки которого вам необходимо скопировать токен доступа.</p>
 <p><img alt="" src="../../images/assignments/vk-api/access_token.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>На этом этапе вы можете повторить ранее представленный пример запроса, чтобы убедиться, что вы делаете все верно.</p>
 </div>
-<p>Далее приведено содержимое файла <code class="codehilite"><span class="n">access_token</span><span class="p">.</span><span class="n">py</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
+<p>Далее приведено содержимое файла <code>access_token.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">webbrowser</span>
 <span class="kn">import</span> <span class="nn">argparse</span>
 
 
@@ -1138,26 +817,26 @@
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;scope&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Permissions bit mask&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">get_access_token</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">scope</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 <h2 id="_2">Прогнозирования возраста<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Напишите функцию прогнозирования возраста пользователя по возрасту его друзей:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Returns a list of user IDs or detailed information about a user&#39;s friends &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="s2">&quot;fields must be string&quot;</span>
     <span class="k">assert</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 <p>Для выполнения этого задания нужно получить список всех друзей для указанного пользователя, отфильтровать тех у кого возраст не указан или указаны только день и месяц рождения.</p>
-<p>Для выполнения запросов к API мы будем использовать библиотеку <a href="http://docs.python-requests.org/en/master/"><code class="codehilite"><span class="n">requests</span></code></a>:</p>
-<div class="codehilite"><pre><span></span><span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install requests
-</pre></div>
+<p>Для выполнения запросов к API мы будем использовать библиотеку <a href="http://docs.python-requests.org/en/master/"><code>requests</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install requests
+</code></pre></div>
 
-<p>Список пользователей можно получить с помощью метода <a href="https://vk.com/dev/friends.get"><code class="codehilite"><span class="n">friends</span><span class="p">.</span><span class="k">get</span></code></a>. Ниже приведен пример обращения к этому методу для получения списка всех друзей указанного пользователя:</p>
-<div class="codehilite"><pre><span></span><span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;https://api.vk.com/method&quot;</span>
+<p>Список пользователей можно получить с помощью метода <a href="https://vk.com/dev/friends.get"><code>friends.get</code></a>. Ниже приведен пример обращения к этому методу для получения списка всех друзей указанного пользователя:</p>
+<div class="highlight"><pre><span></span><code><span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;https://api.vk.com/method&quot;</span>
 <span class="n">access_token</span> <span class="o">=</span> <span class="c1"># PUT YOUR ACCESS TOKEN HERE</span>
 <span class="n">user_id</span> <span class="o">=</span> <span class="c1"># PUT USER ID HERE</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;sex&#39;</span>
@@ -1165,11 +844,11 @@
 
 <span class="n">query</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{domain}/friends.get?access_token={access_token}&amp;user_id={user_id}&amp;fields={fields}&amp;v={v}&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<p>Функция <code class="codehilite"><span class="n">requests</span><span class="p">.</span><span class="k">get</span></code> выполняет <a href="https://ru.wikipedia.org/wiki/HTTP#GET">GET запрос</a> и возвращает объект <code class="codehilite"><span class="n">Response</span></code>, который представляет собой ответ сервера на посланный нами запрос.</p>
-<p>Объект <code class="codehilite"><span class="n">Response</span></code> имеет множество атрибутов:
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<p>Функция <code>requests.get</code> выполняет <a href="https://ru.wikipedia.org/wiki/HTTP#GET">GET запрос</a> и возвращает объект <code>Response</code>, который представляет собой ответ сервера на посланный нами запрос.</p>
+<p>Объект <code>Response</code> имеет множество атрибутов:
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
 <span class="n">response</span><span class="o">.</span><span class="n">apparent_encoding</span>      <span class="n">response</span><span class="o">.</span><span class="n">history</span>                <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span>
 <span class="n">response</span><span class="o">.</span><span class="n">close</span>                  <span class="n">response</span><span class="o">.</span><span class="n">is_permanent_redirect</span>  <span class="n">response</span><span class="o">.</span><span class="n">raw</span>
 <span class="n">response</span><span class="o">.</span><span class="n">connection</span>             <span class="n">response</span><span class="o">.</span><span class="n">is_redirect</span>            <span class="n">response</span><span class="o">.</span><span class="n">reason</span>
@@ -1178,9 +857,9 @@
 <span class="n">response</span><span class="o">.</span><span class="n">elapsed</span>                <span class="n">response</span><span class="o">.</span><span class="n">json</span>                   <span class="n">response</span><span class="o">.</span><span class="n">text</span>
 <span class="n">response</span><span class="o">.</span><span class="n">encoding</span>               <span class="n">response</span><span class="o">.</span><span class="n">links</span>                  <span class="n">response</span><span class="o">.</span><span class="n">url</span>
 <span class="n">response</span><span class="o">.</span><span class="n">headers</span>                <span class="n">response</span><span class="o">.</span><span class="n">ok</span>
-</pre></div></p>
-<p>Нас будет интересовать только метод <code class="codehilite"><span class="n">response</span><span class="p">.</span><span class="n">json</span></code>, который возвращает <a href="https://ru.wikipedia.org/wiki/JSON">JSON</a> объект:</p>
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Нас будет интересовать только метод <code>response.json</code>, который возвращает <a href="https://ru.wikipedia.org/wiki/JSON">JSON</a> объект:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="p">{</span><span class="s1">&#39;response&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="mi">136</span><span class="p">,</span>
               <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Drake&#39;</span><span class="p">,</span>
                          <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1234567</span><span class="p">,</span>
@@ -1197,9 +876,9 @@
 <span class="mi">136</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;response&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span>
 <span class="s1">&#39;Drake&#39;</span>
-</pre></div>
+</code></pre></div>
 
-<p>Поле <code class="codehilite"><span class="k">count</span></code> содержит число записей, а <code class="codehilite"><span class="n">items</span></code> список словарей с информацией по каждому пользователю.</p>
+<p>Поле <code>count</code> содержит число записей, а <code>items</code> список словарей с информацией по каждому пользователю.</p>
 <p>Выполняя запросы мы не можем быть уверены, что не возникнет ошибок. Возможны различные ситуации, например:</p>
 <ul>
 <li>есть неполадки в сети;</li>
@@ -1209,10 +888,10 @@
 <p>В таких случаях необходимо попробовать повторить запрос. При этом повторные запросы желательно посылать не через константные промежутки времени, а по алгоритму экспоненциальной задержки.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Описание алгоритма с примерами можно найти в статье <a href="https://habrahabr.ru/post/227225/">Exponential Backoff</a> или как «не завалить сервер». Почитать про обработку исключений при работе с библиотекой <code class="codehilite"><span class="n">requests</span></code> можно <a href="https://khashtamov.com/ru/python-requests/">тут</a>.</p>
+<p>Описание алгоритма с примерами можно найти в статье <a href="https://habrahabr.ru/post/227225/">Exponential Backoff</a> или как «не завалить сервер». Почитать про обработку исключений при работе с библиотекой <code>requests</code> можно <a href="https://khashtamov.com/ru/python-requests/">тут</a>.</p>
 </div>
-<p>Напишите функцию <code class="codehilite"><span class="k">get</span><span class="p">()</span></code>, которая будет выполнять GET-запрос к указанному адресу, а при необходимости повторять запрос указанное число раз по алгоритму экспоненциальной задержки:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{},</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+<p>Напишите функцию <code>get()</code>, которая будет выполнять GET-запрос к указанному адресу, а при необходимости повторять запрос указанное число раз по алгоритму экспоненциальной задержки:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{},</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Выполнить GET-запрос</span>
 
 <span class="sd">    :param url: адрес, на который необходимо выполнить запрос</span>
@@ -1223,9 +902,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span><span class="p">]</span><span class="o">&gt;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/delay/2&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1236,11 +915,11 @@
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://noname.com&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPSConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;noname.com&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span>
-</pre></div>
+</code></pre></div>
 
-<p>На текущий момент вы должны заполнить тело функции <code class="codehilite"><span class="n">get_friends</span></code> так, чтобы она возвращала список друзей для указанного пользователя. Аргумент <code class="codehilite"><span class="n">fields</span></code> представляет из себя строку, в которой через запятую указываются какие поля необходимо получить по каждому пользователю.</p>
-<p>Теперь мы можем написать функцию <code class="codehilite"><span class="n">age_predict</span></code> для «наивного» прогнозирования возраста пользователя с идентификатором <code class="codehilite"><span class="n">user_id</span></code> (под «наивным» прогнозированием подразумевается вычисление среднего арифметического или медианы):</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">age_predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+<p>На текущий момент вы должны заполнить тело функции <code>get_friends</code> так, чтобы она возвращала список друзей для указанного пользователя. Аргумент <code>fields</code> представляет из себя строку, в которой через запятую указываются какие поля необходимо получить по каждому пользователю.</p>
+<p>Теперь мы можем написать функцию <code>age_predict</code> для «наивного» прогнозирования возраста пользователя с идентификатором <code>user_id</code> (под «наивным» прогнозированием подразумевается вычисление среднего арифметического или медианы):</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">age_predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt;&gt;&gt; age_predict(???)</span>
 <span class="sd">    ???</span>
@@ -1249,29 +928,29 @@
     <span class="k">assert</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Так как дата рождения пользователя может быть не указана или указаны только день и месяц, то для обработки таких ситуаций вы можете использовать конструкцию <code class="codehilite"><span class="n">try</span><span class="p">...</span><span class="k">except</span></code>, где <code class="codehilite"><span class="k">except</span></code> будет содержать только <code class="codehilite"><span class="n">pass</span></code>.</p>
+<p>Так как дата рождения пользователя может быть не указана или указаны только день и месяц, то для обработки таких ситуаций вы можете использовать конструкцию <code>try...except</code>, где <code>except</code> будет содержать только <code>pass</code>.</p>
 </div>
 <h2 id="_3">Поиск сообществ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Напишите функцию <code class="codehilite"><span class="n">get_network</span><span class="p">()</span></code>, которая для указанного списка пользователей <code class="codehilite"><span class="n">users_ids</span></code> строит граф и представляет его либо в виде матрицы смежности (<code class="codehilite"><span class="n">as_edgelist</span><span class="o">=</span><span class="k">False</span></code>), либо в виде списка ребер (<code class="codehilite"><span class="n">as_edgelist</span><span class="o">=</span><span class="k">True</span></code>). В полученном графе необходимо выделить сообщества и визуализировать результат.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_network</span><span class="p">(</span><span class="n">users_ids</span><span class="p">,</span> <span class="n">as_edgelist</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<p>Напишите функцию <code>get_network()</code>, которая для указанного списка пользователей <code>users_ids</code> строит граф и представляет его либо в виде матрицы смежности (<code>as_edgelist=False</code>), либо в виде списка ребер (<code>as_edgelist=True</code>). В полученном графе необходимо выделить сообщества и визуализировать результат.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_network</span><span class="p">(</span><span class="n">users_ids</span><span class="p">,</span> <span class="n">as_edgelist</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Building a friend graph for an arbitrary list of users &quot;&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
-<p>Поиск сообществ на графе (community detection) является хорошо изученной задачей, а ряд наиболее известных алгоритмов реализован в библиотеке <code class="codehilite"><span class="n">igraph</span></code>.</p>
-<div class="codehilite"><pre><span></span><span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install python-igraph
+<p>Поиск сообществ на графе (community detection) является хорошо изученной задачей, а ряд наиболее известных алгоритмов реализован в библиотеке <code>igraph</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install python-igraph
 <span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install numpy
 <span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install cairocffi
 <span class="o">(</span>cs102<span class="o">)</span> $ brew install cairo    <span class="c1"># Только для MacOS X. Для других ОС см. https://www.cairographics.org/download/</span>
-</pre></div>
+</code></pre></div>
 
 <p>Рассмотрим пример создания и визуализации графа состоящего из 6 узлов и 10 ребер:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">igraph</span> <span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">plot</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">igraph</span> <span class="kn">import</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">plot</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="c1"># Создание вершин и ребер</span>
@@ -1300,34 +979,34 @@
 
 <span class="c1"># Отрисовываем граф</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">**</span><span class="n">visual_style</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 <p><img alt="" src="../../images/assignments/vk-api/graph1.png" /></p>
 <p>Теперь удалим из графа петли и повторяющиеся ребра:</p>
-<div class="codehilite"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">multiple</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">g</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">multiple</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>
 
 <p><img alt="" src="../../images/assignments/vk-api/graph2.png" /></p>
-<div class="codehilite"><pre><span></span><span class="n">communities</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">community_edge_betweenness</span><span class="p">(</span><span class="n">directed</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">communities</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">community_edge_betweenness</span><span class="p">(</span><span class="n">directed</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">clusters</span> <span class="o">=</span> <span class="n">communities</span><span class="o">.</span><span class="n">as_clustering</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="n">Clustering</span> <span class="k">with</span> <span class="mi">7</span> <span class="n">elements</span> <span class="k">and</span> <span class="mi">2</span> <span class="n">clusters</span>
-<span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>Clustering with 7 elements and 2 clusters
+[0] 0, 1, 2, 3
+[1] 4, 5, 6
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><span class="n">pal</span> <span class="o">=</span> <span class="n">igraph</span><span class="o">.</span><span class="n">drawing</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ClusterColoringPalette</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">pal</span> <span class="o">=</span> <span class="n">igraph</span><span class="o">.</span><span class="n">drawing</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ClusterColoringPalette</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">))</span>
 <span class="n">g</span><span class="o">.</span><span class="n">vs</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pal</span><span class="o">.</span><span class="n">get_many</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">membership</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 <p><img alt="" src="../../images/assignments/vk-api/graph3.png" /></p>
 <h2 id="_4">Тематическое моделирование<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Тематическое моделирование (topic modeling) одно из современных приложений машинного обучения к анализу текстов, активно развивающееся с конца 90-х годов. Тематическая модель (topic model) коллекции текстовых документов определяет, к каким темам относится каждый документ и какие слова (термины) образуют каждую тему <a href="http://www.machinelearning.ru/wiki/images/2/22/Voron-2013-ptm.pdf">http://www.machinelearning.ru/wiki/images/2/22/Voron-2013-ptm.pdf</a>.</p>
 <p>Данные для построения тематической модели мы будем собирать со стен различных групп, используя метод <a href="https://vk.com/dev/wall.get">wall.get</a>. Важной особенностью этого метода является то, что он не позволяет получить более 100 записей за один запрос, а так как к методам API ВКонтакте с ключом доступа пользователя или сервисным ключом доступа можно обращаться не чаще 3 раз в секунду, то, таким образом, мы имеем ограничение в 300 постов за секунду. Поэтому для более эффективного сбора сообщений со стен групп мы будем использовать метод <a href="https://vk.com/dev/execute">execute</a> - «универсальный метод, который позволяет запускать последовательность других методов, сохраняя и фильтруя промежуточные результаты». Параметром в метод execute является код алгоритма в VKScript, который позволяет выполнить до 25 обращений к методам API. Таким образом, мы получим возможность выполнять до 75 обращений в секунду, то есть, 2500 постов.</p>
 <p>Ниже приведен пример всех необходимых конструкций:</p>
-<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">число</span> <span class="o">=</span> <span class="mf">1.234</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">число</span> <span class="o">=</span> <span class="mf">1.234</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">массив_элементов</span> <span class="o">=</span> <span class="p">[];</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">условие</span><span class="p">)</span> <span class="p">{</span>
@@ -1340,10 +1019,10 @@
 
 <span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">API</span><span class="p">.</span><span class="nx">метод</span><span class="p">({</span><span class="nx">параметры</span><span class="p">});</span>
 <span class="kd">var</span> <span class="nx">значения</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">ключ</span><span class="p">;</span>
-</pre></div>
+</code></pre></div>
 
-<p>Пример запроса с использованием <code class="codehilite"><span class="k">execute</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;return API.wall.get({</span>
+<p>Пример запроса с использованием <code>execute</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;return API.wall.get({</span>
 <span class="s2">    &quot;owner_id&quot;: &quot;&quot;,</span>
 <span class="s2">    &quot;domain&quot;: &quot;itmoru&quot;,</span>
 <span class="s2">    &quot;offset&quot;: 0,</span>
@@ -1362,15 +1041,15 @@
             <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;5.103&quot;</span>
         <span class="p">}</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 <p>Пример ответа:</p>
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
-<span class="err">{</span><span class="s1">&#39;response&#39;</span><span class="p">:</span> <span class="err">{</span><span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="mi">7601</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="err">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">42847</span><span class="p">,</span> <span class="s1">&#39;from_id&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">94</span><span class="p">,</span> <span class="s1">&#39;owner_id&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">94</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="mi">1572798277</span><span class="p">,</span> <span class="s1">&#39;marked_as_ads&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;post_type&#39;</span><span class="p">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="err">&quot;ЗОЛОТО</span><span class="o">!</span> <span class="err">🏆\</span><span class="n">n</span><span class="err">\</span><span class="n">nКлим</span> <span class="err">Гаврилов</span><span class="p">,</span> <span class="err">студент</span> <span class="mi">2</span> <span class="err">курса</span> <span class="err">ИТМО</span><span class="p">,</span> <span class="err">выиграл</span> <span class="err">первые</span> <span class="err">автоспортивные</span> <span class="err">Олимпийские</span> <span class="err">игры</span> <span class="err">в</span> <span class="err">классе</span> <span class="err">Туринг</span><span class="o">!</span> <span class="err">Поздравляем</span><span class="p">,</span> <span class="err">это</span> <span class="err">было</span> <span class="err">очень</span> <span class="err">круто</span> <span class="err">💪🏻\</span><span class="n">n</span><span class="err">\</span><span class="n">nПобеда</span> <span class="err">Клима</span><span class="p">....</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; response.json()
+{&#39;response&#39;: {&#39;count&#39;: 7601, &#39;items&#39;: [{&#39;id&#39;: 42847, &#39;from_id&#39;: -94, &#39;owner_id&#39;: -94, &#39;date&#39;: 1572798277, &#39;marked_as_ads&#39;: 0, &#39;post_type&#39;: &#39;post&#39;, &#39;text&#39;: &quot;ЗОЛОТО! 🏆\n\nКлим Гаврилов, студент 2 курса ИТМО, выиграл первые автоспортивные Олимпийские игры в классе Туринг! Поздравляем, это было очень круто 💪🏻\n\nПобеда Клима....
+</code></pre></div>
 
-<p>Напишите функцию <code class="codehilite"><span class="n">get_wall</span></code>, которая собирает записи со стены указанного сообщества:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<p>Напишите функцию <code>get_wall</code>, которая собирает записи со стены указанного сообщества:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 
@@ -1405,17 +1084,28 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 <p>Текст необходимо подготовить к построению тематической модели, а именно, удалить знаки пунктуации, ссылки, эмодзи, стоп-слова, провести нормализацию.</p>
 <p>Для нормализации слов мы будем использовать морфологический анализатор <a href="https://pymorphy2.readthedocs.io/en/latest/">pymorphy2</a>:</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pymorphy2</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>(cs102) $ python -m pip install pymorphy2
+</code></pre></div>
 
 <p>В качестве тематической модели мы будем использовать модель <a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">латентного размещения Дирихле</a> (LDA, Latent Dirichlet Allocation), реализацию которой можно найти в библиотеке <a href="https://radimrehurek.com/gensim/models/ldamodel.html">gensim</a>.</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">cs102</span><span class="p">)</span> <span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">gensim</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>(cs102) $ python -m pip install gensim
+</code></pre></div>
                 
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 июня 2020 г.</span>
+    
+  </small>
+</div>
                   
                 
               
@@ -1425,19 +1115,7 @@
 
   <h2 id="__comments">Комментарии</h2>
   <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "https://dementiy.github.io/assignments/vk_api/";
-      this.page.identifier =
-        "assignments/vk_api/";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//Dementiy.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <script>var disqus_config=function(){this.page.url="https://dementiy.github.io/assignments/vk_api/",this.page.identifier="assignments/vk_api/"};!function(){var e=document,i=e.createElement("script");i.src="//Dementiy.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)}()</script>
 
               
             </article>
@@ -1449,34 +1127,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../life/" title="Игра «Жизнь»" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../life/" title="Игра «Жизнь»" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
                 Игра «Жизнь»
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../telegram/" title="Бот для мессенджера Telegram" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../telegram/" title="Бот для мессенджера Telegram" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Вперед
                 </span>
                 Бот для мессенджера Telegram
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1487,17 +1165,27 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 <a href="https://github.com/Dementiy" target="_blank" rel="noopener">Dmitrii Sorokin</a>
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/Dementiy" class="md-footer-social__link fa fa-github"></a>
+      
+      
+        
+        
+      
+      <a href="https://github.com/Dementiy" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
     
   </div>
 
@@ -1507,28 +1195,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.ru.js"></script>
-              
-            
-          
-          
-            <script src="../../assets/javascripts/lunr/lunr.multi.js"></script>
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs", "instant"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
