@@ -785,27 +785,31 @@ Python <span class="m">3</span>.8.2
 <p class="admonition-title">Info</p>
 <p>Знак доллара <code>$</code> обозначает приглашение к вводу команд. В Windows такое приглашение обычно выглядит как символ больше <code>&gt;</code>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Если вы работаете с ОС Windows, то для более комфортной работы рекомендуется установить набор инструментов <a href="https://git-for-windows.github.io/">Git For Windows</a> или <a href="https://docs.microsoft.com/ru-ru/windows/wsl/">WSL</a>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Если вы работаете с ОС Windows, то вам потребуется установить набор инструментов <a href="https://git-for-windows.github.io/">Git For Windows</a> или <a href="https://docs.microsoft.com/ru-ru/windows/wsl/">WSL</a>. Если вы никогда не работали в командной оболочке, то почитайте <a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">UNIX Tutorial for Beginners</a> для знакомства с основными командами.</p>
 </div>
-<p>В какой-то момент вам может потребоваться установить более свежую версию интерпретатора или вы будете работать над несколькими проектами, в которых будут использоваться разные версии. Для этих целей существует менеджер версий <a href="https://github.com/pyenv/pyenv">pyenv</a>. Для установки на *nix системах можно воспользоваться <a href="https://github.com/pyenv/pyenv-installer">pyenv-installer</a> (пользователям Windows следует воспользоваться <a href="https://github.com/pyenv-win/pyenv-win#installation">pyenv-win</a>):</p>
+<p>В какой-то момент вам может потребоваться установить более свежую версию интерпретатора, а возможно, что вы будете работать над несколькими проектами, в которых будут использоваться разные версии. Для этих целей существует менеджер версий <a href="https://github.com/pyenv/pyenv">pyenv</a>. Для установки на *nix системах можно воспользоваться <a href="https://github.com/pyenv/pyenv-installer">pyenv-installer</a> (пользователям Windows следует воспользоваться <a href="https://github.com/pyenv-win/pyenv-win#installation">pyenv-win</a>):</p>
 <div class="highlight"><pre><span></span><code>$ curl https://pyenv.run <span class="p">|</span> bash
 </code></pre></div>
 
-<p>После установки будет предложено добавить следующие строки в ваш <code>.bashrc</code> для автоматического обнаружения pyenv:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/путь/к/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
-<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
+<p>После установки будет предложено добавить несколько строк в ваш <code>.bashrc</code> (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме) для автоматического обнаружения pyenv:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/путь/к/.pyenv/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv init -)&quot;&#39;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv virtualenv-init -)&quot;&#39;</span> &gt;&gt; ~/.bashrc
 </code></pre></div>
 
-<p>И затем выполните следующую команду:</p>
-<div class="highlight"><pre><span></span><code>$ . ~/.bashrc
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>~</code> обозначает домашний каталог, например, путь <code>~/projects</code> эквивалентен пути <code>/home/ваш_пользователь/projects</code> на Linux системах, <code>/Users/ваш_пользователь/projects</code> на MacOS и <code>/c/Users/ваш_пользователь/projects</code> на Windows.</p>
+</div>
+<p>Чтобы изменения вступили в силу, необходимо либо перезапустить терминал, либо выполнить содержимое файла <code>.bashrc</code> в текущем сеансе с помощью команды <code>source</code>:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">source</span> ~/.bashrc  <span class="c1"># или . ~/.bashrc</span>
 </code></pre></div>
 
 <p>Чтобы просмотреть список версий установленных на вашей системе:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv versions
-* system <span class="o">(</span><span class="nb">set</span> by /Users/dementiy/.pyenv/version<span class="o">)</span>
+* system <span class="o">(</span><span class="nb">set</span> by /home/dementiy/.pyenv/version<span class="o">)</span>
 </code></pre></div>
 
 <p>Чтобы просмотреть список доступных версий интерпретатора:</p>
@@ -820,7 +824,7 @@ Python <span class="m">3</span>.8.2
 <p>Для установки конкретной версии выполните следующую команду:</p>
 <div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">3</span>.8.5
 $ pyenv versions
-* system <span class="o">(</span><span class="nb">set</span> by /Users/dementiy/.pyenv/version<span class="o">)</span>
+* system <span class="o">(</span><span class="nb">set</span> by /home/dementiy/.pyenv/version<span class="o">)</span>
   <span class="m">3</span>.8.5
 </code></pre></div>
 
@@ -837,16 +841,16 @@ Python <span class="m">3</span>.8.5
 <div class="highlight"><pre><span></span><code>$ mkdir ~/.virtualenvs
 $ python -m venv ~/.virtualenvs/cs102
 $ which python
-/usr/local/bin/python
+~/.pyenv/shims/python
 $ <span class="nb">source</span> ~/.virtualenvs/cs102/bin/activate
 <span class="o">(</span>cs102<span class="o">)</span> $ which python
-/Users/dementiy/.virtualenvs/cs102/bin/python
+~/.virtualenvs/cs102/bin/python
 <span class="o">(</span>cs102<span class="o">)</span> $ deactivate
 $ which python
-/usr/local/bin/python
+~/.pyenv/shims/python
 </code></pre></div>
 
-<p>Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш <code>~/.bashrc</code> (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме; выполните затем команду <code>. ~/.bashrc</code>, чтобы функция стала доступна в текущем сеансе):</p>
+<p>Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш <code>~/.bashrc</code> (выполните затем команду <code>. ~/.bashrc</code>, чтобы функция стала доступна в текущем сеансе):</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span> workon<span class="o">()</span> <span class="o">{</span>
   <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">then</span>
     <span class="nb">echo</span> <span class="s2">&quot;Specify the name of the virtual environment&quot;</span>
@@ -861,34 +865,42 @@ $ which python
 
 <p>Для примера в созданном виртуальном окружении установим следующие пакеты: <a href="https://github.com/psf/black">black</a> (для автоматического форматирования кода), <a href="https://github.com/timothycrosley/isort">isort</a> (для сортировки импортов, т.е., имен подключаемых модулей), <a href="http://mypy-lang.org/">mypy</a> (для проверки типов) и <a href="https://www.pylint.org/">pylint</a> (статический анализатор кода для выявления потенциальных проблем):</p>
 <div class="highlight"><pre><span></span><code>$ workon cs102
+<span class="o">(</span>cs102<span class="o">)</span> $ pip freeze
+<span class="c1"># Установленных пакетов нет</span>
 <span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install black isort mypy pylint
 <span class="o">(</span>cs102<span class="o">)</span> $ pip freeze
+<span class="nv">black</span><span class="o">==</span><span class="m">19</span>.10b0
+<span class="nv">isort</span><span class="o">==</span><span class="m">5</span>.4.2
+<span class="nv">mypy</span><span class="o">==</span><span class="m">0</span>.782
+<span class="nv">pylint</span><span class="o">==</span><span class="m">2</span>.5.3
+...
 </code></pre></div>
 
-<p>В этом примере мы использовали <a href="https://docs.python.org/3.5/installing/index.html">pip</a> для установки новых пакетов. Иногда устанавливаемый пакет требует наличие других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на <a href="http://stackoverflow.com">stackoverflow.com</a>, скорее всего кто-то уже столкнулся с той же проблемой, что и вы.</p>
+<p>В этом примере мы использовали <a href="https://docs.python.org/3.5/installing/index.html">pip</a> для установки новых пакетов. Иногда устанавливаемый пакет требует наличия других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на <a href="http://stackoverflow.com">stackoverflow.com</a>, скорее всего кто-то уже столкнулся с той же проблемой, что и вы.</p>
 <h2 id="_2">Система контроля версий<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать <a href="http://practical-neuroimaging.github.io/git_parable.html">тут</a> и <a href="https://git-scm.com/book/ru/v1/Введение-О-контроле-версий">тут</a>). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам нужно зарегистрироваться либо на <a href="https://github.com">https://github.com</a>, либо на <a href="https://bitbucket.org/">https://bitbucket.org</a> (а можно и там и там). На случай, если вы хотите ограничить доступ к вашей кодовой базе, то на bitbucket есть возможность создания бесплатного приватного репозитория, а github предоставляет для студентов и преподавателей <a href="https://education.github.com/">Github Education Pack</a>.</p>
-<p>Для всех практических работ вам предоставлены шаблоны и тесты, которые располжены в <a href="https://github.com/Dementiy/pybook-assignments">репозитории курса</a>. На основе репозитория курса вы можете создать свой репозиторий, для этого зарегистрируйтесь на <a href="https://github.com">Github'е</a>, перейдите на страницу репозитория курса и нажмите на <code>Use this template</code>:</p>
+<p>Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать <a href="http://practical-neuroimaging.github.io/git_parable.html">тут</a> и <a href="https://git-scm.com/book/ru/v1/Введение-О-контроле-версий">тут</a>). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам необходимо зарегистрироваться на <a href="https://github.com">https://github.com</a> (в качестве альтернативы вы можете рассмотреть <a href="https://bitbucket.org/">https://bitbucket.org</a>).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>GitHub предоставляет <a href="https://education.github.com/">Github Education Pack</a> для студентов и преподавателей, которые не могут себе позволить использование дорогостоящих подписок на платные сервисы для разработки.</p>
+</div>
+<p>Для всех практических работ вам предоставлены шаблоны и тесты, которые располжены в <a href="https://github.com/Dementiy/pybook-assignments">репозитории курса</a>. На основе репозитория курса вы можете создать свой репозиторий, для этого зарегистрируйтесь на <a href="https://github.com">GitHub'е</a>, перейдите на страницу репозитория курса и нажмите на <code>Use this template</code>:</p>
 <p><img alt="" src="../../images/assignments/setup-env/template_btn.png" /></p>
 <p>Укажите название и описание репозитория, а затем нажмите на <code>Create repository from template</code>:</p>
 <p><img alt="" src="../../images/assignments/setup-env/create.png" /></p>
 <p>По шаблону репозитория курса был создан новый репозиторий, который теперь принадлежит вам. Его необходимо клонировать (создать локальную копию репозитория):</p>
 <div class="highlight"><pre><span></span><code>$ git clone https://github.com/Dementiy/cs102.git
-Cloning into <span class="s1">&#39;.&#39;</span>...
+Cloning into <span class="s1">&#39;cs102&#39;</span>...
 remote: Enumerating objects: <span class="m">93</span>, <span class="k">done</span>.
 remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">93</span>/93<span class="o">)</span>, <span class="k">done</span>.
 remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">90</span>/90<span class="o">)</span>, <span class="k">done</span>.
 remote: Total <span class="m">93</span> <span class="o">(</span>delta <span class="m">9</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
 Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">93</span>/93<span class="o">)</span>, <span class="k">done</span>.
+$ <span class="nb">cd</span> cs102
 $ ls
 README.md homework01 homework01-go homework02 homework02-go ...
 </code></pre></div>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Если после выполнения команды <code>git clone</code> вы получили сообщение об ошибке о том, что команда <code>git</code> не найдена, то, скорее всего, вы работаете под Windows и <code>git</code> нужно <a href="https://git-for-windows.github.io/">установить</a>.</p>
-</div>
-<p>После выполнения команды <code>git clone</code> будет создан каталог с именем <code>cs102</code>. Для быстрого перехода в этот каталог добавим alias в ваш <code>.bashrc</code>, для этого откройте терминал и выполните следующие команды.</p>
+<p>После выполнения команды <code>git clone</code> будет создан каталог с именем <code>cs102</code>. Для быстрого перехода в этот каталог добавим alias в ваш <code>.bashrc</code>, для этого откройте терминал и выполните следующие команды:</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s1">&#39;alias gocs102=&quot;cd /путь/к/каталогу/cs102&quot;&#39;</span> &gt;&gt; ~/.bashrc
 $ . ~/.bashrc
 $ gocs102
@@ -904,7 +916,10 @@ $ <span class="nb">pwd</span>
 </div>
 <p>Запустите VSCode, выберите <code>Open Folder</code> и укажите каталог <code>cs102</code>:</p>
 <p><img alt="" src="../../images/assignments/setup-env/vscode_open_folder.png" /></p>
-<p>После чего на вкладке <code>Explorer</code> появится содержимое шаблонов всех работ. Создайте в корне новый файл с именем <code>hello.py</code> и следующим содержимым:</p>
+<p>После чего на вкладке <code>Explorer</code> появится содержимое шаблонов всех работ:</p>
+<p><img alt="" src="../../images/assignments/setup-env/explorer.png" /></p>
+<p>Создайте в корне новый файл с именем <code>hello.py</code> (для этого можно воспользоваться одним из следующих вариантов: в меню <code>File</code> выбрать пункт <code>New File</code> и затем сохранить файл; щелкнуть по иконке с надписью <code>New File</code> в окне <code>Explorer</code>; щелкнуть правой клавишей мыши в окне <code>Explorer</code> и выбрать <code>New File</code>):</p>
+<p>Скопируйте пример скрипта приведенный ниже в созданный файл:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 
@@ -916,6 +931,8 @@ $ <span class="nb">pwd</span>
 <p>VSCode предложит установить расширение для Python (вы можете установить его самостоятельно, нажав на левой панели на <code>Extensions</code> и в поисковой строке набрав <code>python</code>):</p>
 <p><img alt="" src="../../images/assignments/setup-env/py_plugin.png" /></p>
 <p>После установки расширения вы сможете запускать и отлаживать код непосредственно в VSCode. Также в репозотирии есть базовые настройки для пакетов, которые вы установили раннее (black, isort, pylint, mypy). Настройки можно найти в файле <code>.vscode/settings.json</code>. В настройках по умолчанию указан шрифт <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, вы можете продолжить использовать его или установить любой другой моноширный шрифт (<a href="https://www.jetbrains.com/ru-ru/lp/mono/">JetBrains Mono</a>, <a href="https://github.com/be5invis/Iosevka">Iosevka</a>, <a href="https://fonts.google.com/specimen/Anonymous+Pro">Anonymous Pro</a> и т.д.).</p>
+<p>Для выполнения скрипта нажмите на кнопку <code>Run</code>, результаты работы будут выведены в терминале:</p>
+<p><img alt="" src="../../images/assignments/setup-env/run.png" /></p>
 <p>Также рекомендуется добавить команду <code>code</code> для запуска из терминала:</p>
 <p><img alt="" src="../../images/assignments/setup-env/vscode_shell.png" /></p>
 <h2 id="_4">Задание<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -924,6 +941,12 @@ $ <span class="nb">pwd</span>
 <p class="admonition-title">Info</p>
 <p>VSCode позволяет открыть предпросмотр файла в формате Markdown.</p>
 </div>
+<p>После редактирования <code>README.md</code> внесенные изменения необходимо зафиксировать и отправить на сервер:</p>
+<div class="highlight"><pre><span></span><code>$ git add README.md
+$ git commit -m <span class="s2">&quot;Обновлено описание репозитория&quot;</span>
+$ git push origin master
+</code></pre></div>
+
 <p>Все вопросы и замечания пишите в комментариях или в Slack'е (<a href="https://get.slack.help/hc/en-us/articles/115004071768-What-is-Slack-">что такое Slack?</a>).</p>
 <div class="footnote">
 <hr />
