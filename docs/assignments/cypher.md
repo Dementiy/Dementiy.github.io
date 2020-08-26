@@ -1,47 +1,32 @@
 Эта первая практическая работа, которая посвящена базовым конструкциям языка Python. Также в этой работе описан общий подход к выполнению заданий.
 
-Все исходники к работам можно найти в [репозитории](https://github.com/Dementiy/pybook-assignments) (следите за его обновлениями). Чтобы получить все шаблоны к работам достаточно выполнить следующую команду:
-
-!!! note
-    Описание работы с командой `git` читай в разделе [«Настройка рабочего окружения»](../assignments/setup_env.md).
-
-```sh
-$ git clone https://github.com/Dementiy/pybook-assignments.git
-```
-
-Все дальнейшие изменения в репозитории можно получать с помощью команды `git pull` (её рекомендуется использовать каждый раз, когда вы приступаете к выполнению новой работы):
-
-```sh
-$ git pull
-```
+Все исходники к работам можно найти в шаблоне [репозитория курса](https://github.com/Dementiy/pybook-assignments). Если вы еще не настроили рабочее окружение, то перейдите в раздел [«Настройка рабочего окружения»](../assignments/setup_env.md).
 
 ## Прежде чем приступить к выполнению работы
 
 Перед тем как начать выполнять задания не забудьте перейти в рабочую директорию и активировать ваше виртуальное окружение:
 
 ```sh
-$ cd путь/к/рабочей_директории
+$ gocs102
 $ workon cs102
 ```
 
-Также создадим ветку разработки (подробнее про git workflow можно прочитать [тут](https://habrahabr.ru/post/106912/)):
+При выполнении работ мы будем придерживаться простого подхода к ветвлению под названием [GitHub flow](https://guides.github.com/introduction/flow/) (есть и другие подходы, например, [git workflow](https://habrahabr.ru/post/106912/)). Приступая к новой практической работе создавайте ветку с именем этой работы:
 
 ```sh
-(cs102) $ git checkout -b develop master
-Switched to a new branch 'develop'
+(cs102) $ git checkout -b homework01 master
+Switched to a new branch 'homework01'
 ```
 
-Теперь создадим ветку новой функциональности:
-```sh
-(cs102) $ git checkout -b feature/caesar develop
-Switched to a new branch 'feature/caesar'
-```
-
-И, наконец, создадим папку, в которой будем хранить все файлы, относящиеся к первой работе:
+Чтобы отобразить список локальных веток можно воспользоваться командой `git branch`:
 
 ```
-(cs102) $ mkdir homework01
+(cs102) $ git branch
+* homework01
+  master
 ```
+
+Символ `*` указывает на какой ветке вы находитесь.
 
 ## Шифр Цезаря
 
@@ -65,11 +50,12 @@ PYTHON
 SBWKRQ
 ```
 
-Вам необходимо написать тело для следующих двух функций:
+Вам необходимо написать тело для следующих двух функций в файле `homework01/caesar.py`:
 
 ```python
-def encrypt_caesar(plaintext: str) -> str:
+def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
+    Encrypts plaintext using a Caesar cipher.
     >>> encrypt_caesar("PYTHON")
     'SBWKRQ'
     >>> encrypt_caesar("python")
@@ -79,12 +65,14 @@ def encrypt_caesar(plaintext: str) -> str:
     >>> encrypt_caesar("")
     ''
     """
+    ciphertext = ""
     # PUT YOUR CODE HERE
     return ciphertext
 
 
-def decrypt_caesar(ciphertext: str) -> str:
+def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
+    Decrypts a ciphertext using a Caesar cipher.
     >>> decrypt_caesar("SBWKRQ")
     'PYTHON'
     >>> decrypt_caesar("sbwkrq")
@@ -94,6 +82,7 @@ def decrypt_caesar(ciphertext: str) -> str:
     >>> decrypt_caesar("")
     ''
     """
+    plaintext = ""
     # PUT YOUR CODE HERE
     return plaintext
 ```
@@ -106,23 +95,18 @@ def decrypt_caesar(ciphertext: str) -> str:
 
 В результате переменные `ciphertext` и `plaintext` должны содержать зашифрованное и расшифрованное сообщения соответственно.
 
-В папке `homework01` создайте файл с именем `caesar.py` и шаблоном приведенным выше. Сделайте коммит с первоначальным шаблоном:
+По завершении работы над каждой функцией не забудьте также сделать коммит, который зафиксирует ваши изменения, например:
 
 ```sh
 (cs102) $ git add homework01/caesar.py
-(cs102) $ git commit -m "Добавлен шаблон для шифра Цезаря"
-```
-
-По завершении работы над каждой функцией не забудьте также сделать коммит, например:
-
-```sh
-(cs102) $ git commit -am "Реализована функция encrypt_caesar()"
+(cs102) $ git commit -m "Реализована функция encrypt_caesar()"
 ```
 
 и аналогично:
 
 ```sh
-(cs102) $ git commit -am "Реализована функция decrypt_caesar()"
+(cs102) $ git add homework01/caesar.py
+(cs102) $ git commit -m "Реализована функция decrypt_caesar()"
 ```
 
 Проверить работу функций можно с помощью примеров, приведенных в [доктестах](https://docs.python.org/3.5/library/doctest.html) (текст внутри функции, который заключен в тройные кавычки и похож на работу с интерпретатором в интерактивном режиме). Запустить доктесты можно с помощью следующей команды (при условии, что файл с программой называется `caesar.py`):
