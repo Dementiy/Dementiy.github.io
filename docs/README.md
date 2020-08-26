@@ -1,12 +1,21 @@
 # Курс лекций по программированию на Python
 
-![image](../images/bps-hello.png){: .center style="width:80%;"}
+![image](../images/bps-hello.png){: .center style="width:40%;"}
 
-Всем привет. Сайт переехал на движок [mkdocs](https://www.mkdocs.org/).
+Примерный план лекций на первый семестр:
 
-[Лекционные материалы](lectures/immutable-types/) подразумевают базовые знания языка программирования C, также желательно иметь представление о Python на уровне книги [«Укус Питона»](https://wombat.org.ua/AByteOfPython/) (A Byte of Python).
+| Дата   | Тема | Дополнительные материалы | Задания |
+|--------|------|--------------------------|---------|
+|   ?    |  Введение. Знакомство с языком   | [«Укус Питона»](https://wombat.org.ua/AByteOfPython/) и [How to Think Like a Computer Scientist](https://runestone.academy/runestone/books/published/thinkcspy/index.html) | Необходимо [настроить рабочее окружение](assignments/setup_env.md) |
+|   ?    | [Неизменяемые](lectures/immutable-types.md) и [изменяемые](lectures/mutable-types.md) типы данных | | |
+|   ?    | [Управляющие конструкции](lectures/control-statements.md) | | [Алгоритмы шифрования](assignments/cypher.md) |
+|   ?    | [Повторное использование кода](lectures/functions.md) | | [Решатель судоку](assignments/sudoku.md) |
+|   ?    | [Пространство имен и области видимости](lectures/ns_and_scopes.md) | | |
+|   ?    | [ООП. Классы](lectures/classes.md) | | [Игра Жизнь](assignments/life.md) |
+|   ?    | [ООП. Разрешение имен атрибутов](lectures/attribute_lookup.md) и [методов](lectures/mro.md) | | [Пишем свой Git](assignments/pyvcs.md) |
 
-[Практические задания](assignments/setup_env/) в первую очередь подразумевают выполнение на языке Python, но постепенно шаблоны заданий выкладываются и на языке Go. Все шаблоны работ можно найти в [этом репозитории](https://github.com/Dementiy/pybook-assignments). {>> Пока что опубликована часть лекций и практик. Идет обновление материалов до Python 3.8. Под вопросом «переезд» практических работ на Github Classrom и их автоматизированной проверки. <<}
+
+Практические задания в первую очередь подразумевают выполнение на языке Python, но постепенно шаблоны заданий выкладываются и на языке Go. Все шаблоны работ можно найти в [репозитории курса](https://github.com/Dementiy/pybook-assignments).
 
 Любой желающий может не только выполнить работы, но и попросить помощи в [Slack'e](https://cs102-python.slack.com) (нужно только получить инвайнт, написав мне на почту `Dementiy@yandex.ru`). Аннотированная версия сайта [тут](https://via.hypothes.is/https://dementiy.github.io).
 
