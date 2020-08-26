@@ -57,6 +57,8 @@ markdown_extensions:
         permalink: true
         # toc_depth: "1-1"
     - pymdownx.arithmatex
+    - pymdownx.highlight:
+        use_pygments: true
     - pymdownx.betterem:
         smart_enable: all
     - pymdownx.caret

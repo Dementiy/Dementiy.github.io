@@ -14,34 +14,37 @@ Python 3.8.2
 !!! info
     Знак доллара `$` обозначает приглашение к вводу команд. В Windows такое приглашение обычно выглядит как символ больше `>`.
 
-!!! tip
-    Если вы работаете с ОС Windows, то для более комфортной работы рекомендуется установить набор инструментов [Git For Windows](https://git-for-windows.github.io/) или [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
+!!! danger
+    Если вы работаете с ОС Windows, то вам потребуется установить набор инструментов [Git For Windows](https://git-for-windows.github.io/) или [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/). Если вы никогда не работали в командной оболочке, то почитайте [UNIX Tutorial for Beginners](http://www.ee.surrey.ac.uk/Teaching/Unix/) для знакомства с основными командами.
 
-В какой-то момент вам может потребоваться установить более свежую версию интерпретатора или вы будете работать над несколькими проектами, в которых будут использоваться разные версии. Для этих целей существует менеджер версий [pyenv](https://github.com/pyenv/pyenv). Для установки на *nix системах можно воспользоваться [pyenv-installer](https://github.com/pyenv/pyenv-installer) (пользователям Windows следует воспользоваться [pyenv-win](https://github.com/pyenv-win/pyenv-win#installation)):
+В какой-то момент вам может потребоваться установить более свежую версию интерпретатора, а возможно, что вы будете работать над несколькими проектами, в которых будут использоваться разные версии. Для этих целей существует менеджер версий [pyenv](https://github.com/pyenv/pyenv). Для установки на *nix системах можно воспользоваться [pyenv-installer](https://github.com/pyenv/pyenv-installer) (пользователям Windows следует воспользоваться [pyenv-win](https://github.com/pyenv-win/pyenv-win#installation)):
 
 ```sh
 $ curl https://pyenv.run | bash
 ```
 
-После установки будет предложено добавить следующие строки в ваш `.bashrc` для автоматического обнаружения pyenv:
+После установки будет предложено добавить несколько строк в ваш `.bashrc` (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме) для автоматического обнаружения pyenv:
 
 ```sh
-export PATH="/путь/к/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+$ echo 'export PATH="/путь/к/.pyenv/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 ```
 
-И затем выполните следующую команду:
+!!! info
+    `~` обозначает домашний каталог, например, путь `~/projects` эквивалентен пути `/home/ваш_пользователь/projects` на Linux системах, `/Users/ваш_пользователь/projects` на MacOS и `/c/Users/ваш_пользователь/projects` на Windows.
+
+Чтобы изменения вступили в силу, необходимо либо перезапустить терминал, либо выполнить содержимое файла `.bashrc` в текущем сеансе с помощью команды `source`:
 
 ```sh
-$ . ~/.bashrc
+$ source ~/.bashrc  # или . ~/.bashrc
 ```
 
 Чтобы просмотреть список версий установленных на вашей системе:
 
 ```shell
 $ pyenv versions
-* system (set by /Users/dementiy/.pyenv/version)
+* system (set by /home/dementiy/.pyenv/version)
 ```
 
 Чтобы просмотреть список доступных версий интерпретатора:
@@ -60,7 +63,7 @@ $ pyenv install --list | grep "^\s+3\.[89]"
 ```bash
 $ pyenv install 3.8.5
 $ pyenv versions
-* system (set by /Users/dementiy/.pyenv/version)
+* system (set by /home/dementiy/.pyenv/version)
   3.8.5
 ```
 
@@ -84,16 +87,16 @@ Python 3.8.5
 $ mkdir ~/.virtualenvs
 $ python -m venv ~/.virtualenvs/cs102
 $ which python
-/usr/local/bin/python
+~/.pyenv/shims/python
 $ source ~/.virtualenvs/cs102/bin/activate
 (cs102) $ which python
-/Users/dementiy/.virtualenvs/cs102/bin/python
+~/.virtualenvs/cs102/bin/python
 (cs102) $ deactivate
 $ which python
-/usr/local/bin/python
+~/.pyenv/shims/python
 ```
 
-Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш `~/.bashrc` (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме; выполните затем команду `. ~/.bashrc`, чтобы функция стала доступна в текущем сеансе):
+Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш `~/.bashrc` (выполните затем команду `. ~/.bashrc`, чтобы функция стала доступна в текущем сеансе):
 
 ```sh
 function workon() {
@@ -112,17 +115,27 @@ function workon() {
 
 ```sh
 $ workon cs102
+(cs102) $ pip freeze
+# Установленных пакетов нет
 (cs102) $ python -m pip install black isort mypy pylint
 (cs102) $ pip freeze
+black==19.10b0
+isort==5.4.2
+mypy==0.782
+pylint==2.5.3
+...
 ```
 
-В этом примере мы использовали [pip](https://docs.python.org/3.5/installing/index.html) для установки новых пакетов. Иногда устанавливаемый пакет требует наличие других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на [stackoverflow.com](http://stackoverflow.com), скорее всего кто-то уже столкнулся с той же проблемой, что и вы.
+В этом примере мы использовали [pip](https://docs.python.org/3.5/installing/index.html) для установки новых пакетов. Иногда устанавливаемый пакет требует наличия других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на [stackoverflow.com](http://stackoverflow.com), скорее всего кто-то уже столкнулся с той же проблемой, что и вы.
 
 ## Система контроля версий
 
-Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать [тут](http://practical-neuroimaging.github.io/git_parable.html) и [тут](https://git-scm.com/book/ru/v1/Введение-О-контроле-версий)). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам нужно зарегистрироваться либо на [https://github.com](https://github.com), либо на [https://bitbucket.org](https://bitbucket.org/) (а можно и там и там). На случай, если вы хотите ограничить доступ к вашей кодовой базе, то на bitbucket есть возможность создания бесплатного приватного репозитория, а github предоставляет для студентов и преподавателей [Github Education Pack](https://education.github.com/).
+Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать [тут](http://practical-neuroimaging.github.io/git_parable.html) и [тут](https://git-scm.com/book/ru/v1/Введение-О-контроле-версий)). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам необходимо зарегистрироваться на [https://github.com](https://github.com) (в качестве альтернативы вы можете рассмотреть [https://bitbucket.org](https://bitbucket.org/)).
 
-Для всех практических работ вам предоставлены шаблоны и тесты, которые располжены в [репозитории курса](https://github.com/Dementiy/pybook-assignments). На основе репозитория курса вы можете создать свой репозиторий, для этого зарегистрируйтесь на [Github'е](https://github.com), перейдите на страницу репозитория курса и нажмите на `Use this template`:
+!!! info
+    GitHub предоставляет [Github Education Pack](https://education.github.com/) для студентов и преподавателей, которые не могут себе позволить использование дорогостоящих подписок на платные сервисы для разработки.
+
+Для всех практических работ вам предоставлены шаблоны и тесты, которые располжены в [репозитории курса](https://github.com/Dementiy/pybook-assignments). На основе репозитория курса вы можете создать свой репозиторий, для этого зарегистрируйтесь на [GitHub'е](https://github.com), перейдите на страницу репозитория курса и нажмите на `Use this template`:
 
 ![](../images/assignments/setup-env/template_btn.png)
 
@@ -134,20 +147,18 @@ $ workon cs102
 
 ```sh
 $ git clone https://github.com/Dementiy/cs102.git
-Cloning into '.'...
+Cloning into 'cs102'...
 remote: Enumerating objects: 93, done.
 remote: Counting objects: 100% (93/93), done.
 remote: Compressing objects: 100% (90/90), done.
 remote: Total 93 (delta 9), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (93/93), done.
+$ cd cs102
 $ ls
 README.md homework01 homework01-go homework02 homework02-go ...
 ```
 
-!!! note
-    Если после выполнения команды `git clone` вы получили сообщение об ошибке о том, что команда `git` не найдена, то, скорее всего, вы работаете под Windows и `git` нужно [установить](https://git-for-windows.github.io/).
-
-После выполнения команды `git clone` будет создан каталог с именем `cs102`. Для быстрого перехода в этот каталог добавим alias в ваш `.bashrc`, для этого откройте терминал и выполните следующие команды.
+После выполнения команды `git clone` будет создан каталог с именем `cs102`. Для быстрого перехода в этот каталог добавим alias в ваш `.bashrc`, для этого откройте терминал и выполните следующие команды:
 
 ```sh
 $ echo 'alias gocs102="cd /путь/к/каталогу/cs102"' >> ~/.bashrc
@@ -168,7 +179,13 @@ $ pwd
 
 ![](../images/assignments/setup-env/vscode_open_folder.png)
 
-После чего на вкладке `Explorer` появится содержимое шаблонов всех работ. Создайте в корне новый файл с именем `hello.py` и следующим содержимым:
+После чего на вкладке `Explorer` появится содержимое шаблонов всех работ:
+
+![](../images/assignments/setup-env/explorer.png)
+
+Создайте в корне новый файл с именем `hello.py` (для этого можно воспользоваться одним из следующих вариантов: в меню `File` выбрать пункт `New File` и затем сохранить файл; щелкнуть по иконке с надписью `New File` в окне `Explorer`; щелкнуть правой клавишей мыши в окне `Explorer` и выбрать `New File`):
+
+Скопируйте пример скрипта приведенный ниже в созданный файл:
 
 ```python
 def main() -> None:
@@ -185,6 +202,12 @@ VSCode предложит установить расширение для Pytho
 
 После установки расширения вы сможете запускать и отлаживать код непосредственно в VSCode. Также в репозотирии есть базовые настройки для пакетов, которые вы установили раннее (black, isort, pylint, mypy). Настройки можно найти в файле `.vscode/settings.json`. В настройках по умолчанию указан шрифт [Fira Code](https://github.com/tonsky/FiraCode), вы можете продолжить использовать его или установить любой другой моноширный шрифт ([JetBrains Mono](https://www.jetbrains.com/ru-ru/lp/mono/), [Iosevka](https://github.com/be5invis/Iosevka), [Anonymous Pro](https://fonts.google.com/specimen/Anonymous+Pro) и т.д.).
 
+Для выполнения скрипта нажмите на кнопку `Run`, результаты работы будут выведены в терминале:
+
+![](../images/assignments/setup-env/run.png)
+
+[comment]: <> (Если вам потребуется отладить вашу программу, то необходимо указать одну или несколько точек остановка (breakpoints) и затем нажать на `Run and Debug`:![](../images/assignments/setup-env/run_debug.png))
+
 Также рекомендуется добавить команду `code` для запуска из терминала:
 
 ![](../images/assignments/setup-env/vscode_shell.png)
@@ -195,6 +218,14 @@ VSCode предложит установить расширение для Pytho
 
 !!! info
     VSCode позволяет открыть предпросмотр файла в формате Markdown.
+
+После редактирования `README.md` внесенные изменения необходимо зафиксировать и отправить на сервер:
+
+```sh
+$ git add README.md
+$ git commit -m "Обновлено описание репозитория"
+$ git push origin master
+```
 
 Все вопросы и замечания пишите в комментариях или в Slack'е ([что такое Slack?](https://get.slack.help/hc/en-us/articles/115004071768-What-is-Slack-)).
 
