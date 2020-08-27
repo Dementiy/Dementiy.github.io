@@ -1,6 +1,6 @@
 # Курс лекций по программированию на Python
 
-![image](../images/bps-hello.png){: .center style="width:40%;"}
+[//]: # (![image](../images/bps-hello.png){: .center style="width:40%;"})
 
 Примерный план лекций на первый семестр:
 
