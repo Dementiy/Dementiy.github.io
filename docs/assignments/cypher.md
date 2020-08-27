@@ -7,11 +7,11 @@
 Перед тем как начать выполнять задания не забудьте перейти в рабочую директорию и активировать ваше виртуальное окружение:
 
 ```sh
-$ gocs102
+$ gocs102 && cd homework01
 $ workon cs102
 ```
 
-При выполнении работ мы будем придерживаться простого подхода к ветвлению под названием [GitHub flow](https://guides.github.com/introduction/flow/) (есть и другие подходы, например, [git workflow](https://habrahabr.ru/post/106912/)). Приступая к новой практической работе создавайте ветку с именем этой работы:
+При выполнении работ мы будем придерживаться простого подхода к ветвлению под названием [GitHub flow](https://guides.github.com/introduction/flow/) (есть и другие подходы, например, [gitflow](https://nvie.com/posts/a-successful-git-branching-model/)). Приступая к новой практической работе создавайте ветку с именем этой работы:
 
 ```sh
 (cs102) $ git checkout -b homework01 master
@@ -26,7 +26,7 @@ Switched to a new branch 'homework01'
   master
 ```
 
-Символ `*` указывает на какой ветке вы находитесь.
+Символ `*` указывает на какой ветке вы находитесь. Для переключения между ветками используйте команду `git checkout имя_ветки`.
 
 ## Шифр Цезаря
 
@@ -50,12 +50,13 @@ PYTHON
 SBWKRQ
 ```
 
-Вам необходимо написать тело для следующих двух функций в файле `homework01/caesar.py`:
+Вам необходимо написать тело для следующих двух функций в файле `caesar.py`:
 
 ```python
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
     Encrypts plaintext using a Caesar cipher.
+
     >>> encrypt_caesar("PYTHON")
     'SBWKRQ'
     >>> encrypt_caesar("python")
@@ -73,6 +74,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
     Decrypts a ciphertext using a Caesar cipher.
+
     >>> decrypt_caesar("SBWKRQ")
     'PYTHON'
     >>> decrypt_caesar("sbwkrq")
@@ -87,6 +89,8 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     return plaintext
 ```
 
+Обратите внимание, что вторым аргументом функции является сдвиг (`shift`), например, при сдвиге равном нулю сообщение останется без изменений (`A -> A, B -> B, ...`).
+
 !!! hint
     Воспользуйтесь встроенными функциями `ord()` и `chr()`. Функция `ord()` позволяет получить код указанного символа, а `chr()` работает наоборот - возвращает символ по его коду.
 
@@ -95,7 +99,27 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 
 В результате переменные `ciphertext` и `plaintext` должны содержать зашифрованное и расшифрованное сообщения соответственно.
 
-По завершении работы над каждой функцией не забудьте также сделать коммит, который зафиксирует ваши изменения, например:
+Проверить работу функций можно с помощью примеров, приведенных в [доктестах](https://docs.python.org/3.5/library/doctest.html) (текст внутри функции, который заключен в тройные кавычки и похож на работу с интерпретатором в интерактивном режиме). Запустить доктесты можно с помощью следующей команды (при условии, что файл с программой называется `caesar.py`):
+
+```sh
+(cs102) $ python -m doctest -v caesar.py
+```
+
+Доктесты обычно играют роль примеров и не используются в качестве полноценного фреймворка для автоматического тестирования. Поэтому мы будем использовать стандартную библиотеку [unittest](https://docs.python.org/3/library/unittest.html) для тестирования наших приложений (наиболее популярной альтернативой является [pytest](https://docs.pytest.org/en/stable/)). Для запуска тестов можно воспользоваться следующей командой:
+
+```sh
+(cs102) $ python -m unittest -v tests.test_caesar
+```
+
+или для запуска всех тестов:
+
+```sh
+(cs102) $ python -m unittest discover
+```
+
+Также обратите свое внимание на официальное руководство по стилю [pep8](https://www.python.org/dev/peps/pep-0008/) (некоторые пояснения по оформлению кода можно найти [здесь](https://github.com/Dementiy/pydonts)).
+
+Если вы добились успешного прохождения тестов, не забудьте сделать коммит, который зафиксирует ваши изменения, например:
 
 ```sh
 (cs102) $ git add homework01/caesar.py
@@ -109,29 +133,13 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
 (cs102) $ git commit -m "Реализована функция decrypt_caesar()"
 ```
 
-Проверить работу функций можно с помощью примеров, приведенных в [доктестах](https://docs.python.org/3.5/library/doctest.html) (текст внутри функции, который заключен в тройные кавычки и похож на работу с интерпретатором в интерактивном режиме). Запустить доктесты можно с помощью следующей команды (при условии, что файл с программой называется `caesar.py`):
-
-```sh
-$ python3 -m doctest -v caesar.py
-```
-
-Также обратите свое внимание на официальное руководство по стилю [pep8](https://www.python.org/dev/peps/pep-0008/) (некоторые пояснения по оформлению кода можно найти [здесь](https://github.com/Dementiy/pydonts)). Соответствие вашего кода PEP8 можно узнать «прогнав» исходный код вашей программы через утилиту `pep8`.
-
-Если все тесты были пройдены успешно, то объедините (merge) ваши изменения с веткой `develop`:
-
-```sh
-(cs102) $ git checkout develop
-(cs102) $ git merge --no-ff feature/caesar
-```
-
 !!! note
     Вы можете воспользоваться приложением [Source Tree](https://www.sourcetreeapp.com/) для наглядного отслеживания вносимых изменений.
 
-В качестве практики измените ваши функции так, чтобы размер сдвига был произвольным:
+Также не забывайте периодически отправлять ваши изменения на сервер:
 
-```
-encrypt_caesar(plaintext, shift)
-decrypt_caesar(plaintext, shift)
+```sh
+(cs102) $ git push origin homework01
 ```
 
 ## Шифр Виженера
@@ -146,11 +154,13 @@ decrypt_caesar(plaintext, shift)
 Зашифрованный текст: LXFOPVEFRNHR
 ```
 
-Ваша задача написать тело для следующих двух функций так, чтобы переменные `ciphertext` и `plaintext` содержали зашифрованное и расшифрованное сообщения соответственно.
+Ваша задача написать тело для следующих двух функций в файле `vigenere.py` так, чтобы переменные `ciphertext` и `plaintext` содержали зашифрованное и расшифрованное сообщения соответственно:
 
 ```python
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
+    Encrypts plaintext using a Vigenere cipher.
+
     >>> encrypt_vigenere("PYTHON", "A")
     'PYTHON'
     >>> encrypt_vigenere("python", "a")
@@ -158,12 +168,15 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     >>> encrypt_vigenere("ATTACKATDAWN", "LEMON")
     'LXFOPVEFRNHR'
     """
+    ciphertext = ""
     # PUT YOUR CODE HERE
     return ciphertext
 
 
 def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     """
+    Decrypts a ciphertext using a Vigenere cipher.
+
     >>> decrypt_vigenere("PYTHON", "A")
     'PYTHON'
     >>> decrypt_vigenere("python", "a")
@@ -171,6 +184,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     >>> decrypt_vigenere("LXFOPVEFRNHR", "LEMON")
     'ATTACKATDAWN'
     """
+    plaintext = ""
     # PUT YOUR CODE HERE
     return plaintext
 ```
@@ -178,24 +192,11 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
 !!! note
     Обратите внимание, что символы `A` и `a` в ключе не оказывают никакого влияния на шифруемое сообщение. Если же в качестве ключа мы будем использовать `C` или `c`, то получим шифр Цезаря.
 
-Перед выполнением задания не забудьте создать новую ветвь функциональности `feature/vigenere` и сделать коммит с шаблоном (файл с шаблоном должен быть размещен в каталоге `homework01` под именем `vigener.py`):
-
-```sh
-(cs102) $ git checkout -b feature/vigener develop
-(cs102) $ git add homework01/vigener.py
-(cs102) $ git commit -m "Добавлен шаблон для шифра Виженера"
-```
-
-По окончании работы над каждой функцией не забудьте сделать соответствующие коммиты, как в примере с шифром Цезаря, а также объединенить изменения с веткой `develop`:
-
-```sh
-(cs102) $ git checkout develop
-(cs102) $ git merge --no-ff feature/vigener
-```
+По окончании работы над каждой функцией не забудьте запустить тесты и сделать соответствующие коммиты, как в примере с шифром Цезаря.
 
 ## RSA шифрование
 
-Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов.
+Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов (Rivest, Shamir и Adleman).
 
 Мы не будем здесь вдаваться в [подробности работы](http://kpfu.ru/docs/F366166681/mzi.pdf) этого алгоритма (хотя и рассмотрим техническую часть), но [следующего объяснения](https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child) должно быть достаточно для понимания принципов шифрования с открытым ключом:
 
@@ -210,23 +211,18 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     
     When the box reaches me, I can open my padlock with my key and read the contents. This way, I can send padlocks (public keys) to people outside which they can use to lock boxes (encrypt messages) without being in danger of the contents being compromised as the padlock key (the private key) is always with me and never exchanged over the network.
 
+!!! danger
+    В методичке опечатка!
+
 Работу алгоритма можно разбить на три шага:
 
 1. Генерация ключей
 2. Шифрование
 3. Расшифровка
 
-От вас в этом задании требуется выполнить только шаг генерации ключей, остальные два шага уже даны (см. исходники к работе).
+От вас в этом задании требуется выполнить только шаг генерации ключей, остальные два шага уже представлены в шаблоне работы.
 
-На этапе генерации создаётся два ключа: открытый (public key, с помощью которого каждый сможет зашифровать сообщение и отправить его нам) и закрытый (private key, которым мы можем расшифровать полученные сообщения). Для этого выбирается два [простых числа](https://ru.wikipedia.org/wiki/Простое_число) `p` и `q`. Позволим пользователю вводить эти числа, но их необходимо проверять на простоту. Для этого напишем функцию, но предварительно создадим новую ветку функциональности и сделаем коммит с шаблоном для этого задания:
-
-```sh
-(cs102) $ git checkout -b feature/rsa develop
-(cs102) $ git add homework01/rsa.py
-(cs102) $ git commit -m "Добавлен шаблон для RSA шифрования"
-```
-
-Теперь можно начать работать над функцией `is_prime(n)`:
+На этапе генерации создаётся два ключа: открытый (public key, с помощью которого каждый сможет зашифровать сообщение и отправить его нам) и закрытый (private key, которым мы можем расшифровать полученные сообщения). Для этого выбирается два [простых числа](https://ru.wikipedia.org/wiki/Простое_число) `p` и `q`. Позволим пользователю вводить эти числа и проверяя их на простоту, для этого необходимо написать тело функции `is_prime(n)`:
 
 ```python
 def is_prime(n: int) -> bool:
@@ -242,13 +238,16 @@ def is_prime(n: int) -> bool:
     pass
 ```
 
-Если вы закончили работу над функцией `is_prime(n)` - сделайте коммит:
+Если вы закончили работу над функцией `is_prime(n)`, то запустите тесты и сделайте коммит:
 
 ```sh
 (cs102) $ git commit -am "Реализована функция is_prime(n)"
 ```
 
-После того как были выбраны два простых числа находится их произведение `n = p * q` (по ходу объяснения заменяйте комментарий со словами `PUT YOUR CODE HERE` в приведенной ниже функции на соответствующее решение).
+!!! info
+    Для фиксации изменений мы использовали команду `git commit -am`, которая является аналогом последовательности команд `git add .` и `git commit -m`. 
+
+После того как были выбраны два простых числа требуется найти их произведение `n = p * q`:
 
 ```python
 def generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]:
@@ -303,7 +302,7 @@ def gcd(a: int, b: int) -> int:
     pass
 ```
 
-Не забудьте закоммитить реализацию функции `gcd(a, b)`:
+Не забудьте зафиксировать реализацию функции `gcd(a, b)`:
 
 ```sh
 (cs102) $ git commit -am "Реализована функция поиска НОД"
@@ -323,38 +322,40 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 
 Таким образом, полученные пары `(e,n)` и `(d,n)` являются открытым и закрытым ключами соответственно.
 
-Снова закоммитьте изменения:
+Снова запустите тесты и зафиксируйте изменения:
 
 ```sh
 (cs102) git commit -am "Реализованы функции multiplicative_inverse() и generate_keypair()"
 ```
 
-Не забудьте сделать коммит для объединения изменений с веткой `develop`:
-
-```sh
-(cs102) $ git checkout develop
-(cs102) $ git merge --no-ff feature/rsa
-```
-
 ## После выполнения всех заданий
 
-После выполнения всех заданий создайте новый релиз:
+После выполнения всех заданий отправьте изменения на сервер:
 
 ```sh
-(cs102) $ git checkout -b release-1.0 develop
-(cs102) $ git commit -m "Релиз 1.0"
+(cs102) $ git push origin homework01
 ```
 
-После чего закройте ветвь релиза:
+Проверка работы будет происходит на основе код-ревью со стороны преподавателя(ей) или ассистента(ов). Для этого их необходимо добавить как участников в ваш репозиторий. Перейдите на вкладку `Settings -> Manage access` и нажмите на `Invite a collaborator`:
+
+![](../images/assignments/cypher/invite.png)
+
+Затем вернитесь на вкладку `Code` и выбирите ветку `homework01`:
+
+![](../images/assignments/cypher/pr_branch.png)
+
+Далее нажмите на `Pull Request`, таким образом, вы сделаете запрос на внесение изменений: 
+
+![](../images/assignments/cypher/pr_pr_btn.png)
+
+Изменения должны применяться к ветке `master` (`main`) и не должны содержать конфликтов (`Able to merge`):
+
+![](../images/assignments/cypher/pr_master.png)
+
+Опишите ваш pull request ([как оформлять PR](https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212)) и добавьте проверяющего (`reviewers`), после чего нажмите на `Create pull request`.
+
+Соответствующие ветви можно удалить, например:
 
 ```sh
-(cs102) $ git checkout master
-(cs102) $ git merge --no-ff release-1.0
-(cs102) $ git tag -a 1.0
-```
-
-Соответствующие ветви функциональности можно удалить, например:
-
-```sh
-(cs102) $ git branch -d feature/caesar
+(cs102) $ git branch -d homework01
 ```
