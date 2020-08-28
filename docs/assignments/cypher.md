@@ -211,9 +211,6 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     
     When the box reaches me, I can open my padlock with my key and read the contents. This way, I can send padlocks (public keys) to people outside which they can use to lock boxes (encrypt messages) without being in danger of the contents being compromised as the padlock key (the private key) is always with me and never exchanged over the network.
 
-!!! danger
-    В методичке опечатка!
-
 Работу алгоритма можно разбить на три шага:
 
 1. Генерация ключей
@@ -338,7 +335,7 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 
 Проверка работы будет происходит на основе код-ревью со стороны преподавателя(ей) или ассистента(ов). Для этого их необходимо добавить как участников в ваш репозиторий. Перейдите на вкладку `Settings -> Manage access` и нажмите на `Invite a collaborator`:
 
-![](../images/assignments/cypher/invite.png)
+![](../images/assignments/cypher/pr_invite.png)
 
 Затем вернитесь на вкладку `Code` и выбирите ветку `homework01`:
 
@@ -348,14 +345,39 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 
 ![](../images/assignments/cypher/pr_pr_btn.png)
 
-Изменения должны применяться к ветке `master` (`main`) и не должны содержать конфликтов (`Able to merge`):
+Изменения должны применяться к ветке `master` (`main`) и не должны содержать конфликтов (`Able to merge`). Опишите ваш pull request ([как оформлять PR](https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212)) и добавьте проверяющего (`reviewers`):
 
-![](../images/assignments/cypher/pr_master.png)
+![](../images/assignments/cypher/pr_create.png)
 
-Опишите ваш pull request ([как оформлять PR](https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212)) и добавьте проверяющего (`reviewers`), после чего нажмите на `Create pull request`.
+После чего нажмите на `Create pull request`. Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):
 
-Соответствующие ветви можно удалить, например:
+![](../images/assignments/cypher/pr_feedback.png)
+
+Если никаких комментариев с исправлениями вы не получили, то можно применять изменения к мастер-ветке (`Merge pull request`):
+
+![](../images/assignments/cypher/pr_merge.png)
+
+Если вы получили замечания, то их нужно устранить, сделать новый коммит и отправить изменения на сервер:
 
 ```sh
+(cs102) $ git add файл_в_который_были_внесены_исправленияю
+(cs102) $ git commit -m "Описание исправлений"
+(cs102) $ git push origin homework01
+```
+
+После того как измненения были приняты, то соответствующую ветку можно удалить:
+
+![](../images/assignments/cypher/pr_delete_branch.png)
+
+Для удаления ветки локально:
+
+```sh
+(cs102) $ git checkout master
 (cs102) $ git branch -d homework01
+```
+
+Осталось только получить изменения для мастер-ветки с сервера:
+
+```sh
+(cs102) $ git pull
 ```
