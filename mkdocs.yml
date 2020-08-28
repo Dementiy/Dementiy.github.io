@@ -115,6 +115,7 @@ nav:
             - Решатель Судоку: assignments/sudoku.md
             # - С-расширения: ''
             - Игра «Жизнь»: assignments/life.md
+            - PyVCS. Распределенная система контроля версий: assignments/pyvcs.md
             - Работа с API ВКонтакте: assignments/vk_api.md
             - Бот для мессенджера Telegram: assignments/telegram.md
             - Персонализация новостной ленты Hacker News: assignments/hackernews.md
