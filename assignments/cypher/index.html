@@ -774,37 +774,25 @@
                   <h1>Алгоритмы шифрования</h1>
                 
                 <p>Эта первая практическая работа, которая посвящена базовым конструкциям языка Python. Также в этой работе описан общий подход к выполнению заданий.</p>
-<p>Все исходники к работам можно найти в <a href="https://github.com/Dementiy/pybook-assignments">репозитории</a> (следите за его обновлениями). Чтобы получить все шаблоны к работам достаточно выполнить следующую команду:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Описание работы с командой <code>git</code> читай в разделе <a href="../setup_env/">«Настройка рабочего окружения»</a>.</p>
-</div>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/Dementiy/pybook-assignments.git
-</code></pre></div>
-
-<p>Все дальнейшие изменения в репозитории можно получать с помощью команды <code>git pull</code> (её рекомендуется использовать каждый раз, когда вы приступаете к выполнению новой работы):</p>
-<div class="highlight"><pre><span></span><code>$ git pull
-</code></pre></div>
-
+<p>Все исходники к работам можно найти в шаблоне <a href="https://github.com/Dementiy/pybook-assignments">репозитория курса</a>. Если вы еще не настроили рабочее окружение, то перейдите в раздел <a href="../setup_env/">«Настройка рабочего окружения»</a>.</p>
 <h2 id="_1">Прежде чем приступить к выполнению работы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Перед тем как начать выполнять задания не забудьте перейти в рабочую директорию и активировать ваше виртуальное окружение:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> путь/к/рабочей_директории
+<div class="highlight"><pre><span></span><code>$ gocs102 <span class="o">&amp;&amp;</span> <span class="nb">cd</span> homework01
 $ workon cs102
 </code></pre></div>
 
-<p>Также создадим ветку разработки (подробнее про git workflow можно прочитать <a href="https://habrahabr.ru/post/106912/">тут</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b develop master
-Switched to a new branch <span class="s1">&#39;develop&#39;</span>
+<p>При выполнении работ мы будем придерживаться простого подхода к ветвлению под названием <a href="https://guides.github.com/introduction/flow/">GitHub flow</a> (есть и другие подходы, например, <a href="https://nvie.com/posts/a-successful-git-branching-model/">gitflow</a>). Приступая к новой практической работе создавайте ветку с именем этой работы:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b homework01 master
+Switched to a new branch <span class="s1">&#39;homework01&#39;</span>
 </code></pre></div>
 
-<p>Теперь создадим ветку новой функциональности:
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b feature/caesar develop
-Switched to a new branch <span class="s1">&#39;feature/caesar&#39;</span>
-</code></pre></div></p>
-<p>И, наконец, создадим папку, в которой будем хранить все файлы, относящиеся к первой работе:</p>
-<div class="highlight"><pre><span></span><code>(cs102) $ mkdir homework01
+<p>Чтобы отобразить список локальных веток можно воспользоваться командой <code>git branch</code>:</p>
+<div class="highlight"><pre><span></span><code>(cs102) $ git branch
+* homework01
+  master
 </code></pre></div>
 
+<p>Символ <code>*</code> указывает на какой ветке вы находитесь. Для переключения между ветками используйте команду <code>git checkout имя_ветки</code>.</p>
 <h2 id="_2">Шифр Цезаря<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><a href="https://ru.wikipedia.org/wiki/Шифр_Цезаря">Шифр Цезаря</a> является одним из самых простых методов шифрования. Для кодирования сообщения все буквы алфавита сдвигают на три символа вперед:</p>
 <div class="highlight"><pre><span></span><code>A -&gt; D, B -&gt; E, C -&gt; F, и так далее
@@ -820,9 +808,11 @@ Switched to a new branch <span class="s1">&#39;feature/caesar&#39;</span>
 SBWKRQ
 </code></pre></div>
 
-<p>Вам необходимо написать тело для следующих двух функций:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">encrypt_caesar</span><span class="p">(</span><span class="n">plaintext</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<p>Вам необходимо написать тело для следующих двух функций в файле <code>caesar.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">encrypt_caesar</span><span class="p">(</span><span class="n">plaintext</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shift</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encrypts plaintext using a Caesar cipher.</span>
+
 <span class="sd">    &gt;&gt;&gt; encrypt_caesar(&quot;PYTHON&quot;)</span>
 <span class="sd">    &#39;SBWKRQ&#39;</span>
 <span class="sd">    &gt;&gt;&gt; encrypt_caesar(&quot;python&quot;)</span>
@@ -832,12 +822,15 @@ SBWKRQ
 <span class="sd">    &gt;&gt;&gt; encrypt_caesar(&quot;&quot;)</span>
 <span class="sd">    &#39;&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">return</span> <span class="n">ciphertext</span>
 
 
-<span class="k">def</span> <span class="nf">decrypt_caesar</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">decrypt_caesar</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shift</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decrypts a ciphertext using a Caesar cipher.</span>
+
 <span class="sd">    &gt;&gt;&gt; decrypt_caesar(&quot;SBWKRQ&quot;)</span>
 <span class="sd">    &#39;PYTHON&#39;</span>
 <span class="sd">    &gt;&gt;&gt; decrypt_caesar(&quot;sbwkrq&quot;)</span>
@@ -847,10 +840,12 @@ SBWKRQ
 <span class="sd">    &gt;&gt;&gt; decrypt_caesar(&quot;&quot;)</span>
 <span class="sd">    &#39;&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">return</span> <span class="n">plaintext</span>
 </code></pre></div>
 
+<p>Обратите внимание, что вторым аргументом функции является сдвиг (<code>shift</code>), например, при сдвиге равном нулю сообщение останется без изменений (<code>A -&gt; A, B -&gt; B, ...</code>).</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Воспользуйтесь встроенными функциями <code>ord()</code> и <code>chr()</code>. Функция <code>ord()</code> позволяет получить код указанного символа, а <code>chr()</code> работает наоборот - возвращает символ по его коду.</p>
@@ -860,36 +855,35 @@ SBWKRQ
 <p>О кодировках можно почитать <a href="http://kunststube.net/encoding/">тут</a> и <a href="http://farmdev.com/talks/unicode/">тут</a>.</p>
 </div>
 <p>В результате переменные <code>ciphertext</code> и <code>plaintext</code> должны содержать зашифрованное и расшифрованное сообщения соответственно.</p>
-<p>В папке <code>homework01</code> создайте файл с именем <code>caesar.py</code> и шаблоном приведенным выше. Сделайте коммит с первоначальным шаблоном:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add homework01/caesar.py
-<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Добавлен шаблон для шифра Цезаря&quot;</span>
+<p>Проверить работу функций можно с помощью примеров, приведенных в <a href="https://docs.python.org/3.5/library/doctest.html">доктестах</a> (текст внутри функции, который заключен в тройные кавычки и похож на работу с интерпретатором в интерактивном режиме). Запустить доктесты можно с помощью следующей команды (при условии, что файл с программой называется <code>caesar.py</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m doctest -v caesar.py
 </code></pre></div>
 
-<p>По завершении работы над каждой функцией не забудьте также сделать коммит, например:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git commit -am <span class="s2">&quot;Реализована функция encrypt_caesar()&quot;</span>
+<p>Доктесты обычно играют роль примеров и не используются в качестве полноценного фреймворка для автоматического тестирования. Поэтому мы будем использовать стандартную библиотеку <a href="https://docs.python.org/3/library/unittest.html">unittest</a> для тестирования наших приложений (наиболее популярной альтернативой является <a href="https://docs.pytest.org/en/stable/">pytest</a>). Для запуска тестов можно воспользоваться следующей командой:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m unittest -v tests.test_caesar
+</code></pre></div>
+
+<p>или для запуска всех тестов:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m unittest discover
+</code></pre></div>
+
+<p>Также обратите свое внимание на официальное руководство по стилю <a href="https://www.python.org/dev/peps/pep-0008/">pep8</a> (некоторые пояснения по оформлению кода можно найти <a href="https://github.com/Dementiy/pydonts">здесь</a>).</p>
+<p>Если вы добились успешного прохождения тестов, не забудьте сделать коммит, который зафиксирует ваши изменения, например:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add homework01/caesar.py
+<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Реализована функция encrypt_caesar()&quot;</span>
 </code></pre></div>
 
 <p>и аналогично:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git commit -am <span class="s2">&quot;Реализована функция decrypt_caesar()&quot;</span>
-</code></pre></div>
-
-<p>Проверить работу функций можно с помощью примеров, приведенных в <a href="https://docs.python.org/3.5/library/doctest.html">доктестах</a> (текст внутри функции, который заключен в тройные кавычки и похож на работу с интерпретатором в интерактивном режиме). Запустить доктесты можно с помощью следующей команды (при условии, что файл с программой называется <code>caesar.py</code>):</p>
-<div class="highlight"><pre><span></span><code>$ python3 -m doctest -v caesar.py
-</code></pre></div>
-
-<p>Также обратите свое внимание на официальное руководство по стилю <a href="https://www.python.org/dev/peps/pep-0008/">pep8</a> (некоторые пояснения по оформлению кода можно найти <a href="https://github.com/Dementiy/pydonts">здесь</a>). Соответствие вашего кода PEP8 можно узнать «прогнав» исходный код вашей программы через утилиту <code>pep8</code>.</p>
-<p>Если все тесты были пройдены успешно, то объедините (merge) ваши изменения с веткой <code>develop</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git merge --no-ff feature/caesar
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add homework01/caesar.py
+<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Реализована функция decrypt_caesar()&quot;</span>
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Вы можете воспользоваться приложением <a href="https://www.sourcetreeapp.com/">Source Tree</a> для наглядного отслеживания вносимых изменений.</p>
 </div>
-<p>В качестве практики измените ваши функции так, чтобы размер сдвига был произвольным:</p>
-<div class="highlight"><pre><span></span><code>encrypt_caesar(plaintext, shift)
-decrypt_caesar(plaintext, shift)
+<p>Также не забывайте периодически отправлять ваши изменения на сервер:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
 
 <h2 id="_3">Шифр Виженера<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -900,9 +894,11 @@ decrypt_caesar(plaintext, shift)
 Зашифрованный текст: LXFOPVEFRNHR
 </code></pre></div>
 
-<p>Ваша задача написать тело для следующих двух функций так, чтобы переменные <code>ciphertext</code> и <code>plaintext</code> содержали зашифрованное и расшифрованное сообщения соответственно.</p>
+<p>Ваша задача написать тело для следующих двух функций в файле <code>vigenere.py</code> так, чтобы переменные <code>ciphertext</code> и <code>plaintext</code> содержали зашифрованное и расшифрованное сообщения соответственно:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">encrypt_vigenere</span><span class="p">(</span><span class="n">plaintext</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encrypts plaintext using a Vigenere cipher.</span>
+
 <span class="sd">    &gt;&gt;&gt; encrypt_vigenere(&quot;PYTHON&quot;, &quot;A&quot;)</span>
 <span class="sd">    &#39;PYTHON&#39;</span>
 <span class="sd">    &gt;&gt;&gt; encrypt_vigenere(&quot;python&quot;, &quot;a&quot;)</span>
@@ -910,12 +906,15 @@ decrypt_caesar(plaintext, shift)
 <span class="sd">    &gt;&gt;&gt; encrypt_vigenere(&quot;ATTACKATDAWN&quot;, &quot;LEMON&quot;)</span>
 <span class="sd">    &#39;LXFOPVEFRNHR&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">return</span> <span class="n">ciphertext</span>
 
 
 <span class="k">def</span> <span class="nf">decrypt_vigenere</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decrypts a ciphertext using a Vigenere cipher.</span>
+
 <span class="sd">    &gt;&gt;&gt; decrypt_vigenere(&quot;PYTHON&quot;, &quot;A&quot;)</span>
 <span class="sd">    &#39;PYTHON&#39;</span>
 <span class="sd">    &gt;&gt;&gt; decrypt_vigenere(&quot;python&quot;, &quot;a&quot;)</span>
@@ -923,6 +922,7 @@ decrypt_caesar(plaintext, shift)
 <span class="sd">    &gt;&gt;&gt; decrypt_vigenere(&quot;LXFOPVEFRNHR&quot;, &quot;LEMON&quot;)</span>
 <span class="sd">    &#39;ATTACKATDAWN&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">return</span> <span class="n">plaintext</span>
 </code></pre></div>
@@ -931,19 +931,9 @@ decrypt_caesar(plaintext, shift)
 <p class="admonition-title">Note</p>
 <p>Обратите внимание, что символы <code>A</code> и <code>a</code> в ключе не оказывают никакого влияния на шифруемое сообщение. Если же в качестве ключа мы будем использовать <code>C</code> или <code>c</code>, то получим шифр Цезаря.</p>
 </div>
-<p>Перед выполнением задания не забудьте создать новую ветвь функциональности <code>feature/vigenere</code> и сделать коммит с шаблоном (файл с шаблоном должен быть размещен в каталоге <code>homework01</code> под именем <code>vigener.py</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b feature/vigener develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git add homework01/vigener.py
-<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Добавлен шаблон для шифра Виженера&quot;</span>
-</code></pre></div>
-
-<p>По окончании работы над каждой функцией не забудьте сделать соответствующие коммиты, как в примере с шифром Цезаря, а также объединенить изменения с веткой <code>develop</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git merge --no-ff feature/vigener
-</code></pre></div>
-
+<p>По окончании работы над каждой функцией не забудьте запустить тесты и сделать соответствующие коммиты, как в примере с шифром Цезаря.</p>
 <h2 id="rsa">RSA шифрование<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h2>
-<p>Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов.</p>
+<p>Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов (Rivest, Shamir и Adleman).</p>
 <p>Мы не будем здесь вдаваться в <a href="http://kpfu.ru/docs/F366166681/mzi.pdf">подробности работы</a> этого алгоритма (хотя и рассмотрим техническую часть), но <a href="https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child">следующего объяснения</a> должно быть достаточно для понимания принципов шифрования с открытым ключом:</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
@@ -959,14 +949,8 @@ decrypt_caesar(plaintext, shift)
 <li>Шифрование</li>
 <li>Расшифровка</li>
 </ol>
-<p>От вас в этом задании требуется выполнить только шаг генерации ключей, остальные два шага уже даны (см. исходники к работе).</p>
-<p>На этапе генерации создаётся два ключа: открытый (public key, с помощью которого каждый сможет зашифровать сообщение и отправить его нам) и закрытый (private key, которым мы можем расшифровать полученные сообщения). Для этого выбирается два <a href="https://ru.wikipedia.org/wiki/Простое_число">простых числа</a> <code>p</code> и <code>q</code>. Позволим пользователю вводить эти числа, но их необходимо проверять на простоту. Для этого напишем функцию, но предварительно создадим новую ветку функциональности и сделаем коммит с шаблоном для этого задания:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b feature/rsa develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git add homework01/rsa.py
-<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Добавлен шаблон для RSA шифрования&quot;</span>
-</code></pre></div>
-
-<p>Теперь можно начать работать над функцией <code>is_prime(n)</code>:</p>
+<p>От вас в этом задании требуется выполнить только шаг генерации ключей, остальные два шага уже представлены в шаблоне работы.</p>
+<p>На этапе генерации создаётся два ключа: открытый (public key, с помощью которого каждый сможет зашифровать сообщение и отправить его нам) и закрытый (private key, которым мы можем расшифровать полученные сообщения). Для этого выбирается два <a href="https://ru.wikipedia.org/wiki/Простое_число">простых числа</a> <code>p</code> и <code>q</code>. Позволим пользователю вводить эти числа и проверяя их на простоту, для этого необходимо написать тело функции <code>is_prime(n)</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt;&gt;&gt; is_prime(2)</span>
@@ -980,11 +964,15 @@ decrypt_caesar(plaintext, shift)
     <span class="k">pass</span>
 </code></pre></div>
 
-<p>Если вы закончили работу над функцией <code>is_prime(n)</code> - сделайте коммит:</p>
+<p>Если вы закончили работу над функцией <code>is_prime(n)</code>, то запустите тесты и сделайте коммит:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git commit -am <span class="s2">&quot;Реализована функция is_prime(n)&quot;</span>
 </code></pre></div>
 
-<p>После того как были выбраны два простых числа находится их произведение <code>n = p * q</code> (по ходу объяснения заменяйте комментарий со словами <code>PUT YOUR CODE HERE</code> в приведенной ниже функции на соответствующее решение).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Для фиксации изменений мы использовали команду <code>git commit -am</code>, которая является аналогом последовательности команд <code>git add .</code> и <code>git commit -m</code>. </p>
+</div>
+<p>После того как были выбраны два простых числа требуется найти их произведение <code>n = p * q</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">generate_keypair</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">q</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Both numbers must be prime.&#39;</span><span class="p">)</span>
@@ -1036,7 +1024,7 @@ decrypt_caesar(plaintext, shift)
     <span class="k">pass</span>
 </code></pre></div>
 
-<p>Не забудьте закоммитить реализацию функции <code>gcd(a, b)</code>:</p>
+<p>Не забудьте зафиксировать реализацию функции <code>gcd(a, b)</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git commit -am <span class="s2">&quot;Реализована функция поиска НОД&quot;</span>
 </code></pre></div>
 
@@ -1051,29 +1039,42 @@ decrypt_caesar(plaintext, shift)
 </code></pre></div>
 
 <p>Таким образом, полученные пары <code>(e,n)</code> и <code>(d,n)</code> являются открытым и закрытым ключами соответственно.</p>
-<p>Снова закоммитьте изменения:</p>
+<p>Снова запустите тесты и зафиксируйте изменения:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> git commit -am <span class="s2">&quot;Реализованы функции multiplicative_inverse() и generate_keypair()&quot;</span>
 </code></pre></div>
 
-<p>Не забудьте сделать коммит для объединения изменений с веткой <code>develop</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git merge --no-ff feature/rsa
-</code></pre></div>
-
 <h2 id="_4">После выполнения всех заданий<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>После выполнения всех заданий создайте новый релиз:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout -b release-1.0 develop
-<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Релиз 1.0&quot;</span>
+<p>После выполнения всех заданий отправьте изменения на сервер:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
 
-<p>После чего закройте ветвь релиза:</p>
+<p>Проверка работы будет происходит на основе код-ревью со стороны преподавателя(ей) или ассистента(ов). Для этого их необходимо добавить как участников в ваш репозиторий. Перейдите на вкладку <code>Settings -&gt; Manage access</code> и нажмите на <code>Invite a collaborator</code>:</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_invite.png" /></p>
+<p>Затем вернитесь на вкладку <code>Code</code> и выбирите ветку <code>homework01</code>:</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_branch.png" /></p>
+<p>Далее нажмите на <code>Pull Request</code>, таким образом, вы сделаете запрос на внесение изменений: </p>
+<p><img alt="" src="../../images/assignments/cypher/pr_pr_btn.png" /></p>
+<p>Изменения должны применяться к ветке <code>master</code> (<code>main</code>) и не должны содержать конфликтов (<code>Able to merge</code>). Опишите ваш pull request (<a href="https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212">как оформлять PR</a>) и добавьте проверяющего (<code>reviewers</code>):</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_create.png" /></p>
+<p>После чего нажмите на <code>Create pull request</code>. Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_feedback.png" /></p>
+<p>Если никаких комментариев с исправлениями вы не получили, то можно применять изменения к мастер-ветке (<code>Merge pull request</code>):</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_merge.png" /></p>
+<p>Если вы получили замечания, то их нужно устранить, сделать новый коммит и отправить изменения на сервер:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add файл_в_который_были_внесены_исправленияю
+<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Описание исправлений&quot;</span>
+<span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
+</code></pre></div>
+
+<p>После того как измненения были приняты, то соответствующую ветку можно удалить:</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_delete_branch.png" /></p>
+<p>Для удаления ветки локально:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout master
-<span class="o">(</span>cs102<span class="o">)</span> $ git merge --no-ff release-1.0
-<span class="o">(</span>cs102<span class="o">)</span> $ git tag -a <span class="m">1</span>.0
+<span class="o">(</span>cs102<span class="o">)</span> $ git branch -d homework01
 </code></pre></div>
 
-<p>Соответствующие ветви функциональности можно удалить, например:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git branch -d feature/caesar
+<p>Осталось только получить изменения для мастер-ветки с сервера:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git pull
 </code></pre></div>
                 
                   
@@ -1083,7 +1084,7 @@ decrypt_caesar(plaintext, shift)
 <div class="md-source-date">
   <small>
     
-      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 июня 2020 г.</span>
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 августа 2020 г.</span>
     
   </small>
 </div>
