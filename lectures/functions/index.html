@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -360,19 +360,6 @@
     Атрибуты функций
   </a>
   
-    <nav class="md-nav" aria-label="Атрибуты функций">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#func_globals" class="md-nav__link">
-    func_globals
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -583,84 +570,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -748,19 +657,6 @@
     Атрибуты функций
   </a>
   
-    <nav class="md-nav" aria-label="Атрибуты функций">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#func_globals" class="md-nav__link">
-    func_globals
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -795,7 +691,7 @@
                 
                   <h1>Функции</h1>
                 
-                <h2 id="_1">Пример поиска минимального элемента<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+                <h2 id="_1">Пример поиска минимального элемента</h2>
 <p>Давайте начнем с простого примера, напишем функцию возвращающую минимум от двух аргументов:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_min</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Function to get minimum of two arguments</span>
@@ -987,7 +883,7 @@
     <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="_2">Атрибуты функций<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Атрибуты функций</h2>
 <p>Как мы уже говорили, все является объектом, включая функции. Функции представлены структурой <a href="https://github.com/python/cpython/blob/3.8/Include/funcobject.h#L21">PyFunctionObject</a>:
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">PyObject_HEAD</span>
@@ -1038,7 +934,7 @@
 <span class="cp">#define LOAD_FAST               124</span>
 </code></pre></div>
 
-<h3 id="func_globals"><code>func_globals</code><a class="headerlink" href="#func_globals" title="Permanent link">&para;</a></h3>
+<h3><code>func_globals</code></h3>
 <p><a href="https://punchagan.muse-amuse.in/blog/python-globals/">https://punchagan.muse-amuse.in/blog/python-globals/</a></p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
@@ -1191,7 +1087,7 @@
 <span class="s1">&#39;A.B.d&#39;</span>
 </code></pre></div>
 
-<h2 id="_3">Вызов функций<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Вызов функций</h2>
 <p>Концепция callable-объекта является фундаментальной в Python. Когда мы думаем о том, что может быть «вызвано» (called), то первое, что приходит на ум, это функции. Но кроме функций есть еще методы и классы, а также любой объект, в типе которого определен магический метод <code>__call__</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Joke</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1362,7 +1258,7 @@
 </code></pre></div>
 
 <p>Отметим лишь два момента, первый, это получение объекта кода, о котором мы говорили ранее, и второе, создание и исполнение (evaluation) нового фрейма (о фреймах мы будем говорить в одной из следующих лекций) с телом нашей функции. </p>
-<h2 id="_4">Декораторы<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Декораторы</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A decorator is any callable Python object that is used to modify a function, method or class definition. A decorator is passed the original object being defined and returns a modified object, which is then bound to the name in the definition.</p>

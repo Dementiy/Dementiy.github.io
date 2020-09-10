@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -584,84 +584,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -798,7 +720,7 @@
                   <h1>ООП. Классы. Магические методы</h1>
                 
                 <p>Эта лекция является первой в серии посвященной объектно-ориентированной парадигме программирования.</p>
-<h2 id="_1">Процедурный подход<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Процедурный подход</h2>
 <p>Представьте, что вы пишите веб-сервис и перед вами встала следующая задача: «Как представить пользователя системы в программе?». Для начала нам необходимо выделить ряд значимых характеристик нашего пользователя:</p>
 <ul>
 <li>имя (username)</li>
@@ -853,7 +775,7 @@
 <p class="admonition-title">Info</p>
 <p><strong>Инкапсуляция</strong> – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя.</p>
 </div>
-<h2 id="_2">Создание простого класса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Создание простого класса</h2>
 <p>Начнем с создания простого класса:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -1025,7 +947,7 @@
 <p class="admonition-title">Note</p>
 <p><strong>Интерфейс</strong> – это набор методов класса, доступных для использования другими классами.</p>
 </div>
-<h2 id="_3">Создание экземпляра класса<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Создание экземпляра класса</h2>
 <p>Давайте немного остановимся на том как создаются новые экземпляры класса:</p>
 <div class="highlight"><pre><span></span><code><span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="s2">&quot;class User: pass</span><span class="se">\n</span><span class="s2">u = User()&quot;</span><span class="p">)</span>
   <span class="mi">2</span>          <span class="mi">14</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">User</span><span class="p">)</span>
@@ -1215,7 +1137,7 @@
 <p class="admonition-title">Note</p>
 <p>Более подробно о создании новых типов мы будем говорить в лекции <a href="../lectures/metaclasses.md">«ООП. Метаклассы»</a>.</p>
 </div>
-<h2 id="_4">«Приватные» поля класса<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">«Приватные» поля класса</h2>
 <p>Вы обратили внимание, что в нашем классе <code>User</code> некоторые атрибуты начинаются с нижнего подчеркивания? Это одно из множества соглашений принятых в сообществе разработчиков на языке Python, согласно которому «приватные» атрибуты должны начинаться с одного символа нижнего подчеркивания. Давайте создадим нового пользователя:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;qwerty&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">u</span><span class="o">.</span><span class="n">get_username</span><span class="p">()</span>
@@ -1237,7 +1159,7 @@
 <p class="admonition-title">Note</p>
 <p>Больше про нижние подчеркивания можно узнать <a href="https://shahriar.svbtle.com/underscores-in-python">тут</a>.</p>
 </div>
-<h2 id="_5">Магические методы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">Магические методы</h2>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
     <span class="c1"># ...</span>
 
@@ -1264,7 +1186,7 @@
 <p>Все строки в формате <a href="https://cito.github.io/blog/f-strings/">f-strings</a>, который был введен в Python 3.6.</p>
 <p>Метод <code>__repr__</code> переопределен, чтобы выводить чуть больше полезной информации об объекте, чем просто его адрес в памяти. Узнать больше про магические методы можно прочитав статью на <a href="https://habrahabr.ru/post/186608/">Хабре</a>.</p>
 </div>
-<h2 id="orm">Пример: создание простой ORM<a class="headerlink" href="#orm" title="Permanent link">&para;</a></h2>
+<h2 id="orm">Пример: создание простой ORM</h2>
 <p>Что такое ORM? Вот пояснение с сайта <a href="https://www.fullstackpython.com/object-relational-mappers-orms.html">Full Stack Python</a>:</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>

@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -509,84 +509,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -755,7 +677,7 @@
                 
                   <h1>Энтропия и кросс-энтропия</h1>
                 
-                <h2 id="_1">Энтропия<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+                <h2 id="_1">Энтропия</h2>
 <p>Допустим у нас есть две механических машины, которые печатают сообщения из алфавита <span><span class="MathJax_Preview">{A, B, C, D}</span><script type="math/tex">{A, B, C, D}</script></span>. Символы, печатаемые первой машиной, распределены равновероятно, то есть, появление каждого нового символа имеет вероятность <span><span class="MathJax_Preview">0.25</span><script type="math/tex">0.25</script></span>:</p>
 <div>
 <div class="MathJax_Preview">
@@ -843,7 +765,7 @@ P(D) = 0.25
 <div class="MathJax_Preview">H = \sum_{i=1}^{n}p_i \times \log_2\left(\frac{1}{p_i}\right) = -\sum_{i=1}^{n}p_i \times \log_2(p_i)</div>
 <script type="math/tex; mode=display">H = \sum_{i=1}^{n}p_i \times \log_2\left(\frac{1}{p_i}\right) = -\sum_{i=1}^{n}p_i \times \log_2(p_i)</script>
 </div>
-<h2 id="-">Кросс-энтропия<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<h2 id="-">Кросс-энтропия</h2>
 <p>Давайте предположим, что у нас есть еще одна машина, которая генерирует теже символы, но с другим распределением:</p>
 <p><img alt="" src="../../images/notes/cross-entropy/entropy5.jpg" /></p>
 <p>Что произойдет, если вы будете задавать вопросы опираясь на распределение первой машины, несмотря на то, что символы были сгенерированы второй машиной, которая имеет иное распределение (и наоборот). Давайте оценим среднее число вопросов в этом случае, для этого воспользуемся формулой перекрестной энтропии (cross-entropy):</p>
@@ -901,7 +823,7 @@ H_{q}(p) =& \sum_{i=1}^{n}p_i \times \log_2 \Bigg(\frac{1}{q_i}\Bigg) \\
 <div class="MathJax_Preview">D_q(p) = H_q(p) − H(p) = 2.625 - 1.75 = 0.875</div>
 <script type="math/tex; mode=display">D_q(p) = H_q(p) − H(p) = 2.625 - 1.75 = 0.875</script>
 </div>
-<h2 id="-_1">Кросс-энтропия как функция потерь<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h2>
+<h2 id="-_1">Кросс-энтропия как функция потерь</h2>
 <p>Логистическая функция потерь (binary cross-entropy):</p>
 <div>
 <div class="MathJax_Preview">L = -\frac{1}{N}\sum_{i=1}^{N}y_i\log_2(\hat{y_i}) + (1 - y_i)\log_2(1-\hat{y_i})</div>
@@ -942,7 +864,7 @@ H_{q}(p) =& \sum_{i=1}^{n}p_i \times \log_2 \Bigg(\frac{1}{q_i}\Bigg) \\
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../assignments/pyvcs/" title="PyVCS. Распределенная система контроля версий" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -951,7 +873,7 @@ H_{q}(p) =& \sum_{i=1}^{n}p_i \times \log_2 \Bigg(\frac{1}{q_i}\Bigg) \\
                 <span class="md-footer-nav__direction">
                   Назад
                 </span>
-                Описательная статистика с Pandas, SQL и R
+                PyVCS. Распределенная система контроля версий
               </div>
             </div>
           </a>

@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -572,84 +572,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -783,7 +705,7 @@
 <li>В пустой клетке с тремя соседями в следующем поколении рождается существо.</li>
 </ul>
 <p>Подробнее про игру «Жизнь» можно прочитать в журнале <a href="http://kvant.mccme.ru/1974/09/igra_zhizn.htm">Квант</a>.</p>
-<h2 id="_1">Быстрый прототип<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Быстрый прототип</h2>
 <p>Для реализации клеточного поля мы будем использовать набор модулей <a href="http://pygame.org/hifi.html">pygame</a>, предназначенный для создания компьютерных игр.</p>
 <p>Для начала нам нужно создать игровое поле, на котором будет разворачиваться действие игры «Жизнь». Поэтому напишем класс <code>GameOfLife</code>, который принимает следующие параметры:</p>
 <ul>
@@ -953,7 +875,7 @@
 </code></pre></div>
 
 <p>Теперь у вас должна быть полностью рабочая игра.</p>
-<h2 id="_2">Разделяем логику и интерфейс<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Разделяем логику и интерфейс</h2>
 <p>В какой-то момент наша игра стала пользовататься популярностью среди друзей и они начали высквазывать свои пожелания: кто-то захотел консольную версию игры, некоторые захотели сохранять и загружать состояние игры, также некоторые заметили, что игра продолжается даже несмотря на то, что на поле не осталось ни одной живой клетки, нашлись и те кто захотел ограничить число поколений, а кто-то хотел в текущем интерфейсе иметь возможность самостоятельно помечать состояние клеток.</p>
 <p>Давайте начнем с того, что в классе <code>GameOfLife</code> оставим только методы связанные с логикой (говорят <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D0%B0">бизнес-логикой</a>) игры, а также учтем некоторые пожелания наших новых пользователей:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">GameOfLife</span><span class="p">:</span>
@@ -1077,7 +999,7 @@
 <span class="m">00000</span>
 </code></pre></div>
 
-<h2 id="_3">Добавляем интерфейс<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Добавляем интерфейс</h2>
 <p>Мы реализуем две версии интрефейса: текстовый с помощью стандартного модуля <a href="https://docs.python.org/3/library/curses.html#module-curses">curses</a> (для пользователей ОС Windows скорее всего придется дополнительно установить пакет <a href="https://github.com/zephyrproject-rtos/windows-curses">windows-curses</a>) и графический с помощью набора модулей <a href="http://pygame.org/hifi.html">pygame</a>, которые мы рассматривали ранее в этой работе.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">abc</span>
 
@@ -1146,7 +1068,7 @@
     <source src="../../images/assignments/game-of-life/life.mov" type="video/mp4">
 </video>
 
-<h2 id="_4">Использование аргументов командной строки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Использование аргументов командной строки</h2>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ gof-console.py --help
 <span class="o">(</span>cs102<span class="o">)</span> $ gof-console.py --rows <span class="m">10</span> --cols <span class="m">10</span> --max-generations <span class="m">50</span>
 <span class="o">(</span>cs102<span class="o">)</span> $ gof-gui.py  --width <span class="m">640</span> --height <span class="m">480</span> --cell-size <span class="m">10</span>

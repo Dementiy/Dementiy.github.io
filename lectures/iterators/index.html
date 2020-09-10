@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -577,84 +577,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../assignments/descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -784,7 +706,7 @@
                   <h1>Итераторы</h1>
                 
                 <p>В этой лекции, основанной на серии <a href="https://github.com/jmoldow/jmoldow-python3-async-tutorial">тетрадок</a> Jordan Moldow, мы рассмотрим такие понятия как итераторы и итерируемые объекты.</p>
-<h2 id="_1">Итераторы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Итераторы</h2>
 <p><a href="https://refactoring.guru/ru/design-patterns/iterator">Итератор</a> — это поведенческий паттерн проектирования, который даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления.</p>
 <p>В Python <a href="https://docs.python.org/3.7/library/collections.abc.html#collections.abc.Iterator">Iterator</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> является экземпляром любого класса, который реализует магические методы <code>__iter__()</code> и <code>__next__()</code> (<code>next()</code> в Python 2.x)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <p><code>iter(iterator)</code> или, что тоже самое <code>iterator.__iter__()</code>, должен всегда возвращать <code>iterator</code>, указывая тем самым, что объект является итератором по отношению к себе.</p>
@@ -860,7 +782,7 @@
 <span class="mi">2</span>
 </code></pre></div>
 
-<h2 id="iterables">Итерирумые объекты (Iterables)<a class="headerlink" href="#iterables" title="Permanent link">&para;</a></h2>
+<h2 id="iterables">Итерирумые объекты (Iterables)</h2>
 <p>В Python <a href="https://docs.python.org/3.6/library/collections.abc.html#collections.abc.Iterable">Iterable</a> является экземляром любого класса, у которого определен магический метод <code>__iter__()</code>. <code>Iterator</code> является подклассом <code>Iterable</code>.</p>
 <p><code>iter(iterable)</code> тоже что и <code>iterable.__iter__()</code> и всегда должен возвращать итератор для итерируемого объекта. По этому итератору затем можно итерироваться, чтобы получить элементы итерируемого объекта в заданном итератором порядке.</p>
 <p>Итерируемые объекты (влючая все итераторы) позволяют осуществить только один полный проход по ним, но они могут быть переиспользованы. Для повторного прохода по элементам необходимо вызвать магический метод <code>__iter__()</code> (у итерируемого объекта), который вернет новый итератор.</p>
@@ -912,7 +834,7 @@
 <span class="mi">0</span>
 </code></pre></div>
 
-<h2 id="for">Итерирование с помощью цикла for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
+<h2 id="for">Итерирование с помощью цикла for</h2>
 <p>Python позволяет «вручную» итерироваться по итераторам и итерируемым объектам с помощью <code>iter()</code> и <code>next()</code>. Однако, Python имеет встроенную поддержку для автоматического итерирования с использованием цикла <code>for</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
     <span class="c1"># Выполнить какое-то действие над `item`, например вывести</span>
@@ -991,7 +913,7 @@
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 
-<h2 id="__getitem__">Магический метод <code>__getitem__</code><a class="headerlink" href="#__getitem__" title="Permanent link">&para;</a></h2>
+<h2 id="__getitem__">Магический метод <code>__getitem__</code></h2>
 <p>Есть еще один способ итерироваться по объекту без реализации протокола итераторов, переопределив магический метод <code>__getitem__</code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">RangeIterable</span><span class="p">:</span>
 
@@ -1073,7 +995,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="_2">Что почитать?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Что почитать?</h2>
 <ul>
 <li>Модуль <a href="https://docs.python.org/3/library/itertools.html">itertools</a></li>
 </ul>

@@ -16,7 +16,7 @@
       
         <meta name="author" content="Sorokin Dmitrii">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../images/kitano.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
@@ -579,84 +579,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
-      Работа с API ВКонтакте
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../telegram/" title="Бот для мессенджера Telegram" class="md-nav__link">
-      Бот для мессенджера Telegram
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
-      Персонализация новостной ленты Hacker News
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
-    
-    <label class="md-nav__link" for="nav-2-2">
-      DataScience
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="DataScience" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        DataScience
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../descriptive-statistics/" title="Описательная статистика с Pandas, SQL и R" class="md-nav__link">
-      Описательная статистика с Pandas, SQL и R
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -787,7 +709,7 @@
                 
                 <p>Эта первая практическая работа, которая посвящена базовым конструкциям языка Python. Также в этой работе описан общий подход к выполнению заданий.</p>
 <p>Все исходники к работам можно найти в шаблоне <a href="https://github.com/Dementiy/pybook-assignments">репозитория курса</a>. Если вы еще не настроили рабочее окружение, то перейдите в раздел <a href="../setup_env/">«Настройка рабочего окружения»</a>.</p>
-<h2 id="_1">Прежде чем приступить к выполнению работы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Прежде чем приступить к выполнению работы</h2>
 <p>Перед тем как начать выполнять задания не забудьте перейти в рабочую директорию и активировать ваше виртуальное окружение:</p>
 <div class="highlight"><pre><span></span><code>$ gocs102 <span class="o">&amp;&amp;</span> <span class="nb">cd</span> homework01
 $ workon cs102
@@ -805,7 +727,7 @@ Switched to a new branch <span class="s1">&#39;homework01&#39;</span>
 </code></pre></div>
 
 <p>Символ <code>*</code> указывает на какой ветке вы находитесь. Для переключения между ветками используйте команду <code>git checkout имя_ветки</code>.</p>
-<h2 id="_2">Шифр Цезаря<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Шифр Цезаря</h2>
 <p><a href="https://ru.wikipedia.org/wiki/Шифр_Цезаря">Шифр Цезаря</a> является одним из самых простых методов шифрования. Для кодирования сообщения все буквы алфавита сдвигают на три символа вперед:</p>
 <div class="highlight"><pre><span></span><code>A -&gt; D, B -&gt; E, C -&gt; F, и так далее
 </code></pre></div>
@@ -862,8 +784,8 @@ SBWKRQ
 <p class="admonition-title">Hint</p>
 <p>Воспользуйтесь встроенными функциями <code>ord()</code> и <code>chr()</code>. Функция <code>ord()</code> позволяет получить код указанного символа, а <code>chr()</code> работает наоборот - возвращает символ по его коду.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>О кодировках можно почитать <a href="http://kunststube.net/encoding/">тут</a> и <a href="http://farmdev.com/talks/unicode/">тут</a>.</p>
 </div>
 <p>В результате переменные <code>ciphertext</code> и <code>plaintext</code> должны содержать зашифрованное и расшифрованное сообщения соответственно.</p>
@@ -898,7 +820,7 @@ SBWKRQ
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
 
-<h2 id="_3">Шифр Виженера<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Шифр Виженера</h2>
 <p><a href="https://ru.wikipedia.org/wiki/Шифр_Виженера">Шифр Виженера</a> очень похож на шифр Цезаря, за тем исключением, что каждый символ сообщения сдвигается на определяемое ключом значение. Ключ - это слово, каждый символ которого указывает на сколько позиций должен быть сдвинут соответствующий символ в шифруемом сообщении. Так, <code>A</code> означает сдвиг на <code>0</code> символов, <code>B</code> на <code>1</code> и т.д.</p>
 <p>Если длина ключа меньше длины слова, подлежащего шифрованию, то ключ повторяется необходимое число раз, например:</p>
 <div class="highlight"><pre><span></span><code>Простой текст: ATTACKATDAWN
@@ -944,9 +866,9 @@ SBWKRQ
 <p>Обратите внимание, что символы <code>A</code> и <code>a</code> в ключе не оказывают никакого влияния на шифруемое сообщение. Если же в качестве ключа мы будем использовать <code>C</code> или <code>c</code>, то получим шифр Цезаря.</p>
 </div>
 <p>По окончании работы над каждой функцией не забудьте запустить тесты и сделать соответствующие коммиты, как в примере с шифром Цезаря.</p>
-<h2 id="rsa">RSA шифрование<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h2>
+<h2 id="rsa">RSA шифрование</h2>
 <p>Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов (Rivest, Shamir и Adleman).</p>
-<p>Мы не будем здесь вдаваться в <a href="http://kpfu.ru/docs/F366166681/mzi.pdf">подробности работы</a> этого алгоритма (хотя и рассмотрим техническую часть), но <a href="https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child">следующего объяснения</a> должно быть достаточно для понимания принципов шифрования с открытым ключом:</p>
+<p>Мы не будем вдаваться в <a href="https://www.youtube.com/watch?v=wXB-V_Keiu8">подробности</a> <a href="http://kpfu.ru/docs/F366166681/mzi.pdf">работы</a> этого алгоритма (хотя и рассмотрим техническую часть), но <a href="https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child">следующего объяснения</a> должно быть достаточно для понимания принципов шифрования с открытым ключом:</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
 <p><img alt="" src="https://qph.fs.quoracdn.net/main-qimg-987fa169ca2f92dfaad606b2217c3bd1-c" /></p>
@@ -962,7 +884,7 @@ SBWKRQ
 <li>Расшифровка</li>
 </ol>
 <p>От вас в этом задании требуется выполнить только шаг генерации ключей, остальные два шага уже представлены в шаблоне работы.</p>
-<p>На этапе генерации создаётся два ключа: открытый (public key, с помощью которого каждый сможет зашифровать сообщение и отправить его нам) и закрытый (private key, которым мы можем расшифровать полученные сообщения). Для этого выбирается два <a href="https://ru.wikipedia.org/wiki/Простое_число">простых числа</a> <code>p</code> и <code>q</code>. Позволим пользователю вводить эти числа и проверяя их на простоту, для этого необходимо написать тело функции <code>is_prime(n)</code>:</p>
+<p>На этапе генерации создаётся два ключа: открытый (public key, с помощью которого кто угодно может зашифровать сообщение и отправить его нам) и закрытый (private key, с помощью которого мы будем расшифровать полученные сообщения). Для генерации пары ключей необходимо выбрать два <a href="https://ru.wikipedia.org/wiki/Простое_число">простых числа</a> <code>p</code> и <code>q</code>. Мы предоставим пользователю возможность выбирать эти числа. От вас требуется написать тело функции <code>is_prime(n)</code>, которая проверяет число на простоту:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt;&gt;&gt; is_prime(2)</span>
@@ -1024,7 +946,7 @@ SBWKRQ
 <li><code>e &lt; phi</code>;</li>
 <li><code>e</code> <a href="https://ru.wikipedia.org/wiki/Взаимно_простые_числа">взаимно простое</a> с <code>phi</code>.</li>
 </ul>
-<p>Определить, являются ли числа взаимно простыми можно с помощью алгоритма Евклида. Для этого необходимо вычислить наибольший общий делитель (НОД) и проверить, <strong>равен ли он единице</strong>. На этом этапе вашей задачей является реализация данного алгоритма:</p>
+<p>Определить, являются ли числа взаимно простыми можно с помощью алгоритма Евклида. Для этого необходимо вычислить наибольший общий делитель (НОД) и проверить равен ли он единице. На этом этапе вашей задачей является реализация данного алгоритма:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt;&gt;&gt; gcd(12, 15)</span>
@@ -1055,7 +977,7 @@ SBWKRQ
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> git commit -am <span class="s2">&quot;Реализованы функции multiplicative_inverse() и generate_keypair()&quot;</span>
 </code></pre></div>
 
-<h2 id="_4">После выполнения всех заданий<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">После выполнения всех заданий</h2>
 <p>После выполнения всех заданий отправьте изменения на сервер:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
@@ -1066,9 +988,7 @@ SBWKRQ
 <p><img alt="" src="../../images/assignments/cypher/pr_branch.png" /></p>
 <p>Далее нажмите на <code>Pull Request</code>, таким образом, вы сделаете запрос на внесение изменений: </p>
 <p><img alt="" src="../../images/assignments/cypher/pr_pr_btn.png" /></p>
-<p>Изменения должны применяться к ветке <code>master</code> (<code>main</code>) и не должны содержать конфликтов (<code>Able to merge</code>). Опишите ваш pull request (<a href="https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212">как оформлять PR</a>) и добавьте проверяющего (<code>reviewers</code>):</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_create.png" /></p>
-<p>После чего нажмите на <code>Create pull request</code>. Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):</p>
+<p>Изменения должны применяться к ветке <code>master</code> (<code>main</code>) и не должны содержать конфликтов (<code>Able to merge</code>). Опишите ваш pull request (<a href="https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212">как оформлять PR</a>) и добавьте проверяющего (<code>reviewers</code>). После чего нажмите на <code>Create pull request</code>. Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):</p>
 <p><img alt="" src="../../images/assignments/cypher/pr_feedback.png" /></p>
 <p>Если никаких комментариев с исправлениями вы не получили, то можно применять изменения к мастер-ветке (<code>Merge pull request</code>):</p>
 <p><img alt="" src="../../images/assignments/cypher/pr_merge.png" /></p>
@@ -1096,7 +1016,7 @@ SBWKRQ
 <div class="md-source-date">
   <small>
     
-      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">28 августа 2020 г.</span>
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">10 сентября 2020 г.</span>
     
   </small>
 </div>
