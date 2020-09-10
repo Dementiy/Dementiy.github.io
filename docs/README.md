@@ -1,23 +1,25 @@
-# Курс лекций по программированию на Python
+# Программирование на Python
 
 [//]: # (![image](../images/bps-hello.png){: .center style="width:40%;"})
 
-Примерный план лекций на первый семестр:
+Примерный план на первый семестр:
 
-| Дата   | Тема | Дополнительные материалы | Задания |
-|--------|------|--------------------------|---------|
-|   ?    |  Введение. Знакомство с языком   | [«Укус Питона»](https://wombat.org.ua/AByteOfPython/) и [How to Think Like a Computer Scientist](https://runestone.academy/runestone/books/published/thinkcspy/index.html) | Необходимо [настроить рабочее окружение](assignments/setup_env.md) |
-|   ?    | [Неизменяемые](lectures/immutable-types.md) и [изменяемые](lectures/mutable-types.md) типы данных | | |
-|   ?    | [Управляющие конструкции](lectures/control-statements.md) | | [Алгоритмы шифрования](assignments/cypher.md) |
-|   ?    | [Повторное использование кода](lectures/functions.md) | | [Решатель судоку](assignments/sudoku.md) |
-|   ?    | [Пространство имен и области видимости](lectures/ns_and_scopes.md) | | |
-|   ?    | [ООП. Классы](lectures/classes.md) | | [Игра Жизнь](assignments/life.md) |
-|   ?    | [ООП. Разрешение имен атрибутов](lectures/attribute_lookup.md) и [методов](lectures/mro.md) | | [Пишем свой Git](assignments/pyvcs.md) |
-
+| Тема | Дополнительные материалы | Задания |
+|------|--------------------------|---------|
+|  Введение. Знакомство с языком   | [«Укус Питона»](https://wombat.org.ua/AByteOfPython/) и [How to Think Like a Computer Scientist](https://runestone.academy/runestone/books/published/thinkcspy/index.html) | Необходимо [настроить рабочее окружение](assignments/setup_env.md) |
+| [Неизменяемые](lectures/immutable-types.md) и [изменяемые](lectures/mutable-types.md) типы данных | [David Beazley: Introduction to Python](https://dabeaz-course.github.io/practical-python/Notes/01_Introduction/00_Overview.html) и [David Beazley: Working With Data](https://dabeaz-course.github.io/practical-python/Notes/02_Working_with_data/00_Overview.html) | |
+| [Управляющие конструкции](lectures/control-statements.md) |  | [Алгоритмы шифрования](assignments/cypher.md) |
+| [Повторное использование кода](lectures/functions.md) | [David Beazley: Program Organization](https://dabeaz-course.github.io/practical-python/Notes/03_Program_organization/00_Overview.html) | [Решатель судоку](assignments/sudoku.md) |
+| [Пространство имен и области видимости](lectures/ns_and_scopes.md) | | |
+| [ООП. Классы](lectures/classes.md) | [David Beazley: Classes and objects](https://dabeaz-course.github.io/practical-python/Notes/04_Classes_objects/00_Overview.html) | [Игра Жизнь](assignments/life.md) |
+| [ООП. Наследование](lectures/inheritance.md) |  |  |
+| [ООП. Разрешение имен атрибутов](lectures/attribute_lookup.md) и [методов](lectures/mro.md) | [David Beazley: Inner Workings of Python Objects](https://dabeaz-course.github.io/practical-python/Notes/05_Object_model/00_Overview.html) | [Пишем свой Git](assignments/pyvcs.md) |
 
 Практические задания в первую очередь подразумевают выполнение на языке Python, но постепенно шаблоны заданий выкладываются и на языке Go. Все шаблоны работ можно найти в [репозитории курса](https://github.com/Dementiy/pybook-assignments).
 
-Любой желающий может не только выполнить работы, но и попросить помощи в [Slack'e](https://cs102-python.slack.com) (нужно только получить инвайнт, написав мне на почту `Dementiy@yandex.ru`). Аннотированная версия сайта [тут](https://via.hypothes.is/https://dementiy.github.io).
+Любой желающий может не только выполнить работы, но и попросить помощи в ~~[Slack'e](https://cs102-python.slack.com)~~ [Discord'е]() (нужно только получить инвайнт, написав мне на почту `Dementiy@yandex.ru`). Аннотированная версия сайта [тут](https://via.hypothes.is/https://dementiy.github.io).
+
+Если вы чувствуете необходимость в решении дополнительных задач, то можете обратиться к таким платформам как [Codewars](https://www.codewars.com/) и [HackerRank](https://www.hackerrank.com/), которые предлагают задания разной сложности по таким темам как: алгоритмы и структуры данных, базы данных, математика, искусственный интеллект и т.д. Также можете порешать задачи с ежегодного конкурса [Advent of Code](https://adventofcode.com/).
 
 Буду признателен за любые правки, комментарии, дополнения, новые задания и т.п. Можно написать в слаке, комментариях или использовать аннотированную версию сайта.
 

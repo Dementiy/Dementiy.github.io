@@ -26,22 +26,30 @@
 
 где каждая точка соответствует пустой клетке, которую требуется заполнить числом.
 
-Теперь нужно написать функцию для чтения пазла из файла (шаблон работы можно найти в репозитории). Назовем ее `read_sudoku()` и в качестве параметра будем передавать ей имя файла, в котором хранится пазл:
+Теперь нужно написать функцию для чтения пазла из файла (шаблон работы можно найти в [репозитория курса](https://github.com/Dementiy/pybook-assignments)). Назовем ее `read_sudoku()` и в качестве аргумента будем передавать путь к файлу, в котором хранится пазл:
 
 ```python
-def read_sudoku(filename: str) -> List[List[str]]:
-    """ Прочитать Судоку из указанного файла """
-    with open(filename) as f:
-        content = f.read()
-    digits = [c for c in content if c in '123456789.']
+def create_grid(puzzle: str) -> tp.List[tp.List[str]]:
+    digits = [c for c in puzzle if c in "123456789."]
     grid = group(digits, 9)
     return grid
+
+
+def read_sudoku(path: tp.Union[str, pathlib.Path]) -> tp.List[tp.List[str]]:
+    """ Прочитать Судоку из указанного файла """
+    path = pathlib.Path(path)
+    with path.open() as f:
+        puzzle = f.read()
+    return create_grid(puzzle)
 ```
 
-На текущий момент вашей задачей является написать функцию `group()`, которая принимает пазл и размер доски `n`, а в качестве результата работы возвращает матрицу размера `n*n`:
+На текущий момент вашей задачей является написать функцию `group()`, которая принимает список значений произвольного типа `T` и размер группы `n`, а в качестве результата работы возвращает матрицу размера `n*n`:
 
 ```python
-def group(values: List[str], n: int) -> List[List[str]]:
+T = tp.TypeVar("T")
+
+
+def group(values: tp.List[T], n: int) -> tp.List[tp.List[T]]:
     """
     Сгруппировать значения values в список, состоящий из списков по n элементов
 
@@ -55,45 +63,31 @@ def group(values: List[str], n: int) -> List[List[str]]:
 ```
 
 !!! note
-    Процесс выполнения работы такой же как и предыдущей, поэтому не забудьте активировать виртуальное окружение, создавать ветви функциональности и делать коммиты.</p>
+    Процесс выполнения работы такой же как и [предыдущей](../assignments/cypher.md), поэтому не забудьте активировать виртуальное окружение, создавать новую ветку `homework02`, запускать тесты и делать коммиты.
 
 !!! hint
-    Для решения ряда задач используйте списковые включения (list comprehensions/генераторы списков). Например, чтобы создать список из четных элементов в диапазоне от 0 до 10 можно использовать такую конструкцию: `L = [i for i in range(10) if i % 2 == 0]`.
+    Для решения ряда задач используйте [списковые включения](https://dabeaz-course.github.io/practical-python/Notes/02_Working_with_data/06_List_comprehension.html). Например, чтобы создать список из четных элементов в диапазоне от 0 до 10 можно использовать такую конструкцию:
+    
+    ```python
+    >>> ll = [i for i in range(10) if i % 2 == 0]
+    >>> ll
+    [0, 2, 4, 6, 8]
+    ```
 
-Чтобы убедиться в том, что вы верно написали функцию `group()` воспользуйтесь доктестом:
+Чтобы убедиться в том, что вы верно написали функцию `group()` воспользуйтесь юнит-тестами:
 
 ```sh
-(cs102) $ python -m doctest sudoku.py
+(cs102) $ python -m unttest test_sudoku.SudokuTestCase.test_group
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
 ```
 
-Результат выполнения этой команды может быть следующим:
+Обратите внимание как мы указали путь к конкретному тесту `файл.ТестКейс.метод`. Аналогично мы можем протестировать весь тест-кейс, указав `файл.ТестКейс`. Если `ТестКейс` является единственным в файле, то достаточно указать только имя файла.
 
-```sh
-File "/Users/dementiy/Projects/cs102/sudoku.py", line 13, in sudoku.group
-Failed example:
-    group([1,2,3,4], 2)
-Expected:
-    [[1, 2], [3, 4]]
-Got nothing
-**********************************************************************
-File "/Users/dementiy/Projects/cs102/sudoku.py", line 15, in sudoku.group
-Failed example:
-    group([1,2,3,4,5,6,7,8,9], 3)
-Expected:
-    [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-Got nothing
-**********************************************************************
-4 items had failures:
-    3 of 3 in sudoku.find_empty_positions
-    3 of 3 in sudoku.get_col
-    3 of 3 in sudoku.get_row
-    2 of 2 in sudoku.group
-***Test Failed*** 11 failures
-```
-
-Пока нас интересует только функция `group()` и из двух тестов она не прошла ни один. В начале вывода показано, какой результат ожидался `Expected`, а какой получили `Got`. Если вы написали функцию верно, то эти сообщения исчезнут, но останутся сообщения для пока еще не написанных функций.
-
-Если вы перестали видеть сообщения с ошибками для функции `group()`, то давайте посмотрим как работает функция `read_sudoku()`. Запустите программу следующим образом (все пазлы также в репозитории):
+Если вы корректно реализовали функцию `group()`, то давайте посмотрим как работает функция `read_sudoku()`. Запустите скрипт с [заходом в интерактивный режим](https://docs.python.org/3/using/cmdline.html#cmdoption-i) (все пазлы также в репозитории):
 
 ```python
 (cs102) $ python -i sudoku.py
@@ -111,7 +105,7 @@ Got nothing
 ['.', '.', '.', '.', '8', '.', '.', '7', '9']]
 ```
 
-Как видите вывод содержимого пазла `grid` не очень нагляден, поэтому для вас написана функция `display()`, которая выводит пазл в более человеко-наглядной форме.
+Вывод содержимого пазла `grid` не очень нагляден, поэтому для вас написана функция `display()`, которая выводит пазл в более человеко-наглядной форме:
 
 ```python
 >>> display(grid)
@@ -130,10 +124,10 @@ Got nothing
 
 ## Разбивка на строки, колонки и блоки
 
-Так как при решении Судоку ставятся условия, что значения не могут повторяться ни в строке, ни в столбце, ни в квадрате, то следовательно нам эти значения нужно получить. Для этого от вас требуется написать три функции `get_row()`, `get_col()` и `get_block()`, каждая из которых принимает два аргумента: пазл (`values`) и позицию (`pos`), для которой мы пытаемся найти верное число.
+Так как при решении Судоку ставятся условия, что значения не могут повторяться ни в строке, ни в столбце, ни в квадрате, то следовательно нам эти значения нужно получить. Для этого от вас требуется написать три функции `get_row()`, `get_col()` и `get_block()`, каждая из которых принимает два аргумента: пазл (`grid`) и позицию (`pos`), для которой мы пытаемся найти верное число:
 
 ```python
-def get_row(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+def get_row(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """ Возвращает все значения для номера строки, указанной в pos
 
     >>> get_row([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']], (0, 0))
@@ -147,7 +141,7 @@ def get_row(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
     pass
 
 
-def get_col(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+def get_col(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """ Возвращает все значения для номера столбца, указанного в pos
     
     >>> get_col([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']], (0, 0))
@@ -161,8 +155,9 @@ def get_col(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
     pass
 
 
-def get_block(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
+def get_block(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
     """ Возвращает все значения из квадрата, в который попадает позиция pos
+
     >>> grid = read_sudoku('puzzle1.txt')
     >>> get_block(grid, (0, 1))
     ['5', '3', '.', '6', '.', '.', '.', '9', '8']
@@ -175,7 +170,7 @@ def get_block(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
     pass
 ```
 
-Разберемся с тем, как представлена позиция в программе. Каждая позиция однозначно определяется номером строки и номером столбца, поэтому для ее представления удобно использовать кортеж. Напомним, что кортеж это неизменяемый список. Позиция создается следующим образом:
+Разберемся с тем, как представлена позиция в программе. Каждая позиция однозначно определяется номером строки и номером столбца, поэтому для ее представления удобно использовать кортеж. Вспомним, что кортеж это неизменяемый список. Позиция создается следующим образом:
 
 ```python
 >>> pos = (0, 0)
@@ -186,21 +181,37 @@ def get_block(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
 0
 ```
 
-Для функций `get_row()` и `get_col()` приведены доктесты, но они предназначены для доски размером `3*3`. У нас же доска `9*9`. Вы можете написать эти функции так, чтобы их можно было использовать для доски любого размера, а можете написать только для доски размером `9*9`, но тогда вы всегда будете получать ошибку в доктестах. Функция `get_block()` возвращает все значения из квадрата, в который попадает позиция `pos` (всего `9` квадратов размером `3*3`).
+Обратите внимание, что для функций `get_row()` и `get_col()` приведены примеры в доктестах для доски размером `3*3`. У нас же доска `9*9`, но функции должны работать для доски любого размера. Функция `get_block()` возвращает все значения из квадрата, в который попадает позиция `pos` (всего `9` квадратов размером `3*3`).
+
+Не забудьте запустить тесты и сделать соответствующие коммиты:
+
+```python
+(cs102) $ python -m unittest \
+    test_sudoku.SudokuTestCase.test_get_col \
+    test_sudoku.SudokuTestCase.test_get_row \
+    test_sudoku.SudokuTestCase.test_get_block
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+```
 
 ## Алгоритм решения Судоку
 
 Давайте наконец перейдем к решению самого Судоку. В шаблоне вы найдете функцию `solve()`, которая принимает один аргумент - пазл, а возвращает заполненную значениями доску:
 
 ```python
-def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
-    """ Решение пазла, заданного в grid
+def solve(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.List[tp.List[str]]]:
+    """ Поиск решения для указанного пазла.
+
     Как решать Судоку?
     1. Найти свободную позицию
     2. Найти все возможные значения, которые могут находиться на этой позиции
     3. Для каждого возможного значения:
         3.1. Поместить это значение на эту позицию
         3.2. Продолжить решать оставшуюся часть пазла
+
     >>> grid = read_sudoku('puzzle1.txt')
     >>> solve(grid)
     [['5', '3', '4', '6', '7', '8', '9', '1', '2'], ['6', '7', '2', '1', '9', '5', '3', '4', '8'], ['1', '9', '8', '3', '4', '2', '5', '6', '7'], ['8', '5', '9', '7', '6', '1', '4', '2', '3'], ['4', '2', '6', '8', '5', '3', '7', '9', '1'], ['7', '1', '3', '9', '2', '4', '8', '5', '6'], ['9', '6', '1', '5', '3', '7', '2', '8', '4'], ['2', '8', '7', '4', '1', '9', '6', '3', '5'], ['3', '4', '5', '2', '8', '6', '1', '7', '9']]
@@ -209,10 +220,23 @@ def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
     pass
 ```
 
-В комментарии приведен алгоритм решения Судоку. Обратите внимание, что он рекурсивный. Решение Судоку очень похоже на задачу о возможных комбинациях:
+Мы будем решать Судоку методом [перебора (поиска) с возвратом](https://en.wikipedia.org/wiki/Backtracking). Общая схема этого метода заключается в следующем:
 
 ```python
-def permutations(L: List[Any], result: List[Any]) -> None:
+def Перебор(Ситуация):
+    if Ситуация конечная:
+        Завершающая обработка
+    else:
+        for Действие in Множество всех возможных действий:
+            Применить Действие к Ситуация
+            Перебор(Ситуация)
+            откатить Действие назад
+```
+
+Решение Судоку чем-то похоже на задачу о возможных комбинациях:
+
+```python
+def permutations(L: tp.List[tp.Any], result: tp.List[tp.Any]) -> None:
     if len(L) == 0:
         print(result)
     else:
@@ -248,7 +272,7 @@ def permutations(L: List[Any], result: List[Any]) -> None:
 Нам нужно находить свободные позиции (то есть те, на которых стоит `.` - точка). Для этого требуется написать функцию `find_empty_positons()`, которая принимает один аргумент - пазл и возвращает первую попавшуюся свободную позицию:
 
 ```python
-def find_empty_positions(grid: List[List[str]]) -> Optional[Tuple[int, int]]:
+def find_empty_positions(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.Tuple[int, int]]:
     """ Найти первую свободную позицию в пазле
     
     >>> find_empty_positions([['1', '2', '.'], ['4', '5', '6'], ['7', '8', '9']])
@@ -265,8 +289,9 @@ def find_empty_positions(grid: List[List[str]]) -> Optional[Tuple[int, int]]:
 Кроме поиска свободных позиций, также необходимо искать значения, которые на эту позицию можно поставить:
 
 ```python
-def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str]:
+def find_possible_values(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.Set[str]:
     """ Вернуть множество всех возможных значения для указанной позиции
+
     >>> grid = read_sudoku('puzzles/puzzle1.txt')
     >>> values = find_possible_values(grid, (0,2))
     >>> set(values) == {'1', '2', '4'}
@@ -284,7 +309,7 @@ def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str
 
 Помните, что всего значений, которые мы можем поставить на указанную позицию, ровно `9`, это числа `1,2,3,4,5,6,7,8,9`. Но не каждое из этих чисел мы можем использовать (см. правила Судоку). В этой функции вы можете пользоваться написанными ранее функциями `get_row()`, `get_col()`, `get_block()`.
 
-Когда вы закончите работать над функциями, то выполните следующие команды:
+К этому моменту функция `solve()` уже должна быть полностью рабочей:
 
 ```python
 (cs102) $ python -i sudoku.py
@@ -322,7 +347,7 @@ def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str
 Мы получили решение, но является ли оно верным? Давайте напишем функцию `check_solution()`, которая проверяет наше решение:
 
 ```python
-def check_solution(solution: List[List[str]]) -> bool:
+def check_solution(solution: tp.List[tp.List[str]]) -> bool:
     """ Если решение solution верно, то вернуть True, в противном случае False """
     # PUT YOUR CODE HERE
     pass
@@ -337,13 +362,8 @@ True
 
 Когда вы закончите работать над этой функцией, то запустите программу следующим образом:
 
-<div class="admonition legend">
-  <p class="first admonition-title"><strong>Замечание</strong></p>
-  <p class="last">Вывод пазлов и их решений опущен.</p>
-</div>
-
 ```sh
-$ python sudoku.py
+(cs102) $ python sudoku.py
 ...
 Solution is correct
 ...
@@ -359,7 +379,7 @@ Solution is correct
 Напишите функцию `generate_sudoku(N)`, которая создает новый судоку, заполненный на `N` элементов:
 
 ```python
-def generate_sudoku(N: int) -> List[List[str]]:
+def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
     """ Генерация судоку заполненного на N элементов
     >>> grid = generate_sudoku(40)
     >>> sum(1 for row in grid for e in row if e == '.')
@@ -409,13 +429,13 @@ def generate_sudoku(N: int) -> List[List[str]]:
 ```python
 import time
 
-if __name__ == '__main__':
-    for fname in ('puzzle1.txt', 'puzzle2.txt', 'puzzle3.txt'):
-        grid = read_sudoku(fname)
+if __name__ == "__main__":
+    for filename in ("puzzle1.txt", "puzzle2.txt", "puzzle3.txt"):
+        grid = read_sudoku(filename)
         start = time.time()
         solve(grid)
         end = time.time()
-        print(f'{fname}: {end-start}')
+        print(f"{filename}: {end-start}")
 ```
 
 На моей машине результат получился таким (от запуска к запуску вы будете получать разные результаты):
@@ -425,24 +445,24 @@ puzzle2.txt: 7.427937984466553
 puzzle3.txt: 0.43831491470336914
 ```
 
-Очевидно, что пазлы решаются в линейной манере, т.е. пока не будет **полностью** решен первый пазл мы не сможем приступить к решению второго и т.д.
+Очевидно, что пазлы решаются в линейной манере, т.е. пока не будет полностью решен первый пазл мы не сможем приступить к решению второго и т.д.
 
-Давайте попробуем воспользоватся модулем [threading](https://docs.python.org/3.6/library/threading.html), чтобы каждый пазл решался в отдельном потоке:
+Давайте попробуем воспользоватся модулем [threading](https://docs.python.org/3/library/threading.html), чтобы каждый пазл решался в отдельном потоке:
 
 ```python
 import threading
 
-def run_solve(fname):
-    grid = read_sudoku(fname)
+def run_solve(filename: str) -> None:
+    grid = read_sudoku(filename)
     start = time.time()
     solve(grid)
     end = time.time()
-    print(f'{fname}: {end-start}')
+    print(f"{filename}: {end-start}")
 
 
 if __name__ == "__main__":
-    for fname in ('puzzle1.txt', 'puzzle2.txt', 'puzzle3.txt'):
-        t = threading.Thread(target=run_solve, args=(fname,))
+    for filename in ("puzzle1.txt", "puzzle2.txt", "puzzle3.txt"):
+        t = threading.Thread(target=run_solve, args=(filename,))
         t.start()
 ```
 
@@ -454,14 +474,14 @@ puzzle2.txt required 7.912024021148682
 
 Из результатов видно, что решение для `puzzle3` мы получили раньше чем для `puzzle2`, но тем не менее они не были решены параллельно, как можно было бы подумать, и связано это с таким понятием как [GIL](http://asvetlov.blogspot.ru/2011/07/gil.html).
 
-Чтобы решать пазлы параллельно (за исключением разных *если*) мы можем воспользоваться модулем [multiprocessing](https://docs.python.org/3.6/library/multiprocessing.html):
+Чтобы решать пазлы параллельно (за исключением разных *если*) мы можем воспользоваться модулем [multiprocessing](https://docs.python.org/3/library/multiprocessing.html):
 
 ```python
 import multiprocessing
 
 if __name__ == "__main__":
-    for fname in ('puzzle1.txt', 'puzzle2.txt', 'puzzle3.txt'):
-        p = multiprocessing.Process(target=run_solve, args=(fname,))
+    for filename in ("puzzle1.txt", "puzzle2.txt", "puzzle3.txt"):
+        p = multiprocessing.Process(target=run_solve, args=(filename,))
         p.start()
 ```
 
@@ -471,49 +491,4 @@ puzzle3.txt: 0.10617399215698242
 puzzle2.txt: 6.155700922012329
 ```
 
-Мы получили примерно тот же результат. В чем тогда преимущество `multiprocessing` перед `threading`? Чтобы лучше ощутить разницу в работе этих двух модулей попробуйте поэкспериментировать с числом решаемых пазлов и их сложностью, например:
-
-```python
-if __name__ == "__main__":
-    N = 5
-    for _ in range(N):
-        t = threading.Thread(target=run_solve, args=('puzzle2.txt',))
-        t.start()
-    for _ in range(N):
-        p = multiprocessing.Process(target=run_solve, args=('puzzle2.txt',))
-        p.start()
-```
-
-Еще один пример сравнения модулей можно найти по [этой](https://nathangrigg.com/2015/04/python-threading-vs-processes) ссылке.
-
-Для полноты картины приведу пример решения с использованием модуля [asyncio](https://docs.python.org/3/library/asyncio.html):
-
-```python
-import asyncio
-
-async def solve(grid):
-    ...
-    result = await asyncio.ensure_future(solve(grid))
-    ...
-
-async def run_solve(fname):
-    grid = read_sudoku(fname)
-    start = time.time()
-    await solve(grid)
-    end = time.time()
-    print(f'{fname}: {end-start}')
-
-if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(asyncio.gather(
-        *[run_solve(f'{fname}') for fname in ('puzzle1.txt', 'puzzle2.txt', 'puzzle3.txt')]
-    ))
-    loop.close()
-```
-
-```
-puzzle1.txt: 0.08073115348815918
-puzzle3.txt: 0.3908212184906006
-puzzle2.txt: 5.103452205657959
-```
-
+Мы получили примерно тот же результат. В чем тогда преимущество `multiprocessing` перед `threading`? Чтобы лучше ощутить разницу в работе этих двух модулей попробуйте поэкспериментировать с числом решаемых пазлов и их сложностью. Список сложных пазлов можно найти в репозитории в файле `hard_puzzles.txt`.

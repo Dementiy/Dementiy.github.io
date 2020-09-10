@@ -1,5 +1,3 @@
-## PyVCS - Распределенная система контроля версий
-
 Возможно вы знаете, что [Линус Торвальдс написал Git с нуля](http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git), а также как сильно он его [любит](http://www.youtube.com/watch?v=MShbP3OpASA#t=2288) (если вам интересна последовательность событий, которая привела к появлению Git, то можно начать с [этого сообщения Линуса в почтовой рассылке ядра Linux](http://lkml.org/lkml/2005/4/6/121)):
 
 > Actually I’m proud of git. I want to say this. The fact that I had to write git was accidental, but Linux, the design came from a great mind, and that great mind was not mine. I mean you have to give credit for the design of Linux to Kernighan and Ritchie and Thompson. I mean there’s a reason I like Unix and I wanted to redo it. I do want to say that git is a design that is mine and unique, and I’m proud of the fact that I can damn well also do good design from scratch.
@@ -467,11 +465,6 @@ committer Dementiy <Dementiy@yandex.ru> 1595190109 +0300
 Add movies folder
 ```
 
-
-
 ![refs2](../images/assignments/pyvcs/refs2.svg)
 
 Вашей задачей является реализация команд `update-ref`, `rev-parse`, `symbolic-ref`, `commit`.
-
-### Переключение между ветками и коммитами
-

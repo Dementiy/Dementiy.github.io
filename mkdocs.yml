@@ -28,6 +28,7 @@ theme:
     font:
         text: Roboto
         code: Roboto Mono
+    favicon: images/kitano.png
 
 # Plugins
 plugins:
@@ -48,14 +49,14 @@ extra:
 
 # Extensions
 markdown_extensions:
+    - toc:
+        toc_depth: 2
+        # permalink: true
     - meta
     - markdown.extensions.attr_list
     - codehilite
     - admonition
     - footnotes
-    - toc:
-        permalink: true
-        # toc_depth: "1-1"
     - pymdownx.arithmatex
     - pymdownx.highlight:
         use_pygments: true
@@ -116,16 +117,16 @@ nav:
             # - С-расширения: ''
             - Игра «Жизнь»: assignments/life.md
             - PyVCS. Распределенная система контроля версий: assignments/pyvcs.md
-            - Работа с API ВКонтакте: assignments/vk_api.md
-            - Бот для мессенджера Telegram: assignments/telegram.md
-            - Персонализация новостной ленты Hacker News: assignments/hackernews.md
+            # - Работа с API ВКонтакте: assignments/vk_api.md
+            # - Бот для мессенджера Telegram: assignments/telegram.md
+            # - Персонализация новостной ленты Hacker News: assignments/hackernews.md
         # - Web:
         #     - Приложение для ведения заметок: ''
         #     - Простой асинхронный сервер: ''
         #     - Простой асинхронный веб-фреймворк: ''
         #     - Чат на базе веб-сокетов: ''
-        - DataScience:
-            - Описательная статистика с Pandas, SQL и R: assignments/descriptive-statistics.md
+        # - DataScience:
+        #    - Описательная статистика с Pandas, SQL и R: assignments/descriptive-statistics.md
             # - Линейная регрессия: ''
             # - Логистическая регрессия: ''
             # - Деревья. Случайные леса: ''
