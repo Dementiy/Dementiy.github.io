@@ -198,7 +198,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
 
 Одним из современных методов шифрования является алгоритм шифрования RSA, названный так по первым буквам фамилий его авторов (Rivest, Shamir и Adleman).
 
-Мы не будем вдаваться в [подробности](https://www.youtube.com/watch?v=wXB-V_Keiu8) [работы](http://kpfu.ru/docs/F366166681/mzi.pdf) этого алгоритма (хотя и рассмотрим техническую часть), но [следующего объяснения](https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child) должно быть достаточно для понимания принципов шифрования с открытым ключом:
+Мы не будем вдаваться в [подробности](https://www.youtube.com/watch?v=wXB-V_Keiu8) [работы](http://kpfu.ru/docs/F366166681/mzi.pdf) этого алгоритма, но [следующего объяснения](https://www.quora.com/How-do-you-explain-how-an-RSA-public-key-works-to-a-child) должно быть достаточно для понимания принципов шифрования с открытым ключом:
 
 !!! quote
     ![](https://qph.fs.quoracdn.net/main-qimg-987fa169ca2f92dfaad606b2217c3bd1-c)
@@ -345,7 +345,14 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 
 ![](../images/assignments/cypher/pr_pr_btn.png)
 
-Изменения должны применяться к ветке `master` (`main`) и не должны содержать конфликтов (`Able to merge`). Опишите ваш pull request ([как оформлять PR](https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212)) и добавьте проверяющего (`reviewers`). После чего нажмите на `Create pull request`. Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):
+Изменения должны применяться к ветке `master` (`main`) и не должны содержать конфликтов (`Able to merge`). Опишите ваш pull request ([как оформлять PR](https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212)) и добавьте проверяющего (`reviewers`). После чего нажмите на `Create pull request`.
+
+Далее сообщите Коннору, что вы готовы к код ревью (в таблице вы сможете заметить как изменился цвет ячейки у соответствующего номера работы):
+
+![](../images/assignments/cypher/review_bot.png)
+
+
+Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):
 
 ![](../images/assignments/cypher/pr_feedback.png)
 
