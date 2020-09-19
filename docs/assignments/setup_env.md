@@ -2,7 +2,9 @@
 
 ## Установка интерпретатора Python
 
-В первую очередь нам понадобится [интерпретатор](https://en.wikipedia.org/wiki/Interpreter_(computing)) языка Python[^1]. На операционных системах с ядром Linux (Ubuntu, Fedora и др.) интерпретатор Python скорее всего уже установлен, но его потребуется обновить до более новой версии (текущая стабильная версия 3.8, а в октябре 2020 [ожидается](https://www.python.org/dev/peps/pep-0596/) 3.9). У пользователей MacOS интерпретатор Python также скорее всего установлен, но в скором времени Apple [откажется](https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_beta_release_notes) от предустановленных скриптовых языков. Если интерпретатор не установлен, то вы можете его установить с помощью пакетного менеджера [Homebrew](https://brew.sh/). Для пользователей операционной системы Windows есть два пути: скачать интерпретатор с официального [сайта](https://www.python.org/downloads/) или установить из [Windows Store](https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/). Если вы решили установить Python с официального сайта, то обязательно во время установки выберите пункт добавления пути к интерпретатору в переменную окружения `PATH` (если по какой-либо причине вы не сделали этого, то обратитесь к [официальному руководству](https://docs.python.org/3/using/windows.html#configuring-python)).
+В первую очередь нам понадобится [интерпретатор](https://en.wikipedia.org/wiki/Interpreter_(computing)) языка Python[^1]. На операционных системах с ядром Linux (Ubuntu, Fedora и др.) интерпретатор Python скорее всего уже установлен, но его потребуется обновить до более новой версии (текущая стабильная версия 3.8, а в октябре 2020 [ожидается](https://www.python.org/dev/peps/pep-0596/) 3.9). У пользователей MacOS интерпретатор Python также скорее всего установлен, но в скором времени Apple [откажется](https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_beta_release_notes) от предустановленных скриптовых языков. Если интерпретатор не установлен, то вы можете его установить с помощью пакетного менеджера [Homebrew](https://brew.sh/). Для пользователей операционной системы Windows есть два пути: скачать интерпретатор с официального [сайта](https://www.python.org/downloads/) или установить из [Windows Store](https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/). Если вы решили установить Python с официального сайта, то обязательно во время установки выберите пункт добавления пути к интерпретатору в переменную окружения `PATH` (если по какой-либо причине вы не сделали этого, то обратитесь к [официальному руководству](https://docs.python.org/3/using/windows.html#configuring-python)):
+
+![](../images/assignments/setup-env/python_path.png){: .center}
 
 После установки проверьте версию интерпретатора (она должна быть 3.8 и выше), для этого откройте терминал (командную строку) и выполните следующую команду:
 
@@ -19,17 +21,55 @@ Python 3.8.2
 
 В какой-то момент вам может потребоваться установить более свежую версию интерпретатора, а возможно, что вы будете работать над несколькими проектами, в которых будут использоваться разные версии. Для этих целей существует менеджер версий [pyenv](https://github.com/pyenv/pyenv). Для установки на *nix системах можно воспользоваться [pyenv-installer](https://github.com/pyenv/pyenv-installer) (пользователям Windows следует воспользоваться [pyenv-win](https://github.com/pyenv-win/pyenv-win#installation)):
 
-```sh
-$ curl https://pyenv.run | bash
-```
+=== "Ubuntu/MacOS/Windows (WSL)"
 
-После установки будет предложено добавить несколько строк в ваш `.bashrc` (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме) для автоматического обнаружения pyenv:
+    Для Ubuntu и WSL сначала необходимо установить обновелния и необходиые библиотеки:
 
-```sh
-$ echo 'export PATH="/путь/к/.pyenv/bin:$PATH"' >> ~/.bashrc
-$ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-```
+    ```sh
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
+    $ sudo apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+    ```
+
+    Затем можно воспользоваться установщиком pyenv:
+    ```
+    $ curl https://pyenv.run | bash
+    ```
+
+    После установки будет предложено добавить несколько строк в ваш `.bashrc` (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме) для автоматического обнаружения pyenv:
+
+    ```sh
+    $ echo 'export PATH="/путь/к/.pyenv/bin:$PATH"' >> ~/.bashrc
+    $ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    $ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+    ```
+
+=== "Windows (PowerShell)"
+
+    Откройте powershell и установите pyenv в качестве пакета:
+    
+    ```powershell
+    > python -m pip install pyenv-win --target $HOME\.pyenv
+    ```
+
+    Далее необходимо добавить путь к pyenv в переменные окружения:
+    
+    Powershell:
+    ```powershell
+    > [System.Environment]::SetEnvironmentVariable('PYENV',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
+    > [System.Environment]::SetEnvironmentVariable('path', $HOME + "\.pyenv\pyenv-win\bin;" + $HOME + "\.pyenv\pyenv-win\shims;" + $env:Path,"User")
+    ```
+
+    GitBash:
+    ```sh
+    $ echo 'export PATH="$HOME/.pyenv/pyenv-win/bin:$HOME/.pyenv/pyenv-win/shims:$PATH"' >> ~/.bashrc
+    ```
+
+    Перезапустите PowerShell/GitBash и выполните команду:
+    ```powershell
+    > pyenv rehash
+    ```
+
 
 !!! info
     `~` обозначает домашний каталог, например, путь `~/projects` эквивалентен пути `/home/ваш_пользователь/projects` на Linux системах, `/Users/ваш_пользователь/projects` на MacOS и `/c/Users/ваш_пользователь/projects` на Windows.
