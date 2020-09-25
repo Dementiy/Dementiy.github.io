@@ -820,6 +820,20 @@ SBWKRQ
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
 
+<p>В качестве дополнительного упражнения вам предлагается реализовать алгоритм взлома шифра Цезаря, основанный на использовании словаря. Функция <code>caesar_breaker</code> должна вернуть наиболее подходящий сдвиг для зашифрованного сообщения:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">caesar_breaker</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="n">tp</span><span class="o">.</span><span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &gt;&gt;&gt; d = {&quot;python&quot;, &quot;java&quot;, &quot;ruby&quot;}</span>
+<span class="sd">    &gt;&gt;&gt; caesar_breaker(&quot;python&quot;, d)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; caesar_breaker(&quot;sbwkrq&quot;, d)</span>
+<span class="sd">    3</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">best_shift</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">return</span> <span class="n">best_shift</span>
+</code></pre></div>
+
 <h2 id="_3">Шифр Виженера</h2>
 <p><a href="https://ru.wikipedia.org/wiki/Шифр_Виженера">Шифр Виженера</a> очень похож на шифр Цезаря, за тем исключением, что каждый символ сообщения сдвигается на определяемое ключом значение. Ключ - это слово, каждый символ которого указывает на сколько позиций должен быть сдвинут соответствующий символ в шифруемом сообщении. Так, <code>A</code> означает сдвиг на <code>0</code> символов, <code>B</code> на <code>1</code> и т.д.</p>
 <p>Если длина ключа меньше длины слова, подлежащего шифрованию, то ключ повторяется необходимое число раз, например:</p>

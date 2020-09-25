@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://dementiy.github.io/lectures/immutable-types/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/mutable-types/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/control-statements/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/functions/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/ns_and_scopes/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/classes/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/descriptors/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/attribute_lookup/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/mro/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/lectures/iterators/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/assignments/setup_env/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/assignments/cypher/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/assignments/sudoku/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/assignments/life/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/assignments/pyvcs/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dementiy.github.io/notes/cross-entropy/</loc>
-     <lastmod>2020-09-19</lastmod>
+     <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
