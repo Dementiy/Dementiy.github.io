@@ -579,6 +579,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -709,7 +721,7 @@
                 
                 <p>В этой работе мы познакомимся с основными инструментами необходимыми для выполнения практических заданий. Вполне естественно, что время от времени эта работа будет обновляться - появляются новые инструменты, меняется «workflow», так что следите за изменениями и задавайте вопросы, если что-то непонятно.</p>
 <h2 id="python">Установка интерпретатора Python</h2>
-<p>В первую очередь нам понадобится <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">интерпретатор</a> языка Python<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. На операционных системах с ядром Linux (Ubuntu, Fedora и др.) интерпретатор Python скорее всего уже установлен, но его потребуется обновить до более новой версии (текущая стабильная версия 3.8, а в октябре 2020 <a href="https://www.python.org/dev/peps/pep-0596/">ожидается</a> 3.9). У пользователей MacOS интерпретатор Python также скорее всего установлен, но в скором времени Apple <a href="https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_beta_release_notes">откажется</a> от предустановленных скриптовых языков. Если интерпретатор не установлен, то вы можете его установить с помощью пакетного менеджера <a href="https://brew.sh/">Homebrew</a>. Для пользователей операционной системы Windows есть два пути: скачать интерпретатор с официального <a href="https://www.python.org/downloads/">сайта</a> или установить из <a href="https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/">Windows Store</a>. Если вы решили установить Python с официального сайта, то обязательно во время установки выберите пункт добавления пути к интерпретатору в переменную окружения <code>PATH</code> (если по какой-либо причине вы не сделали этого, то обратитесь к <a href="https://docs.python.org/3/using/windows.html#configuring-python">официальному руководству</a>):</p>
+<p>В первую очередь нам понадобится <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">интерпретатор</a> языка Python<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. На операционных системах с ядром Linux (Ubuntu, Fedora и др.) интерпретатор Python скорее всего уже установлен, но его потребуется обновить до более новой версии (текущая стабильная версия 3.9). У пользователей MacOS интерпретатор Python также скорее всего установлен, но в скором времени Apple <a href="https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_beta_release_notes">откажется</a> от предустановленных скриптовых языков. Если интерпретатор не установлен, то вы можете его установить с помощью пакетного менеджера <a href="https://brew.sh/">Homebrew</a>. Для пользователей операционной системы Windows есть два пути: скачать интерпретатор с официального <a href="https://www.python.org/downloads/">сайта</a> или установить из <a href="https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/">Windows Store</a>. Если вы решили установить Python с официального сайта, то обязательно во время установки выберите пункт добавления пути к интерпретатору в переменную окружения <code>PATH</code> (если по какой-либо причине вы не сделали этого, то обратитесь к <a href="https://docs.python.org/3/using/windows.html#configuring-python">официальному руководству</a>):</p>
 <p><img alt="" class="center" src="../../images/assignments/setup-env/python_path.png" /></p>
 <p>После установки проверьте версию интерпретатора (она должна быть 3.8 и выше), для этого откройте терминал (командную строку) и выполните следующую команду:</p>
 <div class="highlight"><pre><span></span><code>$ python --version
@@ -729,14 +741,14 @@ Python <span class="m">3</span>.8.2
 <p>Для Ubuntu и WSL сначала необходимо установить обновелния и необходиые библиотеки:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+$ sudo apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev
 </code></pre></div>
 
 <p>Затем можно воспользоваться установщиком pyenv:
 <div class="highlight"><pre><span></span><code>$ curl https://pyenv.run | bash
 </code></pre></div></p>
 <p>После установки будет предложено добавить несколько строк в ваш <code>.bashrc</code> (это сценарий, который запускается всякий раз, когда начинается новый сеанс терминала в интерактивном режиме) для автоматического обнаружения pyenv:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/путь/к/.pyenv/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bashrc
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/измените/этот/путь/к/.pyenv/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bashrc
 $ <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv init -)&quot;&#39;</span> &gt;&gt; ~/.bashrc
 $ <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv virtualenv-init -)&quot;&#39;</span> &gt;&gt; ~/.bashrc
 </code></pre></div>
@@ -799,6 +811,7 @@ Python <span class="m">3</span>.8.5
 <h2 id="_1">Работа с виртуальными окружениями</h2>
 <p>Для выполнения работ мы будем использовать стандартный модуль <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a>, появившийся с версии 3.3 и предназначенный для создания и управления изолированными (виртуальными) окружениями. <code>venv</code> позволяет заключить в отдельный каталог необходимые версии python-пакетов и использовать только их. Используя <code>venv</code>, вы можете устанавливать свежие версии пакетов из <a href="https://pypi.python.org/pypi">Python Package Index</a>, при этом не получая проблем с совместимостью версий загруженных пакетов и тех, что уже имеются в системе.</p>
 <p>Создадим отдельный каталог <code>~/.virtualenvs</code> (некоторые редакторы, например, <a href="https://code.visualstudio.com/">VSCode</a>, по умолчанию полагаются именно на такое название и расположение каталога при поиске доступных интерпретаторов) для виртуальных окружений и новое окружение с именем <code>cs102</code>:</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Ubuntu/MacOS/Windows (WSL)</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$ mkdir ~/.virtualenvs
 $ python -m venv ~/.virtualenvs/cs102
 $ which python
@@ -811,19 +824,52 @@ $ which python
 ~/.pyenv/shims/python
 </code></pre></div>
 
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows (Git-Bash)</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>$ mkdir ~/.virtualenvs
+$ python -m venv ~/.virtualenvs/cs102
+$ which python
+~/.pyenv/shims/python
+$ <span class="nb">source</span> ~/.virtualenvs/cs102/Scripts/activate
+<span class="o">(</span>cs102<span class="o">)</span> $ which python
+~/.virtualenvs/cs102/Scripts/python
+<span class="o">(</span>cs102<span class="o">)</span> $ deactivate
+$ which python
+~/.pyenv/shims/python
+</code></pre></div>
+
+</div>
+</div>
 <p>Для быстрого переключения на нужное виртуальное окружение рекомендуется добавить следующую функцию в ваш <code>~/.bashrc</code> (выполните затем команду <code>. ~/.bashrc</code>, чтобы функция стала доступна в текущем сеансе):</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Ubuntu/MacOS/Windows (WSL)</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">function</span> workon<span class="o">()</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Specify the name of the virtual environment&quot;</span>
-  <span class="k">elif</span> <span class="nb">test</span> ! -f <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span> <span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Environment doesn&#39;t exists&quot;</span>
-  <span class="k">else</span>
-    deactivate <span class="m">2</span>&gt; /dev/null
-    <span class="nb">source</span> <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span>
-  <span class="k">fi</span>
+    <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Specify the name of the virtual environment&quot;</span>
+    <span class="k">elif</span> <span class="nb">test</span> ! -f <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Environment doesn&#39;t exist&quot;</span>
+    <span class="k">else</span>
+        deactivate <span class="m">2</span>&gt; /dev/null
+        <span class="nb">source</span> <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/bin/activate&quot;</span>
+    <span class="k">fi</span>
 <span class="o">}</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows (Git-Bash)</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">function</span> workon<span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Specify the name of the virtual environment&quot;</span>
+    <span class="k">elif</span> <span class="nb">test</span> ! -f <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/Scripts/activate&quot;</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Environment doesn&#39;t exist&quot;</span>
+    <span class="k">else</span>
+        deactivate <span class="m">2</span>&gt; /dev/null
+        <span class="nb">source</span> <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.virtualenvs/</span><span class="nv">$1</span><span class="s2">/Scripts/activate&quot;</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+</code></pre></div>
+
+</div>
+</div>
 <p>Для примера в созданном виртуальном окружении установим следующие пакеты: <a href="https://github.com/psf/black">black</a> (для автоматического форматирования кода), <a href="https://github.com/timothycrosley/isort">isort</a> (для сортировки импортов, т.е., имен подключаемых модулей), <a href="http://mypy-lang.org/">mypy</a> (для проверки типов) и <a href="https://www.pylint.org/">pylint</a> (статический анализатор кода для выявления потенциальных проблем):</p>
 <div class="highlight"><pre><span></span><code>$ workon cs102
 <span class="o">(</span>cs102<span class="o">)</span> $ pip freeze
@@ -875,7 +921,7 @@ $ <span class="nb">pwd</span>
 <p>Вам будет нужен редактор кода. Это может быть «простой» текстовый редактор с подсветкой синтаксиса и дополнительно устанавливаемыми расширениями, например, <a href="https://code.visualstudio.com/">VSCode</a>, <a href="http://www.vim.org/">Vim</a>, <a href="https://atom.io/">Atom</a>, <a href="https://www.sublimetext.com/">SublimeText</a>  или же полноценная среда разработки <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a>. Рекомендуется попробовать разные редакторы (мы рассмотрим настройку <a href="https://code.visualstudio.com/">VSCode</a>), потратив некоторое время на ознакомление с их возможностями и чтение документации.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Достаточно часто университеты покупают программное обеспечение для своих студентов на время обучения. Например, Университет ИТМО имеет лицензии на все продукты компании JetBrains.</p>
+<p>Достаточно часто университеты покупают программное обеспечение для своих студентов на время обучения, поэтому, если вы являетесь студентом, то поинтересуйтесь у своего университета о наличии таких лицензий.</p>
 </div>
 <p>Запустите VSCode, выберите <code>Open Folder</code> и укажите каталог <code>cs102</code>:</p>
 <p><img alt="" src="../../images/assignments/setup-env/vscode_open_folder.png" /></p>
@@ -927,7 +973,7 @@ $ git push origin master
 <div class="md-source-date">
   <small>
     
-      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">19 сентября 2020 г.</span>
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 октября 2020 г.</span>
     
   </small>
 </div>

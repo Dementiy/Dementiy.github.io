@@ -570,6 +570,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/vk_api/" title="Работа с API ВКонтакте" class="md-nav__link">
+      Работа с API ВКонтакте
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -778,9 +790,9 @@
 </code></pre></div>
 
 <p>Мы можем обобщить нашу функцию на список значений:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
-<span class="k">def</span> <span class="nf">my_min</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">my_min</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">result</span><span class="p">:</span>
@@ -1306,7 +1318,7 @@
 <div class="md-source-date">
   <small>
     
-      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 июня 2020 г.</span>
+      Последнее обновление: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">25 октября 2020 г.</span>
     
   </small>
 </div>
