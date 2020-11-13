@@ -328,8 +328,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lectures/ns_and_scopes/" title="Простарнство имен и области видимости" class="md-nav__link">
-      Простарнство имен и области видимости
+    <a href="../../lectures/ns_and_scopes/" title="Пространство имен и области видимости" class="md-nav__link">
+      Пространство имен и области видимости
     </a>
   </li>
 
@@ -704,8 +704,8 @@
 
 <p>где:</p>
 <ul>
-<li><code>METHOD_NAME</code> - это название метода API, к которому Вы хотите обратиться.</li>
-<li><code>PARAMETERS</code> - входные параметры соответствующего метода API, последовательность пар <code>name=value</code>, объединенных амперсандом <code>&amp;</code>.</li>
+<li><code>METHOD_NAME</code> - это название метода API, к которому Вы хотите обратиться (например, получить список друзей).</li>
+<li><code>PARAMETERS</code> - входные параметры соответствующего метода API, последовательность пар <code>name=value</code>, объединенных амперсандом <code>&amp;</code> (например, количество друзей).</li>
 <li><code>ACCESSS_TOKEN</code> - ключ доступа.</li>
 <li><code>V</code> - используемая версия API (в настоящий момент 5.124).</li>
 </ul>
@@ -752,17 +752,7 @@
 </code></pre></div>
 
 <h2 id="_2">Прогнозирования возраста</h2>
-<p>Напишите функцию прогнозирования возраста пользователя по возрасту его друзей:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="n">tp</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
-    <span class="sd">&quot;&quot;&quot; Returns a list of user IDs or detailed information about a user&#39;s friends &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="s2">&quot;fields must be string&quot;</span>
-    <span class="k">assert</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
-    <span class="c1"># PUT YOUR CODE HERE</span>
-    <span class="k">pass</span>
-</code></pre></div>
-
-<p>Для выполнения этого задания нужно получить список всех друзей для указанного пользователя, отфильтровать тех у кого возраст не указан или указаны только день и месяц рождения.</p>
+<p>Вашей задачей является написать функцию прогнозирования возраста пользователя по возрасту его друзей, для этого необходимо получить список всех друзей, отфильтровать тех у кого возраст не указан или указаны только день и месяц рождения, извлечь год рождения и усреднить.</p>
 <p>Для выполнения запросов к API мы будем использовать библиотеку <a href="http://docs.python-requests.org/en/master/"><code>requests</code></a>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m pip install requests
 </code></pre></div>
@@ -772,7 +762,7 @@
 <span class="n">access_token</span> <span class="o">=</span> <span class="c1"># PUT YOUR ACCESS TOKEN HERE</span>
 <span class="n">user_id</span> <span class="o">=</span> <span class="c1"># PUT USER ID HERE</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;sex&#39;</span>
-<span class="n">v</span> <span class="o">=</span> <span class="s1">&#39;5.103&#39;</span>
+<span class="n">v</span> <span class="o">=</span> <span class="s1">&#39;5.124&#39;</span>
 
 <span class="n">query</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{domain}/friends.get?access_token={access_token}&amp;user_id={user_id}&amp;fields={fields}&amp;v={v}&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
@@ -823,19 +813,27 @@
 <p>Описание алгоритма с примерами можно найти в статье <a href="https://habrahabr.ru/post/227225/">Exponential Backoff</a> или как «не завалить сервер». Почитать про обработку исключений при работе с библиотекой <code>requests</code> можно <a href="https://khashtamov.com/ru/python-requests/">тут</a>.</p>
 </div>
 <p>Напишите функцию <code>get()</code>, которая будет выполнять GET-запрос к указанному адресу, а при необходимости повторять запрос указанное число раз по алгоритму экспоненциальной задержки:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{},</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Выполнить GET-запрос</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">QueryParams</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">max_retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">backoff_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Выполнить GET-запрос.</span>
 
-<span class="sd">    :param url: адрес, на который необходимо выполнить запрос</span>
-<span class="sd">    :param params: параметры запроса</span>
-<span class="sd">    :param timeout: максимальное время ожидания ответа от сервера</span>
-<span class="sd">    :param max_retries: максимальное число повторных запросов</span>
-<span class="sd">    :param backoff_factor: коэффициент экспоненциального нарастания задержки</span>
+<span class="sd">    :param url: Адрес, на который необходимо выполнить запрос.</span>
+<span class="sd">    :param params: Параметры запроса.</span>
+<span class="sd">    :param timeout: Максимальное время ожидания ответа от сервера.</span>
+<span class="sd">    :param max_retries: Максимальное число повторных запросов.</span>
+<span class="sd">    :param backoff_factor: Коэффициент экспоненциального нарастания задержки.</span>
+<span class="sd">    :return: Объект класса `requests.Response`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># PUT YOUR CODE HERE</span>
     <span class="k">pass</span>
 </code></pre></div>
 
+<p>Примеры использования:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">200</span><span class="p">]</span><span class="o">&gt;</span>
 
@@ -849,16 +847,32 @@
 <span class="n">ConnectionError</span><span class="p">:</span> <span class="n">HTTPSConnectionPool</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;noname.com&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">):</span> <span class="n">Max</span> <span class="n">retries</span> <span class="n">exceeded</span> <span class="k">with</span> <span class="n">url</span><span class="p">:</span> <span class="o">/</span>
 </code></pre></div>
 
-<p>На текущий момент вы должны заполнить тело функции <code>get_friends</code> так, чтобы она возвращала список друзей для указанного пользователя. Аргумент <code>fields</code> представляет из себя строку, в которой через запятую указываются какие поля необходимо получить по каждому пользователю.</p>
-<p>Теперь мы можем написать функцию <code>age_predict</code> для «наивного» прогнозирования возраста пользователя с идентификатором <code>user_id</code> (под «наивным» прогнозированием подразумевается вычисление среднего арифметического или медианы):</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">age_predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+<p>На текущий момент вы должны заполнить тело функции <code>get_friends</code> так, чтобы она возвращала список друзей для указанного пользователя. Аргумент <code>fields</code> представляет из себя строку, в которой через запятую указываются какие поля необходимо получить по каждому пользователю:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">fields</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">tp</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">tp</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">tp</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tp</span><span class="o">.</span><span class="n">Any</span><span class="p">]]]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &gt;&gt;&gt; age_predict(???)</span>
-<span class="sd">    ???</span>
+<span class="sd">    Получить список идентификаторов друзей пользователя или расширенную информацию</span>
+<span class="sd">    о друзьях пользователя (при использовании параметра fields).</span>
+
+<span class="sd">    :param user_id: Идентификатор пользователя, список друзей для которого нужно получить.</span>
+<span class="sd">    :param count: Количество друзей, которое нужно вернуть.</span>
+<span class="sd">    :param fields: Список полей, которые нужно получить для каждого пользователя.</span>
+<span class="sd">    :return: Список друзей пользователя.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
-    <span class="k">assert</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;user_id must be positive integer&quot;</span>
-    <span class="c1"># PUT YOUR CODE HERE</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>Теперь мы можем написать функцию <code>age_predict</code> для «наивного» прогнозирования возраста пользователя с идентификатором <code>user_id</code> (под «наивным» прогнозированием подразумевается вычисление среднего арифметического или медианы):</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">age_predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Наивный прогноз возраста пользователя по возрасту его друзей.</span>
+
+<span class="sd">    Возраст считается как медиана среди возраста всех друзей пользователя.</span>
+
+<span class="sd">    :param user_id: Идентификатор пользователя.</span>
+<span class="sd">    :return: Медианный возраст пользователя.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span>
 </code></pre></div>
 
