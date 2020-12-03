@@ -1008,33 +1008,14 @@ SBWKRQ
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
 </code></pre></div>
 
-<p>Проверка работы будет происходит на основе код-ревью со стороны преподавателя(ей) или ассистента(ов). Для этого их необходимо добавить как участников в ваш репозиторий. Перейдите на вкладку <code>Settings -&gt; Manage access</code> и нажмите на <code>Invite a collaborator</code>:</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_invite.png" /></p>
-<p>Затем вернитесь на вкладку <code>Code</code> и выбирите ветку <code>homework01</code>:</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_branch.png" /></p>
-<p>Далее нажмите на <code>Pull Request</code>, таким образом, вы сделаете запрос на внесение изменений: </p>
-<p><img alt="" src="../../images/assignments/cypher/pr_pr_btn.png" /></p>
-<p>Изменения должны применяться к ветке <code>master</code> (<code>main</code>) и не должны содержать конфликтов (<code>Able to merge</code>). Опишите ваш pull request (<a href="https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212">как оформлять PR</a>) и добавьте проверяющего (<code>reviewers</code>). После чего нажмите на <code>Create pull request</code>.</p>
-<p>Далее сообщите Коннору, что вы готовы к код ревью (в таблице вы сможете заметить как изменился цвет ячейки у соответствующего номера работы):</p>
+<p>Затем создайте пул-реквест либо с поммощью веб-формы, либо с помощью gh, как это было описано в предыдущей работе. Не забудьте проверить, что нет ошибок при выполнении шагов на вкладке <code>Checks</code>. Сообщите Коннору, что вы готовы к код ревью:</p>
 <p><img alt="" src="../../images/assignments/cypher/review_bot.png" /></p>
-<p>Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_feedback.png" /></p>
-<p>Если никаких комментариев с исправлениями вы не получили, то можно применять изменения к мастер-ветке (<code>Merge pull request</code>):</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_merge.png" /></p>
-<p>Если вы получили замечания, то их нужно устранить, сделать новый коммит и отправить изменения на сервер:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add файл_в_который_были_внесены_исправленияю
-<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Описание исправлений&quot;</span>
-<span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework01
-</code></pre></div>
-
-<p>После того как измненения были приняты, то соответствующую ветку можно удалить:</p>
-<p><img alt="" src="../../images/assignments/cypher/pr_delete_branch.png" /></p>
-<p>Для удаления ветки локально:</p>
+<p>Если ваш пул-реквест был одобрен, то примените изменения к мастер-ветке (<code>Merge pull request</code>), удалите ветку <code>homework01</code> как в репозитории так и локально:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout master
 <span class="o">(</span>cs102<span class="o">)</span> $ git branch -d homework01
 </code></pre></div>
 
-<p>Осталось только получить изменения для мастер-ветки с сервера:</p>
+<p>Наконец получите изменения для локальной мастер-ветки с сервера:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git pull
 </code></pre></div>
                 

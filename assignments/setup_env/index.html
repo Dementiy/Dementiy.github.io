@@ -885,7 +885,7 @@ $ which python
 
 <p>В этом примере мы использовали <a href="https://docs.python.org/3.5/installing/index.html">pip</a> для установки новых пакетов. Иногда устанавливаемый пакет требует наличия других пакетов для своей работы, обычно эти пакеты устанавливаются автоматически (говорят «по зависимостям»). Но может возникнуть ситуация, когда вам придется вручную установить нужную библиотеку. Если вы не знаете как это сделать, то поищите ответ на <a href="http://stackoverflow.com">stackoverflow.com</a>, скорее всего кто-то уже столкнулся с той же проблемой, что и вы.</p>
 <h2 id="_2">Система контроля версий</h2>
-<p>Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать <a href="http://practical-neuroimaging.github.io/git_parable.html">тут</a> и <a href="https://git-scm.com/book/ru/v1/Введение-О-контроле-версий">тут</a>). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам необходимо зарегистрироваться на <a href="https://github.com">https://github.com</a> (в качестве альтернативы вы можете рассмотреть <a href="https://bitbucket.org/">https://bitbucket.org</a>).</p>
+<p>Мы будем пользоваться системой контроля версий (что такое контроль версий и зачем он вам нужен можно почитать <a href="http://practical-neuroimaging.github.io/git_parable.html">тут</a> и <a href="https://git-scm.com/book/ru/v1/Введение-О-контроле-версий">тут</a>). Все изменения, которые будут происходить с вашими работами, могут храниться локально (у вас на компьютере), а могут и удаленно, так, что вы всегда сможете продолжить работу над своим проектом. Поэтому вам необходимо зарегистрироваться на <a href="https://github.com">https://github.com</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>GitHub предоставляет <a href="https://education.github.com/">Github Education Pack</a> для студентов и преподавателей, которые не могут себе позволить использование дорогостоящих подписок на платные сервисы для разработки.</p>
@@ -927,33 +927,112 @@ $ <span class="nb">pwd</span>
 <p><img alt="" src="../../images/assignments/setup-env/vscode_open_folder.png" /></p>
 <p>После чего на вкладке <code>Explorer</code> появится содержимое шаблонов всех работ:</p>
 <p><img alt="" src="../../images/assignments/setup-env/explorer.png" /></p>
-<p>Создайте в корне новый файл с именем <code>hello.py</code> (для этого можно воспользоваться одним из следующих вариантов: в меню <code>File</code> выбрать пункт <code>New File</code> и затем сохранить файл; щелкнуть по иконке с надписью <code>New File</code> в окне <code>Explorer</code>; щелкнуть правой клавишей мыши в окне <code>Explorer</code> и выбрать <code>New File</code>):</p>
-<p>Скопируйте пример скрипта приведенный ниже в созданный файл:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<p>Откройте файл с именем <code>hello.py</code> расположенный в каталоге <code>homework00</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">pass</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">get_greeting</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </code></pre></div>
 
 <p>VSCode предложит установить расширение для Python (вы можете установить его самостоятельно, нажав на левой панели на <code>Extensions</code> и в поисковой строке набрав <code>python</code>):</p>
 <p><img alt="" src="../../images/assignments/setup-env/py_plugin.png" /></p>
+<p>Также рекомендуется добавить команду <code>code</code> для запуска из терминала:</p>
+<p><img alt="" class="center" src="../../images/assignments/setup-env/vscode_shell.png" /></p>
 <p>После установки расширения вы сможете запускать и отлаживать код непосредственно в VSCode. Также в репозотирии есть базовые настройки для пакетов, которые вы установили раннее (black, isort, pylint, mypy). Настройки можно найти в файле <code>.vscode/settings.json</code>. В настройках по умолчанию указан шрифт <a href="https://github.com/tonsky/FiraCode">Fira Code</a>, вы можете продолжить использовать его или установить любой другой моноширный шрифт (<a href="https://www.jetbrains.com/ru-ru/lp/mono/">JetBrains Mono</a>, <a href="https://github.com/be5invis/Iosevka">Iosevka</a>, <a href="https://fonts.google.com/specimen/Anonymous+Pro">Anonymous Pro</a> и т.д.).</p>
 <p>Для выполнения скрипта нажмите на кнопку <code>Run</code>, результаты работы будут выведены в терминале:</p>
-<p><img alt="" src="../../images/assignments/setup-env/run.png" /></p>
-<p>Также рекомендуется добавить команду <code>code</code> для запуска из терминала:</p>
-<p><img alt="" src="../../images/assignments/setup-env/vscode_shell.png" /></p>
+<p><img alt="" class="center" src="../../images/assignments/setup-env/run.png" /></p>
 <h2 id="_4">Задание</h2>
-<p>Откройте файл с именем <code>README.md</code> и добавьте ваши фамилию, имя и номер группы. <code>README.md</code> должен быть в формате Markdown, про который можно почитать <a href="https://github.com/OlgaVlasova/markdown-doc/blob/master/README.md">тут</a>.</p>
+<p>Обратите внимание, что при запуске скрипта в терминал выводится значение <code>None</code>. Также вы должны были заметить, что VSCode, с помощью ранее установленного пакета <code>pylint</code>, указывает на две проблемы (наведите курсор мыши на соответствующее имя). Первая связана с тем, что аргумент фукнции <code>name</code> не используется:</p>
+<p><img alt="" class="center" src="../../images/assignments/setup-env/problem1.png" /></p>
+<p>Вторая проблема говорит о том, что функция <code>get_greeting()</code> явно не возвращает никакого значения, а мы его связываем с переменной <code>message</code>:</p>
+<p><img alt="" class="center" src="../../images/assignments/setup-env/problem2.png" /></p>
+<p>Вашей задачей является внести изменения в функцию <code>get_greeting</code>, чтобы она возвращала приветствие для переданного аргумента <code>name</code>. Чтобы понимать каким должно быть приветствие откройте файл <code>test_hello.py</code>, расположенный рядом с <code>hello.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">hello</span> <span class="kn">import</span> <span class="n">get_greeting</span>
+
+
+<span class="k">class</span> <span class="nc">HelloTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cases</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;Anonymous&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, Anonymous!&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cases</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">subTest</span><span class="p">(</span><span class="n">case</span><span class="o">=</span><span class="n">i</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">get_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+
+<p>Этот файл содержит простой тест-кейс, который проверяет, что для значения аргумента <code>World</code> функция вернула приветсвие <code>Hello, World!</code> и аналогично для значения аргумента <code>Anonymous</code>. Чтобы запустить тесты откройте терминал и наберите команду:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m unittest discover <span class="nv">homework00</span>
+
+<span class="o">======================================================================</span>
+FAIL: test_hello <span class="o">(</span>test_hello.HelloTestCase<span class="o">)</span> <span class="o">(</span><span class="k">case</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
+----------------------------------------------------------------------
+...
+AssertionError: <span class="s1">&#39;Hello, World!&#39;</span> !<span class="o">=</span> <span class="nv">None</span>
+
+<span class="o">======================================================================</span>
+FAIL: test_hello <span class="o">(</span>test_hello.HelloTestCase<span class="o">)</span> <span class="o">(</span><span class="k">case</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
+----------------------------------------------------------------------
+...
+AssertionError: <span class="s1">&#39;Hello, Anonymous!&#39;</span> !<span class="o">=</span> None
+
+----------------------------------------------------------------------
+Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</span>.003s
+
+FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
+</code></pre></div>
+
+<p>Часть вывода опущена. Мы видим, что тест <code>test_hello</code> был звпущен для двух аргументов и оба раза завершился с ошибкой. Если вы реализовали функцию <code>get_greeting</code> верно, то ошибок в выводе не будет:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ python -m unittest discover homework00
+.
+----------------------------------------------------------------------
+Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</span>.000s
+
+OK
+</code></pre></div>
+
+<p>Теперь выполненные вами изменения необходимо зафиксировать и отправить на проверку:</p>
+<div class="highlight"><pre><span></span><code>$ git checkout -b homework00
+$ git add homework00/hello.py
+$ git commit -m <span class="s2">&quot;Добавлено решение для функции приветствия&quot;</span>
+$ git push origin homework00
+</code></pre></div>
+
+<p>После выполнения последней команды ваши измненения окажутся на сервере. Вы увидите, что теперь можете сделать запрос на изменения (Compare &amp; pull request), а также наличие ветки <code>homework00</code>:</p>
+<p><img alt="" class="center" src="../../images/assignments/setup-env/before_pr.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>VSCode позволяет открыть предпросмотр файла в формате Markdown.</p>
+<p>Для создания пул реквестов из командной строки и работой с github вы можете установить себе <a href="https://github.com/cli/cli">gh</a>.</p>
 </div>
-<p>После редактирования <code>README.md</code> внесенные изменения необходимо зафиксировать и отправить на сервер:</p>
-<div class="highlight"><pre><span></span><code>$ git add README.md
-$ git commit -m <span class="s2">&quot;Обновлено описание репозитория&quot;</span>
-$ git push origin master
+<p>Изменения должны применяться к ветке <code>master</code> (<code>main</code>) и не должны содержать конфликтов (<code>Able to merge</code>). Опишите ваш pull request (<a href="https://blog.maddevs.io/%D0%BA%D0%B0%D0%BA-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%B8%D1%82%D1%8C-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA-pull-request-e95ae0177212">как оформлять PR</a>) и после чего нажмите на <code>Create pull request</code>. Перейдите на вкладку <code>Checks</code>, там вы увидите шаги выполнения <a href="https://github.com/features/actions">Github Actions</a>, которые описаны в файле <code>.github/workflows/cs102.yml</code>. Все шаги должны быть выполнены и не содержать ошибок.</p>
+<p>Проверка работы будет происходит на основе код-ревью со стороны преподавателя(ей) или ассистента(ов). Для этого их необходимо добавить как участников в ваш репозиторий. Перейдите на вкладку <code>Settings -&gt; Manage access</code> и нажмите на <code>Invite a collaborator</code>:</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_invite.png" /></p>
+<p>Далее сообщите Коннору, что вы готовы к код ревью (в таблице вы сможете заметить как изменился цвет ячейки у соответствующего номера работы):</p>
+<p><img alt="" src="../../images/assignments/setup-env/review_bot0.png" /></p>
+<p>Будет проведено код-ревью со стороны преподавателя(ей) или ассистента(ов):
+<img alt="" src="../../images/assignments/cypher/pr_feedback.png" /></p>
+<p>Если никаких комментариев с исправлениями вы не получили (approved), то можно применять изменения к мастер-ветке (<code>Merge pull request</code>):</p>
+<p><img alt="" src="../../images/assignments/setup-env/approve.png" /></p>
+<p>Если вы получили замечания, то их нужно устранить, сделать новый коммит и отправить изменения на сервер:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git add homework00/hello.py
+<span class="o">(</span>cs102<span class="o">)</span> $ git commit -m <span class="s2">&quot;Описание исправлений&quot;</span>
+<span class="o">(</span>cs102<span class="o">)</span> $ git push origin homework00
+</code></pre></div>
+
+<p>После того как измненения были приняты, то соответствующую ветку можно удалить:</p>
+<p><img alt="" src="../../images/assignments/cypher/pr_delete_branch.png" /></p>
+<p>Для удаления ветки локально:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git checkout master
+<span class="o">(</span>cs102<span class="o">)</span> $ git branch -d homework01
+</code></pre></div>
+
+<p>Осталось только получить изменения для мастер-ветки с сервера:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>cs102<span class="o">)</span> $ git pull
 </code></pre></div>
 
 <p>Все вопросы и замечания пишите в комментариях или в Discord'е.</p>
