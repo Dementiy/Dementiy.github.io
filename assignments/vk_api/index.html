@@ -765,6 +765,14 @@
     <span class="n">get_access_token</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">scope</span><span class="p">)</span>
 </code></pre></div>
 
+<p>Полученный токен доступа вставьте в поле <code>access_token</code> файле <code>vkapi/config.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">VK_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.vk.com/method&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;5.124&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <h2 id="_2">Прогнозирования возраста</h2>
 <p>Вашей задачей является написать функцию прогнозирования возраста пользователя по возрасту его друзей, для этого необходимо получить список всех друзей, отфильтровать тех у кого возраст не указан или указаны только день и месяц рождения, извлечь год рождения и усреднить.</p>
 <p>Для выполнения запросов к API мы будем использовать библиотеку <a href="http://docs.python-requests.org/en/master/">requests</a> (для выполнения запросов в асинхронном режиме можно использовать библиотеку <a href="https://github.com/encode/httpx">httpx</a>):</p>
@@ -772,11 +780,11 @@
 </code></pre></div>
 
 <p>Список пользователей можно получить с помощью метода <a href="https://vk.com/dev/friends.get"><code>friends.get</code></a>. Ниже приведен пример обращения к этому методу для получения списка всех друзей указанного пользователя:</p>
-<div class="highlight"><pre><span></span><code><span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;https://api.vk.com/method&quot;</span>
-<span class="n">access_token</span> <span class="o">=</span> <span class="c1"># PUT YOUR ACCESS TOKEN HERE</span>
+<div class="highlight"><pre><span></span><code><span class="n">domain</span> <span class="o">=</span> <span class="n">VK_CONFIG</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="n">VK_CONFIG</span><span class="p">[</span><span class="s2">&quot;acceess_token&quot;</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">VK_CONFIG</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
 <span class="n">user_id</span> <span class="o">=</span> <span class="c1"># PUT USER ID HERE</span>
 <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;sex&#39;</span>
-<span class="n">v</span> <span class="o">=</span> <span class="s1">&#39;5.126&#39;</span>
 
 <span class="n">query</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{domain}/friends.get?access_token={access_token}&amp;user_id={user_id}&amp;fields={fields}&amp;v={v}&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
@@ -853,6 +861,10 @@
         <span class="k">pass</span>
 </code></pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Описание лучших практик при использовании модуля <code>requests</code> можно найти <a href="https://findwork.dev/blog/advanced-usage-python-requests-timeouts-retries-hooks/">тут</a>.</p>
+</div>
 <p>Примеры использования:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://httpbin.org&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">)</span>
@@ -992,7 +1004,7 @@
 
 <h2 id="_4">Тематическое моделирование</h2>
 <p><a href="http://www.machinelearning.ru/wiki/images/2/22/Voron-2013-ptm.pdf">Тематическое моделирование</a> (topic modeling) одно из современных приложений машинного обучения к анализу текстов, активно развивающееся с конца 90-х годов. Тематическая модель (topic model) коллекции текстовых документов определяет, к каким темам относится каждый документ и какие слова (термины) образуют каждую тему.</p>
-<p>Данные для построения тематической модели мы будем собирать со стен различных групп, используя метод <a href="https://vk.com/dev/wall.get"><code>wall.get</code></a>. Аналогично методу <code>friends.getMutual</code> он не позволяет получить более 100 записей за один запрос, таким образом, мы имеем ограничение в 300 постов за секунду. Поэтому для более эффективного сбора сообщений со стен групп мы будем использовать метод <a href="https://vk.com/dev/execute"><code>execute</code></a> - «универсальный метод, который позволяет запускать последовательность других методов, сохраняя и фильтруя промежуточные результаты». Параметром в метод execute является код алгоритма в VKScript, который позволяет выполнить до 25 обращений к методам API. Таким образом, мы получим возможность выполнять до 75 обращений в секунду, то есть, 2500 постов. К сожалению есть ограничения на размер тела ответа и если посты слишком большие, то высока вероятность получить ошибку <code>Runtime error occurred during code invocation: response size is too big</code>.</p>
+<p>Данные для построения тематической модели мы будем собирать со стен различных групп, используя метод <a href="https://vk.com/dev/wall.get"><code>wall.get</code></a>. Аналогично методу <code>friends.getMutual</code> он не позволяет получить более 100 записей за один запрос, таким образом, мы имеем ограничение в 300 постов за секунду. Поэтому для более эффективного сбора сообщений со стен групп мы будем использовать метод <a href="https://vk.com/dev/execute"><code>execute</code></a> - «универсальный метод, который позволяет запускать последовательность других методов, сохраняя и фильтруя промежуточные результаты». Параметром в метод execute является код алгоритма в VKScript, который позволяет выполнить до 25 обращений к методам API. Таким образом, мы получим возможность выполнять до 75 обращений в секунду, то есть, 7500 постов. К сожалению есть ограничения на размер тела ответа и если посты слишком большие, то высока вероятность получить ошибку <code>Runtime error occurred during code invocation: response size is too big</code>.</p>
 <p>Ниже приведен пример всех необходимых конструкций (дополнительно про VKScript можно почитать <a href="https://habr.com/ru/post/464099/">тут</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">число</span> <span class="o">=</span> <span class="mf">1.234</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">массив_элементов</span> <span class="o">=</span> <span class="p">[];</span>

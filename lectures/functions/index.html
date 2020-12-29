@@ -357,20 +357,27 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Атрибуты функций
+    Как создаются функции
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Вызов функций
+    Атрибуты функций
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    Вызов функций
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     Декораторы
   </a>
   
@@ -666,20 +673,27 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Атрибуты функций
+    Как создаются функции
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Вызов функций
+    Атрибуты функций
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    Вызов функций
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     Декораторы
   </a>
   
@@ -703,7 +717,12 @@
                 
                   <h1>Функции</h1>
                 
-                <h2 id="_1">Пример поиска минимального элемента</h2>
+                <p>Когда речь заходит о функциях, то вспоминают математичекое определение:</p>
+<blockquote>
+<p><strong>Функция</strong> это соответствие между двумя множествами, такое, что каждому элементу первого множества соответствует один и только один элемент второго множества.</p>
+</blockquote>
+<p>В программировании под функцией обычно понимают именованый блок кода (хотя функции могут быть и анонимными), который выполняет некоторую задачу и может быть переиспользован множество раз. К математическому описанию функции близки, так называемые, чистые функции, то есть, функции с детерминированным поведением и без побочных эффектов.</p>
+<h2 id="_1">Пример поиска минимального элемента</h2>
 <p>Давайте начнем с простого примера, напишем функцию возвращающую минимум от двух аргументов:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_min</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot; Function to get minimum of two arguments</span>
@@ -720,6 +739,21 @@
     <span class="k">return</span> <span class="n">a</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="k">else</span> <span class="n">b</span>
 </code></pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">Аргументы или параметры</p>
+<p><strong>Формальным</strong> параметром функции называется перменная, которая будет связана с переданным в функцию значением. <strong>Аргументом</strong> функции называется переменная (или выражение), значение которой используется при вызове функции:</p>
+<div class="highlight"><pre><span></span><code>def my_min(a, b)
+           ^  ^
+           параметры функции
+
+a, b = 1, 2
+my_min(a, b)
+       ^  ^
+       аргументы функции
+</code></pre></div>
+
+<p>Обычно аргументы и параметры называют просто аргументами.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Докстроки</p>
 <p>В тройных кавычках записывается строка документации (docstring), в которой описывается назначение функции (класса, модуля), список аргументов, возвращаемое значение, примеры использования функции и т.д. Примеры обычно записываются в виде документированных тестов (doctest), которые можно запустить с помощью модуля <code>doctest</code>. Есть различные соглашения по оформелнию строк документации, но единого правила нет. Существует несколько проектов предназначенных для автоматической генерации документации на основе докстрок, например, <a href="http://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
@@ -850,7 +884,7 @@
 <span class="sd">    Exception: `lower` must be less or equal to `upper`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;`lower` must be less or equal to `upper`&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;`lower={lower}` must be less or equal to `upper={upper}`&#39;</span><span class="p">)</span>
 
     <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">upper</span> <span class="k">else</span> <span class="bp">None</span>
 
@@ -895,7 +929,99 @@
     <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="_2">Атрибуты функций</h2>
+<h2 id="_2">Как создаются функции</h2>
+<p>Давайте перечислим <a href="https://cpython-devguide.readthedocs.io/compiler/">шаги</a>, которые описывают как в CPython исходный код преобразуется в байткод:</p>
+<ol>
+<li>Код переводится в лексемы</li>
+<li>Лексемы переводятся в AST (Abstract Syntax Tree, абстрактное синтаксическое деерво)</li>
+<li>AST переводится в CFG (Control-flow Graph, граф потока управления)</li>
+<li>CFG переводится в байткод.</li>
+</ol>
+<p>Байткод представлен специальными объектами кода (code objects):</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Bytecode object */</span>
+<span class="k">struct</span> <span class="n">PyCodeObject</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+    <span class="kt">int</span> <span class="n">co_argcount</span><span class="p">;</span>            <span class="cm">/* #arguments, except *args */</span>
+    <span class="kt">int</span> <span class="n">co_posonlyargcount</span><span class="p">;</span>     <span class="cm">/* #positional only arguments */</span>
+    <span class="kt">int</span> <span class="n">co_kwonlyargcount</span><span class="p">;</span>      <span class="cm">/* #keyword only arguments */</span>
+    <span class="kt">int</span> <span class="n">co_nlocals</span><span class="p">;</span>             <span class="cm">/* #local variables */</span>
+    <span class="kt">int</span> <span class="n">co_stacksize</span><span class="p">;</span>           <span class="cm">/* #entries needed for evaluation stack */</span>
+    <span class="kt">int</span> <span class="n">co_flags</span><span class="p">;</span>               <span class="cm">/* CO_..., see below */</span>
+    <span class="kt">int</span> <span class="n">co_firstlineno</span><span class="p">;</span>         <span class="cm">/* first source line number */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_code</span><span class="p">;</span>          <span class="cm">/* instruction opcodes */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_consts</span><span class="p">;</span>        <span class="cm">/* list (constants used) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_names</span><span class="p">;</span>         <span class="cm">/* list of strings (names used) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_varnames</span><span class="p">;</span>      <span class="cm">/* tuple of strings (local variable names) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_freevars</span><span class="p">;</span>      <span class="cm">/* tuple of strings (free variable names) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">co_cellvars</span><span class="p">;</span>      <span class="cm">/* tuple of strings (cell variable names) */</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Объект кода можно создать с помощью встроенной функции <a href="https://docs.python.org/3/library/functions.html#compile">compile</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">co</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="s2">&quot;x + 1&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;eval&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">co</span><span class="o">.</span><span class="n">co_names</span>
+<span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">co</span><span class="o">.</span><span class="n">co_consts</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">co</span><span class="o">.</span><span class="n">co_code</span>
+<span class="sa">b</span><span class="s1">&#39;e</span><span class="se">\x00</span><span class="s1">d</span><span class="se">\x00\x17\x00</span><span class="s1">S</span><span class="se">\x00</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+  <span class="mi">1</span>           <span class="mi">0</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+              <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+              <span class="mi">4</span> <span class="n">BINARY_ADD</span>
+              <span class="mi">6</span> <span class="n">RETURN_VALUE</span>
+</code></pre></div>
+
+<p>Мы уже говорили, что байткод выполняется виртуальной машиной CPython, но для его выполнения нужен контекст, например, в примере выше инструкция <code>LOAD_CONST</code> помещает значение константы на стек данных, но объект кода ничего не знает про стек. Объекты кода также не содержат информации о состояни и интерпретатора или потока, в котором они выполняются. Таким образом, для выполнения объектов кода требуется еще одна структура, которая будет предоставлять соответствующий контекст, такой структурой является фрейм (frame object, он же стек фрейм):</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">_frame</span> <span class="p">{</span>
+    <span class="n">PyObject_VAR_HEAD</span>
+    <span class="k">struct</span> <span class="n">_frame</span> <span class="o">*</span><span class="n">f_back</span><span class="p">;</span>      <span class="cm">/* previous frame, or NULL */</span>
+    <span class="n">PyCodeObject</span> <span class="o">*</span><span class="n">f_code</span><span class="p">;</span>       <span class="cm">/* code segment */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_builtins</span><span class="p">;</span>       <span class="cm">/* builtin symbol table (PyDictObject) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_globals</span><span class="p">;</span>        <span class="cm">/* global symbol table (PyDictObject) */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_locals</span><span class="p">;</span>         <span class="cm">/* local symbol table (any mapping) */</span>
+    <span class="n">PyObject</span> <span class="o">**</span><span class="n">f_valuestack</span><span class="p">;</span>    <span class="cm">/* points after the last local */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_trace</span><span class="p">;</span>          <span class="cm">/* Trace function */</span>
+    <span class="kt">int</span> <span class="n">f_stackdepth</span><span class="p">;</span>           <span class="cm">/* Depth of value stack */</span>
+    <span class="kt">char</span> <span class="n">f_trace_lines</span><span class="p">;</span>         <span class="cm">/* Emit per-line trace events? */</span>
+    <span class="kt">char</span> <span class="n">f_trace_opcodes</span><span class="p">;</span>       <span class="cm">/* Emit per-opcode trace events? */</span>
+
+    <span class="cm">/* Borrowed reference to a generator, or NULL */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_gen</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">f_lasti</span><span class="p">;</span>                <span class="cm">/* Last instruction if called */</span>
+    <span class="cm">/* Call PyFrame_GetLineNumber() instead of reading this field</span>
+<span class="cm">       directly.  As of 2.3 f_lineno is only valid when tracing is</span>
+<span class="cm">       active (i.e. when f_trace is set).  At other times we use</span>
+<span class="cm">       PyCode_Addr2Line to calculate the line from the current</span>
+<span class="cm">       bytecode index. */</span>
+    <span class="kt">int</span> <span class="n">f_lineno</span><span class="p">;</span>               <span class="cm">/* Current line number */</span>
+    <span class="kt">int</span> <span class="n">f_iblock</span><span class="p">;</span>               <span class="cm">/* index in f_blockstack */</span>
+    <span class="n">PyFrameState</span> <span class="n">f_state</span><span class="p">;</span>       <span class="cm">/* What state the frame is in */</span>
+    <span class="n">PyTryBlock</span> <span class="n">f_blockstack</span><span class="p">[</span><span class="n">CO_MAXBLOCKS</span><span class="p">];</span> <span class="cm">/* for try and loop blocks */</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">f_localsplus</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>  <span class="cm">/* locals+stack, dynamically sized */</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">caller</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;f() was called by &#39;{caller}&#39;&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">h</span><span class="p">():</span>
+    <span class="n">f</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">h</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span> <span class="n">was</span> <span class="n">called</span> <span class="n">by</span> <span class="s1">&#39;h&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="n">f</span><span class="p">()</span> <span class="n">was</span> <span class="n">called</span> <span class="n">by</span> <span class="s1">&#39;&lt;module&gt;&#39;</span>
+</code></pre></div>
+
+<p><img alt="" src="../../images/lectures/functions/frames.jpg" /></p>
+<h2 id="_3">Атрибуты функций</h2>
 <p>Как мы уже говорили, все является объектом, включая функции. Функции представлены структурой <a href="https://github.com/python/cpython/blob/3.8/Include/funcobject.h#L21">PyFunctionObject</a>:
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">PyObject_HEAD</span>
@@ -1099,7 +1225,7 @@
 <span class="s1">&#39;A.B.d&#39;</span>
 </code></pre></div>
 
-<h2 id="_3">Вызов функций</h2>
+<h2 id="_4">Вызов функций</h2>
 <p>Концепция callable-объекта является фундаментальной в Python. Когда мы думаем о том, что может быть «вызвано» (called), то первое, что приходит на ум, это функции. Но кроме функций есть еще методы и классы, а также любой объект, в типе которого определен магический метод <code>__call__</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Joke</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1270,7 +1396,7 @@
 </code></pre></div>
 
 <p>Отметим лишь два момента, первый, это получение объекта кода, о котором мы говорили ранее, и второе, создание и исполнение (evaluation) нового фрейма (о фреймах мы будем говорить в одной из следующих лекций) с телом нашей функции. </p>
-<h2 id="_4">Декораторы</h2>
+<h2 id="_5">Декораторы</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A decorator is any callable Python object that is used to modify a function, method or class definition. A decorator is passed the original object being defined and returns a modified object, which is then bound to the name in the definition.</p>
