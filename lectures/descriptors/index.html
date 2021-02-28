@@ -69,11 +69,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Перейти к содержанию
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -360,40 +355,9 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        ООП. Дескрипторы
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
     <a href="./" title="ООП. Дескрипторы" class="md-nav__link md-nav__link--active">
       ООП. Дескрипторы
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Свойства
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -561,6 +525,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../assignments/hackernews/" title="Персонализация новостной ленты Hacker News" class="md-nav__link">
+      Персонализация новостной ленты Hacker News
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -620,36 +596,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Свойства
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -662,17 +608,14 @@
                   <h1>ООП. Дескрипторы</h1>
                 
                 <p>В этой лекции мы рассмотрим такой важный механизм как дескрипторы, а также разберемся с тем как же устроены методы класса.</p>
-<h2 id="_1">Свойства</h2>
-<p>Перед тем как говорить о дескрипторах давайте поговорим о свойствах (property). Рассмотрим следующий пример: пусть у нас есть класс «Профиль пользователя», который включает следующие поля: имя, фамилия и дата рождения:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
+<h3>Свойства</h3>
+<p>Перед тем как говорить о дескрипторах давайте еще раз поговорим о свойствах (property). Рассмотрим следующий пример: пусть у нас есть класс «Профиль пользователя», который включает следующие поля: имя, фамилия и дата рождения.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">typing</span> <span class="kn">as</span> <span class="nn">tp</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">user</span><span class="p">:</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
-        <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">sur_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">bdate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">]</span><span class="o">=</span><span class="bp">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+
+<span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sur_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">bdate</span><span class="p">:</span> <span class="n">tp</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_user</span> <span class="o">=</span> <span class="n">user</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="n">sur_name</span>
@@ -695,7 +638,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span> <span class="o">=</span> <span class="n">today</span>
 
-    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tp</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span><span class="p">:</span>
@@ -705,21 +648,22 @@
 
 <span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="o">...</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># ...</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">profile</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="o">...</span>
+        <span class="c1"># ...</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;guido&quot;</span><span class="p">,</span> <span class="s2">&quot;guido@python.org&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span><span class="p">()</span>
+<span class="mi">65</span>
 </code></pre></div>
 
-<p>Обратите внимание, что возраст пользователя, если была указана дата рождения, вычисляется при каждом обращении:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span><span class="p">()</span>
-<span class="mi">63</span>
-</code></pre></div>
-
-<p>Было бы удобно обращаться к возрасту не как к методу, а как к обычному атрибуту, таким образом, чтобы клиентский код «не знал», что возраст является вычисляемым (управляемым) атрибутом. Для создания управляемых атрибутов в Python используются свойства (property), которые позволяют определить поведение конкретного атрибута при попытке доступа, изменения и его удаления:</p>
+<p>Из примера видно, что, во-первых, возраст пользователя вычисляется при каждом обращении, во-вторых, мы только получаем значение и никогда его не изменяем. Было бы логично, чтобы клиентский код работал с возрастом как с обычным атрибутом (свойством) доступным только для чтения и python предоставляет нам для этого механизм свойств (propertes):</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
-
+    <span class="c1"># ...</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -727,26 +671,29 @@
         <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age_last_recalculated</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_recalculate_age</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_age</span>
-</code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span>
-<span class="mi">63</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="o">...</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;guido&quot;</span><span class="p">,</span> <span class="s2">&quot;guido@python.org&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">bdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1956</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span>
+<span class="mi">65</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">66</span>
+<span class="c1"># ...</span>
 <span class="ne">AttributeError</span><span class="p">:</span> <span class="n">can</span><span class="s1">&#39;t set attribute</span>
 </code></pre></div>
 
-<p>Как уже было сказано, мы можем определить поведение атрибута с помощью свойств не только при попытке доступа к нему, но также при попытке его изменения или удаления, например:</p>
+<p>Таким образом, свойства дают нам возможность создавать, аналогично другим языкам программирования (например, Java), сеттеры и геттеры, а также вычисляемые свойства (computed properties):</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserProfile</span><span class="p">:</span>
+    <span class="c1"># ...</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">f</span><span class="s1">&#39;{self.first_name} {self.sur_name}&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{self.first_name} {self.sur_name}&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
     <span class="nd">@fullname.setter</span>
     <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">,</span> <span class="n">surname</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">surname</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="n">surname</span>
 
@@ -754,21 +701,165 @@
     <span class="k">def</span> <span class="nf">fullname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sur_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-</code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span> <span class="o">=</span> <span class="s1">&#39;Guido Van Rossum&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span> <span class="o">=</span> <span class="s2">&quot;Guido Van Rossum&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
 <span class="s1">&#39;Guido&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
 <span class="s1">&#39;Van Rossum&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">fullname</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">first_name</span>
 <span class="s1">&#39;&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">guido</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">sur_name</span>
 <span class="s1">&#39;&#39;</span>
 </code></pre></div>
 
-<p>Свойства являются одним из распространённых способов применения дескрипторов.</p>
+<p>Чтобы понять как работают свойства необходимо разобраться с дескрипторами.</p>
+<h3>Дескрипторы</h3>
+<p>В <a href="https://docs.python.org/3/howto/descriptor.html#definition-and-introduction">документации</a> дано следующее определение <a href="https://docs.python.org/3/glossary.html#term-descriptor">дескрипторов</a>:</p>
+<blockquote>
+<p>Дескриптор это любой объект, у которого определены методы <code>__get__()</code>, <code>__set__()</code> или <code>__delete__()</code>. Если дескриптором является атрибут класса, то для него определено специальное поведение при разшенении имени атрибута.</p>
+</blockquote>
+<p><a href="https://docs.python.org/3/howto/descriptor.html#id15">Протокол дескрипторов</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">descr</span><span class="o">.</span><span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">value</span>
+<span class="n">descr</span><span class="o">.</span><span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span>
+<span class="n">descr</span><span class="o">.</span><span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span>
+</code></pre></div>
+
+<p>Дескрипторы, которые реализуют только <code>__get__</code> называются дескрипторами не данных (non-data descriptors), а дескрипторы, которые реализуют <code>__set__</code> и/или <code>__delete__</code> называются дескрипторами данных (data descriptors). Рассмотрим следующий пример:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">D</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;__get__ был вызван с аргументами obj={obj} и owner={owner}&quot;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;__set__ был вызван с аргументами obj={obj} и value={value}&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Klass</span><span class="p">:</span>
+  <span class="n">d1</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">d2</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">Klass</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span><span class="o">.</span><span class="n">d1</span> <span class="c1"># == type(obj).__dict__[&#39;d1&#39;].__get__(obj, type(obj))</span>
+<span class="fm">__get__</span> <span class="err">был</span> <span class="err">вызван</span> <span class="err">с</span> <span class="err">аргументами</span> <span class="n">obj</span><span class="o">=&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Klass</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1037d4c10</span><span class="o">&gt;</span> <span class="err">и</span> <span class="n">owner</span><span class="o">=&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Klass</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span><span class="o">.</span><span class="n">d2</span> <span class="c1"># == obj.__dict__[&#39;d2&#39;]</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">D</span> <span class="n">at</span> <span class="mh">0x1052521c0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Klass</span><span class="o">.</span><span class="n">d1</span> <span class="c1"># == Klass.__dict__[&#39;d1&#39;].__get__(None, Klass)</span>
+<span class="fm">__get__</span> <span class="err">был</span> <span class="err">вызван</span> <span class="err">с</span> <span class="err">аргументами</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span> <span class="err">и</span> <span class="n">owner</span><span class="o">=&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Klass</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span><span class="o">.</span><span class="n">d1</span> <span class="o">=</span> <span class="bp">None</span> <span class="c1"># == type(obj).__dict__[&#39;d1&#39;].__set__(obj, None)</span>
+<span class="fm">__set__</span> <span class="err">был</span> <span class="err">вызван</span> <span class="err">с</span> <span class="err">аргументами</span> <span class="n">obj</span><span class="o">=&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Klass</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1037d4c10</span><span class="o">&gt;</span> <span class="err">и</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Klass</span><span class="o">.</span><span class="n">d1</span> <span class="o">=</span> <span class="bp">None</span> <span class="c1"># Klass.__dict__[&#39;d1&#39;] = None</span>
+</code></pre></div>
+
+<p>Из примера видно, что при обращении к  <code>d1</code> автоматически был вызван метод <code>__get__</code> определенный на дескрипторе:</p>
+<blockquote>
+<p>Поведением по умолчанию при доступе к атрибуту является обращение к словарю экземпляра, например, при обращении к <code>a.x</code> поиск начинается с <code>a.__dict__['x']</code>, затем <code>type(a).__dict__['x']</code> и так далее в порядке разрешения методов (mro). Когда же атрибут (класса/метакласса) является дескриптором, то Python изменяет путь поиска, сначала вызывая методы определенные у дескриптора.</p>
+</blockquote>
+<p>Поэтому теперь должно быть понятно, почему при обращении к <code>d2</code> мы получили просто экземпляр класса. Порядка разрешения имен атрибутов и методов мы коснемся в следующих лекциях.</p>
+<p>В Python дескрипторы используются достаточно часто, в том числе и в самом языке, например, <a href="https://github.com/python/cpython/blob/3.9/Objects/funcobject.c#L635">функции это дескрипторы</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PyTypeObject</span> <span class="n">PyFunction_Type</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">PyVarObject_HEAD_INIT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">PyType_Type</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="s">&quot;function&quot;</span><span class="p">,</span>
+    <span class="k">sizeof</span><span class="p">(</span><span class="n">PyFunctionObject</span><span class="p">),</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="c1">// ...</span>
+    <span class="n">function_call</span><span class="p">,</span>                              <span class="cm">/* tp_call */</span>
+    <span class="c1">// ...</span>
+    <span class="n">func_descr_get</span><span class="p">,</span>                             <span class="cm">/* tp_descr_get */</span>
+    <span class="mi">0</span><span class="p">,</span>                                          <span class="cm">/* tp_descr_set */</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Это позволяет автоматически передавать экземпляр класса в качестве первого аргумента (<code>self</code>), давайте посмотрим на вызов <a href="https://github.com/python/cpython/blob/3.9/Objects/funcobject.c#L624"><code>func_descr_get</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Bind a function to an object */</span>
+<span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">func_descr_get</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">func</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">type</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="n">Py_None</span> <span class="o">||</span> <span class="n">obj</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Py_INCREF</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">PyMethod_New</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">obj</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Если <code>obj</code> не был передан, то мы имеем дело с обычной функцией, в противном случае это метод и мы «биндим» объект в качестве первого аргумента. На python реализацию функций можно было бы записать так:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Function</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># тело функции</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span>
+</code></pre></div>
+
+<p>А вот примеры реализаций декораторов @staticmethod и @classmethod:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">class</span> <span class="nc">Classmethod</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="n">owner</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Staticmethod</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+</code></pre></div>
+
+<p>И наконец реализация @property:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Property</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fget</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fset</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fdel</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fget</span> <span class="o">=</span> <span class="n">fget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fset</span> <span class="o">=</span> <span class="n">fset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fdel</span> <span class="o">=</span> <span class="n">fdel</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">fget</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Unreadable attribute&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fset</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Cant&#39;t set attribute&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fset</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fdel</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t delete attribute&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fdel</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">getter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fget</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">fget</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fdel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fset</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="p">,</span> <span class="n">fset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fdel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">deleter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fdel</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fset</span><span class="p">,</span> <span class="n">fdel</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Пример простой ORM можно найти в <a href="https://github.com/Dementiy/pybook-lectures/tree/master/oop-metaclasses-descriptors">репозитории с лекциями</a>.</p>
                 
                   
                     
